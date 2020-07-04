@@ -98,11 +98,13 @@ public class Payment {
             return this;
         }
 
+        //setting paymentTotal
         public Builder setPaymentTotal(double paymentTotal) {
             this.paymentTotal = paymentTotal;
             return this;
         }
 
+        //setting date
         public Builder setDate(Date date) {
             this.date = date;
             return this;
