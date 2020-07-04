@@ -16,8 +16,17 @@ public class Payment {
     private double paymentTotal;
     private Date date;
 
+    //declaring foreign keys
+    private Pharmacy pharmacyID;
+    private UserProfile userID;
+    private Order orderNumber;
+
     //builder Constructor
     public Payment(Builder builder) {
+
+        this.pharmacyID = builder.pharmacyID;
+        this.userID = builder.userID;
+        this.orderNumber = builder.orderNumber;
         this.paymentStatus = builder.paymentStatus;
         this.typeOfPayment = builder.typeOfPayment;
         this.referenceNumber = builder.referenceNumber;
@@ -27,6 +36,20 @@ public class Payment {
     }
 
     //getters for the declared variables
+
+
+    public Pharmacy getPharmacyID() {
+        return pharmacyID;
+    }
+
+    public UserProfile getUserID() {
+        return userID;
+    }
+
+    public Order getOrderNumber() {
+        return orderNumber;
+    }
+
     public String getPaymentStatus() {
         return paymentStatus;
     }
@@ -61,6 +84,9 @@ public class Payment {
                 ", paymentNotification='" + paymentNotification + '\'' +
                 ", paymentTotal=" + paymentTotal +
                 ", date=" + date +
+                ", pharmacyID=" + pharmacyID +
+                ", userID=" + userID +
+                ", orderNumber=" + orderNumber +
                 '}';
     }
 
@@ -71,12 +97,33 @@ public class Payment {
         private String paymentStatus, typeOfPayment, referenceNumber, paymentNotification;
         private double paymentTotal;
         private Date date;
+        private Pharmacy pharmacyID;
+        private UserProfile userID;
+        private Order orderNumber;
 
         //Setters for all declared variables using the Builder pattern
 
         //setting paymentStatus
         public Builder setPaymentStatus(String paymentStatus) {
             this.paymentStatus = paymentStatus;
+            return this;
+        }
+
+        //setting pharmacyID
+        public Builder setPharmacyID(Pharmacy pharmacyID) {
+            this.pharmacyID = pharmacyID;
+            return this;
+        }
+
+        //setting userID
+        public Builder setUserID(UserProfile userID) {
+            this.userID = userID;
+            return this;
+        }
+
+        //setting orderNumber
+        public Builder setOrderNumber(Order orderNumber) {
+            this.orderNumber = orderNumber;
             return this;
         }
 
@@ -113,6 +160,10 @@ public class Payment {
         //Builder copy method for creating instance of Payment
         // and making a copy of it
         public Builder copy(Payment payment){
+
+            this.pharmacyID = payment.pharmacyID;
+            this.userID = payment.userID;
+            this.orderNumber = payment.orderNumber;
             this.paymentStatus = payment.paymentStatus;
             this.paymentNotification = payment.paymentNotification;
             this.paymentTotal = payment.paymentTotal;
