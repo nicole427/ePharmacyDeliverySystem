@@ -51,7 +51,7 @@ public class Payment {
         return date;
     }
 
-    //displaying all variables as string
+    //displaying all variables as a string
     @Override
     public String toString() {
         return "Payment{" +
