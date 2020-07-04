@@ -2,15 +2,15 @@ package com.digital.epharmacy.entity;
 
 /*
  * Name: Nelson Mpyana
- * Desc: Catalogue Entity composed of Pharmacy Catalogue
+ * Desc: Catalogue Item Entity composed of Pharmacy Catalogue
  * Date: 04/07/2020
  */
 public class CatalogueItem {
 
     //naming entity attributes and assigning their variable values
-    int itemNumber, itemQuantity;
-    String itemName, itemDescription;
-    double itemPrice;
+    private int itemNumber, itemQuantity;
+    private String itemName, itemDescription;
+    private double itemPrice;
 
     //constructor for Builder class
     private CatalogueItem(Builder builder) {
@@ -83,6 +83,16 @@ public class CatalogueItem {
 
         public Builder setPrice(Double itemPrice) {
             this.itemPrice = itemPrice;
+            return this;
+        }
+
+        //Copy method
+        public CatalogueItem.Builder copy(CatalogueItem catalogueItem){
+            this.itemNumber = catalogueItem.itemNumber;
+            this.itemQuantity = catalogueItem.itemQuantity;
+            this.itemName = catalogueItem.itemName;
+            this.itemDescription = catalogueItem.itemDescription;
+            this.itemPrice = catalogueItem.itemPrice;
             return this;
         }
 
