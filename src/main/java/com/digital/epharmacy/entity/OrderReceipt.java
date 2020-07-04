@@ -1,5 +1,10 @@
 package com.digital.epharmacy.entity;
-
+/*
+ * Author: Keagan Tabisher
+ * Desc: OrderReceipt entity composed of Order, Pharmacy, UserProfile, Payment and CatalogueItem
+ *       showing the customer their final receipt.
+ * Date: 04/07/2020
+ * */
 import java.util.Date;
 
 public class OrderReceipt {
