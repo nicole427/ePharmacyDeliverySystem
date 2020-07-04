@@ -1,5 +1,11 @@
 package com.digital.epharmacy.entity;
 
+/*
+ * Author: Matthew Pearce
+ * Desc: Order Entity composed of Order and OrderReceipt entity that stores the Order and Order Receipt of the customer
+ * Date: 04/07/2020
+ * */
+
 import java.util.Date;
 
 public class Order {
@@ -7,7 +13,7 @@ public class Order {
     //Entity attributes
     private int userID, orderNumber, totalCatalogueItems;
     private double orderTotal;
-    private String paymentDate;
+    private String paymentType;
     private Date date;
 
     //Builder class constructor
@@ -17,7 +23,7 @@ public class Order {
         this.orderNumber = builder.orderNumber;
         this.totalCatalogueItems = builder.totalCatalogueItems;
         this.orderTotal = builder.orderTotal;
-        this.paymentDate = builder.paymentDate;
+        this.paymentType = builder.paymentType;
         this.date = builder.date;
     }
 
@@ -38,8 +44,8 @@ public class Order {
         return orderTotal;
     }
 
-    public String getPaymentDate() {
-        return paymentDate;
+    public String getPaymentType() {
+        return paymentType;
     }
 
     public Object getDate() {
@@ -54,7 +60,7 @@ public class Order {
                 ", orderNumber=" + orderNumber +
                 ", totalCatalogueItems=" + totalCatalogueItems +
                 ", orderTotal=" + orderTotal +
-                ", paymentDate='" + paymentDate + '\'' +
+                ", paymentType='" + paymentType + '\'' +
                 ", date=" + date +
                 '}';
     }
@@ -62,9 +68,10 @@ public class Order {
     //Builder class to implement the builder pattern
     public static class Builder{
 
+
         private int userID, orderNumber, totalCatalogueItems;
         private double orderTotal;
-        private String paymentDate;
+        private String paymentType;
         private Date date;
 
         // setting userID value using builder pattern
@@ -97,9 +104,9 @@ public class Order {
        }
 
        //setting paymentDate value using builder pattern
-       public Builder setPaymentDate(String paymentDate){
+       public Builder setPaymentType(String paymentType){
 
-           this.paymentDate = paymentDate;
+           this.paymentType = paymentType;
            return this;
        }
 
@@ -117,7 +124,7 @@ public class Order {
            this.orderNumber = order.orderNumber;
            this.totalCatalogueItems = order.totalCatalogueItems;
            this.orderTotal = order.orderTotal;
-           this.paymentDate = order.paymentDate;
+           this.paymentType = order.paymentType;
            this.date = order.date;
 
            return this;

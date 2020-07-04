@@ -1,5 +1,11 @@
 package com.digital.epharmacy.entity;
 
+/*
+ * Author: Matthew Pearce
+ * Desc: Order Entity composed of Order and OrderReceipt entity that stores the Order and Order Receipt of the customer
+ * Date: 04/07/2020
+ * */
+
 import java.util.Date;
 
 public class OrderReceipt {
