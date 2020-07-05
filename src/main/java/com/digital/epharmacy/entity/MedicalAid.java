@@ -9,7 +9,7 @@ public class MedicalAid {
     //naming entity attributes and assigning their variable values
     private int  userMedicalAidNumber;
     private String medicalAidName, medicalAidScheme;
-    private UserProfile userId;
+    private String userId;
     //constructor for Builder class
     private MedicalAid (Builder builder){
         this.userId = builder.userId;
@@ -20,7 +20,7 @@ public class MedicalAid {
     }
     
     //getters to get all values of attributes
-    public UserProfile getUserId() {
+    public String getUserId() {
         return userId;
     }
 
@@ -52,10 +52,10 @@ public class MedicalAid {
         //same assigned attributes in main class with variable values
         private int  userMedicalAidNumber;
         private String medicalAidName, medicalAidScheme;
-        private UserProfile userId;
+        private String userId;
 
         //setting UserId value using builder pattern
-        public Builder setUserId(UserProfile userId){
+        public Builder setUserId(String userId){
             this.userId = userId;
             return this;
         }

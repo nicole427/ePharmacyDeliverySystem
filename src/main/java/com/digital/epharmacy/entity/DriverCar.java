@@ -5,11 +5,12 @@ package com.digital.epharmacy.entity;
  */
 public class DriverCar {
     // all the attributes of entity
-    private int driverId, carRegistration;
+    private String driverId;
+    private int carRegistration;
     private String carColour, carName, carModel;
 
     // builder pattern method constructor
-    private DriverCar(DriverCar.Builder builder){
+    private DriverCar(Builder builder){
         this.driverId = builder.driverId;
         this.carRegistration = builder.carRegistration;
         this.carColour = builder.carColour;
@@ -18,7 +19,7 @@ public class DriverCar {
     }
 
     // getters for all attributes of entity DriverCar
-    public int getDriverId() {
+    public String getDriverId() {
         return driverId;
     }
 
@@ -53,10 +54,11 @@ public class DriverCar {
     // add setters using building pattern
     public static class Builder{
 
-        private int driverId, carRegistration;
+        private String driverId;
+            private int carRegistration;
         private String carColour, carName, carModel;
 
-        public Builder setDriverId(int driverId){
+        public Builder setDriverId(String driverId){
             this.driverId = driverId;
             return this;
         }
