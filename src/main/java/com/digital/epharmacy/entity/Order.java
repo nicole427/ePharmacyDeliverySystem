@@ -27,7 +27,6 @@ public class Order {
         this.paymentType = builder.paymentType;
         this.date = builder.date;
     }
-
     //Getters for all attributes.
     public UserProfile getUserID() {
         return userID;
