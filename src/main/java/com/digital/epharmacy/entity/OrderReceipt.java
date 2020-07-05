@@ -10,9 +10,9 @@ import java.util.Date;
 public class OrderReceipt {
 
     //Entity attributes
-    private int orderNumber, pharmacyId,userID, itemQuantity;
+    private int orderNumber,itemQuantity;
     private double paymentTotal;
-    private String itemName, typeOfPayment;
+    private String pharmacyId,userID,itemName, typeOfPayment;
     private Date date;
 
 
@@ -32,17 +32,8 @@ public class OrderReceipt {
 
     //Getters for all attributes
 
-
     public int getOrderNumber() {
         return orderNumber;
-    }
-
-    public int getPharmacyId() {
-        return pharmacyId;
-    }
-
-    public int getUserID() {
-        return userID;
     }
 
     public int getItemQuantity() {
@@ -53,6 +44,14 @@ public class OrderReceipt {
         return paymentTotal;
     }
 
+    public String getPharmacyId() {
+        return pharmacyId;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
     public String getItemName() {
         return itemName;
     }
@@ -61,32 +60,35 @@ public class OrderReceipt {
         return typeOfPayment;
     }
 
-    public Date retreiveDate() {
+    public Date getDate() {
         return date;
     }
 
-    //toString method that displays whats in the orderReceipt class
+
+
+
     @Override
+    // ToString method for displaying the object.
     public String toString() {
         return "OrderReceipt{" +
                 "orderNumber=" + orderNumber +
-                ", date=" + date +
-                ", pharmacyId=" + pharmacyId +
-                ", userID=" + userID +
-                ", paymentTotal=" + paymentTotal +
-                ", typeOfPayment=" + typeOfPayment +
-                ", itemName=" + itemName +
                 ", itemQuantity=" + itemQuantity +
+                ", paymentTotal=" + paymentTotal +
+                ", pharmacyId='" + pharmacyId + '\'' +
+                ", userID='" + userID + '\'' +
+                ", itemName='" + itemName + '\'' +
+                ", typeOfPayment='" + typeOfPayment + '\'' +
+                ", date=" + date +
                 '}';
     }
 
     //Builder class to implement the builder pattern
     public static class Builder{
-
-        private int orderNumber, pharmacyId,userID, itemQuantity;
+        private int orderNumber,itemQuantity;
         private double paymentTotal;
-        private String itemName, typeOfPayment;
+        private String pharmacyId,userID,itemName, typeOfPayment;
         private Date date;
+
 
 
         //setting orderNumber value using builder pattern
@@ -102,13 +104,13 @@ public class OrderReceipt {
             return this;
         }
 
-        public Builder setPharmacyID(int pharmacyId)
+        public Builder setPharmacyID(String pharmacyId)
         {
             this.pharmacyId = pharmacyId;
             return this;
         }
 
-        public Builder setUserID(int userID)
+        public Builder setUserID(String userID)
         {
             this.userID = userID;
             return this;

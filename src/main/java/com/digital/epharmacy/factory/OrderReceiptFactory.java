@@ -2,11 +2,15 @@ package com.digital.epharmacy.factory;
 
 import com.digital.epharmacy.entity.*;
 import java.util.Date;
-
+ /* Author: Keagan Tabisher
+         * Desc: Factory class creating an OrderReceipt object
+        * Date: 05/07/2020
+        * */
 public class OrderReceiptFactory {
-
-    public static OrderReceipt createOrderReceipt (int orderNumber, int pharmacyId, int userID,
-                                                   int itemQuantity, double paymentTotal,String itemName,
+    // Class to create Order Receipt as a factory
+    public static OrderReceipt createOrderReceipt (int orderNumber, int itemQuantity,
+                                                   double paymentTotal,String pharmacyId,
+                                                   String userID, String itemName,
                                                    String typeOfPayment, Date date)
     {
         OrderReceipt orderReceipt = new OrderReceipt.Builder()
