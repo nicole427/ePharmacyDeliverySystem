@@ -10,12 +10,10 @@ import java.util.Date;
 public class OrderReceipt {
 
     //Entity attributes
-    private Order orderNumber, date;
-    private Pharmacy pharmacyId;
-    private UserProfile userID;
-    private Payment paymentTotal,typeOfPayment;
-    private CatalogueItem itemName,itemQuantity;
-
+    private int orderNumber, pharmacyId,userID, itemQuantity;
+    private double paymentTotal;
+    private String itemName, typeOfPayment;
+    private Date date;
 
 
 
@@ -35,36 +33,36 @@ public class OrderReceipt {
     //Getters for all attributes
 
 
-    public Order getOrderNumber() {
+    public int getOrderNumber() {
         return orderNumber;
     }
 
-    public Order getDate() {
-        return date;
-    }
-
-    public Pharmacy getPharmacyId() {
+    public int getPharmacyId() {
         return pharmacyId;
     }
 
-    public UserProfile getUserID() {
+    public int getUserID() {
         return userID;
     }
 
-    public Payment getPaymentTotal() {
+    public int getItemQuantity() {
+        return itemQuantity;
+    }
+
+    public double getPaymentTotal() {
         return paymentTotal;
     }
 
-    public Payment getTypeOfPayment() {
-        return typeOfPayment;
-    }
-
-    public CatalogueItem getItemName() {
+    public String getItemName() {
         return itemName;
     }
 
-    public CatalogueItem getItemQuantity() {
-        return itemQuantity;
+    public String getTypeOfPayment() {
+        return typeOfPayment;
+    }
+
+    public Date retreiveDate() {
+        return date;
     }
 
     //toString method that displays whats in the orderReceipt class
@@ -85,56 +83,56 @@ public class OrderReceipt {
     //Builder class to implement the builder pattern
     public static class Builder{
 
-        private Order orderNumber, date;
-        private Pharmacy pharmacyId;
-        private UserProfile userID;
-        private Payment paymentTotal,typeOfPayment;
-        private CatalogueItem itemName,itemQuantity;
+        private int orderNumber, pharmacyId,userID, itemQuantity;
+        private double paymentTotal;
+        private String itemName, typeOfPayment;
+        private Date date;
+
 
         //setting orderNumber value using builder pattern
-        public Builder setOrderNumber (Order orderNumber)
+        public Builder setOrderNumber (int orderNumber)
         {
             this.orderNumber = orderNumber;
             return this;
         }
 
-        public Builder settDate (Order date)
+        public Builder settDate (Date date)
         {
             this.date = date;
             return this;
         }
 
-        public Builder setPharmacyID(Pharmacy pharmacyId)
+        public Builder setPharmacyID(int pharmacyId)
         {
             this.pharmacyId = pharmacyId;
             return this;
         }
 
-        public Builder setUserID(UserProfile userID)
+        public Builder setUserID(int userID)
         {
             this.userID = userID;
             return this;
         }
 
-        public Builder setPaymentTotal(Payment paymentTotal)
+        public Builder setPaymentTotal(double paymentTotal)
         {
             this.paymentTotal = paymentTotal;
             return this;
         }
 
-        public Builder setTypeOfPayment (Payment typeOfPayment)
+        public Builder setTypeOfPayment (String typeOfPayment)
         {
             this.typeOfPayment = typeOfPayment;
             return this;
         }
 
-        public Builder setItemName (CatalogueItem itemName)
+        public Builder setItemName (String itemName)
         {
             this.itemName = itemName;
             return this;
         }
 
-        public Builder setItemQuantity (CatalogueItem itemQuantity)
+        public Builder setItemQuantity (int itemQuantity)
         {
             this.itemQuantity = itemQuantity;
             return this;
