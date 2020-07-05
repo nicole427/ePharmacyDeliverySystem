@@ -7,10 +7,9 @@ package com.digital.epharmacy.entity;
 //main class
 public class UserProfile {
     //naming entity attributes and assigning their variable values
-    private int userId;
+    private String userId;
     private String userName, userSurname, gender;
-    private int totalNumberOfOrders;
-    private double totalOrderValue;
+
 
     //constructor for Builder class
     private UserProfile (Builder builder){
@@ -18,11 +17,10 @@ public class UserProfile {
         this.userName = builder.userName;
         this.userSurname = builder.userSurname;
         this.gender = builder.gender;
-        this.totalNumberOfOrders = builder.totalNumberOfOrders;
-        this.totalOrderValue = builder.totalOrderValue;
+
     }
     //getters to get all values of attributes
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
@@ -38,35 +36,28 @@ public class UserProfile {
         return gender;
     }
 
-    public int getTotalNumberOfOrders() {
-        return totalNumberOfOrders;
-    }
 
-    public double getTotalOrderValue() {
-        return totalOrderValue;
-    }
     // toString to display what is in the UserProfile class
+
     @Override
     public String toString() {
         return "UserProfile{" +
-                "userId=" + userId +
+                "userId='" + userId + '\'' +
                 ", userName='" + userName + '\'' +
                 ", userSurname='" + userSurname + '\'' +
                 ", gender='" + gender + '\'' +
-                ", totalNumberOfOrders=" + totalNumberOfOrders +
-                ", totalOrderValue=" + totalOrderValue +
                 '}';
     }
+
     //inner Builder class to implement the builder pattern
     public static class Builder{
         //same assigned attributes in main class with variable values
-        private int userId;
+        private String userId;
         private String userName, userSurname, gender;
-        private int totalNumberOfOrders;
-        private double totalOrderValue;
+
 
         //setting userId value using builder pattern
-        public Builder setUserId(int userId){
+        public Builder setUserId(String userId){
             this.userId = userId;
             return this;
         }
@@ -85,24 +76,13 @@ public class UserProfile {
             this.gender = gender;
             return this;
         }
-        //setting TotalNumberOfOrders value using builder pattern
-        public Builder setTotalNumberOfOrders(int totalNumberOfOrders){
-            this.totalNumberOfOrders = totalNumberOfOrders;
-            return this;
-        }
-        //setting TotalOrderValue value using builder pattern
-        public Builder setTotalOrderValue(int totalOrderValue){
-            this.totalOrderValue = totalOrderValue;
-            return this;
-        }
+
         // Builder copy method that create instance of UserProfile and makes a copy out of it
         public Builder copy(UserProfile userProfile){
             this.userId = userProfile.userId;
             this.userName = userProfile.userName;
             this.userSurname = userProfile.userSurname;
             this.gender = userProfile.gender;
-            this.totalNumberOfOrders = userProfile.totalNumberOfOrders;
-            this.totalOrderValue = userProfile.totalOrderValue;
             return this;
 
         }

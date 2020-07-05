@@ -1,6 +1,6 @@
 package com.digital.epharmacy.entity;
 
-import org.graalvm.compiler.lir.LIRInstruction;
+
 
 /*
  * Author: Nicole Hawthorne
@@ -10,10 +10,10 @@ import org.graalvm.compiler.lir.LIRInstruction;
 //main class
 public class Address {
     //naming entity attributes and assigning their variable values
-    private int pharmacyId;//must still fix in assignment 6
+    private String pharmacyId;
     private int streetNumber, areaCode;
     private String streetName, areaName;
-    private UserProfile userId;
+    private String userId;
 
     //constructor for Builder class
     private Address (Builder builder){
@@ -26,11 +26,11 @@ public class Address {
     }
 
     //getters to get all values of attributes
-    public UserProfile getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public int getPharmacyId() {
+    public String getPharmacyId() {
         return pharmacyId;
     }
 
@@ -65,18 +65,18 @@ public class Address {
 
     //inner Builder class to implement the builder pattern
     public static class Builder {
-        private int pharmacyId;
+        private String pharmacyId;
         private int streetNumber, areaCode;
         private String streetName, areaName;
-        private UserProfile userId;
+        private String userId;
 
         //setting UserId value using builder pattern
-        public Builder setUserId(UserProfile userId) {
+        public Builder setUserId(String userId) {
             this.userId = userId;
             return this;
         }
         //setting PharmacyId value using builder pattern
-        public Builder setPharmacyId(int pharmacyId){
+        public Builder setPharmacyId(String pharmacyId){
             this.pharmacyId = pharmacyId;
             return this;
         }

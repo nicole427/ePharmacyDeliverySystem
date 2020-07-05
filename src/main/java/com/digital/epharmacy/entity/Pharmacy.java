@@ -8,19 +8,19 @@ package com.digital.epharmacy.entity;
 
 public class Pharmacy {
     // all the attributes of entity
-    private int pharmacyID;
+    private String pharmacyId;
     private String pharmacyName;
 
     // builder pattern method constructor
     private Pharmacy(Builder builder)
     {
-        this.pharmacyID = builder.pharmacyID;
+        this.pharmacyId = builder.pharmacyId;
         this.pharmacyName = builder.pharmacyName;
     }
 
     // getters for all attributes of entity Pharmacy
-    public int getPharmacyID() {
-        return pharmacyID;
+    public String getPharmacyId() {
+        return pharmacyId;
     }
 
     public String getPharmacyName() {
@@ -31,7 +31,7 @@ public class Pharmacy {
     @Override
     public String toString() {
         return "Pharmacy{" +
-                "pharmacyID=" + pharmacyID +
+                "pharmacyId=" + pharmacyId +
                 ", pharmacyName='" + pharmacyName + '\'' +
                 '}';
     }
@@ -39,11 +39,11 @@ public class Pharmacy {
     // add setters using building pattern
     public static class Builder
     {
-        private int pharmacyID;
+        private String pharmacyId;
         private String pharmacyName;
 
-        public Builder setPharmacyID(int pharmacyID) {
-            this.pharmacyID = pharmacyID;
+        public Builder setPharmacyID(String pharmacyId) {
+            this.pharmacyId = pharmacyId;
             return this;
         }
 
@@ -55,7 +55,7 @@ public class Pharmacy {
         // Copy method for Pharmacy entity
         public Builder copy (Pharmacy pharmacy)
         {
-            this.pharmacyID = pharmacy.pharmacyID;
+            this.pharmacyId = pharmacy.pharmacyId;
             this.pharmacyName = pharmacy.pharmacyName;
             return this;
         }
