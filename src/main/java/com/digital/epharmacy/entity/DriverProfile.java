@@ -4,7 +4,7 @@ package com.digital.epharmacy.entity;
  */
 public class DriverProfile {
 
-    private int driverId;
+    private String driverId;
     private String driverName, driverSurname, driverLocation;
 
     // builder pattern method constructor
@@ -15,7 +15,7 @@ public class DriverProfile {
         this.driverLocation = builder.driverLocation;
     }
     // getters for all attributes of entity DriverProfile
-    public int getDriverId() {
+    public String getDriverId() {
         return driverId;
     }
 
@@ -43,10 +43,10 @@ public class DriverProfile {
     // add setters using building pattern
     public static class Builder{
 
-        private int driverId;
+        private String driverId;
         private String driverName, driverSurname, driverLocation;
 
-        public Builder setDriverId(int driverId){
+        public Builder setDriverId(String driverId){
             this.driverId = driverId;
             return this;
         }
