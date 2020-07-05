@@ -1,4 +1,7 @@
 package com.digital.epharmacy.entity;
+
+
+
 /*
  * Author: Nicole Hawthorne
  * Desc: Address Entity composed of User Profile and Pharmacy entity that stores the user and pharmacy address/location
@@ -7,9 +10,10 @@ package com.digital.epharmacy.entity;
 //main class
 public class Address {
     //naming entity attributes and assigning their variable values
-    private int userId, pharmacyId;
+    private String pharmacyId;
     private int streetNumber, areaCode;
     private String streetName, areaName;
+    private String userId;
 
     //constructor for Builder class
     private Address (Builder builder){
@@ -22,11 +26,11 @@ public class Address {
     }
 
     //getters to get all values of attributes
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public int getPharmacyId() {
+    public String getPharmacyId() {
         return pharmacyId;
     }
 
@@ -61,17 +65,18 @@ public class Address {
 
     //inner Builder class to implement the builder pattern
     public static class Builder {
-        private int userId, pharmacyId;
+        private String pharmacyId;
         private int streetNumber, areaCode;
         private String streetName, areaName;
+        private String userId;
 
         //setting UserId value using builder pattern
-        public Builder setUserId(int userId) {
+        public Builder setUserId(String userId) {
             this.userId = userId;
             return this;
         }
         //setting PharmacyId value using builder pattern
-        public Builder setPharmacyId(int pharmacyId){
+        public Builder setPharmacyId(String pharmacyId){
             this.pharmacyId = pharmacyId;
             return this;
         }
