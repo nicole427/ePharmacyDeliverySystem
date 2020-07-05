@@ -10,7 +10,8 @@ public class OrderFactory {
     public static Order createOrder(String userID,   double orderTotal, int totalCatalogueItem, String paymentType,String date){
 
        int orderNumber = GenericHelper.generateOrderId();
-        Order order = new Order.Builder()
+
+       Order order = new Order.Builder()
                 .setUserID(userID)
                 .setOrderNumber(orderNumber)
                 .setOrderTotal(orderTotal)
