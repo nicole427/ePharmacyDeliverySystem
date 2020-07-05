@@ -1,4 +1,7 @@
 package com.digital.epharmacy.entity;
+
+import org.graalvm.compiler.lir.LIRInstruction;
+
 /*
  * Author: Nicole Hawthorne
  * Desc: Address Entity composed of User Profile and Pharmacy entity that stores the user and pharmacy address/location
@@ -7,9 +10,10 @@ package com.digital.epharmacy.entity;
 //main class
 public class Address {
     //naming entity attributes and assigning their variable values
-    private int userId, pharmacyId;
+    private int pharmacyId;//must still fix in assignment 6
     private int streetNumber, areaCode;
     private String streetName, areaName;
+    private UserProfile userId;
 
     //constructor for Builder class
     private Address (Builder builder){
@@ -22,7 +26,7 @@ public class Address {
     }
 
     //getters to get all values of attributes
-    public int getUserId() {
+    public UserProfile getUserId() {
         return userId;
     }
 
@@ -61,12 +65,13 @@ public class Address {
 
     //inner Builder class to implement the builder pattern
     public static class Builder {
-        private int userId, pharmacyId;
+        private int pharmacyId;
         private int streetNumber, areaCode;
         private String streetName, areaName;
+        private UserProfile userId;
 
         //setting UserId value using builder pattern
-        public Builder setUserId(int userId) {
+        public Builder setUserId(UserProfile userId) {
             this.userId = userId;
             return this;
         }
