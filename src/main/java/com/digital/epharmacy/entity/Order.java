@@ -12,7 +12,7 @@ public class Order {
 
     //Entity attributes
     private int orderNumber, totalCatalogueItems;
-    private UserProfile userID;
+    private String  userID;
     private double orderTotal;
     private String paymentType;
     private Date date;
@@ -29,7 +29,7 @@ public class Order {
     }
 
     //Getters for all attributes.
-    public UserProfile getUserID() {
+    public String getUserID() {
         return userID;
     }
 
@@ -70,7 +70,7 @@ public class Order {
     public static class Builder{
 
 
-        private UserProfile userID;
+        private String userID;
         private int orderNumber;
         private int totalCatalogueItems;
         private double orderTotal;
@@ -78,7 +78,7 @@ public class Order {
         private Date date;
 
         // setting userID value using builder pattern
-       public Builder setUserID(UserProfile userID){
+       public Builder setUserID(String userID){
 
            this.userID = userID;
            return this;
