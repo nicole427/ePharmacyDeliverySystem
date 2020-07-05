@@ -1,5 +1,9 @@
 package com.digital.epharmacy.util;
-//Nicole Hawthorne - Adding a method to help generate random id - 05 July 2020
+/*
+* Nicole Hawthorne - Adding a method to help generate random id - 05 July 2020
+* Ayabulela Mahlathini - adding method to handle payment servies, get payment date and notification - 05 July 2020
+* */
+
 import com.digital.epharmacy.entity.UserProfile;
 
 import java.text.SimpleDateFormat;
@@ -11,6 +15,7 @@ public class GenericHelper {
         return UUID.randomUUID().toString();
     }
 
+    //handling payment services
     public static String handlePaymentServices(String paymentMethod, double total){
         boolean complete = false;
 
@@ -46,12 +51,14 @@ public class GenericHelper {
         return status;
     }
 
+    //getting the date for the exact time the payment was done
     public static String paymentDate(){
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
         return formatter.format(date);
     }
 
+    //handling notifications after receiving payment status
     public static String handleNotifications(String status) {
         String notification = null;
         switch (status){
