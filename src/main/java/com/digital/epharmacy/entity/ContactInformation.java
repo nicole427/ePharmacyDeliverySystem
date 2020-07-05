@@ -8,7 +8,9 @@ package com.digital.epharmacy.entity;
 //main class
 public class ContactInformation {
     //naming entity attributes and assigning their variable values
-    private int userId,pharmacyId,primaryNumber,secondaryNumber;
+    private int primaryNumber,secondaryNumber;
+    private String userId;
+    private String pharmacyId;
     
     //constructor for Builder class
     private ContactInformation (Builder builder){
@@ -19,11 +21,11 @@ public class ContactInformation {
     }
 
     //getters to get all values of attributes
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public int getPharmacyId() {
+    public String getPharmacyId() {
         return pharmacyId;
     }
 
@@ -48,15 +50,17 @@ public class ContactInformation {
 
     //inner Builder class to implement the builder pattern
     public static class Builder{
-        private int userId,pharmacyId,primaryNumber,secondaryNumber;
+        private int primaryNumber,secondaryNumber;
+        private String userId;
+        private String pharmacyId;
 
         //setting UserId value using builder pattern
-        public Builder setUserId(int userId){
+        public Builder setUserId(String userId){
             this.userId = userId;
             return this;
         }
         //setting PharmacyId value using builder pattern
-        public Builder setPharmacyId(int pharmacyId){
+        public Builder setPharmacyId(String pharmacyId){
             this.pharmacyId = pharmacyId;
             return this;
         }
