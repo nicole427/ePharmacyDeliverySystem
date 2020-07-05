@@ -14,12 +14,12 @@ public class Payment {
     //Declaring variables using all attributes from the Payment Entity
     private String paymentStatus, typeOfPayment, referenceNumber, paymentNotification;
     private double paymentTotal;
-    private Date date;
+    private String date;
 
-    //declaring foreign keys
-    private Pharmacy pharmacyID;
-    private UserProfile userID;
-    private Order orderNumber;
+    //declaring foreign keys, using String datatype for now
+    private String pharmacyID;
+    private String userID;
+    private String orderNumber;
 
     //builder Constructor
     public Payment(Builder builder) {
@@ -38,15 +38,15 @@ public class Payment {
     //getters for the declared variables
 
 
-    public Pharmacy getPharmacyID() {
+    public String getPharmacyID() {
         return pharmacyID;
     }
 
-    public UserProfile getUserID() {
+    public String getUserID() {
         return userID;
     }
 
-    public Order getOrderNumber() {
+    public String getOrderNumber() {
         return orderNumber;
     }
 
@@ -70,7 +70,7 @@ public class Payment {
         return paymentTotal;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
@@ -96,10 +96,10 @@ public class Payment {
         //Declaring variables using all attributes from the Payment Entity, same as the ones from the main class
         private String paymentStatus, typeOfPayment, referenceNumber, paymentNotification;
         private double paymentTotal;
-        private Date date;
-        private Pharmacy pharmacyID;
-        private UserProfile userID;
-        private Order orderNumber;
+        private String date;
+        private String pharmacyID;
+        private String userID;
+        private String orderNumber;
 
         //Setters for all declared variables using the Builder pattern
 
@@ -110,19 +110,19 @@ public class Payment {
         }
 
         //setting pharmacyID
-        public Builder setPharmacyID(Pharmacy pharmacyID) {
+        public Builder setPharmacyID(String pharmacyID) {
             this.pharmacyID = pharmacyID;
             return this;
         }
 
         //setting userID
-        public Builder setUserID(UserProfile userID) {
+        public Builder setUserID(String userID) {
             this.userID = userID;
             return this;
         }
 
         //setting orderNumber
-        public Builder setOrderNumber(Order orderNumber) {
+        public Builder setOrderNumber(String orderNumber) {
             this.orderNumber = orderNumber;
             return this;
         }
@@ -152,7 +152,7 @@ public class Payment {
         }
 
         //setting date
-        public Builder setDate(Date date) {
+        public Builder setDate(String date) {
             this.date = date;
             return this;
         }
