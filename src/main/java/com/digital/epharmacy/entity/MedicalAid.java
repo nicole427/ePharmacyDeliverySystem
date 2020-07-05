@@ -7,9 +7,9 @@ package com.digital.epharmacy.entity;
 //main class
 public class MedicalAid {
     //naming entity attributes and assigning their variable values
-    private int userId, userMedicalAidNumber;
+    private int  userMedicalAidNumber;
     private String medicalAidName, medicalAidScheme;
-    
+    private String userId;
     //constructor for Builder class
     private MedicalAid (Builder builder){
         this.userId = builder.userId;
@@ -20,7 +20,7 @@ public class MedicalAid {
     }
     
     //getters to get all values of attributes
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
@@ -50,11 +50,12 @@ public class MedicalAid {
     //inner Builder class to implement the builder pattern
     public static class Builder{
         //same assigned attributes in main class with variable values
-        private int userId, userMedicalAidNumber;
+        private int  userMedicalAidNumber;
         private String medicalAidName, medicalAidScheme;
+        private String userId;
 
         //setting UserId value using builder pattern
-        public Builder setUserId(int userId){
+        public Builder setUserId(String userId){
             this.userId = userId;
             return this;
         }
