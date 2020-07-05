@@ -6,7 +6,7 @@ package com.digital.epharmacy.entity;
  * Date: 04/07/2020
  * */
 
-import java.util.Date;
+
 
 public class Order {
 
@@ -15,7 +15,7 @@ public class Order {
     private String  userID;
     private double orderTotal;
     private String paymentType;
-    private Date date;
+    private String date;
 
     //Builder class constructor
     private Order(Builder builder){
@@ -74,7 +74,7 @@ public class Order {
         private int totalCatalogueItems;
         private double orderTotal;
         private String paymentType;
-        private Date date;
+        private String date;
 
         // setting userID value using builder pattern
        public Builder setUserID(String userID){
@@ -113,7 +113,7 @@ public class Order {
        }
 
        //setting date value using builder pattern
-       public Builder setDate(Date date){
+       public Builder setDate(String date){
 
            this.date = date;
            return this;
