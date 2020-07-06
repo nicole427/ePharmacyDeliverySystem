@@ -8,7 +8,7 @@ Name: Nelson Mpyana
 public class PharmacyCatalogue {
     //naming entity attributes and assigning their variable values
     //This class has the Foreign key
-    private Pharmacy pharmacyId;
+    private String pharmacyId;
     private String catalogueName, catalogueDescription;
 
     //constructor for Builder class
@@ -20,7 +20,7 @@ public class PharmacyCatalogue {
     }
     // Mutators (getters) for pharmacy catalogue
 
-    public Pharmacy getPharmacyId() {
+    public String getPharmacyId() {
         return pharmacyId;
     }
 
@@ -45,19 +45,22 @@ public class PharmacyCatalogue {
     //create a inner static builder class (Immutable)
     public static class Builder {
 
-        private Pharmacy pharmacyId;
+        private String pharmacyId;
         private String catalogueName, catalogueDescription;
 
-        public void setPharmacyId(Pharmacy pharmacyId) {
+        public Builder setPharmacyId(String pharmacyId) {
             this.pharmacyId = pharmacyId;
+            return this;
         }
 
-        public void setCatalogueName(String catalogueName) {
+        public Builder setCatalogueName(String catalogueName) {
             this.catalogueName = catalogueName;
+            return this;
         }
 
-        public void setCatalogueDescription(String catalogueDescription) {
+        public Builder setCatalogueDescription(String catalogueDescription) {
             this.catalogueDescription = catalogueDescription;
+            return this;
         }
 
         // Builder copy method that create instance of ContactInformation and makes a copy out of it
