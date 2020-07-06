@@ -1,6 +1,8 @@
 package com.digital.epharmacy.entity;
 /*
     Author: Chad Boswell
+    Desc: DriverProfile entity composed DriverProfile and DriverCar that stores details of the Driver and car
+    Date: 4 July 2020
  */
 public class DriverProfile {
 
