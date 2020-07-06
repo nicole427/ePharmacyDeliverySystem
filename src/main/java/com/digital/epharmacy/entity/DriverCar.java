@@ -1,12 +1,13 @@
 package com.digital.epharmacy.entity;
 /*
     Author: Chad
-    Desc: DriverCar stores driverId using composition
+    Desc: DriverCar stores driverId using composition with DriverProfile
+    Date: 4 July 2020
  */
 public class DriverCar {
     // all the attributes of entity
     private String driverId;
-    private int carRegistration;
+    private String carRegistration;
     private String carColour, carName, carModel;
 
     // builder pattern method constructor
@@ -23,7 +24,7 @@ public class DriverCar {
         return driverId;
     }
 
-    public int getCarRegistration() {
+    public String getCarRegistration() {
         return carRegistration;
     }
 
@@ -55,7 +56,7 @@ public class DriverCar {
     public static class Builder{
 
         private String driverId;
-            private int carRegistration;
+            private String carRegistration;
         private String carColour, carName, carModel;
 
         public Builder setDriverId(String driverId){
@@ -63,7 +64,7 @@ public class DriverCar {
             return this;
         }
 
-        public Builder setCarRegistration(int carRegistration){
+        public Builder setCarRegistration(String carRegistration){
             this.carRegistration = carRegistration;
             return this;
         }
