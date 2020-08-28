@@ -6,7 +6,7 @@ package com.digital.epharmacy.entity;
  */
 
 public class PharmacyBankAccountInformation {
-    private Pharmacy pharmacyID;
+    private String pharmacyID;
     private String bankName;
     private int accountNumber;
     private int branchCode;
@@ -23,7 +23,7 @@ public class PharmacyBankAccountInformation {
     }
 
     // getters for all attributes of entity PharmacyBankAccountInformation
-    public Pharmacy getPharmacyID() {
+    public String getPharmacyID() {
         return pharmacyID;
     }
 
@@ -58,13 +58,13 @@ public class PharmacyBankAccountInformation {
     // add setters using building pattern
     public static class Builder
     {
-        private Pharmacy pharmacyID;
+        private String pharmacyID;
         private String bankName;
         private int accountNumber;
         private int branchCode;
         private String beneficiaryReference;
 
-        public Builder setPharmacyID(Pharmacy pharmacyID)
+        public Builder setPharmacyID(String pharmacyID)
         {
             this.pharmacyID = pharmacyID;
             return this;
@@ -88,7 +88,7 @@ public class PharmacyBankAccountInformation {
             return this;
         }
 
-        public Builder setBeneficiaryReference()
+        public Builder setBeneficiaryReference(String beneficiaryReference)
         {
             this.beneficiaryReference = beneficiaryReference;
             return this;
@@ -105,7 +105,7 @@ public class PharmacyBankAccountInformation {
             return this;
         }
         // Instance for Builder Pattern
-        public PharmacyBankAccountInformation builder()
+        public PharmacyBankAccountInformation build()
         {
             return new PharmacyBankAccountInformation(this);
         }

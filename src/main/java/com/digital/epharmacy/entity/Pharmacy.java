@@ -61,7 +61,7 @@ public class Pharmacy {
         }
 
         // Instance for Builder Pattern
-        public Pharmacy builder() {
+        public Pharmacy build() {
             return new Pharmacy(this);
         }
     }
