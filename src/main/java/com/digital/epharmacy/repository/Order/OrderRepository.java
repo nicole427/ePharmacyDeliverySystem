@@ -1,4 +1,4 @@
-package com.digital.epharmacy.repository.Order.Order;
+package com.digital.epharmacy.repository.Order.OrderHistory;
 
 import com.digital.epharmacy.entity.Order.Order;
 import com.digital.epharmacy.repository.Repository;
