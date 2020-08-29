@@ -1,6 +1,7 @@
 package com.digital.epharmacy.repository.User.impl;
 
 import com.digital.epharmacy.entity.User.UserProfile;
+import com.digital.epharmacy.repository.User.UserProfileRepository;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -9,7 +10,7 @@ import java.util.Set;
  * Date: 28/08/2020
  * Description: UserProfile Repository to create, delete and update a user profile
  */
-public class UserProfileRepositoryImpl implements UserProfileRepository{
+public class UserProfileRepositoryImpl implements UserProfileRepository {
     private Set<UserProfile> userProfileDB;
 
     public UserProfileRepositoryImpl() {
@@ -41,11 +42,13 @@ public class UserProfileRepositoryImpl implements UserProfileRepository{
         return userProfile;
     }
 @Override
-    public void delete (String userId){
+    public boolean delete (String userId){
     UserProfile userProfile = read(userId);
     if (userId != null ){
         this.userProfileDB.remove(userProfile);
+        return true;
     }
+    return false;
     }
 
     @Override
