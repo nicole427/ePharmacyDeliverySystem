@@ -6,7 +6,8 @@ package com.digital.epharmacy.repository.User;
 * allows for other less common methods to be used for the userprofile
 * */
 import com.digital.epharmacy.entity.User.UserProfile;
-import com.digital.epharmacy.repository.Pharmacy.Impl.Repository;
+import com.digital.epharmacy.repository.Repository;
+
 
 import java.util.Set;
 

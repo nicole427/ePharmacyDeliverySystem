@@ -1,7 +1,8 @@
 package com.digital.epharmacy.repository.Payment;
 
 import com.digital.epharmacy.entity.Payment.Payment;
-import com.digital.epharmacy.repository.Pharmacy.Impl.Repository;
+import com.digital.epharmacy.repository.Repository;
+
 
 import java.util.Set;
 
