@@ -41,14 +41,17 @@ public class MedicalAidRepositoryImplTest {
         System.out.println("Update: " + updated);
     }
 
-    @Order(4)
+    @Order(5)
     @Test
     public void e_delete() {
         boolean deleted = repository.delete(medicalAid.getUserId());
         Assert.assertTrue(deleted);
+
+        if (deleted)
+            System.out.println("Entry Deleted");
     }
 
-    @Order(5)
+    @Order(4)
     @Test
     public void d_getAll() {
         System.out.println("Get All:" + repository.getAll());
