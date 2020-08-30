@@ -36,7 +36,7 @@ public class PharmacyCatalogueImplTest {
 
     @Order(2)
     @Test
-    public void b_read() throws Exception {
+    public void b_read() {
         PharmacyCatalogue read = repository.read(pharmacyCatalogue.getPharmacyId());
         System.out.println("Read: " + read);
     }
