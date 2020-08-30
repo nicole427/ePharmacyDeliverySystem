@@ -11,8 +11,8 @@ package com.digital.epharmacy.entity.Order;
 public class Order {
 
     //Entity attributes
-    private int orderNumber, totalCatalogueItems;
-    private String  userID;
+    private int totalCatalogueItems;
+    private String  userID, orderNumber; // (Ayabulela Mahlathini) changed order number to string so that it is auto generated in the factory
     private double orderTotal;
     private String paymentType;
     private String date;
@@ -32,7 +32,7 @@ public class Order {
         return userID;
     }
 
-    public int getOrderNumber() {
+    public String getOrderNumber() {
         return orderNumber;
     }
 
@@ -70,7 +70,7 @@ public class Order {
 
 
         private String userID;
-        private int orderNumber;
+        private String orderNumber;
         private int totalCatalogueItems;
         private double orderTotal;
         private String paymentType;
@@ -84,7 +84,7 @@ public class Order {
        }
 
        //setting orderNumber value using builder pattern
-       public Builder setOrderNumber(int orderNumber){
+       public Builder setOrderNumber(String orderNumber){
 
            this.orderNumber = orderNumber;
            return this;
