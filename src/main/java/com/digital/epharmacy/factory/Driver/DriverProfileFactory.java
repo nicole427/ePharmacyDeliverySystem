@@ -1,7 +1,7 @@
 package com.digital.epharmacy.factory.Driver;
 /*
     Author: Chad Boswell
-    Desc: DriverProfile factory that creates a driver
+    Desc: Driver factory that creates a driver
     Date: 5 July 2020
  */
 import com.digital.epharmacy.entity.Driver.DriverProfile;

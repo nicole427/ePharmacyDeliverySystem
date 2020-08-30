@@ -1,7 +1,7 @@
 package com.digital.epharmacy.FactoryTest.DriverFactory;
 /*
     Author: Chad Boswell
-    Desc: DriverProfile test case
+    Desc: Driver test case
     Date: 5 July 2020
  */
 import com.digital.epharmacy.entity.Driver.DriverProfile;

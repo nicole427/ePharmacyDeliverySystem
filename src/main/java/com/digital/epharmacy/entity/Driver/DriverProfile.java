@@ -1,7 +1,7 @@
 package com.digital.epharmacy.entity.Driver;
 /*
     Author: Chad Boswell
-    Desc: DriverProfile entity composed DriverProfile and DriverCar that stores details of the Driver and car
+    Desc: Driver entity composed Driver and DriverCar that stores details of the Driver and car
     Date: 4 July 2020
  */
 public class DriverProfile {
@@ -16,7 +16,7 @@ public class DriverProfile {
         this.driverSurname = builder.driverSurname;
         this.driverLocation = builder.driverLocation;
     }
-    // getters for all attributes of entity DriverProfile
+    // getters for all attributes of entity Driver
     public String getDriverId() {
         return driverId;
     }
@@ -35,7 +35,7 @@ public class DriverProfile {
     // to string to display what is in the class
     @Override
     public String toString() {
-        return "DriverProfile{" +
+        return "Driver{" +
                 "driverId=" + driverId +
                 ", driverName='" + driverName + '\'' +
                 ", driverSurname='" + driverSurname + '\'' +
