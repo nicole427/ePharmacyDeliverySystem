@@ -1,8 +1,8 @@
 package com.digital.epharmacy.repository.Driver.impl;
 /*
- * Author: Nicole Hawthorne
+ * Author: Chad Boswell
  * Date: 30/08/2020
- * Desc: UserProfileRepository Test, will test all methods if it does it correctly
+ * Desc: DriverProfileRepository Test
  * */
 import com.digital.epharmacy.entity.Driver.DriverProfile;
 import com.digital.epharmacy.factory.Driver.DriverProfileFactory;
