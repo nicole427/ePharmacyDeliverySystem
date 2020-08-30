@@ -52,7 +52,7 @@ public class GenericHelper {
     //getting the date for the exact time the payment was done
     public static String paymentDate(){
         Date date = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-M-yyyy");
         return formatter.format(date);
     }
 
