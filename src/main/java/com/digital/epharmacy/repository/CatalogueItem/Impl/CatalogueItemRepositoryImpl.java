@@ -1,7 +1,11 @@
 package com.digital.epharmacy.repository.CatalogueItem.Impl;
 /*
  * Author: Matsobane Nelson Mpyana
+<<<<<<< HEAD
+ * Desc: CatalogueItemRepository impl
+=======
  * Desc: CatalogueItemRepository Impl
+>>>>>>> upstream/groupCollaboration
  * Date: 30 August 2020
  */
 

@@ -7,7 +7,16 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
+<<<<<<< HEAD
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="false" project-jdk-name="11" project-jdk-type="JavaSDK">
+=======
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="13.0.2" project-jdk-type="JavaSDK">
+>>>>>>> origin/groupCollaboration
+    <output url="file://$PROJECT_DIR$/out" />
+=======
   <component name="ProjectRootManager" version="2" project-jdk-name="14" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/classes" />
+>>>>>>> upstream/groupCollaboration
   </component>
 </project>
