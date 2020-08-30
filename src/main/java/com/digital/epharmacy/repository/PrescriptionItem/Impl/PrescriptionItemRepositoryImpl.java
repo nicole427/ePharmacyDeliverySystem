@@ -1,6 +1,10 @@
 /*
  * Author: Matsobane Nelson Mpyana
+<<<<<<< HEAD
  * Desc: PrescriptionItemRepository impl
+=======
+ * Desc: PrescriptionItemRepository Impl
+>>>>>>> upstream/groupCollaboration
  * Date: 30 August 2020
  */
 package com.digital.epharmacy.repository.PrescriptionItem.Impl;

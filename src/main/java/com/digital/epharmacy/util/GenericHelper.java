@@ -53,10 +53,14 @@ public class GenericHelper {
     public static String paymentDate(){
         Date date = new Date();
 <<<<<<< HEAD
+<<<<<<< HEAD
         SimpleDateFormat formatter = new SimpleDateFormat("dd-M-yyyy");
 =======
         SimpleDateFormat formatter = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
 >>>>>>> origin/groupCollaboration
+=======
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-M-yyyy");
+>>>>>>> upstream/groupCollaboration
         return formatter.format(date);
     }
 

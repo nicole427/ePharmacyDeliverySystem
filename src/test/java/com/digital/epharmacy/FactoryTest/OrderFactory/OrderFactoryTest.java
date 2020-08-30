@@ -14,6 +14,7 @@ public class OrderFactoryTest {
         Order order = OrderFactory.createOrder("Random",10.00, 10, "EFT");
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         String orderNumber = order.getOrderNumber();
 
         assertEquals("Random", order.getUserID());
@@ -23,13 +24,21 @@ public class OrderFactoryTest {
         assertEquals("EFT",order.getPaymentType());
         assertEquals("30-8-2020",order.getDate());
 =======
+=======
+        String orderNumber = order.getOrderNumber();
+
+>>>>>>> upstream/groupCollaboration
         assertEquals("Random", order.getUserID());
-        assertEquals("Random",order.getOrderNumber());
+        assertEquals(orderNumber ,order.getOrderNumber());
         assertEquals(10.00,order.getOrderTotal(),0);
         assertEquals(10,order.getTotalCatalogueItems());
         assertEquals("EFT",order.getPaymentType());
+<<<<<<< HEAD
         assertEquals("2020-20-50",order.getDate());
 >>>>>>> origin/groupCollaboration
+=======
+        assertEquals("30-8-2020",order.getDate());
+>>>>>>> upstream/groupCollaboration
 
     }
 

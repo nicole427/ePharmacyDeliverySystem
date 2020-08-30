@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package com.digital.epharmacy.repository.Order;
 =======
 package com.digital.epharmacy.repository.Order.OrderHistory;
 >>>>>>> origin/groupCollaboration
+=======
+package com.digital.epharmacy.repository.Order;
+>>>>>>> upstream/groupCollaboration
 
 import com.digital.epharmacy.entity.Order.OrderHistory;
 import com.digital.epharmacy.repository.Repository;

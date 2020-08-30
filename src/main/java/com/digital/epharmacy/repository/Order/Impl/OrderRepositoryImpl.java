@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package com.digital.epharmacy.repository.Order.Impl;
 
 import com.digital.epharmacy.entity.Order.Order;
@@ -9,6 +10,12 @@ package com.digital.epharmacy.repository.Order.OrderHistory.Impl;
 import com.digital.epharmacy.entity.Order.Order;
 import com.digital.epharmacy.repository.Order.OrderHistory.OrderRepository;
 >>>>>>> origin/groupCollaboration
+=======
+package com.digital.epharmacy.repository.Order.Impl;
+
+import com.digital.epharmacy.entity.Order.Order;
+import com.digital.epharmacy.repository.Order.OrderRepository;
+>>>>>>> upstream/groupCollaboration
 
 /** Author: Ayabulela Mahlathini - 218017774
  * Date: 29/08/2020
