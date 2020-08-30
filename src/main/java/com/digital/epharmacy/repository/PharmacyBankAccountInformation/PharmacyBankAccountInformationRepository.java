@@ -7,7 +7,7 @@ package com.digital.epharmacy.repository.PharmacyBankAccountInformation;
  */
 
 import com.digital.epharmacy.entity.Pharmacy.PharmacyBankAccountInformation;
-import com.digital.epharmacy.repository.Repository;
+import com.digital.epharmacy.repository.Pharmacy.Impl.Repository;
 
 import java.util.Set;
 

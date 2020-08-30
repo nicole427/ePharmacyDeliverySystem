@@ -1,4 +1,4 @@
-package com.digital.epharmacy.repository;
+package com.digital.epharmacy.repository.Pharmacy.Impl;
 
 public interface Repository<T , ID> {
     T create(T t);
