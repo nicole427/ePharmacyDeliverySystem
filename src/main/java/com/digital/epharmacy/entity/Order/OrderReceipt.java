@@ -12,8 +12,8 @@ public class OrderReceipt {
     //Entity attributes
     private int orderNumber,itemQuantity;
     private double paymentTotal;
-    private String pharmacyId,userID,itemName, typeOfPayment;
-    private Date date;
+    private String pharmacyId,userID,itemName, typeOfPayment, Date;
+
 
 
 
@@ -21,7 +21,7 @@ public class OrderReceipt {
     private OrderReceipt(Builder builder){
 
         this.orderNumber = builder.orderNumber;
-        this.date = builder.date;
+        this.Date = builder.Date;
         this.pharmacyId = builder.pharmacyId;
         this.userID = builder.userID;
         this.paymentTotal = builder.paymentTotal;
@@ -60,9 +60,7 @@ public class OrderReceipt {
         return typeOfPayment;
     }
 
-    public Date getDate() {
-        return date;
-    }
+    public String getDate() { return Date; }
 
 
 
@@ -78,7 +76,7 @@ public class OrderReceipt {
                 ", userID='" + userID + '\'' +
                 ", itemName='" + itemName + '\'' +
                 ", typeOfPayment='" + typeOfPayment + '\'' +
-                ", date=" + date +
+                ", date=" + Date +
                 '}';
     }
 
@@ -86,8 +84,7 @@ public class OrderReceipt {
     public static class Builder{
         private int orderNumber,itemQuantity;
         private double paymentTotal;
-        private String pharmacyId,userID,itemName, typeOfPayment;
-        private Date date;
+        private String pharmacyId,userID,itemName, typeOfPayment, Date;
 
 
 
@@ -98,9 +95,9 @@ public class OrderReceipt {
             return this;
         }
 
-        public Builder settDate (Date date)
+        public Builder settDate (String Date)
         {
-            this.date = date;
+            this.Date = Date;
             return this;
         }
 
@@ -148,7 +145,7 @@ public class OrderReceipt {
         public Builder copy(OrderReceipt orderReceipt){
 
             this.orderNumber = orderReceipt.orderNumber;
-            this.date = orderReceipt.date;
+            this.Date = orderReceipt.Date;
             this.pharmacyId = orderReceipt.pharmacyId;
             this.userID = orderReceipt.userID;
             this.paymentTotal = orderReceipt.paymentTotal;

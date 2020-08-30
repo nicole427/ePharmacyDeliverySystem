@@ -1,4 +1,4 @@
-package com.digital.epharmacy.repository.Order.OrderHistory.Impl;
+package com.digital.epharmacy.repository.Order.Impl;
 
 
 /** Author: Ayabulela Mahlathini - 218017774
@@ -8,8 +8,11 @@ package com.digital.epharmacy.repository.Order.OrderHistory.Impl;
 
 
 import com.digital.epharmacy.entity.Order.OrderHistory;
+import com.digital.epharmacy.entity.Order.OrderReceipt;
 import com.digital.epharmacy.factory.Order.OrderHistoryFactory;
-import com.digital.epharmacy.repository.Order.OrderHistory.OrderHistoryRepository;
+import com.digital.epharmacy.factory.Order.OrderReceiptFactory;
+import com.digital.epharmacy.repository.Order.OrderHistoryRepository;
+import com.digital.epharmacy.repository.Order.OrderReceiptRepository;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.MethodOrderer;
@@ -28,8 +31,12 @@ public class OrderHistoryRepositoryImplTest {
 
     private static OrderHistoryRepository repository = OrderHistoryRepositoryImpl.getRepository();
 
+
+
     private static OrderHistory orderHistory = OrderHistoryFactory
             .createOrderHistory("User's ID", 25,6500.00);
+
+
 
     @Order(1)
     @Test
@@ -41,6 +48,8 @@ public class OrderHistoryRepositoryImplTest {
 
     }
 
+
+
     @Order(2)
     @Test
     void b_read() {
@@ -48,6 +57,8 @@ public class OrderHistoryRepositoryImplTest {
         OrderHistory readOrderHistory = repository.read(orderHistory.getUserId());
         System.out.println("Read:" + readOrderHistory);
     }
+
+
 
     @Order(3)
     @Test
@@ -63,6 +74,8 @@ public class OrderHistoryRepositoryImplTest {
 
         System.out.println("Updated: " + updatedOrderHistory);
     }
+
+
 
     @Order(4)
     @Test

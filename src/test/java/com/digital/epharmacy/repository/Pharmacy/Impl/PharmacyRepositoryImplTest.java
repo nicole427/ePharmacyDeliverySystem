@@ -1,5 +1,6 @@
 package com.digital.epharmacy.repository.Pharmacy.Impl;
 
+import com.digital.epharmacy.entity.Order.OrderReceipt;
 import com.digital.epharmacy.entity.Pharmacy.Pharmacy;
 import com.digital.epharmacy.factory.Pharmacy.PharmacyFactory;
 import com.digital.epharmacy.repository.Pharmacy.PharmacyRepository;
@@ -41,6 +42,8 @@ public class PharmacyRepositoryImplTest {
         updated = repository.update(updated);
         System.out.println("Updated: " + updated);
     }
+
+
 
     @Order(5)
     @Test

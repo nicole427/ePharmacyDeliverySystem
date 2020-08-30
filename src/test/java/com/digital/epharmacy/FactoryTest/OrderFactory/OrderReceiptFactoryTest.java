@@ -14,8 +14,9 @@ public class OrderReceiptFactoryTest{
     // method for testing
     public void CreateOrderReceipt() {
         Date testDate = new Date();
-        OrderReceipt orderReceipt = OrderReceiptFactory.createOrderReceipt(5,6,3,"Random","Random","Disprin",
-                "Cash",testDate);
+        OrderReceipt orderReceipt = OrderReceiptFactory.createOrderReceipt(5,
+                10,10.55,"Random","Random","Disprin",
+                "Cash","2020-08-30");
         assertEquals(5, orderReceipt.getOrderNumber());
         assertEquals("Random", orderReceipt.getPharmacyId());
         assertEquals("Random", orderReceipt.getUserID());
@@ -23,6 +24,6 @@ public class OrderReceiptFactoryTest{
         assertEquals(10.55, orderReceipt.getPaymentTotal(), 0);
         assertEquals("Disprin", orderReceipt.getItemName());
         assertEquals("Cash", orderReceipt.getTypeOfPayment());
-        assertEquals(testDate, orderReceipt.getDate());
+        assertEquals("2020-08-30", orderReceipt.getDate());
     }
 }
