@@ -1,7 +1,7 @@
 package com.digital.epharmacy.repository.User;
 
 import com.digital.epharmacy.entity.User.UserProfile;
-import com.digital.epharmacy.repository.Repository;
+import com.digital.epharmacy.repository.Pharmacy.Impl.Repository;
 
 import java.util.Set;
 
