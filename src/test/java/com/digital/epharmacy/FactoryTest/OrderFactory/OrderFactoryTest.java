@@ -11,10 +11,10 @@ public class OrderFactoryTest {
     @Test
     public void createOrder() {
 
-        Order order = OrderFactory.createOrder("Random",10.00, 10, "EFT","2020-20-50");
+        Order order = OrderFactory.createOrder("Random",10.00, 10, "EFT");
 
         assertEquals("Random", order.getUserID());
-        assertEquals(50,order.getOrderNumber());
+        assertEquals("Random",order.getOrderNumber());
         assertEquals(10.00,order.getOrderTotal(),0);
         assertEquals(10,order.getTotalCatalogueItems());
         assertEquals("EFT",order.getPaymentType());
