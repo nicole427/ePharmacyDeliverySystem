@@ -9,5 +9,8 @@
         <module name="ePharmacyDeliverySystem" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ePharmacyDeliverySystem" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
