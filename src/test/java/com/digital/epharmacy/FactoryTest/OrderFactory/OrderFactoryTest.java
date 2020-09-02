@@ -11,35 +11,17 @@ public class OrderFactoryTest {
     @Test
     public void createOrder() {
 
-        Order order = OrderFactory.createOrder("Random",10.00, 10, "EFT");
+        Order order = OrderFactory.createOrder("Random",10.00, 10, "delivered","EFT");
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         String orderNumber = order.getOrderNumber();
 
         assertEquals("Random", order.getUserID());
         assertEquals(orderNumber ,order.getOrderNumber());
         assertEquals(10.00,order.getOrderTotal(),0);
         assertEquals(10,order.getTotalCatalogueItems());
+        assertEquals("delivered", order.getOrderStatus());
         assertEquals("EFT",order.getPaymentType());
-        assertEquals("30-8-2020",order.getDate());
-=======
-=======
-        String orderNumber = order.getOrderNumber();
-
->>>>>>> upstream/groupCollaboration
-        assertEquals("Random", order.getUserID());
-        assertEquals(orderNumber ,order.getOrderNumber());
-        assertEquals(10.00,order.getOrderTotal(),0);
-        assertEquals(10,order.getTotalCatalogueItems());
-        assertEquals("EFT",order.getPaymentType());
-<<<<<<< HEAD
-        assertEquals("2020-20-50",order.getDate());
->>>>>>> origin/groupCollaboration
-=======
-        assertEquals("30-8-2020",order.getDate());
->>>>>>> upstream/groupCollaboration
-
+        assertEquals("02-9-2020",order.getDate());
     }
 
 
