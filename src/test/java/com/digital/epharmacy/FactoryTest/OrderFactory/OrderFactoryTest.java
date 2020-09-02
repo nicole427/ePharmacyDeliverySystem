@@ -11,7 +11,7 @@ public class OrderFactoryTest {
     @Test
     public void createOrder() {
 
-        Order order = OrderFactory.createOrder("Random",10.00, 10, "EFT");
+        Order order = OrderFactory.createOrder("Random",10.00, 10, "delivered","EFT");
 
         String orderNumber = order.getOrderNumber();
 
@@ -19,8 +19,9 @@ public class OrderFactoryTest {
         assertEquals(orderNumber ,order.getOrderNumber());
         assertEquals(10.00,order.getOrderTotal(),0);
         assertEquals(10,order.getTotalCatalogueItems());
+        assertEquals("delivered", order.getOrderStatus());
         assertEquals("EFT",order.getPaymentType());
-        assertEquals("30-8-2020",order.getDate());
+        assertEquals("02-9-2020",order.getDate());
     }
 
 
