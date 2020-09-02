@@ -11,8 +11,5 @@ import java.util.Set;
 
 public interface DriverCarRepository extends Repository<DriverCar, String> {
     Set<DriverCar> getAll();
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/groupCollaboration
+
