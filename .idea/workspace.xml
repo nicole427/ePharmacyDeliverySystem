@@ -61,7 +61,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserProfileServiceImplTest.e_delete">
+  <component name="RunManager" selected="JUnit.UserProfileServiceImplTest">
     <configuration name="UserProfileRepositoryImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ePharmacyDeliverySystem" />
       <extension name="coverage">
@@ -142,8 +142,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserProfileServiceImplTest.e_delete" />
         <item itemvalue="JUnit.UserProfileServiceImplTest" />
+        <item itemvalue="JUnit.UserProfileServiceImplTest.e_delete" />
         <item itemvalue="JUnit.UserProfileRepositoryImplTest" />
         <item itemvalue="JUnit.UserProfileRepositoryImplTest.b_read" />
         <item itemvalue="JUnit.UserProfileServiceImplTest.b_read" />
