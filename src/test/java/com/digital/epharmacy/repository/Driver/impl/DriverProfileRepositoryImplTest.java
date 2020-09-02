@@ -3,11 +3,9 @@ package com.digital.epharmacy.repository.Driver.impl;
  * Author: Chad Boswell
  * Date: 30/08/2020
  * Desc: DriverProfileRepository Test
-<<<<<<< HEAD
  */
-=======
-*/
->>>>>>> origin/groupCollaboration
+
+
 import com.digital.epharmacy.entity.Driver.DriverProfile;
 import com.digital.epharmacy.factory.Driver.DriverProfileFactory;
 import com.digital.epharmacy.repository.Driver.DriverProfileRepository;
