@@ -11,11 +11,19 @@ import java.util.Set;
  * Description: UserProfile Repository to create, delete and update a user profile
  */
 public class UserProfileRepositoryImpl implements UserProfileRepository {
+   private static UserProfileRepository repository = null;
     private Set<UserProfile> userProfileDB;
 
     public UserProfileRepositoryImpl() {
         this.userProfileDB = new HashSet<>();
     }
+
+    public static UserProfileRepository getRepository(){
+    if(repository == null)
+        repository = new UserProfileRepositoryImpl();
+    return repository;
+    }
+
 @Override
     public UserProfile create (UserProfile userProfile){
         this.userProfileDB.add(userProfile);

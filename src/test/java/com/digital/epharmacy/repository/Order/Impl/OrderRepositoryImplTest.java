@@ -1,12 +1,5 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 package com.digital.epharmacy.repository.Order.Impl;
-=======
-package com.digital.epharmacy.repository.Order.OrderHistory.Impl;
->>>>>>> origin/groupCollaboration
-=======
-package com.digital.epharmacy.repository.Order.Impl;
->>>>>>> upstream/groupCollaboration
+
 
 /** Author: Ayabulela Mahlathini - 218017774
  * Date: 29/08/2020
@@ -15,15 +8,9 @@ package com.digital.epharmacy.repository.Order.Impl;
 
 import com.digital.epharmacy.entity.Order.Order;
 import com.digital.epharmacy.factory.Order.OrderFactory;
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 import com.digital.epharmacy.repository.Order.OrderRepository;
-=======
-import com.digital.epharmacy.repository.Order.OrderHistory.OrderRepository;
->>>>>>> origin/groupCollaboration
-=======
-import com.digital.epharmacy.repository.Order.OrderRepository;
->>>>>>> upstream/groupCollaboration
+
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.MethodOrderer;
