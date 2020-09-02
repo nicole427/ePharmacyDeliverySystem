@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="977b2f6e-00ce-414c-8f77-d84364fe87d6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/digital/epharmacy/service/IService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/digital/epharmacy/service/User/UserProfileService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/digital/epharmacy/service/User/impl/UserProfileServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/digital/epharmacy/service/User/impl/UserProfileServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/digital/epharmacy/service/MedicalAid/MedicalAidService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/digital/epharmacy/service/MedicalAid/impl/MedicalAidServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/digital/epharmacy/service/MedicalAid/impl/MedicalAidServiceImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/digital/epharmacy/repository/User/impl/UserProfileRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/digital/epharmacy/repository/User/impl/UserProfileRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/Order/Impl/OrderHistoryRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/Order/Impl/OrderHistoryRepositoryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/Order/Impl/OrderRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/Order/Impl/OrderRepositoryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/User/impl/UserProfileRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/User/impl/UserProfileRepositoryImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,9 +21,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JUnit5 Test Class" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="JUnit5 Test Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -32,8 +37,20 @@
       </map>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/test/java/com/digital/epharmacy/repository/Order/Impl/OrderHistoryRepositoryImplTest.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2019.3.3\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="1gwibWEmUDoXNMFcpaegiIfIfqx" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -45,7 +62,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1598819835437" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../Program Files/Git/bin" />
     <property name="project.structure.last.edited" value="Project" />
@@ -55,13 +73,58 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.digital.epharmacy.service.MedicalAid.impl" />
       <recent name="com.digital.epharmacy.service.User.impl" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserProfileServiceImplTest.e_delete">
+  <component name="RunManager" selected="JUnit.MedicalAidServiceImplTest">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MedicalAidServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ePharmacyDeliverySystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.digital.epharmacy.service.MedicalAid.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.digital.epharmacy.service.MedicalAid.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.digital.epharmacy.service.MedicalAid.impl.MedicalAidServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MedicalAidServiceImplTest.c_update" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ePharmacyDeliverySystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.digital.epharmacy.service.MedicalAid.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.digital.epharmacy.service.MedicalAid.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.digital.epharmacy.service.MedicalAid.impl.MedicalAidServiceImplTest" />
+      <option name="METHOD_NAME" value="c_update" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UserProfileRepositoryImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ePharmacyDeliverySystem" />
       <extension name="coverage">
@@ -77,22 +140,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserProfileRepositoryImplTest.b_read" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ePharmacyDeliverySystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.digital.epharmacy.repository.User.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.digital.epharmacy.repository.User.impl" />
-      <option name="MAIN_CLASS_NAME" value="com.digital.epharmacy.repository.User.impl.UserProfileRepositoryImplTest" />
-      <option name="METHOD_NAME" value="b_read" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="UserProfileServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ePharmacyDeliverySystem" />
       <extension name="coverage">
@@ -104,22 +151,6 @@
       <option name="PACKAGE_NAME" value="com.digital.epharmacy.service.User.impl" />
       <option name="MAIN_CLASS_NAME" value="com.digital.epharmacy.service.User.impl.UserProfileServiceImplTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserProfileServiceImplTest.b_read" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ePharmacyDeliverySystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.digital.epharmacy.service.User.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.digital.epharmacy.service.User.impl" />
-      <option name="MAIN_CLASS_NAME" value="com.digital.epharmacy.service.User.impl.UserProfileServiceImplTest" />
-      <option name="METHOD_NAME" value="b_read" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -142,14 +173,15 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MedicalAidServiceImplTest" />
+        <item itemvalue="JUnit.MedicalAidServiceImplTest.c_update" />
         <item itemvalue="JUnit.UserProfileServiceImplTest.e_delete" />
         <item itemvalue="JUnit.UserProfileServiceImplTest" />
         <item itemvalue="JUnit.UserProfileRepositoryImplTest" />
-        <item itemvalue="JUnit.UserProfileRepositoryImplTest.b_read" />
-        <item itemvalue="JUnit.UserProfileServiceImplTest.b_read" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration>C:\Users\Chad Boswell\AppData\Roaming\Subversion</configuration>
   </component>
@@ -165,6 +197,8 @@
       <workItem from="1598820193004" duration="1664000" />
       <workItem from="1598822022837" duration="1697000" />
       <workItem from="1598823926455" duration="297000" />
+      <workItem from="1599055317754" duration="6206000" />
+      <workItem from="1599080203365" duration="1416000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed Errors caused by incorrect merges.">
       <created>1598992582308</created>
@@ -176,11 +210,20 @@
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5345000" />
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="sync" />
@@ -192,10 +235,15 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="163" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1598990090133" />
-    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser" timestamp="1599033835389">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="2172" y="83" key="#com.intellij.ide.util.MemberChooser" timestamp="1599072981191">
+      <screen x="1600" y="0" width="1600" height="860" />
     </state>
     <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1599033835389" />
+    <state x="2172" y="83" key="#com.intellij.ide.util.MemberChooser/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599072981191" />
+    <state x="1904" y="354" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1599072896346">
+      <screen x="1600" y="0" width="1600" height="860" />
+    </state>
+    <state x="1904" y="354" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599072896346" />
     <state x="214" y="0" key="CommitChangelistDialog2" timestamp="1598992575100">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -220,28 +268,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1598992591643" />
-    <state x="430" y="137" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1599035337708">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="2104" y="162" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1599074854758">
+      <screen x="1600" y="0" width="1600" height="860" />
     </state>
     <state x="430" y="137" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1366.728@0.0.1366.728" timestamp="1599035337708" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/java/com/digital/epharmacy/service/User/impl/UserProfileServiceImplTest.java</url>
-          <line>50</line>
-          <properties class="com.digital.epharmacy.service.User.impl.UserProfileServiceImplTest" method="c_update">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/digital/epharmacy/service/User/impl/UserProfileServiceImplTest.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="2104" y="162" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599074854758" />
   </component>
 </project>
