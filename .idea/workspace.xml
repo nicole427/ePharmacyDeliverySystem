@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="977b2f6e-00ce-414c-8f77-d84364fe87d6" name="Default Changelist" comment="Created MedicalAidService, MedicalAidServiceImpl and MedicalAidServiceImplTest">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -193,7 +194,7 @@
       <workItem from="1598822022837" duration="1697000" />
       <workItem from="1598823926455" duration="297000" />
       <workItem from="1599055317754" duration="6206000" />
-      <workItem from="1599080203365" duration="3188000" />
+      <workItem from="1599080203365" duration="3703000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed Errors caused by incorrect merges.">
       <created>1598992582308</created>
@@ -209,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599082023168</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Created MedicalAidService, MedicalAidServiceImpl and MedicalAidServiceImplTest">
+      <created>1599083945412</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1599083945412</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,11 +255,11 @@
       <screen x="1600" y="0" width="1600" height="860" />
     </state>
     <state x="1904" y="354" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599072896346" />
-    <state x="1851" y="0" key="CommitChangelistDialog2" timestamp="1599082198259">
+    <state x="1851" y="0" width="1272" height="826" key="CommitChangelistDialog2" timestamp="1599084342487">
       <screen x="1600" y="0" width="1600" height="860" />
     </state>
     <state x="214" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1598992575100" />
-    <state x="1851" y="0" key="CommitChangelistDialog2/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599082198259" />
+    <state x="1851" y="0" width="1272" height="826" key="CommitChangelistDialog2/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599084342487" />
     <state width="1557" height="222" key="GridCell.Tab.0.bottom" timestamp="1599081894107">
       <screen x="1600" y="0" width="1600" height="860" />
     </state>
@@ -272,11 +280,11 @@
     </state>
     <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1599038313223" />
     <state width="1557" height="222" key="GridCell.Tab.0.right/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599081894106" />
-    <state x="1922" y="113" key="Vcs.Push.Dialog.v2" timestamp="1599082038493">
+    <state x="1922" y="113" key="Vcs.Push.Dialog.v2" timestamp="1599083950214">
       <screen x="1600" y="0" width="1600" height="860" />
     </state>
     <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1598992591643" />
-    <state x="1922" y="113" key="Vcs.Push.Dialog.v2/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599082038493" />
+    <state x="1922" y="113" key="Vcs.Push.Dialog.v2/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599083950214" />
     <state x="2104" y="162" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1599074854758">
       <screen x="1600" y="0" width="1600" height="860" />
     </state>
