@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="977b2f6e-00ce-414c-8f77-d84364fe87d6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/digital/epharmacy/service/MedicalAid/MedicalAidService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/digital/epharmacy/service/MedicalAid/impl/MedicalAidServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/digital/epharmacy/service/MedicalAid/impl/MedicalAidServiceImplTest.java" afterDir="false" />
+    <list default="true" id="977b2f6e-00ce-414c-8f77-d84364fe87d6" name="Default Changelist" comment="Created MedicalAidService, MedicalAidServiceImpl and MedicalAidServiceImplTest">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/Order/Impl/OrderHistoryRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/Order/Impl/OrderHistoryRepositoryImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/Order/Impl/OrderRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/Order/Impl/OrderRepositoryImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/User/impl/UserProfileRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/User/impl/UserProfileRepositoryImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +32,7 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/test/java/com/digital/epharmacy/service/MedicalAid/impl/MedicalAidServiceImplTest.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/test/java/com/digital/epharmacy/repository/Order/Impl/OrderHistoryRepositoryImplTest.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MavenImportPreferences">
@@ -198,7 +193,7 @@
       <workItem from="1598822022837" duration="1697000" />
       <workItem from="1598823926455" duration="297000" />
       <workItem from="1599055317754" duration="6206000" />
-      <workItem from="1599080203365" duration="1416000" />
+      <workItem from="1599080203365" duration="3188000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed Errors caused by incorrect merges.">
       <created>1598992582308</created>
@@ -207,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598992582308</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Created MedicalAidService, MedicalAidServiceImpl and MedicalAidServiceImplTest">
+      <created>1599082023168</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1599082023168</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,7 +230,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="sync" />
     <MESSAGE value="Fixed Errors caused by incorrect merges." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Errors caused by incorrect merges." />
+    <MESSAGE value="Created MedicalAidService, MedicalAidServiceImpl and MedicalAidServiceImplTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created MedicalAidService, MedicalAidServiceImpl and MedicalAidServiceImplTest" />
   </component>
   <component name="WindowStateProjectService">
     <state x="163" y="0" key="#Project_Structure" timestamp="1598990090133">
@@ -244,30 +247,36 @@
       <screen x="1600" y="0" width="1600" height="860" />
     </state>
     <state x="1904" y="354" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599072896346" />
-    <state x="214" y="0" key="CommitChangelistDialog2" timestamp="1598992575100">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="1851" y="0" key="CommitChangelistDialog2" timestamp="1599082198259">
+      <screen x="1600" y="0" width="1600" height="860" />
     </state>
     <state x="214" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1598992575100" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1599038313223">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="1851" y="0" key="CommitChangelistDialog2/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599082198259" />
+    <state width="1557" height="222" key="GridCell.Tab.0.bottom" timestamp="1599081894107">
+      <screen x="1600" y="0" width="1600" height="860" />
     </state>
     <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1599038313223" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1599038313223">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1557" height="222" key="GridCell.Tab.0.bottom/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599081894107" />
+    <state width="1557" height="222" key="GridCell.Tab.0.center" timestamp="1599081894106">
+      <screen x="1600" y="0" width="1600" height="860" />
     </state>
     <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1599038313223" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1599038313223">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1557" height="222" key="GridCell.Tab.0.center/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599081894106" />
+    <state width="1557" height="222" key="GridCell.Tab.0.left" timestamp="1599081894106">
+      <screen x="1600" y="0" width="1600" height="860" />
     </state>
     <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1599038313223" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1599038313223">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1557" height="222" key="GridCell.Tab.0.left/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599081894106" />
+    <state width="1557" height="222" key="GridCell.Tab.0.right" timestamp="1599081894106">
+      <screen x="1600" y="0" width="1600" height="860" />
     </state>
     <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1599038313223" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1598992591643">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1557" height="222" key="GridCell.Tab.0.right/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599081894106" />
+    <state x="1922" y="113" key="Vcs.Push.Dialog.v2" timestamp="1599082038493">
+      <screen x="1600" y="0" width="1600" height="860" />
     </state>
     <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1598992591643" />
+    <state x="1922" y="113" key="Vcs.Push.Dialog.v2/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599082038493" />
     <state x="2104" y="162" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1599074854758">
       <screen x="1600" y="0" width="1600" height="860" />
     </state>
