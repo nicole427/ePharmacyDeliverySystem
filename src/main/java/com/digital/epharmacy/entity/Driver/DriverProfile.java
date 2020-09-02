@@ -1,11 +1,8 @@
 package com.digital.epharmacy.entity.Driver;
 /*
     Author: Chad Boswell
-<<<<<<< HEAD
     Desc: DriverProfile entity composed DriverProfile and DriverCar that stores details of the Driver and car
-=======
     Desc: Driver entity composed Driver and DriverCar that stores details of the Driver and car
->>>>>>> origin/groupCollaboration
     Date: 4 July 2020
  */
 public class DriverProfile {
@@ -20,11 +17,10 @@ public class DriverProfile {
         this.driverSurname = builder.driverSurname;
         this.driverLocation = builder.driverLocation;
     }
-<<<<<<< HEAD
+
     // getters for all attributes of entity DriverProfile
-=======
     // getters for all attributes of entity Driver
->>>>>>> origin/groupCollaboration
+
     public String getDriverId() {
         return driverId;
     }
@@ -43,11 +39,8 @@ public class DriverProfile {
     // to string to display what is in the class
     @Override
     public String toString() {
-<<<<<<< HEAD
+
         return "DriverProfile{" +
-=======
-        return "Driver{" +
->>>>>>> origin/groupCollaboration
                 "driverId=" + driverId +
                 ", driverName='" + driverName + '\'' +
                 ", driverSurname='" + driverSurname + '\'' +
