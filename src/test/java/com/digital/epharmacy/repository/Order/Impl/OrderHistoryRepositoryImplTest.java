@@ -1,5 +1,6 @@
 package com.digital.epharmacy.repository.Order.Impl;
 
+
 /** Author: Ayabulela Mahlathini - 218017774
  * Date: 29/08/2020
  * Description: Testing the implementation of the OrderHistory Respository
@@ -9,7 +10,6 @@ package com.digital.epharmacy.repository.Order.Impl;
 import com.digital.epharmacy.entity.Order.OrderHistory;
 import com.digital.epharmacy.factory.Order.OrderHistoryFactory;
 
-import com.digital.epharmacy.repository.Order.Impl.OrderHistoryRepositoryImpl;
 import com.digital.epharmacy.repository.Order.OrderHistoryRepository;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;

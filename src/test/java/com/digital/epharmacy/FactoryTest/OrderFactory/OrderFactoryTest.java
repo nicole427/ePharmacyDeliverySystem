@@ -21,8 +21,6 @@ public class OrderFactoryTest {
         assertEquals(10,order.getTotalCatalogueItems());
         assertEquals("EFT",order.getPaymentType());
         assertEquals("30-8-2020",order.getDate());
-
-
     }
 
 
