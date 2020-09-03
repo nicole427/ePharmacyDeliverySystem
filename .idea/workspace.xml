@@ -4,36 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="977b2f6e-00ce-414c-8f77-d84364fe87d6" name="Default Changelist" comment="Created MedicalAidService, MedicalAidServiceImpl and MedicalAidServiceImplTest">
+    <list default="true" id="17ab36e6-5b3c-47a8-b767-8c1bbc29d952" name="Default Changelist" comment="Excluding .idea folder and iml file">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_112.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_02.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_32.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_6_22.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_6_22.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_02.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ePharmacyDeliverySystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ePharmacyDeliverySystem.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JUnit5 Test Class" />
-        <option value="Interface" />
-        <option value="Class" />
-        <option value="JUnit4 Test Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/test/java/com/digital/epharmacy/service/MedicalAid/impl/MedicalAidServiceImplTest.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/test/java/com/digital/epharmacy/repository/Order/Impl/OrderHistoryRepositoryImplTest.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -42,245 +29,69 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="1gwibWEmUDoXNMFcpaegiIfIfqx" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="1gyVCbxgtDZHZ1x5PuSU4KQnErV" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1598819835437" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../Program Files/Git/bin" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="com.digital.epharmacy.service.MedicalAid.impl" />
-      <recent name="com.digital.epharmacy.service.User.impl" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-  </component>
-  <component name="RunManager" selected="JUnit.MedicalAidServiceImplTest">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MedicalAidServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ePharmacyDeliverySystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.digital.epharmacy.service.MedicalAid.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.digital.epharmacy.service.MedicalAid.impl" />
-      <option name="MAIN_CLASS_NAME" value="com.digital.epharmacy.service.MedicalAid.impl.MedicalAidServiceImplTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MedicalAidServiceImplTest.c_update" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ePharmacyDeliverySystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.digital.epharmacy.service.MedicalAid.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.digital.epharmacy.service.MedicalAid.impl" />
-      <option name="MAIN_CLASS_NAME" value="com.digital.epharmacy.service.MedicalAid.impl.MedicalAidServiceImplTest" />
-      <option name="METHOD_NAME" value="c_update" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserProfileRepositoryImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ePharmacyDeliverySystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.digital.epharmacy.repository.User.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.digital.epharmacy.repository.User.impl" />
-      <option name="MAIN_CLASS_NAME" value="com.digital.epharmacy.repository.User.impl.UserProfileRepositoryImplTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserProfileServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ePharmacyDeliverySystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.digital.epharmacy.service.User.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.digital.epharmacy.service.User.impl" />
-      <option name="MAIN_CLASS_NAME" value="com.digital.epharmacy.service.User.impl.UserProfileServiceImplTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserProfileServiceImplTest.e_delete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ePharmacyDeliverySystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.digital.epharmacy.service.User.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.digital.epharmacy.service.User.impl" />
-      <option name="MAIN_CLASS_NAME" value="com.digital.epharmacy.service.User.impl.UserProfileServiceImplTest" />
-      <option name="METHOD_NAME" value="e_delete" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.MedicalAidServiceImplTest" />
-        <item itemvalue="JUnit.MedicalAidServiceImplTest.c_update" />
-        <item itemvalue="JUnit.UserProfileServiceImplTest.e_delete" />
-        <item itemvalue="JUnit.UserProfileServiceImplTest" />
-        <item itemvalue="JUnit.UserProfileRepositoryImplTest" />
-      </list>
-    </recent_temporary>
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.ignored.files" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="SvnConfiguration">
-    <configuration>C:\Users\Chad Boswell\AppData\Roaming\Subversion</configuration>
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="977b2f6e-00ce-414c-8f77-d84364fe87d6" name="Default Changelist" comment="" />
-      <created>1598818049251</created>
+      <changelist id="17ab36e6-5b3c-47a8-b767-8c1bbc29d952" name="Default Changelist" comment="" />
+      <created>1599086697944</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1598818049251</updated>
-      <workItem from="1598818074419" duration="57000" />
-      <workItem from="1598818362823" duration="1630000" />
-      <workItem from="1598820193004" duration="1664000" />
-      <workItem from="1598822022837" duration="1697000" />
-      <workItem from="1598823926455" duration="297000" />
-      <workItem from="1599055317754" duration="6206000" />
-      <workItem from="1599080203365" duration="3188000" />
+      <updated>1599086697944</updated>
+      <workItem from="1599086701280" duration="666000" />
+      <workItem from="1599124434034" duration="804000" />
     </task>
-    <task id="LOCAL-00001" summary="Fixed Errors caused by incorrect merges.">
-      <created>1598992582308</created>
+    <task id="LOCAL-00001" summary="Excluding .idea folder and iml file">
+      <created>1599087110764</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1598992582308</updated>
+      <updated>1599087110764</updated>
     </task>
-    <task id="LOCAL-00002" summary="Created MedicalAidService, MedicalAidServiceImpl and MedicalAidServiceImplTest">
-      <created>1599082023168</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1599082023168</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="sync" />
-    <MESSAGE value="Fixed Errors caused by incorrect merges." />
-    <MESSAGE value="Created MedicalAidService, MedicalAidServiceImpl and MedicalAidServiceImplTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created MedicalAidService, MedicalAidServiceImpl and MedicalAidServiceImplTest" />
+    <MESSAGE value="Excluding .idea folder and iml file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Excluding .idea folder and iml file" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="163" y="0" key="#Project_Structure" timestamp="1598990090133">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="163" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1598990090133" />
-    <state x="2172" y="83" key="#com.intellij.ide.util.MemberChooser" timestamp="1599072981191">
+    <state x="2152" y="254" key="#Notifications" timestamp="1599086807556">
       <screen x="1600" y="0" width="1600" height="860" />
     </state>
-    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1599033835389" />
-    <state x="2172" y="83" key="#com.intellij.ide.util.MemberChooser/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599072981191" />
-    <state x="1904" y="354" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1599072896346">
+    <state x="2152" y="254" key="#Notifications/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599086807556" />
+    <state x="293" y="17" key="CommitChangelistDialog2" timestamp="1599125061166">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="293" y="17" key="CommitChangelistDialog2/0.0.1600.860/1600.0.1600.860@0.0.1600.860" timestamp="1599125061166" />
+    <state x="1893" y="17" key="CommitChangelistDialog2/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599087109872" />
+    <state x="1901" y="75" key="SettingsEditor" timestamp="1599087351975">
       <screen x="1600" y="0" width="1600" height="860" />
     </state>
-    <state x="1904" y="354" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599072896346" />
-    <state x="1851" y="0" key="CommitChangelistDialog2" timestamp="1599082198259">
+    <state x="1901" y="75" key="SettingsEditor/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599087351975" />
+    <state x="1992" y="163" key="Vcs.Push.Dialog.v2" timestamp="1599086972352">
       <screen x="1600" y="0" width="1600" height="860" />
     </state>
-    <state x="214" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1598992575100" />
-    <state x="1851" y="0" key="CommitChangelistDialog2/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599082198259" />
-    <state width="1557" height="222" key="GridCell.Tab.0.bottom" timestamp="1599081894107">
+    <state x="1992" y="163" key="Vcs.Push.Dialog.v2/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599086972352" />
+    <state x="2217" y="344" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599086982791">
       <screen x="1600" y="0" width="1600" height="860" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1599038313223" />
-    <state width="1557" height="222" key="GridCell.Tab.0.bottom/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599081894107" />
-    <state width="1557" height="222" key="GridCell.Tab.0.center" timestamp="1599081894106">
-      <screen x="1600" y="0" width="1600" height="860" />
-    </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1599038313223" />
-    <state width="1557" height="222" key="GridCell.Tab.0.center/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599081894106" />
-    <state width="1557" height="222" key="GridCell.Tab.0.left" timestamp="1599081894106">
-      <screen x="1600" y="0" width="1600" height="860" />
-    </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1599038313223" />
-    <state width="1557" height="222" key="GridCell.Tab.0.left/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599081894106" />
-    <state width="1557" height="222" key="GridCell.Tab.0.right" timestamp="1599081894106">
-      <screen x="1600" y="0" width="1600" height="860" />
-    </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1599038313223" />
-    <state width="1557" height="222" key="GridCell.Tab.0.right/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599081894106" />
-    <state x="1922" y="113" key="Vcs.Push.Dialog.v2" timestamp="1599082038493">
-      <screen x="1600" y="0" width="1600" height="860" />
-    </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1598992591643" />
-    <state x="1922" y="113" key="Vcs.Push.Dialog.v2/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599082038493" />
-    <state x="2104" y="162" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1599074854758">
-      <screen x="1600" y="0" width="1600" height="860" />
-    </state>
-    <state x="430" y="137" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1366.728@0.0.1366.728" timestamp="1599035337708" />
-    <state x="2104" y="162" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599074854758" />
+    <state x="2217" y="344" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1600.860/1600.0.1600.860@1600.0.1600.860" timestamp="1599086982791" />
   </component>
 </project>
