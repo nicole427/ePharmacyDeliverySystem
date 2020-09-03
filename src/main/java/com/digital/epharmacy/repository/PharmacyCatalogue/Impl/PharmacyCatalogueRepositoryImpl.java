@@ -1,6 +1,10 @@
 /*
  * Author: Matsobane Nelson Mpyana
+<<<<<<< HEAD
+ * Desc: PharmacyCatalogueRepository impl
+=======
  * Desc: PharmacyCatalogueRepository Impl
+>>>>>>> upstream/groupCollaboration
  * Date: 29 August 2020
  */
 package com.digital.epharmacy.repository.PharmacyCatalogue.Impl;

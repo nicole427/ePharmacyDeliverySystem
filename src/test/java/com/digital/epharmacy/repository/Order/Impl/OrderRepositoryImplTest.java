@@ -1,5 +1,6 @@
 package com.digital.epharmacy.repository.Order.Impl;
 
+
 /** Author: Ayabulela Mahlathini - 218017774
  * Date: 29/08/2020
  * Description: Testing the implementation of the Order Respository
@@ -7,7 +8,9 @@ package com.digital.epharmacy.repository.Order.Impl;
 
 import com.digital.epharmacy.entity.Order.Order;
 import com.digital.epharmacy.factory.Order.OrderFactory;
+
 import com.digital.epharmacy.repository.Order.OrderRepository;
+
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.MethodOrderer;
@@ -26,7 +29,7 @@ public class OrderRepositoryImplTest {
     private static OrderRepository repository = OrderRepositoryImpl.getRepository();
 
     private static Order order = OrderFactory
-            .createOrder("user's id", 105.99, 2, "yoco");
+            .createOrder("user's id", 105.99, 2, "delivered", "yoco");
 
     @org.junit.jupiter.api.Order(1)
     @Test
