@@ -20,11 +20,11 @@ public class DriverProfile {
         this.driverSurname = builder.driverSurname;
         this.driverLocation = builder.driverLocation;
     }
-<<<<<<< HEAD
+// HEAD
     // getters for all attributes of entity DriverProfile
-=======
+
     // getters for all attributes of entity Driver
->>>>>>> origin/groupCollaboration
+// origin/groupCollaboration
     public String getDriverId() {
         return driverId;
     }
@@ -43,11 +43,9 @@ public class DriverProfile {
     // to string to display what is in the class
     @Override
     public String toString() {
-<<<<<<< HEAD
+       // return "DriverProfile{" +
+
         return "DriverProfile{" +
-=======
-        return "Driver{" +
->>>>>>> origin/groupCollaboration
                 "driverId=" + driverId +
                 ", driverName='" + driverName + '\'' +
                 ", driverSurname='" + driverSurname + '\'' +
