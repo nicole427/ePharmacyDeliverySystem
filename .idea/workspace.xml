@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:upstream" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="977b2f6e-00ce-414c-8f77-d84364fe87d6" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/src/main/java/com/digital/epharmacy/service/IService.java" afterDir="false" />
@@ -24,16 +47,17 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="UPDATE_TYPE" value="MERGE" />
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1gwibWEmUDoXNMFcpaegiIfIfqx" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -61,7 +85,23 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserProfileServiceImplTest.e_delete">
+  <component name="RunManager" selected="JUnit.OrderFactoryTest.createOrder">
+    <configuration name="OrderFactoryTest.createOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ePharmacyDeliverySystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.digital.epharmacy.FactoryTest.OrderFactory.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.digital.epharmacy.FactoryTest.OrderFactory" />
+      <option name="MAIN_CLASS_NAME" value="com.digital.epharmacy.FactoryTest.OrderFactory.OrderFactoryTest" />
+      <option name="METHOD_NAME" value="createOrder" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UserProfileRepositoryImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ePharmacyDeliverySystem" />
       <extension name="coverage">
@@ -108,22 +148,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserProfileServiceImplTest.b_read" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ePharmacyDeliverySystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.digital.epharmacy.service.User.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.digital.epharmacy.service.User.impl" />
-      <option name="MAIN_CLASS_NAME" value="com.digital.epharmacy.service.User.impl.UserProfileServiceImplTest" />
-      <option name="METHOD_NAME" value="b_read" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="UserProfileServiceImplTest.e_delete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ePharmacyDeliverySystem" />
       <extension name="coverage">
@@ -142,14 +166,15 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserProfileServiceImplTest.e_delete" />
+        <item itemvalue="JUnit.OrderFactoryTest.createOrder" />
         <item itemvalue="JUnit.UserProfileServiceImplTest" />
+        <item itemvalue="JUnit.UserProfileServiceImplTest.e_delete" />
         <item itemvalue="JUnit.UserProfileRepositoryImplTest" />
         <item itemvalue="JUnit.UserProfileRepositoryImplTest.b_read" />
-        <item itemvalue="JUnit.UserProfileServiceImplTest.b_read" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration>C:\Users\Chad Boswell\AppData\Roaming\Subversion</configuration>
   </component>
@@ -182,6 +207,18 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="sync" />
     <MESSAGE value="Fixed Errors caused by incorrect merges." />
@@ -192,30 +229,35 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="163" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1598990090133" />
-    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser" timestamp="1599033835389">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="488" y="98" width="374" height="599" key="#com.intellij.ide.util.MemberChooser" timestamp="1599074371603">
+      <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1599033835389" />
+    <state x="488" y="98" width="374" height="599" key="#com.intellij.ide.util.MemberChooser/0.27.1366.741@0.27.1366.741" timestamp="1599074371603" />
     <state x="214" y="0" key="CommitChangelistDialog2" timestamp="1598992575100">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="214" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1598992575100" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1599038313223">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1320" height="172" key="GridCell.Tab.0.bottom" timestamp="1599072025024">
+      <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1599038313223" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1599038313223">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1320" height="172" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1599072025024" />
+    <state width="1320" height="172" key="GridCell.Tab.0.center" timestamp="1599072025018">
+      <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1599038313223" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1599038313223">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1320" height="172" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1599072025018" />
+    <state width="1320" height="172" key="GridCell.Tab.0.left" timestamp="1599072025017">
+      <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1599038313223" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1599038313223">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1320" height="172" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1599072025017" />
+    <state width="1320" height="172" key="GridCell.Tab.0.right" timestamp="1599072025023">
+      <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1599038313223" />
+    <state width="1320" height="172" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1599072025023" />
     <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1598992591643">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

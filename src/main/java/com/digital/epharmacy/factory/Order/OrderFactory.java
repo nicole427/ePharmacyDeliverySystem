@@ -6,7 +6,7 @@ import com.digital.epharmacy.util.GenericHelper;
 
 public class OrderFactory {
 
-    public static Order createOrder(String userID,   double orderTotal, int totalCatalogueItem, String paymentType){
+    public static Order createOrder(String userID,   double orderTotal, int totalCatalogueItem, String orderStatus, String paymentType){
 
         //generating order number
        String orderNumber = GenericHelper.generateId();
@@ -20,6 +20,7 @@ public class OrderFactory {
                 .setOrderTotal(orderTotal)
                 .setTotalCatalogueItems(totalCatalogueItem)
                 .setPaymentType(paymentType)
+                .setOrderStatus(orderStatus)
                 .setDate(date)
                 .build();
         return order;

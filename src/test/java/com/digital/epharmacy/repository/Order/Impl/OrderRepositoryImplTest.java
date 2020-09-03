@@ -29,7 +29,7 @@ public class OrderRepositoryImplTest {
     private static OrderRepository repository = OrderRepositoryImpl.getRepository();
 
     private static Order order = OrderFactory
-            .createOrder("user's id", 105.99, 2, "yoco");
+            .createOrder("user's id", 105.99, 2, "delivered", "yoco");
 
     @org.junit.jupiter.api.Order(1)
     @Test
