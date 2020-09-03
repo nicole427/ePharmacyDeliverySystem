@@ -21,6 +21,7 @@ import org.junit.runners.MethodSorters;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -29,7 +30,7 @@ public class OrderRepositoryImplTest {
     private static OrderRepository repository = OrderRepositoryImpl.getRepository();
 
     private static Order order = OrderFactory
-            .createOrder("user's id", 105.99, 2, "delivered", "yoco");
+            .createOrder("user's id", 105.99, 2, "yoco");
 
     @org.junit.jupiter.api.Order(1)
     @Test
@@ -46,6 +47,7 @@ public class OrderRepositoryImplTest {
     void b_read() {
 
         Order readOrder = repository.read(order.getOrderNumber());
+        assertEquals(order.getOrderNumber(), readOrder.getOrderNumber());
         System.out.println("Read:" + readOrder);
     }
 
@@ -59,8 +61,8 @@ public class OrderRepositoryImplTest {
                 .setPaymentType("paypal")
                 .build();
 
-        updatedOrder = repository.update(updatedOrder);
-
+        repository.update(updatedOrder);
+        assertNotEquals(order.getPaymentType(), updatedOrder.getPaymentType());
         System.out.println("Updated: " + updatedOrder);
     }
 

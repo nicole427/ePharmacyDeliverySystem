@@ -11,7 +11,7 @@ public class OrderFactoryTest {
     @Test
     public void createOrder() {
 
-        Order order = OrderFactory.createOrder("Random",10.00, 10, "delivered","EFT");
+        Order order = OrderFactory.createOrder("Random",10.00, 10, "EFT");
 
         String orderNumber = order.getOrderNumber();
 
