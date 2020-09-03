@@ -14,7 +14,7 @@ import java.util.Set;
  */
 public class MedicalAidServiceImpl implements MedicalAidService {
 
-    public static  MedicalAidService service = null;
+    public static MedicalAidService service = null;
     private MedicalAidRepository repository;
 
     // Constructor
