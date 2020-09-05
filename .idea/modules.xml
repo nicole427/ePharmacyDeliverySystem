@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/ePharmacyDeliverySystem.iml" filepath="$PROJECT_DIR$/.idea/ePharmacyDeliverySystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ePharmacyDeliverySystemTest.iml" filepath="$PROJECT_DIR$/.idea/ePharmacyDeliverySystemTest.iml" />
     </modules>
   </component>
 </project>
