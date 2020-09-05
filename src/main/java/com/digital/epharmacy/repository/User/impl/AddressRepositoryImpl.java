@@ -3,6 +3,7 @@ package com.digital.epharmacy.repository.User.impl;
 import com.digital.epharmacy.entity.User.Address;
 import com.digital.epharmacy.entity.User.UserProfile;
 import com.digital.epharmacy.repository.User.AddressRepository;
+import com.digital.epharmacy.repository.User.ContactInformationRepository;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -18,7 +19,14 @@ import java.util.Set;
 public class AddressRepositoryImpl implements AddressRepository {
     private Set<Address> AddressDB;
 
+    private static AddressRepository repository = null;
     public AddressRepositoryImpl() {this.AddressDB = new HashSet<>(); }
+
+    public static AddressRepository getRepository() {
+
+        if(repository == null) repository = new AddressRepositoryImpl();
+        return  repository;
+    }
 
     @Override
     public Address create (Address address){
