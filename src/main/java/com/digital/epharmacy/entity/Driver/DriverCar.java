@@ -1,7 +1,11 @@
 package com.digital.epharmacy.entity.Driver;
 /*
     Author: Chad
+<<<<<<< HEAD
+    Desc: DriverCar stores driverId using composition with DriverProfile
+=======
     Desc: DriverCar stores driverId using composition with Driver
+>>>>>>> origin/groupCollaboration
     Date: 4 July 2020
  */
 public class DriverCar {

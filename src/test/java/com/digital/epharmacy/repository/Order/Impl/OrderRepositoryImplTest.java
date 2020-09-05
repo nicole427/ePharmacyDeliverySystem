@@ -1,4 +1,5 @@
-package com.digital.epharmacy.repository.Order.OrderHistory.Impl;
+package com.digital.epharmacy.repository.Order.Impl;
+
 
 /** Author: Ayabulela Mahlathini - 218017774
  * Date: 29/08/2020
@@ -7,7 +8,9 @@ package com.digital.epharmacy.repository.Order.OrderHistory.Impl;
 
 import com.digital.epharmacy.entity.Order.Order;
 import com.digital.epharmacy.factory.Order.OrderFactory;
-import com.digital.epharmacy.repository.Order.OrderHistory.OrderRepository;
+
+import com.digital.epharmacy.repository.Order.OrderRepository;
+
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.MethodOrderer;
@@ -18,6 +21,7 @@ import org.junit.runners.MethodSorters;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -43,6 +47,7 @@ public class OrderRepositoryImplTest {
     void b_read() {
 
         Order readOrder = repository.read(order.getOrderNumber());
+        assertEquals(order.getOrderNumber(), readOrder.getOrderNumber());
         System.out.println("Read:" + readOrder);
     }
 
@@ -56,8 +61,8 @@ public class OrderRepositoryImplTest {
                 .setPaymentType("paypal")
                 .build();
 
-        updatedOrder = repository.update(updatedOrder);
-
+        repository.update(updatedOrder);
+        assertNotEquals(order.getPaymentType(), updatedOrder.getPaymentType());
         System.out.println("Updated: " + updatedOrder);
     }
 

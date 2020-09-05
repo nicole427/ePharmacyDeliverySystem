@@ -14,7 +14,7 @@ public class Order {
     private int totalCatalogueItems;
     private String  userID, orderNumber; // (Ayabulela Mahlathini) changed order number to string so that it is auto generated in the factory
     private double orderTotal;
-    private String paymentType;
+    private String paymentType, orderStatus; //(Ayabulela Mahlathini)added orderStatus
     private String date;
 
     //Builder class constructor
@@ -25,6 +25,7 @@ public class Order {
         this.totalCatalogueItems = builder.totalCatalogueItems;
         this.orderTotal = builder.orderTotal;
         this.paymentType = builder.paymentType;
+        this.orderStatus = builder.orderStatus;
         this.date = builder.date;
     }
     //Getters for all attributes.
@@ -48,6 +49,10 @@ public class Order {
         return paymentType;
     }
 
+    public String getOrderStatus() {
+        return orderStatus;
+    }
+
     public Object getDate() {
         return date;
     }
@@ -61,6 +66,7 @@ public class Order {
                 ", totalCatalogueItems=" + totalCatalogueItems +
                 ", orderTotal=" + orderTotal +
                 ", paymentType='" + paymentType + '\'' +
+                ", orderStatus=" + orderStatus +
                 ", date=" + date +
                 '}';
     }
@@ -73,7 +79,7 @@ public class Order {
         private String orderNumber;
         private int totalCatalogueItems;
         private double orderTotal;
-        private String paymentType;
+        private String paymentType, orderStatus;
         private String date;
 
         // setting userID value using builder pattern
@@ -105,15 +111,22 @@ public class Order {
            return this;
        }
 
-       //setting paymentDate value using builder pattern
-       public Builder setPaymentType(String paymentType){
+        //setting paymentDate value using builder pattern
+        public Builder setPaymentType(String paymentType){
 
-           this.paymentType = paymentType;
-           return this;
-       }
+            this.paymentType = paymentType;
+            return this;
+        }
+
+        //setting orderStatus value using builder pattern
+        public Builder setOrderStatus(String orderStatus){
+
+            this.orderStatus = orderStatus;
+            return this;
+        }
 
        //setting date value using builder pattern
-       public Builder setDate(String date){
+        public Builder setDate(String date){
 
            this.date = date;
            return this;
@@ -127,6 +140,7 @@ public class Order {
            this.totalCatalogueItems = order.totalCatalogueItems;
            this.orderTotal = order.orderTotal;
            this.paymentType = order.paymentType;
+           this.orderStatus = order.orderStatus;
            this.date = order.date;
 
            return this;

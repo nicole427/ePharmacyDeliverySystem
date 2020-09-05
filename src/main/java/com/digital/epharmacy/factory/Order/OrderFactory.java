@@ -14,12 +14,16 @@ public class OrderFactory {
        //getting the date
         String date = GenericHelper.paymentDate();
 
+        //default for the orderStatus
+        String orderStatus = "Processing";
+
        Order order = new Order.Builder()
                 .setUserID(userID)
                 .setOrderNumber(orderNumber)
                 .setOrderTotal(orderTotal)
                 .setTotalCatalogueItems(totalCatalogueItem)
                 .setPaymentType(paymentType)
+                .setOrderStatus(orderStatus)
                 .setDate(date)
                 .build();
         return order;

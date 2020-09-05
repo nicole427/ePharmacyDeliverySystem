@@ -1,4 +1,4 @@
-package com.digital.epharmacy.repository.Order.OrderHistory.Impl;
+package com.digital.epharmacy.repository.Order.Impl;
 
 
 /** Author: Ayabulela Mahlathini - 218017774
@@ -9,7 +9,8 @@ package com.digital.epharmacy.repository.Order.OrderHistory.Impl;
 
 import com.digital.epharmacy.entity.Order.OrderHistory;
 import com.digital.epharmacy.factory.Order.OrderHistoryFactory;
-import com.digital.epharmacy.repository.Order.OrderHistory.OrderHistoryRepository;
+
+import com.digital.epharmacy.repository.Order.OrderHistoryRepository;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.MethodOrderer;
@@ -46,6 +47,7 @@ public class OrderHistoryRepositoryImplTest {
     void b_read() {
 
         OrderHistory readOrderHistory = repository.read(orderHistory.getUserId());
+        assertEquals(25, readOrderHistory.getTotalNumberOfOrders());
         System.out.println("Read:" + readOrderHistory);
     }
 
