@@ -25,138 +25,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="977b2f6e-00ce-414c-8f77-d84364fe87d6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Catalogue/CatalogueItem$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Catalogue/CatalogueItem$Builder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Catalogue/CatalogueItem.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Catalogue/PharmacyCatalogue$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Catalogue/PharmacyCatalogue$Builder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Catalogue/PharmacyCatalogue.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Catalogue/PrescriptionItem$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Catalogue/PrescriptionItem$Builder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Catalogue/PrescriptionItem.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Driver/DriverCar$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Driver/DriverCar$Builder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Driver/DriverCar.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Driver/DriverProfile$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Driver/DriverProfile$Builder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Driver/DriverProfile.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Order/Order$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Order/Order$Builder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Order/Order.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Order/OrderHistory$Builder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Order/OrderHistory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Order/OrderReceipt$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Order/OrderReceipt$Builder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Order/OrderReceipt.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Payment/Payment$Builder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Payment/Payment.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Pharmacy/Pharmacy$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Pharmacy/Pharmacy$Builder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Pharmacy/Pharmacy.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Pharmacy/PharmacyBankAccountInformation$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Pharmacy/PharmacyBankAccountInformation$Builder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/Pharmacy/PharmacyBankAccountInformation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/User/Address$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/User/Address$Builder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/User/Address.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/User/ContactInformation$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/User/ContactInformation$Builder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/User/ContactInformation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/User/MedicalAid$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/User/MedicalAid$Builder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/User/MedicalAid.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/User/UserProfile$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/User/UserProfile$Builder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/entity/User/UserProfile.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/factory/Catalogue/CatalogueItemFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/factory/Catalogue/PharmacyCatalogueFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/factory/Catalogue/PrescriptionItemFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/factory/Driver/DriverCarFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/factory/Driver/DriverProfileFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/factory/Order/OrderFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/factory/Order/OrderHistoryFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/factory/Order/OrderReceiptFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/factory/Payment/PaymentFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/factory/Pharmacy/PharmacyBankAccountInformationFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/factory/Pharmacy/PharmacyFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/factory/User/AddressFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/factory/User/ContactInformationFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/factory/User/MedicalAidFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/factory/User/UserProfileFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/CatalogueItem/CatalogueItemRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/CatalogueItem/Impl/CatalogueItemRepositoryImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/Driver/DriverCarRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/Driver/DriverProfileRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/Driver/impl/DriverCarRepositoryImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/Driver/impl/DriverProfileRepositoryImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/MedicalAid/MedicalAidRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/MedicalAid/impl/MedicalAidRepositoryImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/Order/Impl/OrderHistoryRepositoryImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/Order/Impl/OrderReceiptRepositoryImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/Order/Impl/OrderRepositoryImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/Order/OrderHistoryRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/Order/OrderReceiptRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/Order/OrderRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/Payment/PaymentRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/Payment/impl/PaymentRepositoryImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/Pharmacy/Impl/PharmacyRepositoryImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/Pharmacy/PharmacyRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/PharmacyBankAccountInformation/Impl/PharmacyBankAccountInformationImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/PharmacyBankAccountInformation/PharmacyBankAccountInformationRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/PharmacyCatalogue/Impl/PharmacyCatalogueRepositoryImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/PharmacyCatalogue/PharmacyCatalogueRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/PrescriptionItem/Impl/PrescriptionItemRepositoryImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/PrescriptionItem/PrescriptionItemRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/Repository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/User/AddressRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/User/ContactInformationRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/User/UserProfileRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/User/impl/AddressRepositoryImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/User/impl/ContactInformationRepositoryImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/repository/User/impl/UserProfileRepositoryImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/service/IService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/service/Payment/PaymentService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/service/Payment/impl/PaymentServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/service/User/ContactInformationService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/service/User/UserProfileService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/service/User/impl/ContactInformationServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/service/User/impl/UserProfileServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/digital/epharmacy/util/GenericHelper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_08_31__00_24__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/CatalogueFactory/CatalogueItemFactoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/CatalogueFactory/CatalogueItemFactoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/CatalogueFactory/PharmacyCatalogueFactoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/CatalogueFactory/PharmacyCatalogueFactoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/CatalogueFactory/PrescriptionItemFactoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/CatalogueFactory/PrescriptionItemFactoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/DriverFactory/DriverCarFactoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/DriverFactory/DriverCarFactoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/DriverFactory/DriverProfileFactoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/DriverFactory/DriverProfileFactoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/OrderFactory/OrderFactoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/OrderFactory/OrderFactoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/OrderFactory/OrderHistoryFactoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/OrderFactory/OrderHistoryFactoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/OrderFactory/OrderReceiptFactoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/OrderFactory/OrderReceiptFactoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/PaymentFactory/PaymentFactoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/PaymentFactory/PaymentFactoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/PharmacyFactory/PharmacyBankAccountInformationFactoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/PharmacyFactory/PharmacyBankAccountInformationFactoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/PharmacyFactory/PharmacyFactoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/PharmacyFactory/PharmacyFactoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/User/AddressFactoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/User/AddressFactoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/User/ContactInformationFactoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/User/ContactInformationFactoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/User/MedicalAidFactoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/User/MedicalAidFactoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/User/UserProfileFactoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/FactoryTest/User/UserProfileFactoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/CatalogueItem/impl/CatalogueItemImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/CatalogueItem/impl/CatalogueItemImplTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/Driver/impl/DriverCarRepositoryImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/Driver/impl/DriverCarRepositoryImplTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/Driver/impl/DriverProfileRepositoryImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/Driver/impl/DriverProfileRepositoryImplTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/MedicalAid/impl/MedicalAidRepositoryImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/MedicalAid/impl/MedicalAidRepositoryImplTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/Order/Impl/OrderHistoryRepositoryImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/Order/Impl/OrderHistoryRepositoryImplTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/Order/Impl/OrderReceiptRepositoryImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/Order/Impl/OrderReceiptRepositoryImplTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/Order/Impl/OrderRepositoryImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/Order/Impl/OrderRepositoryImplTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/Payment/impl/PaymentRepositoryImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/Payment/impl/PaymentRepositoryImplTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/Pharmacy/Impl/PharmacyRepositoryImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/Pharmacy/Impl/PharmacyRepositoryImplTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/PharmacyBankAccountInformation/Impl/PharmacyBankAccountInformationImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/PharmacyBankAccountInformation/Impl/PharmacyBankAccountInformationImplTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/PharmacyCatalogue/Impl/PharmacyCatalogueImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/PharmacyCatalogue/Impl/PharmacyCatalogueImplTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/PrescriptionRepository/Impl/PrescriptionItemRepositoryImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/PrescriptionRepository/Impl/PrescriptionItemRepositoryImplTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/User/impl/AddressRepositoryImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/User/impl/AddressRepositoryImplTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/User/impl/ContactInformationRepositoryImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/User/impl/ContactInformationRepositoryImplTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/User/impl/UserProfileRepositoryImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/repository/User/impl/UserProfileRepositoryImplTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/service/Payment/impl/PaymentServiceImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/service/Payment/impl/PaymentServiceImplTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/service/User/impl/ContactInformationServiceImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/service/User/impl/ContactInformationServiceImplTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/service/User/impl/UserProfileServiceImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/digital/epharmacy/service/User/impl/UserProfileServiceImplTest.class" afterDir="false" />
     </list>
     <ignored path="C:\Users\Paradigm1\IdeaProjects\ePharmacyDeliverySystem\.idea\shelf/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -249,20 +118,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_08_31,_00_24_[Default_Changelist]/Uncommitted_changes_before_Update_at_2020_08_31__00_24__Default_Changelist_.xml.tld">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+            <state relative-caret-position="17">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2020_08_31,_00_25_[Default_Changelist]/Uncommitted_changes_before_Checkout_at_2020_08_31__00_25__Default_Changelist_.xml.tld">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+            <state relative-caret-position="68">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -343,26 +212,6 @@
               <item name="ePharmacyDeliverySystem" type="462c0819:PsiDirectoryNode" />
               <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ePharmacyDeliverySystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ePharmacyDeliverySystem" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-              <item name="shelf" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ePharmacyDeliverySystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ePharmacyDeliverySystem" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-              <item name="shelf" type="462c0819:PsiDirectoryNode" />
-              <item name="Uncommitted_changes_before_Checkout_at_2020_08_31,_00_25_[Default_Changelist]" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ePharmacyDeliverySystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ePharmacyDeliverySystem" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-              <item name="shelf" type="462c0819:PsiDirectoryNode" />
-              <item name="Uncommitted_changes_before_Update_at_2020_08_31,_00_24_[Default_Changelist]" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -379,7 +228,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1599303818897" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1599311658127" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_opened_file_path" value="C:/../../Program Files/Git/bin" />
@@ -592,7 +441,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21531000" />
+    <option name="totallyTimeSpent" value="22869000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -605,7 +454,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2677761" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -846,13 +694,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_08_31__00_24__Default_Changelist_.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_08_31__00_24__Default_Changelist_.xml" />
     <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -867,24 +709,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2020_08_31,_00_25_[Default_Changelist]/Uncommitted_changes_before_Checkout_at_2020_08_31__00_25__Default_Changelist_.xml.xsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2020_08_31,_00_25_[Default_Changelist]/Uncommitted_changes_before_Checkout_at_2020_08_31__00_25__Default_Changelist_.xml.xsl" />
     <entry file="file://$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_08_31,_00_24_[Default_Changelist]/Uncommitted_changes_before_Update_at_2020_08_31__00_24__Default_Changelist_.xml.tld">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2020_08_31,_00_25_[Default_Changelist]/Uncommitted_changes_before_Checkout_at_2020_08_31__00_25__Default_Changelist_.xml.tld">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        <state relative-caret-position="68">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
