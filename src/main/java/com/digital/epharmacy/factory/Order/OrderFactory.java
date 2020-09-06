@@ -6,13 +6,16 @@ import com.digital.epharmacy.util.GenericHelper;
 
 public class OrderFactory {
 
-    public static Order createOrder(String userID,   double orderTotal, int totalCatalogueItem, String orderStatus, String paymentType){
+    public static Order createOrder(String userID,   double orderTotal, int totalCatalogueItem, String paymentType){
 
         //generating order number
        String orderNumber = GenericHelper.generateId();
 
        //getting the date
         String date = GenericHelper.paymentDate();
+
+        //default for the orderStatus
+        String orderStatus = "Processing";
 
        Order order = new Order.Builder()
                 .setUserID(userID)

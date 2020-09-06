@@ -2,6 +2,7 @@ package com.digital.epharmacy.repository.Order.Impl;
 
 
 import com.digital.epharmacy.entity.Order.OrderReceipt;
+import com.digital.epharmacy.repository.Order.OrderHistoryRepository;
 import com.digital.epharmacy.repository.Order.OrderReceiptRepository;
 
 import java.util.Set;
@@ -20,6 +21,7 @@ public class OrderReceiptRepositoryImpl implements OrderReceiptRepository {
         if (repository == null) repository = new OrderReceiptRepositoryImpl();
         return repository;
     }
+
 
     @Override
     public OrderReceipt create(OrderReceipt orderReceipt) {

@@ -14,7 +14,7 @@ import org.junit.runners.MethodSorters;
 import static org.junit.Assert.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class PharmacyBankAccountInformationImplTest {
+public class PharmacyBankAccountInformationServiceImplTest {
 
     private static PharmacyBankAccountInformationRepository repository = PharmacyBankAccountInformationImpl.getRepository();
     private static PharmacyBankAccountInformation bankAccountInformation = PharmacyBankAccountInformationFactory

@@ -44,7 +44,7 @@ public class GenericHelper {
 
         }
 
-        String status = complete ? "complete" : "incomplete";
+        String status = complete ? "successful" : "unsuccessful";
 
         return status;
     }
@@ -62,17 +62,47 @@ public class GenericHelper {
     public static String handleNotifications(String status) {
         String notification = null;
         switch (status){
-            case "complete":
-                notification = "Payment Completed";
+            case "successful":
+                notification = "Payment Successful";
                 break;
-            case "incomplete":
-                notification = "Payment Incomplete";
+            case "unsuccessful":
+                notification = "Payment Unsuccessful";
                 break;
             default:
                 notification = "In Process";
                 break;
         }
         return notification;
+    }
+
+    public static String handleOrderNotifications(String status) {
+        String notification = null;
+        switch (status.toLowerCase()){
+            case "completed":
+                notification = "Order Completed, To be delivered";
+                break;
+            case "awaiting payment":
+                notification = "Order Incomplete, Payment not received";
+                break;
+            default:
+                notification = "Order In Process";
+                break;
+        }
+        return notification;
+    }
+
+    public static String handleOrderStatus(String paymentStatus){
+
+        String orderStatus = null;
+
+        switch (paymentStatus) {
+            case "successful":
+                orderStatus = "Completed";
+            case "unsuccessful":
+                orderStatus = "Awaiting Payment";
+            default: orderStatus = "Processing";
+        }
+        return orderStatus;
     }
 
 }
