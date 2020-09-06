@@ -12,10 +12,17 @@ import java.util.Set;
 
 
 public class DriverProfileRepositoryImpl implements DriverProfileRepository {
+    private static DriverProfileRepository repository = null;
     private Set<DriverProfile> driverProfileDB;
 
     public DriverProfileRepositoryImpl() {
         this.driverProfileDB = new HashSet<>();
+    }
+
+    public static DriverProfileRepository getRepository(){
+        if(repository == null)
+            repository = new DriverProfileRepositoryImpl();
+        return repository;
     }
     @Override
     public DriverProfile create (DriverProfile driverProfile){

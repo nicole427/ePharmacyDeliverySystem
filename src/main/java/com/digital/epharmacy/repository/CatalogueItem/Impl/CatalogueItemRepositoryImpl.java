@@ -9,16 +9,9 @@ package com.digital.epharmacy.repository.CatalogueItem.Impl;
  * Date: 30 August 2020
  */
 
-import com.digital.epharmacy.entity.Catalogue.PharmacyCatalogue;
-import com.digital.epharmacy.entity.Order.Order;
-import com.digital.epharmacy.entity.Pharmacy.Pharmacy;
-import com.digital.epharmacy.entity.User.MedicalAid;
 import com.digital.epharmacy.repository.CatalogueItem.CatalogueItemRepository;
 import com.digital.epharmacy.entity.Catalogue.CatalogueItem;
-import com.digital.epharmacy.repository.PharmacyCatalogue.Impl.PharmacyCatalogueRepositoryImpl;
-import com.digital.epharmacy.repository.PharmacyCatalogue.PharmacyCatalogueRepository;
 
-import java.io.IOException;
 import java.util.Set;
 import java.util.HashSet;
 
@@ -88,7 +81,7 @@ public class CatalogueItemRepositoryImpl implements CatalogueItemRepository {
     }
 
     @Override
-    public Set<Pharmacy> getAll() {
+    public Set<CatalogueItem> getAll() {
         return null;
     }
 }
