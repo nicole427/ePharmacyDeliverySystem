@@ -1,5 +1,5 @@
 package com.digital.epharmacy.controller.user;
-
+//Nicole Hawthorne - UserProfile Controller to expose the service of the userprofile
 import com.digital.epharmacy.entity.User.UserProfile;
 import com.digital.epharmacy.factory.User.UserProfileFactory;
 import com.digital.epharmacy.service.User.UserProfileService;
