@@ -8,9 +8,10 @@ import com.digital.epharmacy.entity.User.UserProfile;
 import com.digital.epharmacy.repository.User.UserProfileRepository;
 import com.digital.epharmacy.repository.User.impl.UserProfileRepositoryImpl;
 import com.digital.epharmacy.service.User.UserProfileService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
-
+@Service
 public class UserProfileServiceImpl implements UserProfileService {
 
     private static UserProfileService service = null;
