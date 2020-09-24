@@ -47,6 +47,7 @@ public class OrderHistoryRepositoryImplTest {
     void b_read() {
 
         OrderHistory readOrderHistory = repository.read(orderHistory.getUserId());
+        assertEquals(25, readOrderHistory.getTotalNumberOfOrders());
         System.out.println("Read:" + readOrderHistory);
     }
 

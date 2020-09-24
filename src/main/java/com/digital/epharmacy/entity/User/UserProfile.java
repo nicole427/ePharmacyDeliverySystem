@@ -1,15 +1,29 @@
 package com.digital.epharmacy.entity.User;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.io.Serializable;
+
 /*
 * Author: Nicole Hawthorne
 * Desc: UserProfile entity for registered user information
 * Date: 03/07/2020
 * */
 //main class
+@Entity
 public class UserProfile {
     //naming entity attributes and assigning their variable values
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String userId;
+
     private String userName, userSurname, gender;
 
+
+
+    private UserProfile(){}
 
     //constructor for Builder class
     private UserProfile (Builder builder){
