@@ -26,7 +26,6 @@ public class MedicalAidServiceImplTest {
     private static MedicalAidService service = MedicalAidServiceImpl.getService();
     private static MedicalAid medicalAid = MedicalAidFactory.
             createMedicalAid(
-                    "Kel001",
                     4005785,
                     "BONITAS",
                     "High Benefits"
