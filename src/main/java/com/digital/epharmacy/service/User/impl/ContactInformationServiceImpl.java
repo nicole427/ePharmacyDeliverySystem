@@ -4,9 +4,11 @@ import com.digital.epharmacy.entity.User.ContactInformation;
 import com.digital.epharmacy.repository.User.ContactInformationRepository;
 import com.digital.epharmacy.repository.User.impl.ContactInformationRepositoryImpl;
 import com.digital.epharmacy.service.User.ContactInformationService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class ContactInformationServiceImpl implements ContactInformationService {
 
     private static ContactInformationService service = null;
