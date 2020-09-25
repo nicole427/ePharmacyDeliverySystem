@@ -2,6 +2,7 @@ package com.digital.epharmacy.repository.PharmacyBankAccountInformation.Impl;
 
 import com.digital.epharmacy.entity.Pharmacy.PharmacyBankAccountInformation;
 import com.digital.epharmacy.repository.PharmacyBankAccountInformation.PharmacyBankAccountInformationRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -10,6 +11,7 @@ import java.util.Set;
  * Desc: PharmacyBankAccountInformation implementation
  * Date: 29 August 2020
  */
+@Repository
 public class PharmacyBankAccountInformationImpl implements PharmacyBankAccountInformationRepository {
 
     private static PharmacyBankAccountInformationRepository repository = null;
@@ -31,12 +33,17 @@ public class PharmacyBankAccountInformationImpl implements PharmacyBankAccountIn
     }
 
     @Override
-    public PharmacyBankAccountInformation read(String bankName) {
+    public PharmacyBankAccountInformation read(String bankinfo) {
         PharmacyBankAccountInformation accountInformation = null;
         for (PharmacyBankAccountInformation u: this.pharmacyBankAccountInformationDB)
-            if(u.getBankName().equalsIgnoreCase(bankName)){
+            if(u.getBankName().equalsIgnoreCase(bankinfo)){
                 accountInformation = u;
             }
+            else if(u.getPharmacyID().equalsIgnoreCase(bankinfo))
+            {
+                accountInformation = u;
+            }
+
         return accountInformation;
     }
 
@@ -54,7 +61,7 @@ public class PharmacyBankAccountInformationImpl implements PharmacyBankAccountIn
     public boolean delete(String pharmacyID) {
         PharmacyBankAccountInformation bankInfo = read(pharmacyID);
         if (pharmacyID != null){
-            this.pharmacyBankAccountInformationDB.remove(pharmacyID);
+            this.pharmacyBankAccountInformationDB.remove(bankInfo);
             return true;
         }
         return false;

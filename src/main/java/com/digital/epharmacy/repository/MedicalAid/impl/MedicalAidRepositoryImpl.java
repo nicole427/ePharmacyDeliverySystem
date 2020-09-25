@@ -2,6 +2,7 @@ package com.digital.epharmacy.repository.MedicalAid.impl;
 
 import com.digital.epharmacy.entity.User.MedicalAid;
 import com.digital.epharmacy.repository.MedicalAid.MedicalAidRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,6 +12,7 @@ import java.util.Set;
  * Desc: MedicalAid repository implementation
  * Date: 29 August 2020
  */
+@Repository
 public class MedicalAidRepositoryImpl implements MedicalAidRepository {
     private static MedicalAidRepository repository = null;
     private Set<MedicalAid> medicalAidDB;
@@ -38,7 +40,10 @@ public class MedicalAidRepositoryImpl implements MedicalAidRepository {
         for (MedicalAid u: this.medicalAidDB)
             if(u.getUserId().equalsIgnoreCase(userID)){
                 userProfile = u;
+            } else if(u.getMedicalAidName().equalsIgnoreCase(userID)){
+                userProfile = u;
             }
+
         return userProfile;
     }
 

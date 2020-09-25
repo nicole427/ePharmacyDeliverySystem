@@ -1,15 +1,36 @@
 package com.digital.epharmacy.entity.User;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 /*
  * Author: Nicole Hawthorne
  * Desc: MedicalAid entity composed of UserProfile entity that stores user Medical Aid information if there is any.
  * Date: 03/07/2020
+ *
+ * Edited By Opatile Kelobang
+ * Date: 25 Septembre 2020
  * */
 //main class
+@Entity
 public class MedicalAid {
     //naming entity attributes and assigning their variable values
-    private int  userMedicalAidNumber;
-    private String medicalAidName, medicalAidScheme;
+   @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String userId;
+    @NotNull(message = "Medical aid number is required")
+    private int userMedicalAidNumber;
+    @NotBlank(message = "Medical aid scheme is required")
+    private String medicalAidScheme;
+    @NotBlank(message = "Medical aid name is required")
+    private String medicalAidName;
+
+    private MedicalAid(){}
+
     //constructor for Builder class
     private MedicalAid (Builder builder){
         this.userId = builder.userId;
