@@ -1,12 +1,14 @@
 package com.digital.epharmacy.service.PharmacyBankAccountInformation.impl;
 
 
+import com.digital.epharmacy.controller.ExceptionHandler.MyCustomExceptionHandler;
 import com.digital.epharmacy.entity.Pharmacy.Pharmacy;
 import com.digital.epharmacy.entity.Pharmacy.PharmacyBankAccountInformation;
 import com.digital.epharmacy.repository.PharmacyBankAccountInformation.PharmacyBankAccountInformationRepository;
 import com.digital.epharmacy.repository.PharmacyBankAccountInformation.Impl.PharmacyBankAccountInformationImpl;
 import com.digital.epharmacy.service.Pharmacy.PharmacyService;
 import com.digital.epharmacy.service.PharmacyBankAccountInformation.PharmacyBankAccountInformationService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
@@ -16,6 +18,7 @@ import java.util.Set;
  *       in order to call operations and business logic
  * Date: 03 September 2020
  */
+@Service
 public class PharmacyBankAccountInformationServiceImpl implements PharmacyBankAccountInformationService {
 
     public static PharmacyBankAccountInformationService service = null;
@@ -38,7 +41,12 @@ public class PharmacyBankAccountInformationServiceImpl implements PharmacyBankAc
 
     @Override
     public PharmacyBankAccountInformation create(PharmacyBankAccountInformation pharmacyBankAccountInformation) {
-        return this.repository.create(pharmacyBankAccountInformation);
+        try{
+            return this.repository.create(pharmacyBankAccountInformation);
+        } catch (Exception e){
+            throw new MyCustomExceptionHandler("Pharmacy '" + pharmacyBankAccountInformation.getPharmacyID() + "' already exists");
+        }
+
     }
 
     @Override
