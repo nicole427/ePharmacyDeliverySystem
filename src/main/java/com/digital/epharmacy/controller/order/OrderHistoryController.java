@@ -2,7 +2,7 @@ package com.digital.epharmacy.controller.order;
 
 /** Author: Ayabulela Mahlathini - 218017774
  * Date: 24/09/2020
- * Description: Controller for the Order History (crud for order history and getting order history by a user)
+ * Description: Controller for the Order History (crud for order history i.e. total number of orders and order value)
  */
 
 import com.digital.epharmacy.entity.Order.OrderHistory;
