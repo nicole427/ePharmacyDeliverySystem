@@ -52,6 +52,8 @@ class PharmacyControllerTest {
         System.out.println("URL: " + url);
         ResponseEntity<Pharmacy> response = restTemplate.getForEntity(url, Pharmacy.class);
         assertEquals(pharmacy.getPharmacyId(), response.getBody().getPharmacyId());
+        System.out.println(response);
+        System.out.println(response.getBody());
     }
 
     @Order(3)
@@ -61,6 +63,8 @@ class PharmacyControllerTest {
         System.out.println("URL: " + url);
         ResponseEntity<Pharmacy> response = restTemplate.getForEntity(url, Pharmacy.class);
         assertEquals(pharmacy.getPharmacyName(), response.getBody().getPharmacyName());
+        System.out.println(response);
+        System.out.println(response.getBody());
     }
 
     @Order(4)
@@ -79,6 +83,8 @@ class PharmacyControllerTest {
         System.out.println("POST Data: " + pharmacyUpdate);
         ResponseEntity<Pharmacy> response = restTemplate.postForEntity(url, pharmacyUpdate, Pharmacy.class);
         assertEquals(pharmacy.getPharmacyName(), response.getBody().getPharmacyName());
+        System.out.println(response);
+        System.out.println(response.getBody());
     }
 
     @Order(5)
