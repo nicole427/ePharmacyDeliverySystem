@@ -16,7 +16,7 @@ import org.junit.runners.MethodSorters;
 public class MedicalAidRepositoryImplTest {
 
     private static MedicalAidRepository repository = MedicalAidRepositoryImpl.getRepository();
-    private  static MedicalAid medicalAid = MedicalAidFactory.createMedicalAid("KEL1938", 19832804,"Health Med", "High Benefits");
+    private  static MedicalAid medicalAid = MedicalAidFactory.createMedicalAid(19832804,"Health Med", "High Benefits");
 
     @Order(1)
     @Test
