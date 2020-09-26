@@ -8,9 +8,10 @@ import com.digital.epharmacy.entity.Driver.DriverCar;
 import com.digital.epharmacy.repository.Driver.impl.DriverCarRepositoryImpl;
 import com.digital.epharmacy.repository.Driver.DriverCarRepository;
 import com.digital.epharmacy.service.Driver.DriverCarService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
-
+@Service
 public class DriverCarServiceImpl implements DriverCarService {
 
     public static DriverCarService service = null;
