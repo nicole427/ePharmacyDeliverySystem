@@ -15,7 +15,10 @@ public class OrderReceipt {
     private String pharmacyId,userID,itemName, typeOfPayment;
     private Date date;
 
+    // Added default constructor for Springboot implementation.
+    public OrderReceipt() {
 
+    }
 
     //Builder class constructor
     private OrderReceipt(Builder builder){
