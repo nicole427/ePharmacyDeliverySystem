@@ -66,6 +66,8 @@ public class PharmacyBankAccountInformationControllerTest {
 
         ResponseEntity<PharmacyBankAccountInformation> response = restTemplate.getForEntity(url, PharmacyBankAccountInformation.class);
         assertEquals(bankInfo.getBankName(), response.getBody().getBankName());
+        System.out.println(response);
+        System.out.println(response.getBody());
     }
 
     @Order(3)
@@ -85,12 +87,13 @@ public class PharmacyBankAccountInformationControllerTest {
         System.out.println("POST Data: " + bankUpdate);
 
         ResponseEntity<PharmacyBankAccountInformation> response = restTemplate.postForEntity(url, bankUpdate, PharmacyBankAccountInformation.class);
-        assertEquals(bankInfo.getBankName(), response.getBody().getPharmacyID());
+        bankInfo = response.getBody();
+        assertEquals(bankInfo.getPharmacyID(), response.getBody().getPharmacyID());
     }
 
     @Order(4)
     @Test
-    public void getall() {
+    public void d_getall() {
         String url = baseURL + "/all";
         System.out.println("URL: " + url);
         HttpHeaders headers = new HttpHeaders();
