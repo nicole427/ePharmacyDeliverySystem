@@ -1,9 +1,13 @@
 package com.digital.epharmacy.entity.Order;
 
+
 public class OrderHistory {
     private String userId;
     private int totalNumberOfOrders;
     private double totalOrderValue;
+
+    //default contructor - Ayabulela Mahlathini
+    private OrderHistory(){}
 
     public OrderHistory(Builder builder){
         this.userId = builder.userId;
