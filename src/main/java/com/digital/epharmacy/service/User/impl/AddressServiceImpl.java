@@ -4,9 +4,11 @@ import com.digital.epharmacy.entity.User.Address;
 import com.digital.epharmacy.repository.User.AddressRepository;
 import com.digital.epharmacy.repository.User.impl.AddressRepositoryImpl;
 import com.digital.epharmacy.service.User.AddressService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class AddressServiceImpl implements AddressService {
 
     private static AddressService service = null;
