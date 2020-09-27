@@ -15,6 +15,10 @@ public class Address {
     private String streetName, areaName;
     private String userId;
 
+    // Added default constructor for SpringBoot implementation.
+    public Address(){
+
+    }
     //constructor for Builder class
     private Address (Builder builder){
         this.userId = builder.userId;
