@@ -4,9 +4,11 @@ import com.digital.epharmacy.entity.Payment.Payment;
 import com.digital.epharmacy.repository.Payment.PaymentRepository;
 import com.digital.epharmacy.repository.Payment.impl.PaymentRepositoryImpl;
 import com.digital.epharmacy.service.Payment.PaymentService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class PaymentServiceImpl implements PaymentService {
 
     private static PaymentService service  = null;
