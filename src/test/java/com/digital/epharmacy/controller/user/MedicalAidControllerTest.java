@@ -1,7 +1,8 @@
-package com.digital.epharmacy.controller.pharmacy;
+package com.digital.epharmacy.controller.user;
 
 import com.digital.epharmacy.entity.Pharmacy.PharmacyBankAccountInformation;
-import com.digital.epharmacy.factory.Pharmacy.PharmacyBankAccountInformationFactory;
+import com.digital.epharmacy.entity.User.MedicalAid;
+import com.digital.epharmacy.factory.User.MedicalAidFactory;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.jupiter.api.MethodOrderer;
@@ -26,46 +27,43 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @RunWith(SpringRunner.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class PharmacyBankAccountInformationControllerTest {
-
-    PharmacyBankAccountInformation bankInfo = PharmacyBankAccountInformationFactory
-            .createPharmacyBankAccountInformation(
-                    "605f5fd6-e329-4b95-b120-c39e5e250000",
-                    "Standard Bank",
-                    794241,
-                    25001,
-                    "KEL001"
-            );
+public class MedicalAidControllerTest {
+    MedicalAid medicalAid = MedicalAidFactory.createMedicalAid(
+           485723,
+           "Health Med",
+           "High Benefits"
+    );
 
     @Autowired
     private TestRestTemplate restTemplate;
 
-    private String baseURL = "http://localhost:8080/bankdetails";
+    private String baseURL = "http://localhost:8080/medicalaid";
 
     @Order(1)
     @Test
     public void a_create() {
         String url = baseURL + "/create";
         System.out.println("URL: " + url);
-        System.out.println("POST Data: " + bankInfo);
+        System.out.println("POST Data: " + medicalAid);
 
-        ResponseEntity<PharmacyBankAccountInformation> response = restTemplate.postForEntity(url, bankInfo, PharmacyBankAccountInformation.class);
+        ResponseEntity<MedicalAid> response = restTemplate.postForEntity(url, medicalAid, MedicalAid.class);
 
         assertNotNull(response);
         assertNotNull(response.getBody());
-        bankInfo = response.getBody();
-        System.out.println("Saved Data: " + bankInfo);
-        assertEquals(bankInfo.getPharmacyID(), response.getBody().getPharmacyID());
+        medicalAid = response.getBody();
+
+        System.out.println("Saved Data: " + medicalAid);
+        assertEquals(medicalAid.getMedicalAidName(), response.getBody().getMedicalAidName());
     }
 
     @Order(2)
     @Test
     public void b_read() {
-        String url = baseURL + "/read/" + bankInfo.getBankName();
+        String url = baseURL + "/read/" + medicalAid.getMedicalAidName();
         System.out.println("URL: " + url);
 
-        ResponseEntity<PharmacyBankAccountInformation> response = restTemplate.getForEntity(url, PharmacyBankAccountInformation.class);
-        assertEquals(bankInfo.getBankName(), response.getBody().getBankName());
+        ResponseEntity<MedicalAid> response = restTemplate.getForEntity(url, MedicalAid.class);
+        assertEquals(medicalAid.getMedicalAidName(), response.getBody().getMedicalAidName());
         System.out.println(response);
         System.out.println(response.getBody());
     }
@@ -73,27 +71,27 @@ public class PharmacyBankAccountInformationControllerTest {
     @Order(3)
     @Test
     public void c_update() {
-        PharmacyBankAccountInformation bankUpdate = new PharmacyBankAccountInformation
+        MedicalAid medicalAidUpdate = new MedicalAid
                 .Builder()
-                .copy(bankInfo)
-                .setBankName(
-                        "FNB"
+                .copy(medicalAid)
+                .setMedicalAidName(
+                        "Grants Medical"
                 )
                 .build();
-
-        String url = baseURL + "/update/" + bankInfo.getPharmacyID();
+        String url = baseURL + "/update/" + medicalAid.getUserId();
 
         System.out.println("URL: " + url);
-        System.out.println("POST Data: " + bankUpdate);
+        System.out.println("POST Data: " + medicalAidUpdate);
 
-        ResponseEntity<PharmacyBankAccountInformation> response = restTemplate.postForEntity(url, bankUpdate, PharmacyBankAccountInformation.class);
-        bankInfo = response.getBody();
-        assertEquals(bankInfo.getPharmacyID(), response.getBody().getPharmacyID());
+        ResponseEntity<MedicalAid> response = restTemplate.postForEntity(url, medicalAidUpdate, MedicalAid.class);
+        medicalAid = response.getBody();
+        assertEquals(medicalAid.getMedicalAidName(), response.getBody().getMedicalAidName());
+
     }
 
     @Order(4)
     @Test
-    public void d_getall() {
+    public void d_getAll() {
         String url = baseURL + "/all";
         System.out.println("URL: " + url);
         HttpHeaders headers = new HttpHeaders();
@@ -106,8 +104,8 @@ public class PharmacyBankAccountInformationControllerTest {
 
     @Order(5)
     @Test
-    public void delete() {
-        String url = baseURL + "/delete/" + bankInfo.getPharmacyID();
+    public void e_delete() {
+        String url = baseURL + "/delete/" + medicalAid.getUserId();
         System.out.println("URL: " + url);
         restTemplate.delete(url);
     }

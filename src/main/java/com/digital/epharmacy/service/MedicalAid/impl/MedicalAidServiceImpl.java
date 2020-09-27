@@ -4,6 +4,7 @@ import com.digital.epharmacy.entity.User.MedicalAid;
 import com.digital.epharmacy.repository.MedicalAid.MedicalAidRepository;
 import com.digital.epharmacy.repository.MedicalAid.impl.MedicalAidRepositoryImpl;
 import com.digital.epharmacy.service.MedicalAid.MedicalAidService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 /*
@@ -12,6 +13,7 @@ import java.util.Set;
  *       in order to call operations and business logic
  * Date: 02 September 2020
  */
+@Service
 public class MedicalAidServiceImpl implements MedicalAidService {
 
     public static MedicalAidService service = null;
