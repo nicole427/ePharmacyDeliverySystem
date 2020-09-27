@@ -64,6 +64,8 @@ public class MedicalAidControllerTest {
 
         ResponseEntity<MedicalAid> response = restTemplate.getForEntity(url, MedicalAid.class);
         assertEquals(medicalAid.getMedicalAidName(), response.getBody().getMedicalAidName());
+        System.out.println(response);
+        System.out.println(response.getBody());
     }
 
     @Order(3)
@@ -82,6 +84,7 @@ public class MedicalAidControllerTest {
         System.out.println("POST Data: " + medicalAidUpdate);
 
         ResponseEntity<MedicalAid> response = restTemplate.postForEntity(url, medicalAidUpdate, MedicalAid.class);
+        medicalAid = response.getBody();
         assertEquals(medicalAid.getMedicalAidName(), response.getBody().getMedicalAidName());
 
     }

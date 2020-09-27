@@ -7,15 +7,30 @@ package com.digital.epharmacy.entity.Order;
  * */
 
 
+import org.hibernate.annotations.Generated;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Order {
 
     //Entity attributes
     private int totalCatalogueItems;
-    private String  userID, orderNumber; // (Ayabulela Mahlathini) changed order number to string so that it is auto generated in the factory
+    private String  userID;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String orderNumber; // (Ayabulela Mahlathini) changed order number to string so that it is auto generated in the factory
+
     private double orderTotal;
     private String paymentType, orderStatus; //(Ayabulela Mahlathini)added orderStatus
     private String date;
+
+    //default contructor - Ayabulela Mahlathini
+    private Order(){}
 
     //Builder class constructor
     private Order(Builder builder){

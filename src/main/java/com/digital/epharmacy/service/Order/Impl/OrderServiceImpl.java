@@ -10,10 +10,12 @@ import com.digital.epharmacy.entity.Order.OrderHistory;
 import com.digital.epharmacy.repository.Order.Impl.OrderRepositoryImpl;
 import com.digital.epharmacy.repository.Order.OrderRepository;
 import com.digital.epharmacy.service.Order.OrderService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Service
 public class OrderServiceImpl implements OrderService {
 
     private static OrderService service = null;
@@ -48,9 +50,15 @@ public class OrderServiceImpl implements OrderService {
         return completedOrders;
     }
 
+    //tracking order status
+    @Override
+    public String trackOrderStatus(String orderID) {
+        return this.read(orderID).getOrderStatus();
+    }
+
     //getting all the history by a user
     @Override
-    public Set<Order> getAllOrdersByUser(String UserId) {
+    public Set<Order> getAllOrdersByUser(String userID) {
         Set<Order> orders = getAll();
         Set<Order> orderHistoryByUser;
 
@@ -58,11 +66,13 @@ public class OrderServiceImpl implements OrderService {
                 .filter(o -> o
                         .getUserID()
                         .trim()
-                        .equalsIgnoreCase(UserId))
+                        .equalsIgnoreCase(userID))
                 .collect(Collectors.toSet());
 
         return orderHistoryByUser;
     }
+
+
 
     @Override
     public Order create(Order order) {

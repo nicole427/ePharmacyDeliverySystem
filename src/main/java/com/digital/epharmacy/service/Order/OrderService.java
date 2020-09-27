@@ -15,7 +15,9 @@ public interface OrderService extends IService<Order, String> {
 
     Set<Order> getAllCompletedOrders();
 
-    Set<Order> getAllOrdersByUser(String UserId);
+    String trackOrderStatus(String orderID);
+
+    Set<Order> getAllOrdersByUser(String userID);
 
 
 }
