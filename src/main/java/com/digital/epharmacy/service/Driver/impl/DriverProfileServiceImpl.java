@@ -8,9 +8,10 @@ import com.digital.epharmacy.entity.Driver.DriverProfile;
 import com.digital.epharmacy.repository.Driver.DriverProfileRepository;
 import com.digital.epharmacy.repository.Driver.impl.DriverProfileRepositoryImpl;
 import com.digital.epharmacy.service.Driver.DriverProfileService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
-
+@Service
 public class DriverProfileServiceImpl implements DriverProfileService {
 
     private static DriverProfileService service = null;

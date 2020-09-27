@@ -12,5 +12,4 @@ import java.util.Set;
 
 public interface OrderHistoryService extends IService<OrderHistory, String> {
     Set<OrderHistory> getAll();
-    OrderHistory getHistoryByUser(String UserId);
 }

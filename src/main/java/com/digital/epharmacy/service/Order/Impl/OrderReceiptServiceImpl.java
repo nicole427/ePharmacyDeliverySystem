@@ -4,9 +4,11 @@ import com.digital.epharmacy.entity.Order.OrderReceipt;
 import com.digital.epharmacy.repository.Order.Impl.OrderReceiptRepositoryImpl;
 import com.digital.epharmacy.repository.Order.OrderReceiptRepository;
 import com.digital.epharmacy.service.Order.OrderReceiptService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class OrderReceiptServiceImpl implements OrderReceiptService {
 
     private static OrderReceiptService service = null;

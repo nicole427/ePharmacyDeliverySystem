@@ -1,16 +1,34 @@
 package com.digital.epharmacy.entity.Pharmacy;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 /*
  * Author: Opatile Kelobang
  * Desc: PharmacyBankAccountInformation store pharmacy id using composition, bank name, account number, branch code and beneficiary reference
  * Date: 04 July 2020
  */
-
+@Entity
 public class PharmacyBankAccountInformation {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String pharmacyID;
+    @NotBlank(message = "Bank name is required")
     private String bankName;
+    @NotNull(message = "Account number is required")
     private int accountNumber;
+    @NotNull(message = "Branch Code is required")
     private int branchCode;
+    @NotBlank(message = "Beneficiary Reference is required")
     private String beneficiaryReference;
+
+    private PharmacyBankAccountInformation(){
+
+    }
 
     // builder pattern method constructor
     private PharmacyBankAccountInformation(Builder builder)
