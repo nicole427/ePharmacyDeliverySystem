@@ -6,6 +6,7 @@ package com.digital.epharmacy.entity.Pharmacy;
  */
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -16,8 +17,6 @@ public class Pharmacy {
     // all the attributes of entity
     @Id
     @Column(name = "id")
-    @GeneratedValue(generator="system-uuid")
-    @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String pharmacyId;
     @Column(unique = true)
     @NotBlank(message = "Pharmacy name is required")
