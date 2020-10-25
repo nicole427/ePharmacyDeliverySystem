@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
  * Desc: PharmacyBankAccountInformation store pharmacy id using composition, bank name, account number, branch code and beneficiary reference
  * Date: 04 July 2020
  */
-@Entity
+
 public class PharmacyBankAccountInformation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +26,7 @@ public class PharmacyBankAccountInformation {
     @NotBlank(message = "Beneficiary Reference is required")
     private String beneficiaryReference;
 
-    private PharmacyBankAccountInformation(){
+    protected PharmacyBankAccountInformation(){
 
     }
 

@@ -1,16 +1,38 @@
 package com.digital.epharmacy.entity.Catalogue;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
 /*
  * Name: Nelson Mpyana
  * Desc: Catalogue Item Entity composed of Pharmacy Catalogue
  * Date: 04/07/2020
  */
+/**Author: Nicole Hawthorne
+ *Desc: Added the entity mapping and assigned the primary key also added no null values each entity
+ and changed default constructor to protected
+ * Date: 25/10/2020
+ * */
+
 public class CatalogueItem {
 
     //naming entity attributes and assigning their variable values
-    private int itemNumber, itemQuantity;
-    private String itemName, itemDescription;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int itemNumber;
+    @NotNull(message = "Item Quantity is required")
+    private int itemQuantity;
+    @NotNull(message = "Item Name is required")
+    private String itemName;
+    @NotNull(message = "Item Description is required")
+    private String itemDescription;
+    @NotNull(message = "Item price is required")
     private double itemPrice;
+
+    protected CatalogueItem () {}
 
     //constructor for Builder class
     private CatalogueItem(Builder builder) {
