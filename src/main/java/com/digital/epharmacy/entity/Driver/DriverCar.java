@@ -1,4 +1,11 @@
 package com.digital.epharmacy.entity.Driver;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
 /*
     Author: Chad
 <<<<<<< HEAD
@@ -8,11 +15,27 @@ package com.digital.epharmacy.entity.Driver;
 >>>>>>> origin/groupCollaboration
     Date: 4 July 2020
  */
+/**Author: Nicole Hawthorne
+ *Desc: Added the entity mapping and assigned the primary key also added no null values each entity
+ and changed default constructor to protected
+ * Date: 25/10/2020
+ * */
+
 public class DriverCar {
     // all the attributes of entity
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String driverId;
+    @NotNull(message = "Car Registration is required")
     private String carRegistration;
-    private String carColour, carName, carModel;
+    @NotNull(message = "Car Colour is required")
+    private String carColour;
+    @NotNull(message = "Car name is required")
+    private String carName;
+    @NotNull(message = "Car Model is required")
+    private String carModel;
+
+    protected DriverCar (){}
 
     // builder pattern method constructor
     private DriverCar(Builder builder){

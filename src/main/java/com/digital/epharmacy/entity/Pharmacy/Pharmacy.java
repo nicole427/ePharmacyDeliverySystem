@@ -8,17 +8,17 @@ package com.digital.epharmacy.entity.Pharmacy;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
-@Entity
+
 public class Pharmacy {
     // all the attributes of entity
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String pharmacyId;
     @Column(unique = true)
     @NotBlank(message = "Pharmacy name is required")
     private String pharmacyName;
 
-    private Pharmacy(){}
+    protected Pharmacy(){}
 
     // builder pattern method constructor
     private Pharmacy(Builder builder)
