@@ -9,6 +9,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.Objects;
 
 @Entity
 public class Pharmacy {
@@ -77,6 +78,19 @@ public class Pharmacy {
         public Pharmacy build() {
             return new Pharmacy(this);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pharmacy pharmacy = (Pharmacy) o;
+        return pharmacyId.equals(pharmacy.pharmacyId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(pharmacyId);
     }
 }
 
