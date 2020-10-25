@@ -1,16 +1,35 @@
 package com.digital.epharmacy.entity.User;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.validation.constraints.NotNull;
+
 /*
  * Author: Nicole Hawthorne
  * Desc: ContactInformation entity composed of UserProfile
  *       and Pharmacy entity that stores user and pharmacy contact information
  * Date: 03/07/2020
  * */
+/**Author: Nicole Hawthorne
+ *Desc: Added the entity mapping and assigned the primary key also added no null values each entity
+ and changed default constructor to protected
+ Also created the class for all userProfile composite keys
+ * Date: 25/10/2020
+ * */
 //main class
+
+//@IdClass(UserProfileAndPharmacyId.class)
 public class ContactInformation {
     //naming entity attributes and assigning their variable values
-    private int primaryNumber,secondaryNumber;
-    private String userId;
-    private String pharmacyId;
+    @Id
+    private String userId , pharmacyId;
+    @NotNull(message = "Primary number is required")
+    private int primaryNumber;
+    @NotNull(message = "Secondary number is required")
+    private int secondaryNumber;
+
+    protected ContactInformation(){}
     
     //constructor for Builder class
     private ContactInformation (Builder builder){
