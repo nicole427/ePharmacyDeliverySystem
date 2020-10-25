@@ -1,4 +1,4 @@
-package com.digital.epharmacy.repository.Pharmacy.Impl;
+/*package com.digital.epharmacy.repository.Pharmacy.Impl;
 
 import com.digital.epharmacy.entity.Pharmacy.Pharmacy;
 import com.digital.epharmacy.factory.Pharmacy.PharmacyFactory;
@@ -9,9 +9,10 @@ import org.junit.Test;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.runners.MethodSorters;
+import org.junit.runners.MethodSorters;*/
 
-import static org.junit.Assert.*;
+/*
+
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PharmacyRepositoryImplTest {
@@ -58,3 +59,4 @@ public class PharmacyRepositoryImplTest {
         System.out.println("Get All: " + repository.getAll());
     }
 }
+*/
