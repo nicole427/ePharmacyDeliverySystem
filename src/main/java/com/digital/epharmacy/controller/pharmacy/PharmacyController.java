@@ -52,7 +52,7 @@ public class PharmacyController {
 
     @GetMapping("/name/{pharmacyName}")
     public ResponseEntity<?> readByPharmacyName(@PathVariable String pharmacyName){
-        Pharmacy pharmacy = pharmacyService.read(pharmacyName);
+        Pharmacy pharmacy = pharmacyService.findPharmacyByPharmacyName(pharmacyName);
 
         return new ResponseEntity<Pharmacy>(pharmacy, HttpStatus.OK);
     }
