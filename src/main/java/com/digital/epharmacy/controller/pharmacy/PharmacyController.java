@@ -18,7 +18,7 @@ import java.util.Set;
  * Desc: Pharmacy Controller
  * Date: 24 September 2020
  *
- * Modiffied: 26 October 2020
+ * Modified: 26 October 2020
  * Updated Method call for Read by Pharmacy name
  *
  */
