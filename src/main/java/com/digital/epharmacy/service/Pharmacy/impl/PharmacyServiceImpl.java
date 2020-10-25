@@ -32,6 +32,16 @@ public class PharmacyServiceImpl implements PharmacyService {
     }
 
     @Override
+    public Pharmacy findPharmacyByPharmacyName(String pharmacyName) {
+        Pharmacy newPharmacy = repository.findPharmacyByPharmacyName(pharmacyName);
+
+        if (newPharmacy == null)
+            throw new MyCustomExceptionHandler("Pharmacy name or id does not exist");
+
+        return newPharmacy;
+    }
+
+    @Override
     public Pharmacy create(Pharmacy pharmacy) {
         try {
             return this.repository.save(pharmacy);

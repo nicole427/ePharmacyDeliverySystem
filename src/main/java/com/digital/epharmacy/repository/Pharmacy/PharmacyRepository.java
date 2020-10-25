@@ -13,8 +13,9 @@ import org.springframework.stereotype.Repository;
  * 25 October 2020
  * Extends JPA Repository
  * Deprecated IRepository
+ * Added Find by Pharmacy Name method
  */
 @Repository
 public interface PharmacyRepository extends JpaRepository<Pharmacy, String> {
-
+    Pharmacy findPharmacyByPharmacyName(String pharmacyName);
 }
