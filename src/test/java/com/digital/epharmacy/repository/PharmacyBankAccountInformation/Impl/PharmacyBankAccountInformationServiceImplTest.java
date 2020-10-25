@@ -11,14 +11,13 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.runners.MethodSorters;
 
-import static org.junit.Assert.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PharmacyBankAccountInformationServiceImplTest {
 
     private static PharmacyBankAccountInformationRepository repository = PharmacyBankAccountInformationImpl.getRepository();
     private static PharmacyBankAccountInformation bankAccountInformation = PharmacyBankAccountInformationFactory
-            .createPharmacyBankAccountInformation("Pharm2001",
+            .createPharmacyBankAccountInformation(
                     "Standard Bank South Africa",
                     700015721,
                     200145,
@@ -28,7 +27,7 @@ public class PharmacyBankAccountInformationServiceImplTest {
     @Test
     public void a_create() {
         PharmacyBankAccountInformation created = repository.create(bankAccountInformation);
-        Assert.assertEquals(bankAccountInformation.getPharmacyID(), created.getPharmacyID());
+        Assert.assertEquals(bankAccountInformation.getBankAccountId(), created.getBankAccountId());
         System.out.println("Created: " + created);
     }
 
@@ -53,7 +52,7 @@ public class PharmacyBankAccountInformationServiceImplTest {
     @Order(5)
     @Test
     public void e_delete() {
-        boolean deleted = repository.delete(bankAccountInformation.getPharmacyID());
+        boolean deleted = repository.delete(bankAccountInformation.getBankAccountId());
         Assert.assertTrue(deleted);
 
         if (deleted)

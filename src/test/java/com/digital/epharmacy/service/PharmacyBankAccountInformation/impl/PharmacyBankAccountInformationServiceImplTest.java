@@ -2,7 +2,6 @@ package com.digital.epharmacy.service.PharmacyBankAccountInformation.impl;
 
 import com.digital.epharmacy.entity.Pharmacy.PharmacyBankAccountInformation;
 import com.digital.epharmacy.factory.Pharmacy.PharmacyBankAccountInformationFactory;
-import com.digital.epharmacy.repository.PharmacyBankAccountInformation.Impl.PharmacyBankAccountInformationImpl;
 import com.digital.epharmacy.service.PharmacyBankAccountInformation.PharmacyBankAccountInformationService;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -26,7 +25,6 @@ public class PharmacyBankAccountInformationServiceImplTest {
     private static PharmacyBankAccountInformationService service = PharmacyBankAccountInformationServiceImpl.getService();
     private static PharmacyBankAccountInformation bankAccountInformation = PharmacyBankAccountInformationFactory
             .createPharmacyBankAccountInformation(
-                    "Pharm202",
                     "Standard Bank",
                     100875,
                     2005,
@@ -45,14 +43,14 @@ public class PharmacyBankAccountInformationServiceImplTest {
     @Test
     public void a_create() {
         PharmacyBankAccountInformation created = service.create(bankAccountInformation);
-        assertEquals(bankAccountInformation.getPharmacyID(), created.getPharmacyID());
+        assertEquals(bankAccountInformation.getBankAccountId(), created.getBankAccountId());
         System.out.println("Created: " + created);
     }
 
     @Order(2)
     @Test
     public void b_read() {
-        PharmacyBankAccountInformation read = service.read(bankAccountInformation.getPharmacyID());
+        PharmacyBankAccountInformation read = service.read(bankAccountInformation.getBankAccountId());
         System.out.println("Read: " + read);
     }
 
@@ -73,7 +71,7 @@ public class PharmacyBankAccountInformationServiceImplTest {
     @Order(5)
     @Test
     public void e_delete() {
-        boolean deleted = service.delete(bankAccountInformation.getPharmacyID());
+        boolean deleted = service.delete(bankAccountInformation.getBankAccountId());
         assertTrue(deleted);
 
         if (deleted)

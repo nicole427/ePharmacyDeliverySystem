@@ -39,7 +39,7 @@ public class PharmacyBankAccountInformationImpl implements PharmacyBankAccountIn
             if(u.getBankName().equalsIgnoreCase(bankinfo)){
                 accountInformation = u;
             }
-            else if(u.getPharmacyID().equalsIgnoreCase(bankinfo))
+            else if(u.getBankAccountId().equalsIgnoreCase(bankinfo))
             {
                 accountInformation = u;
             }
@@ -49,7 +49,7 @@ public class PharmacyBankAccountInformationImpl implements PharmacyBankAccountIn
 
     @Override
     public PharmacyBankAccountInformation update(PharmacyBankAccountInformation pharmacyBankAccountInformation) {
-        PharmacyBankAccountInformation oldInfo = read(pharmacyBankAccountInformation.getPharmacyID());
+        PharmacyBankAccountInformation oldInfo = read(pharmacyBankAccountInformation.getBankAccountId());
         if(oldInfo != null){
             this.pharmacyBankAccountInformationDB.remove(oldInfo);
             this.pharmacyBankAccountInformationDB.add(pharmacyBankAccountInformation);

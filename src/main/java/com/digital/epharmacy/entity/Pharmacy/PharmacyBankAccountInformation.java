@@ -1,9 +1,6 @@
 package com.digital.epharmacy.entity.Pharmacy;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -12,11 +9,13 @@ import javax.validation.constraints.NotNull;
  * Desc: PharmacyBankAccountInformation store pharmacy id using composition, bank name, account number, branch code and beneficiary reference
  * Date: 04 July 2020
  */
-
+@Entity
+@Table(name = "bank")
 public class PharmacyBankAccountInformation {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String pharmacyID;
+    @Column(name = "id")
+    private String bankAccountId;
     @NotBlank(message = "Bank name is required")
     private String bankName;
     @NotNull(message = "Account number is required")
@@ -33,7 +32,7 @@ public class PharmacyBankAccountInformation {
     // builder pattern method constructor
     private PharmacyBankAccountInformation(Builder builder)
     {
-        this.pharmacyID = builder.pharmacyID;
+        this.bankAccountId = builder.bankAccountId;
         this.bankName = builder.bankName;
         this.accountNumber = builder.accountNumber;
         this.branchCode = builder.branchCode;
@@ -41,8 +40,8 @@ public class PharmacyBankAccountInformation {
     }
 
     // getters for all attributes of entity PharmacyBankAccountInformation
-    public String getPharmacyID() {
-        return pharmacyID;
+    public String getBankAccountId() {
+        return bankAccountId;
     }
 
     public String getBankName() {
@@ -65,7 +64,7 @@ public class PharmacyBankAccountInformation {
     @Override
     public String toString() {
         return "PharmacyBankAccountInformation{" +
-                "pharmacyID=" + pharmacyID +
+                "pharmacyID=" + bankAccountId +
                 ", bankName='" + bankName + '\'' +
                 ", accountNumber=" + accountNumber +
                 ", branchCode=" + branchCode +
@@ -76,15 +75,15 @@ public class PharmacyBankAccountInformation {
     // add setters using building pattern
     public static class Builder
     {
-        private String pharmacyID;
+        private String bankAccountId;
         private String bankName;
         private int accountNumber;
         private int branchCode;
         private String beneficiaryReference;
 
-        public Builder setPharmacyID(String pharmacyID)
+        public Builder setBankAccountId(String bankAccountId)
         {
-            this.pharmacyID = pharmacyID;
+            this.bankAccountId = bankAccountId;
             return this;
         }
 
@@ -115,7 +114,7 @@ public class PharmacyBankAccountInformation {
         // Copy method for PharmacyBankAccountInformation entity
         public Builder copy (PharmacyBankAccountInformation pharmacyBankAccountInformation)
         {
-            this.pharmacyID = pharmacyBankAccountInformation.pharmacyID;
+            this.bankAccountId = pharmacyBankAccountInformation.bankAccountId;
             this.bankName = pharmacyBankAccountInformation.bankName;
             this.accountNumber = pharmacyBankAccountInformation.accountNumber;
             this.branchCode = pharmacyBankAccountInformation.branchCode;

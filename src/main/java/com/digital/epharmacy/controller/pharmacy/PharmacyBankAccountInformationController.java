@@ -2,7 +2,6 @@ package com.digital.epharmacy.controller.pharmacy;
 
 import com.digital.epharmacy.entity.Pharmacy.PharmacyBankAccountInformation;
 import com.digital.epharmacy.factory.Pharmacy.PharmacyBankAccountInformationFactory;
-import com.digital.epharmacy.service.PharmacyBankAccountInformation.PharmacyBankAccountInformationService;
 import com.digital.epharmacy.service.PharmacyBankAccountInformation.impl.PharmacyBankAccountInformationServiceImpl;
 import com.digital.epharmacy.service.Validation.ValidationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +38,6 @@ public class PharmacyBankAccountInformationController {
 
         PharmacyBankAccountInformation newBankInfo = PharmacyBankAccountInformationFactory
                 .createPharmacyBankAccountInformation(
-                        bankinfo.getPharmacyID(),
                         bankinfo.getBankName(),
                         bankinfo.getAccountNumber(),
                         bankinfo.getBranchCode(),
