@@ -1,11 +1,11 @@
 package com.digital.epharmacy.entity.User;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.hibernate.validator.constraints.Range;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
 /*
  * Author: Nicole Hawthorne
@@ -13,19 +13,21 @@ import javax.validation.constraints.NotNull;
  * Date: 03/07/2020
  *
  * Edited By Opatile Kelobang
- * Date: 25 Septembre 2020
+ * Date: 25 September 2020
+ *
+ * Modified: 26 October 2020
+ * Updated Method call for Read by Pharmacy name
+ *
  * */
-/**Author: Nicole Hawthorne
- *Desc: Added the entity mapping and assigned the primary key also added no null values each entity
- and changed default constructor to protected
- * Date: 25/10/2020 */
-//main class
+
+@Entity
 public class MedicalAid {
     //naming entity attributes and assigning their variable values
-   @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "id")
     private String userId;
     @NotNull(message = "Medical aid number is required")
+    @Range(min = 1, max = 2147483647, message = "Medical aid number is required")
     private int userMedicalAidNumber;
     @NotBlank(message = "Medical aid scheme is required")
     private String medicalAidScheme;
@@ -112,5 +114,18 @@ public class MedicalAid {
         public MedicalAid build(){
             return new MedicalAid(this);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MedicalAid that = (MedicalAid) o;
+        return userId.equals(that.userId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userId);
     }
 }
