@@ -1,8 +1,11 @@
 package com.digital.epharmacy.entity.Pharmacy;
 
+import org.hibernate.validator.constraints.Range;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
 /*
  * Author: Opatile Kelobang
@@ -19,8 +22,10 @@ public class PharmacyBankAccountInformation {
     @NotBlank(message = "Bank name is required")
     private String bankName;
     @NotNull(message = "Account number is required")
+    @Range(min = 1, max = 2147483647, message = "Account number is required")
     private int accountNumber;
     @NotNull(message = "Branch Code is required")
+    @Range(min = 1, max = 2147483647, message = "Account number is required")
     private int branchCode;
     @NotBlank(message = "Beneficiary Reference is required")
     private String beneficiaryReference;
@@ -126,6 +131,19 @@ public class PharmacyBankAccountInformation {
         {
             return new PharmacyBankAccountInformation(this);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PharmacyBankAccountInformation that = (PharmacyBankAccountInformation) o;
+        return bankAccountId.equals(that.bankAccountId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bankAccountId);
     }
 }
 
