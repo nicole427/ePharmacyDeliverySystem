@@ -1,4 +1,4 @@
-package com.digital.epharmacy.repository.Pharmacy.Impl;
+/*package com.digital.epharmacy.repository.Pharmacy.Impl;*/
 
 import com.digital.epharmacy.entity.Pharmacy.Pharmacy;
 import com.digital.epharmacy.repository.Pharmacy.PharmacyRepository;
@@ -12,6 +12,7 @@ import java.util.Set;
  * Date: 29 August 2020
  */
 
+/*
 @Repository
 public class PharmacyRepositoryImpl implements PharmacyRepository {
     private static PharmacyRepository repository = null;
@@ -71,3 +72,4 @@ public class PharmacyRepositoryImpl implements PharmacyRepository {
         return this.pharmacyDB;
     }
 }
+*/

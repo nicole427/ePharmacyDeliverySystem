@@ -18,7 +18,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -30,7 +29,6 @@ public class PharmacyBankAccountInformationControllerTest {
 
     PharmacyBankAccountInformation bankInfo = PharmacyBankAccountInformationFactory
             .createPharmacyBankAccountInformation(
-                    "605f5fd6-e329-4b95-b120-c39e5e250000",
                     "Standard Bank",
                     794241,
                     25001,
@@ -55,7 +53,7 @@ public class PharmacyBankAccountInformationControllerTest {
         assertNotNull(response.getBody());
         bankInfo = response.getBody();
         System.out.println("Saved Data: " + bankInfo);
-        assertEquals(bankInfo.getPharmacyID(), response.getBody().getPharmacyID());
+        assertEquals(bankInfo.getBankAccountId(), response.getBody().getBankAccountId());
     }
 
     @Order(2)
@@ -81,14 +79,14 @@ public class PharmacyBankAccountInformationControllerTest {
                 )
                 .build();
 
-        String url = baseURL + "/update/" + bankInfo.getPharmacyID();
+        String url = baseURL + "/update/" + bankInfo.getBankAccountId();
 
         System.out.println("URL: " + url);
         System.out.println("POST Data: " + bankUpdate);
 
         ResponseEntity<PharmacyBankAccountInformation> response = restTemplate.postForEntity(url, bankUpdate, PharmacyBankAccountInformation.class);
         bankInfo = response.getBody();
-        assertEquals(bankInfo.getPharmacyID(), response.getBody().getPharmacyID());
+        assertEquals(bankInfo.getBankAccountId(), response.getBody().getBankAccountId());
     }
 
     @Order(4)
@@ -107,7 +105,7 @@ public class PharmacyBankAccountInformationControllerTest {
     @Order(5)
     @Test
     public void delete() {
-        String url = baseURL + "/delete/" + bankInfo.getPharmacyID();
+        String url = baseURL + "/delete/" + bankInfo.getBankAccountId();
         System.out.println("URL: " + url);
         restTemplate.delete(url);
     }

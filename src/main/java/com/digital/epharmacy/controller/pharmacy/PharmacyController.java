@@ -17,6 +17,10 @@ import java.util.Set;
  * Author: Opatile Kelobang
  * Desc: Pharmacy Controller
  * Date: 24 September 2020
+ *
+ * Modified: 26 October 2020
+ * Updated Method call for Read by Pharmacy name
+ *
  */
 @RestController
 @RequestMapping("/pharmacy")
@@ -52,7 +56,7 @@ public class PharmacyController {
 
     @GetMapping("/name/{pharmacyName}")
     public ResponseEntity<?> readByPharmacyName(@PathVariable String pharmacyName){
-        Pharmacy pharmacy = pharmacyService.read(pharmacyName);
+        Pharmacy pharmacy = pharmacyService.findPharmacyByPharmacyName(pharmacyName);
 
         return new ResponseEntity<Pharmacy>(pharmacy, HttpStatus.OK);
     }
