@@ -11,4 +11,5 @@ import java.util.Set;
  */
 public interface PharmacyBankAccountInformationService extends IService<PharmacyBankAccountInformation, String> {
     Set<PharmacyBankAccountInformation> getAll();
+    PharmacyBankAccountInformation findByAccountNumber(int accountNumber);
 }

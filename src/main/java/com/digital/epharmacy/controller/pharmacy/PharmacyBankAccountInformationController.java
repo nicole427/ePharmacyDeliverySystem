@@ -17,6 +17,10 @@ import java.util.Set;
  * Author: Opatile Kelobang
  * Desc: Pharmacy Bank Account Info Controller
  * Date: 24 September 2020
+ *
+ * Modified: 26 October 2020
+ * Updated Method call for Read by AccountId
+ * Added Endpoint to search by account number
  */
 @RestController
 @RequestMapping("/bankdetails")
@@ -49,9 +53,16 @@ public class PharmacyBankAccountInformationController {
         return new ResponseEntity<PharmacyBankAccountInformation>(bankinfo, HttpStatus.CREATED);
     }
 
-    @GetMapping("/read/{pharmacyID}")
-    public ResponseEntity<PharmacyBankAccountInformation> read(@PathVariable String pharmacyID){
-        PharmacyBankAccountInformation bankInfo = bankService.read(pharmacyID);
+    @GetMapping("/read/{bankAccountId}")
+    public ResponseEntity<PharmacyBankAccountInformation> read(@PathVariable String bankAccountId){
+        PharmacyBankAccountInformation bankInfo = bankService.read(bankAccountId);
+
+        return new ResponseEntity<PharmacyBankAccountInformation>(bankInfo, HttpStatus.OK);
+    }
+
+    @GetMapping("/account/{accountNumber}")
+    public ResponseEntity<PharmacyBankAccountInformation> read(@PathVariable int accountNumber){
+        PharmacyBankAccountInformation bankInfo = bankService.findByAccountNumber(accountNumber);
 
         return new ResponseEntity<PharmacyBankAccountInformation>(bankInfo, HttpStatus.OK);
     }

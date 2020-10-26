@@ -33,6 +33,16 @@ public class PharmacyBankAccountInformationServiceImpl implements PharmacyBankAc
     }
 
     @Override
+    public PharmacyBankAccountInformation findByAccountNumber(int accountNumber) {
+        PharmacyBankAccountInformation bankDetails = repository.findByAccountNumber(accountNumber);
+
+        if (bankDetails == null)
+            throw new MyCustomExceptionHandler("Bank account does not exist");
+
+        return bankDetails;
+    }
+
+    @Override
     public PharmacyBankAccountInformation create(PharmacyBankAccountInformation pharmacyBankAccountInformation) {
         try{
             return this.repository.save(pharmacyBankAccountInformation);
