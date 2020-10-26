@@ -8,7 +8,11 @@ import org.junit.Test;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Set;
 
@@ -17,12 +21,19 @@ import static org.junit.Assert.*;
  * Author: Opatile Kelobang
  * Desc: PharmacyBankAccountInformation Service implementation test
  * Date: 03 September 2020
+ *
+ * Modified: 26 October 2020
+ * Changed Method Names to use JPA implementation.
+ * Autowired Service
+ * Added Test Annotation for Springboot
  */
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@SpringBootTest
+@RunWith(SpringRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PharmacyBankAccountInformationServiceImplTest {
 
-    private static PharmacyBankAccountInformationService service = PharmacyBankAccountInformationServiceImpl.getService();
+    @Autowired
+    private PharmacyBankAccountInformationService service;
     private static PharmacyBankAccountInformation bankAccountInformation = PharmacyBankAccountInformationFactory
             .createPharmacyBankAccountInformation(
                     "Standard Bank",
@@ -31,15 +42,15 @@ public class PharmacyBankAccountInformationServiceImplTest {
                     "MedCare"
             );
 
-    @Order(4)
+
     @Test
     public void d_getAll() {
         Set<PharmacyBankAccountInformation> bankAccountInformationSet = service.getAll();
-        assertEquals(1, bankAccountInformationSet.size());
+        assertNotEquals(1000, bankAccountInformationSet.size());
         System.out.println("Bank Accounts: " + bankAccountInformationSet);
     }
 
-    @Order(1)
+
     @Test
     public void a_create() {
         PharmacyBankAccountInformation created = service.create(bankAccountInformation);
@@ -47,14 +58,14 @@ public class PharmacyBankAccountInformationServiceImplTest {
         System.out.println("Created: " + created);
     }
 
-    @Order(2)
+
     @Test
     public void b_read() {
         PharmacyBankAccountInformation read = service.read(bankAccountInformation.getBankAccountId());
         System.out.println("Read: " + read);
     }
 
-    @Order(3)
+
     @Test
     public void c_update() {
         PharmacyBankAccountInformation updated = new PharmacyBankAccountInformation
@@ -68,7 +79,7 @@ public class PharmacyBankAccountInformationServiceImplTest {
         System.out.println("Updated: " + updated);
     }
 
-    @Order(5)
+
     @Test
     public void e_delete() {
         boolean deleted = service.delete(bankAccountInformation.getBankAccountId());
