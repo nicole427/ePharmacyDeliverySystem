@@ -3,7 +3,6 @@ package com.digital.epharmacy.service.MedicalAid.impl;
 import com.digital.epharmacy.controller.ExceptionHandler.MyCustomExceptionHandler;
 import com.digital.epharmacy.entity.User.MedicalAid;
 import com.digital.epharmacy.repository.MedicalAid.MedicalAidRepository;
-import com.digital.epharmacy.repository.MedicalAid.impl.MedicalAidRepositoryImpl;
 import com.digital.epharmacy.service.MedicalAid.MedicalAidService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
