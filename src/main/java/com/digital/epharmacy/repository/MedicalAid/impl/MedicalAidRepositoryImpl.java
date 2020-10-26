@@ -1,3 +1,4 @@
+/*
 package com.digital.epharmacy.repository.MedicalAid.impl;
 
 import com.digital.epharmacy.entity.User.MedicalAid;
@@ -6,12 +7,14 @@ import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
+*/
 
 /*
  * Author: Opatile Kelobang
  * Desc: MedicalAid repository implementation
  * Date: 29 August 2020
  */
+/*
 @Repository
 public class MedicalAidRepositoryImpl implements MedicalAidRepository {
     private static MedicalAidRepository repository = null;
@@ -73,3 +76,4 @@ public class MedicalAidRepositoryImpl implements MedicalAidRepository {
         return this.medicalAidDB;
     }
 }
+*/
