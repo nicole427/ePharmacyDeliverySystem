@@ -1,22 +1,44 @@
 package com.digital.epharmacy.entity.User;
 
 
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import java.util.Objects;
 
 /*
  * Author: Nicole Hawthorne
  * Desc: Address Entity composed of User Profile and Pharmacy entity that stores the user and pharmacy address/location
  * Date: 03/07/2020
  * */
+
+/**Author: Nicole Hawthorne
+ *Desc: Added the entity mapping and assigned the primary key also added no null values each entity
+ and changed default constructor to protected
+ * Date: 25/10/2020
+ * */
 //main class
+
 public class Address {
     //naming entity attributes and assigning their variable values
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String pharmacyId;
-    private int streetNumber, areaCode;
-    private String streetName, areaName;
+    @NotBlank(message = "Street number is required")
+    private int streetNumber;
+    @NotBlank(message = "Area code is required")
+    private int areaCode;
+    @NotBlank(message = "Street name is required")
+    private String streetName;
+    @NotBlank(message = "Area name is required")
+    private String areaName;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String userId;
 
+
     // Added default constructor for SpringBoot implementation.
-    public Address(){
+    protected Address(){
 
     }
     //constructor for Builder class
@@ -120,5 +142,18 @@ public class Address {
         public Address build(){
             return new Address(this);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Address address = (Address) o;
+        return pharmacyId.equals(address.pharmacyId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(pharmacyId);
     }
 }

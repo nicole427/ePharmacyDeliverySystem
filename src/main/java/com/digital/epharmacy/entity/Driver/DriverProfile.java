@@ -1,4 +1,11 @@
 package com.digital.epharmacy.entity.Driver;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
 /*
     Author: Chad Boswell
 <<<<<<< HEAD
@@ -8,10 +15,24 @@ package com.digital.epharmacy.entity.Driver;
 >>>>>>> origin/groupCollaboration
     Date: 4 July 2020
  */
-public class DriverProfile {
+/**Author: Nicole Hawthorne
+ *Desc: Added the entity mapping and assigned the primary key also added no null values each entity
+ and changed default constructor to protected
+ * Date: 25/10/2020
+ * */
 
-    private String driverId;
-    private String driverName, driverSurname, driverLocation;
+public class DriverProfile {
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private String driverId;
+@NotNull(message = "Driver Name is required")
+private String driverName;
+@NotNull(message = "Driver Surname is required")
+private String driverSurname;
+@NotNull(message = "Driver location is required")
+private String driverLocation;
+
+protected DriverProfile() {}
 
     // builder pattern method constructor
     private DriverProfile(Builder builder){

@@ -9,9 +9,10 @@ import com.digital.epharmacy.util.GenericHelper;
  * Date: 05 July 2020
  */
 public class PharmacyBankAccountInformationFactory {
-    public static PharmacyBankAccountInformation createPharmacyBankAccountInformation(String pharmacyID, String bankName, int accountNumber, int branchCode, String beneficiaryReference){
-        pharmacyID = GenericHelper.generateId();
-        PharmacyBankAccountInformation pharmacyBankAccountInformation = new PharmacyBankAccountInformation.Builder().setPharmacyID(pharmacyID)
+    public static PharmacyBankAccountInformation createPharmacyBankAccountInformation(String bankName, int accountNumber, int branchCode, String beneficiaryReference){
+        String banAccountId = GenericHelper.generateId();
+
+        PharmacyBankAccountInformation pharmacyBankAccountInformation = new PharmacyBankAccountInformation.Builder().setBankAccountId(banAccountId)
                 .setBankName(bankName)
                 .setAccountNumber(accountNumber)
                 .setBranchCode(branchCode)

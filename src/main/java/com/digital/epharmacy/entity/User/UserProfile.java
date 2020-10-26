@@ -1,29 +1,35 @@
 package com.digital.epharmacy.entity.User;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.io.Serializable;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /*
 * Author: Nicole Hawthorne
 * Desc: UserProfile entity for registered user information
 * Date: 03/07/2020
 * */
+
+/**Author: Nicole Hawthorne
+ *Desc: Added the entity mapping and assigned the primary key also added no null values each entity
+ and changed default constructor to protected
+ * Date: 25/10/2020
+ * */
 //main class
 @Entity
 public class UserProfile {
     //naming entity attributes and assigning their variable values
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String userId;
+    @NotNull(message = "Username is required")
+    private String userName;
+    @NotNull(message = "User Surname is required")
+    private String userSurname;
+    @NotNull(message = "Gender is required")
+    private String gender;
 
-    private String userName, userSurname, gender;
-
-
-
-    private UserProfile(){}
+    protected UserProfile(){}
 
     //constructor for Builder class
     private UserProfile (Builder builder){

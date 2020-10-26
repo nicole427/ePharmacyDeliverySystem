@@ -5,7 +5,11 @@ package com.digital.epharmacy.entity.Order;
  * Desc: Order Entity composed of Order and OrderReceipt entity that stores the Order and Order Receipt of the customer
  * Date: 04/07/2020
  * */
-
+/**Author: Nicole Hawthorne
+ *Desc: Added the entity mapping and assigned the primary key also added no null values each entity
+ and changed default constructor to protected
+ * Date: 25/10/2020
+ * */
 
 import org.hibernate.annotations.Generated;
 
@@ -13,24 +17,31 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
-@Entity
+
 public class Order {
 
     //Entity attributes
-    private int totalCatalogueItems;
-    private String  userID;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String orderNumber; // (Ayabulela Mahlathini) changed order number to string so that it is auto generated in the factory
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String  userID;
+    @NotNull(message = "Order total is required")
     private double orderTotal;
-    private String paymentType, orderStatus; //(Ayabulela Mahlathini)added orderStatus
+    @NotNull(message = "Total Items is required")
+    private int totalCatalogueItems;
+    @NotNull(message = "Payment type is required")
+    private String paymentType;
+    @NotNull(message = "Order Status is required")
+    private String orderStatus; //(Ayabulela Mahlathini)added orderStatus
+    @NotNull(message = "Date is required")
     private String date;
 
     //default contructor - Ayabulela Mahlathini
-    private Order(){}
+    protected Order(){}
 
     //Builder class constructor
     private Order(Builder builder){
