@@ -43,7 +43,7 @@ public class MedicalAidServiceImplTest {
     @Order(2)
     @Test
     public void b_read() {
-        MedicalAid read = service.read(medicalAid.getUserId());
+        MedicalAid read = service.read(medicalAid.getMedicalAidId());
         System.out.println("Read: " + read);
     }
 
@@ -66,7 +66,7 @@ public class MedicalAidServiceImplTest {
     @Order(5)
     @Test
     public void e_delete() {
-        boolean deleted = service.delete(medicalAid.getUserId());
+        boolean deleted = service.delete(medicalAid.getMedicalAidId());
                 Assert.assertTrue(deleted);
 
         if (deleted)

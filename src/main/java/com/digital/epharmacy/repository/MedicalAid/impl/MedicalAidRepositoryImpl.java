@@ -38,7 +38,7 @@ public class MedicalAidRepositoryImpl implements MedicalAidRepository {
     public MedicalAid read(String userID) {
         MedicalAid userProfile = null;
         for (MedicalAid u: this.medicalAidDB)
-            if(u.getUserId().equalsIgnoreCase(userID)){
+            if(u.getMedicalAidId().equalsIgnoreCase(userID)){
                 userProfile = u;
             } else if(u.getMedicalAidName().equalsIgnoreCase(userID)){
                 userProfile = u;
@@ -49,7 +49,7 @@ public class MedicalAidRepositoryImpl implements MedicalAidRepository {
 
     @Override
     public MedicalAid update(MedicalAid medicalAid) {
-        MedicalAid oldMedicalAid = read(medicalAid.getUserId());
+        MedicalAid oldMedicalAid = read(medicalAid.getMedicalAidId());
         if(oldMedicalAid != null){
             this.medicalAidDB.remove(oldMedicalAid);
             this.medicalAidDB.add(medicalAid);

@@ -25,7 +25,7 @@ public class MedicalAid {
     //naming entity attributes and assigning their variable values
     @Id
     @Column(name = "id")
-    private String userId;
+    private String medicalAidId;
     @NotNull(message = "Medical aid number is required")
     @Range(min = 1, max = 2147483647, message = "Medical aid number is required")
     private int userMedicalAidNumber;
@@ -38,7 +38,7 @@ public class MedicalAid {
 
     //constructor for Builder class
     private MedicalAid (Builder builder){
-        this.userId = builder.userId;
+        this.medicalAidId = builder.medicalAidId;
         this.userMedicalAidNumber = builder.userMedicalAidNumber;
         this.medicalAidName = builder.medicalAidName;
         this.medicalAidScheme = builder.medicalAidScheme;
@@ -46,8 +46,8 @@ public class MedicalAid {
     }
     
     //getters to get all values of attributes
-    public String getUserId() {
-        return userId;
+    public String getMedicalAidId() {
+        return medicalAidId;
     }
 
     public int getUserMedicalAidNumber() {
@@ -66,7 +66,7 @@ public class MedicalAid {
     @Override
     public String toString() {
         return "MedicalAid{" +
-                "userId=" + userId +
+                "userId=" + medicalAidId +
                 ", userMedicalAidNumber=" + userMedicalAidNumber +
                 ", medicalAidName='" + medicalAidName + '\'' +
                 ", medicalAidScheme='" + medicalAidScheme + '\'' +
@@ -78,11 +78,11 @@ public class MedicalAid {
         //same assigned attributes in main class with variable values
         private int  userMedicalAidNumber;
         private String medicalAidName, medicalAidScheme;
-        private String userId;
+        private String medicalAidId;
 
         //setting UserId value using builder pattern
-        public Builder setUserId(String userId){
-            this.userId = userId;
+        public Builder setMedicalAidId(String medicalAidId){
+            this.medicalAidId = medicalAidId;
             return this;
         }
         //setting User Medical Aid  value using builder pattern
@@ -103,7 +103,7 @@ public class MedicalAid {
         
         // Builder copy method that create instance of MedicalAid and makes a copy out of it
         public Builder copy(MedicalAid medicalAid){
-            this.userId = medicalAid.userId;
+            this.medicalAidId = medicalAid.medicalAidId;
             this.userMedicalAidNumber = medicalAid.userMedicalAidNumber;
             this.medicalAidName = medicalAid.medicalAidName;
             this.medicalAidScheme = medicalAid.medicalAidScheme;
@@ -121,11 +121,11 @@ public class MedicalAid {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MedicalAid that = (MedicalAid) o;
-        return userId.equals(that.userId);
+        return medicalAidId.equals(that.medicalAidId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId);
+        return Objects.hash(medicalAidId);
     }
 }

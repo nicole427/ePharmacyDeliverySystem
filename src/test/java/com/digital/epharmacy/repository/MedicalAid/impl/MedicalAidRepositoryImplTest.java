@@ -29,7 +29,7 @@ public class MedicalAidRepositoryImplTest {
     @Order(2)
     @Test
     public void b_read() {
-        MedicalAid read = repository.read(medicalAid.getUserId());
+        MedicalAid read = repository.read(medicalAid.getMedicalAidId());
         System.out.println("Read: " + read);
     }
 
@@ -44,7 +44,7 @@ public class MedicalAidRepositoryImplTest {
     @Order(5)
     @Test
     public void e_delete() {
-        boolean deleted = repository.delete(medicalAid.getUserId());
+        boolean deleted = repository.delete(medicalAid.getMedicalAidId());
         Assert.assertTrue(deleted);
 
         if (deleted)
