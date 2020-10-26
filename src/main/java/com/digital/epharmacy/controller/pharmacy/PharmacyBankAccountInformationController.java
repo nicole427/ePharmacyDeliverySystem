@@ -77,8 +77,8 @@ public class PharmacyBankAccountInformationController {
         return bankService.getAll();
     }
 
-    @DeleteMapping("/delete/{pharmacyID}")
-    public boolean delete(@PathVariable String pharmacyID){
-        return bankService.delete(pharmacyID);
+    @DeleteMapping("/delete/{bankAccountId}")
+    public boolean delete(@PathVariable String bankAccountId){
+        return bankService.delete(bankAccountId);
     }
 }
