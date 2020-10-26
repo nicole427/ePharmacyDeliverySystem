@@ -4,19 +4,44 @@ package com.digital.epharmacy.entity.Order;
  * Desc: OrderReceipt entity composed of Order, Pharmacy, UserProfile, Payment and CatalogueItem
  *       showing the customer their final receipt.
  * Date: 04/07/2020
+ *
+ * Author: Nicole Hawthorne
+ * Desc: Added the entity mapping and assigned the primary key also added no null values each entity
+ * and changed default constructor to protected
+ * Date: 25/10/2020
  * */
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 public class OrderReceipt {
 
     //Entity attributes
-    private int orderNumber,itemQuantity;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int orderNumber;
+    @NotNull (message = "Item Qty is required")
+    private int itemQuantity;
+    @NotNull(message = "Payment total is required")
     private double paymentTotal;
-    private String pharmacyId,userID,itemName, typeOfPayment;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String pharmacyId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String userID;
+    @NotNull(message = "Item Name total is required")
+    private String itemName;
+    @NotNull(message = "Type of Payment total is required")
+    private String typeOfPayment;
+    @NotNull(message = "Date is required")
     private Date date;
 
     // Added default constructor for Springboot implementation.
-    public OrderReceipt() {
+    protected OrderReceipt() {
 
     }
 

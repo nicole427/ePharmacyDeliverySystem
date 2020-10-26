@@ -15,8 +15,11 @@ import javax.validation.constraints.NotNull;
  * Edited By Opatile Kelobang
  * Date: 25 Septembre 2020
  * */
+/**Author: Nicole Hawthorne
+ *Desc: Added the entity mapping and assigned the primary key also added no null values each entity
+ and changed default constructor to protected
+ * Date: 25/10/2020 */
 //main class
-@Entity
 public class MedicalAid {
     //naming entity attributes and assigning their variable values
    @Id
@@ -29,7 +32,7 @@ public class MedicalAid {
     @NotBlank(message = "Medical aid name is required")
     private String medicalAidName;
 
-    private MedicalAid(){}
+    protected MedicalAid(){}
 
     //constructor for Builder class
     private MedicalAid (Builder builder){

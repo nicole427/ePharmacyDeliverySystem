@@ -5,20 +5,48 @@ package com.digital.epharmacy.entity.Payment;
  * Date: 04/07/2020
  * */
 
+/**Author: Nicole Hawthorne
+ *Desc: Added the entity mapping and assigned the primary key also added no null values each entity
+ and changed default constructor to protected
+ * Date: 25/10/2020
+ * */
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 //Main class
+
 public class Payment {
 
     //Declaring variables using all attributes from the Payment Entity
-    private String paymentStatus, typeOfPayment, referenceNumber, paymentNotification;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String referenceNumber;
+    @NotNull(message = "Payment Status is required")
+    private String paymentStatus;
+    @NotNull(message = "Type of Payment is required")
+    private String typeOfPayment;
+    @NotNull(message = "Payment Notification is required")
+    private String paymentNotification;
+    @NotNull(message = "Payment total is required")
     private double paymentTotal;
+    @NotNull(message = "Date is required")
     private String date;
 
     //declaring foreign keys, using String datatype for now
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String pharmacyID;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String userID;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String orderNumber;
 
+    protected Payment (){}
     //builder Constructor
     public Payment(Builder builder) {
 
