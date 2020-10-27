@@ -10,6 +10,9 @@ import java.util.Set;
 /** Author: Ayabulela Mahlathini - 218017774
  * Date: 29/08/2020
  * Description: Interface for getting all orders from the database
+ *
+ * Date: 25/08/2020
+ * Desc: changed from the depricated Repository to using the JpaRepository
  */
 
 public interface OrderRepository extends JpaRepository<Order, String> { }

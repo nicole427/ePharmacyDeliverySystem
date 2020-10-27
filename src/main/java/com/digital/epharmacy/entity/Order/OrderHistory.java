@@ -3,6 +3,8 @@ package com.digital.epharmacy.entity.Order;
  *Desc: Added the entity mapping and assigned the primary key also added no null values each entity
  and changed default constructor to protected
  * Date: 25/10/2020
+ * Author: Ayabulela Mahlathini - altered entity to connect to database
+ * 25/10/2020
  * */
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,7 +22,7 @@ public class OrderHistory {
     @NotNull(message = "Total number of orders is required")
     private int totalNumberOfOrders;
     @NotNull(message = "Total Order value is required")
-    private BigDecimal totalOrderValue;
+    private BigDecimal totalOrderValue; //Ayabulela Mahlathini - change from double to BigDecimal
 
     //default contructor - Ayabulela Mahlathini
     protected OrderHistory(){}

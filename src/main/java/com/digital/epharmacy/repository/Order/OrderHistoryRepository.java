@@ -11,6 +11,9 @@ import java.util.Set;
  * Author: Ayabulela Mahlathini - 218017774
  * Date: 29/08/2020
  * Description: Interface for getting all the history for orders by a user from the database
+ *
+ * Date: 25/08/2020
+ * Desc: changed from the depricated Repository to using the JpaRepository
  */
 
 public interface OrderHistoryRepository extends JpaRepository<OrderHistory, String> { }

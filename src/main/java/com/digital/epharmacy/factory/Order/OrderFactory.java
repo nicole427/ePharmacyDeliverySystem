@@ -1,6 +1,8 @@
 package com.digital.epharmacy.factory.Order;
 //Matthew Pearce - Order Factory Created to create a order 05 July 2020
 //Ayabulela Mahlathini - Uncommented the code for generating order number and adding code for getting the date
+//Author: Ayabulela Mahlathini - altered factory to better with databases
+//25/10/2020
 
 import com.digital.epharmacy.entity.Catalogue.CatalogueItem;
 import com.digital.epharmacy.entity.Order.Order;
@@ -11,6 +13,7 @@ import java.util.List;
 
 public class OrderFactory {
 
+    //changed required parameters to accomodate items being ordered
     public static Order createOrder(String userID, List<CatalogueItem> items, String paymentType) {
 
         //generating order number
@@ -18,7 +21,7 @@ public class OrderFactory {
 
         double orderTotal = 0;
 
-
+        //calculating total for the whole order
         if (items != null) {
             for (CatalogueItem ci : items) {
                 double itemsTotal = ci.getItemPrice() * ci.getItemQuantity();

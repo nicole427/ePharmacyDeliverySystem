@@ -9,6 +9,10 @@ package com.digital.epharmacy.entity.Order;
  *Desc: Added the entity mapping and assigned the primary key also added no null values each entity
  and changed default constructor to protected
  * Date: 25/10/2020
+ *
+ * Author: Ayabulela Mahlathini - altered entity to connect to database
+ * 25/10/2020
+ *
  * */
 
 import com.digital.epharmacy.entity.Catalogue.CatalogueItem;
@@ -21,7 +25,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "ORDERS")
+@Table(name = "ORDERS") //Order seems to be a reserved word, had to change to ORDERS
 public class Order {
 
     //Entity attributes
@@ -32,7 +36,7 @@ public class Order {
     private String  userID;
     private BigDecimal orderTotal;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<CatalogueItem> items = new ArrayList<>();
+    private List<CatalogueItem> items = new ArrayList<>(); //Ayabulela Mahlathini - for relationship with CatalogueItem Entity
     private int totalCatalogueItems;
     private String paymentType;
     private String orderStatus; //(Ayabulela Mahlathini)added orderStatus

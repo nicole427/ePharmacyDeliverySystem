@@ -3,6 +3,9 @@ package com.digital.epharmacy.service.Order.Impl;
 /** Author: Ayabulela Mahlathini - 218017774
  * Date: 03/09/2020
  * Description: Implementation for the OrderHistory service, getting all orders from the database and handling the business logic
+ *
+ * Date: 25/10/2020
+ * Altered Service to use JpaRepository methods for creating, reading, updating and deleting
  */
 
 import com.digital.epharmacy.entity.Order.OrderHistory;

@@ -39,6 +39,7 @@ public class OrderServiceImplTest {
     @Autowired
     private OrderService service;
 
+    //as per business rules, we need items to place orders
     private static CatalogueItem catalogueItem = CatalogueItemFactory.createCatalogueItem(36, "Mayogel",
             "oral health", 36, 200);
     private static CatalogueItem catalogueItem2 = CatalogueItemFactory.createCatalogueItem(37, "Mayogel",
