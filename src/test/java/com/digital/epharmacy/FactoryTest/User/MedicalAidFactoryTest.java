@@ -12,7 +12,7 @@ public class MedicalAidFactoryTest {
     public void createMedicalAid() {
 
             MedicalAid medicalAid = MedicalAidFactory.createMedicalAid(8900353,"Momentum","Ingwe");
-            assertEquals("Random", medicalAid.getUserId());
+            assertEquals("Random", medicalAid.getMedicalAidId());
             assertEquals(8900353, medicalAid.getUserMedicalAidNumber());
             assertEquals("Momentum", medicalAid.getMedicalAidName());
             assertEquals("Ingwe", medicalAid.getMedicalAidScheme());

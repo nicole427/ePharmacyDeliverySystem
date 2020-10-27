@@ -1,4 +1,4 @@
-package com.digital.epharmacy.repository.MedicalAid.impl;
+/*package com.digital.epharmacy.repository.MedicalAid.impl;
 
 import com.digital.epharmacy.entity.User.MedicalAid;
 import com.digital.epharmacy.factory.User.MedicalAidFactory;
@@ -9,7 +9,8 @@ import org.junit.Test;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.runners.MethodSorters;
+import org.junit.runners.MethodSorters;*/
+/*
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -29,7 +30,7 @@ public class MedicalAidRepositoryImplTest {
     @Order(2)
     @Test
     public void b_read() {
-        MedicalAid read = repository.read(medicalAid.getUserId());
+        MedicalAid read = repository.read(medicalAid.getMedicalAidId());
         System.out.println("Read: " + read);
     }
 
@@ -44,7 +45,7 @@ public class MedicalAidRepositoryImplTest {
     @Order(5)
     @Test
     public void e_delete() {
-        boolean deleted = repository.delete(medicalAid.getUserId());
+        boolean deleted = repository.delete(medicalAid.getMedicalAidId());
         Assert.assertTrue(deleted);
 
         if (deleted)
@@ -56,4 +57,4 @@ public class MedicalAidRepositoryImplTest {
     public void d_getAll() {
         System.out.println("Get All:" + repository.getAll());
     }
-}
+}*/
