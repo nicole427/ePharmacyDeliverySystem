@@ -1,3 +1,4 @@
+/*
 package com.digital.epharmacy.repository.MedicalAid.impl;
 
 import com.digital.epharmacy.entity.User.MedicalAid;
@@ -6,12 +7,14 @@ import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
+*/
 
 /*
  * Author: Opatile Kelobang
  * Desc: MedicalAid repository implementation
  * Date: 29 August 2020
  */
+/*
 @Repository
 public class MedicalAidRepositoryImpl implements MedicalAidRepository {
     private static MedicalAidRepository repository = null;
@@ -38,7 +41,7 @@ public class MedicalAidRepositoryImpl implements MedicalAidRepository {
     public MedicalAid read(String userID) {
         MedicalAid userProfile = null;
         for (MedicalAid u: this.medicalAidDB)
-            if(u.getUserId().equalsIgnoreCase(userID)){
+            if(u.getMedicalAidId().equalsIgnoreCase(userID)){
                 userProfile = u;
             } else if(u.getMedicalAidName().equalsIgnoreCase(userID)){
                 userProfile = u;
@@ -49,7 +52,7 @@ public class MedicalAidRepositoryImpl implements MedicalAidRepository {
 
     @Override
     public MedicalAid update(MedicalAid medicalAid) {
-        MedicalAid oldMedicalAid = read(medicalAid.getUserId());
+        MedicalAid oldMedicalAid = read(medicalAid.getMedicalAidId());
         if(oldMedicalAid != null){
             this.medicalAidDB.remove(oldMedicalAid);
             this.medicalAidDB.add(medicalAid);
@@ -73,3 +76,4 @@ public class MedicalAidRepositoryImpl implements MedicalAidRepository {
         return this.medicalAidDB;
     }
 }
+*/

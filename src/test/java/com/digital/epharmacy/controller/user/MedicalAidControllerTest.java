@@ -1,6 +1,5 @@
 package com.digital.epharmacy.controller.user;
 
-import com.digital.epharmacy.entity.Pharmacy.PharmacyBankAccountInformation;
 import com.digital.epharmacy.entity.User.MedicalAid;
 import com.digital.epharmacy.factory.User.MedicalAidFactory;
 import org.junit.FixMethodOrder;
@@ -19,7 +18,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -78,7 +76,7 @@ public class MedicalAidControllerTest {
                         "Grants Medical"
                 )
                 .build();
-        String url = baseURL + "/update/" + medicalAid.getUserId();
+        String url = baseURL + "/update/" + medicalAid.getMedicalAidId();
 
         System.out.println("URL: " + url);
         System.out.println("POST Data: " + medicalAidUpdate);
@@ -105,7 +103,7 @@ public class MedicalAidControllerTest {
     @Order(5)
     @Test
     public void e_delete() {
-        String url = baseURL + "/delete/" + medicalAid.getUserId();
+        String url = baseURL + "/delete/" + medicalAid.getMedicalAidId();
         System.out.println("URL: " + url);
         restTemplate.delete(url);
     }

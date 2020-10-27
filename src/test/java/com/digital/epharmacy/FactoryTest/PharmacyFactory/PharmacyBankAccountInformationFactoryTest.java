@@ -11,9 +11,9 @@ public class PharmacyBankAccountInformationFactoryTest {
     @Test
     public void createPharmacyBankAccountInformation() {
         PharmacyBankAccountInformation pharmacyBankAccountInformation = PharmacyBankAccountInformationFactory
-                .createPharmacyBankAccountInformation("980123",
+                .createPharmacyBankAccountInformation(
                 "First National Bank", 794629609, 7612, "Viagra");
-        assertNotNull("Pharmacy Bank Account Information Cannot Be Found", pharmacyBankAccountInformation.getPharmacyID());
+        assertNotNull("Pharmacy Bank Account Information Cannot Be Found", pharmacyBankAccountInformation.getBankAccountId());
         assertEquals("First National Bank", pharmacyBankAccountInformation.getBankName());
         assertEquals(794629609, pharmacyBankAccountInformation.getAccountNumber());
         assertEquals(7612, pharmacyBankAccountInformation.getBranchCode());

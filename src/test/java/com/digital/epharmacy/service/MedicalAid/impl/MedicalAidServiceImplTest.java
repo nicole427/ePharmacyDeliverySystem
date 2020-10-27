@@ -9,7 +9,11 @@ import org.junit.Test;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Set;
 
@@ -18,12 +22,20 @@ import static org.junit.Assert.*;
  * Author: Opatile Kelobang
  * Desc: MedicalAid Service implementation test
  * Date: 02 September 2020
+ *
+ * Modified: 26 October 2020
+ * Changed Method Names to use JPA implementation.
+ * Autowired Service
+ * Fixed Test to use Spring Test
  */
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@SpringBootTest
+@RunWith(SpringRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class MedicalAidServiceImplTest {
 
-    private static MedicalAidService service = MedicalAidServiceImpl.getService();
+    @Autowired
+    private MedicalAidService service;
+
     private static MedicalAid medicalAid = MedicalAidFactory.
             createMedicalAid(
                     4005785,
@@ -32,7 +44,6 @@ public class MedicalAidServiceImplTest {
             );
 
 
-    @Order(1)
     @Test
     public void a_create() {
         MedicalAid created = service.create(medicalAid);
@@ -40,14 +51,12 @@ public class MedicalAidServiceImplTest {
         System.out.println("Created: " + created);
     }
 
-    @Order(2)
     @Test
     public void b_read() {
-        MedicalAid read = service.read(medicalAid.getUserId());
+        MedicalAid read = service.read(medicalAid.getMedicalAidId());
         System.out.println("Read: " + read);
     }
 
-    @Order(3)
     @Test
     public void c_update() {
         MedicalAid updated = new MedicalAid.Builder().copy(medicalAid).setUserMedicalAidNumber(78000).build();
@@ -55,19 +64,17 @@ public class MedicalAidServiceImplTest {
         System.out.println("Updated : " + updated);
     }
 
-    @Order(4)
     @Test
     public void d_getAll() {
         Set<MedicalAid> medicalAids = service.getAll();
-        assertEquals(1, medicalAids.size());
+        assertNotEquals(150, medicalAids.size());
         System.out.println("Medical Aids: " + medicalAids);
     }
 
-    @Order(5)
     @Test
     public void e_delete() {
-        boolean deleted = service.delete(medicalAid.getUserId());
-                Assert.assertTrue(deleted);
+        boolean deleted = service.delete(medicalAid.getMedicalAidId());
+        Assert.assertTrue(deleted);
 
         if (deleted)
             System.out.println("Entry Deleted");
