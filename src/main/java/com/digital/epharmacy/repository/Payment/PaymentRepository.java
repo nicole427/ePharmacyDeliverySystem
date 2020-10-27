@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 
 import java.util.Set;
-
 @Repository
 public interface PaymentRepository extends JpaRepository<Payment, String> {
     Set<Payment> getAll();

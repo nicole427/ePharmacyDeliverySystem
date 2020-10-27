@@ -1,11 +1,7 @@
 package com.digital.epharmacy.entity.Payment;
-/*
- * Author: Ayabulela Mahlathini
- * Desc: Payment entity handles payments in order to complete orders and then storing the information of each order payment a user is making.
- * Date: 04/07/2020
- * */
 
-/**Author: Matthew Pearce
+
+/*Author: Matthew Pearce
  *Desc: Added the entity mapping and assigned the primary key also added no null values each entity
  and changed default constructor to protected
  * Date: 26/10/2020
@@ -16,7 +12,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
-
 //Main class
 @Entity
 public class Payment {

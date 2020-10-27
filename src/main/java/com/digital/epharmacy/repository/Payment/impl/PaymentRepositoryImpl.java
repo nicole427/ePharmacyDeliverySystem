@@ -1,5 +1,5 @@
 //
-//package com.digital.epharmacy.repository.Payment.impl;
+
 
 /*
  * Author: Matthew Pearce
@@ -7,11 +7,6 @@
  * Date: 29 August 2020
  */
 
-//import com.digital.epharmacy.entity.Payment.Payment;
-//import com.digital.epharmacy.repository.Payment.PaymentRepository;
-
-//import java.util.HashSet;
-//import java.util.Set;
 
 //@Deprecated
 //public class PaymentRepositoryImpl implements PaymentRepository {

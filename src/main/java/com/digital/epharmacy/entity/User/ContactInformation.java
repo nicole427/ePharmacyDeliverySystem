@@ -7,20 +7,14 @@ import javax.persistence.IdClass;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
-/*
- * Author: Matthew Pearce
- * Desc: ContactInformation entity composed of UserProfile
- *       and Pharmacy entity that stores user and pharmacy contact information
- * Date: 2020/-10-26
- * */
-/**Author: Matthew Pearce
+
+/*Author: Matthew Pearce
  *Desc: Added the entity mapping and assigned the primary key also added no null values each entity
  and changed default constructor to protected
  Also created the class for all userProfile composite keys
  * Date: 26/10/2020
  * */
 //main class
-
 //@IdClass(UserProfileAndPharmacyId.class)
 @Entity
 public class ContactInformation {

@@ -1,16 +1,4 @@
-//package com.digital.epharmacy.repository.User.impl;
 
-//import org.junit.FixMethodOrder;
-//import org.junit.Test;
-//import com.digital.epharmacy.entity.User.ContactInformation;
-//import com.digital.epharmacy.factory.User.ContactInformationFactory;
-//import com.digital.epharmacy.repository.User.ContactInformationRepository;
-//import org.junit.*;
-//import org.junit.jupiter.api.MethodOrderer;
-//import org.junit.jupiter.api.TestMethodOrder;
-//import org.junit.runners.MethodSorters;
-
-//@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 //@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 //public class ContactInformationRepositoryImplTest {
 

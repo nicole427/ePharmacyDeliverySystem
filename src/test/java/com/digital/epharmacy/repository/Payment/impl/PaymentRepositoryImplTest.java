@@ -1,12 +1,7 @@
-//package com.digital.epharmacy.repository.Payment.impl;
 
-///import com.digital.epharmacy.entity.Payment.Payment;
-//import com.digital.epharmacy.factory.Payment.PaymentFactory;
-//import com.digital.epharmacy.repository.Payment.PaymentRepository;
 //import org.junit.Assert;
 //import org.junit.Test;
 
-//import static org.junit.Assert.*;
 
 //public class PaymentRepositoryImplTest {
 
