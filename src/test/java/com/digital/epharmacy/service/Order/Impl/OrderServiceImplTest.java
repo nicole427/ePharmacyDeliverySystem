@@ -9,6 +9,7 @@ import com.digital.epharmacy.entity.Catalogue.CatalogueItem;
 import com.digital.epharmacy.entity.Order.Order;
 import com.digital.epharmacy.factory.Catalogue.CatalogueItemFactory;
 import com.digital.epharmacy.factory.Order.OrderFactory;
+import com.digital.epharmacy.service.CatalogueItem.CatalogueItemService;
 import com.digital.epharmacy.service.Order.OrderService;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
@@ -21,7 +22,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -38,6 +38,8 @@ public class OrderServiceImplTest {
 
     @Autowired
     private OrderService service;
+    @Autowired
+    private static CatalogueItemService itemService;
 
     //as per business rules, we need items to place orders
     private static CatalogueItem catalogueItem = CatalogueItemFactory.createCatalogueItem(36, "Mayogel",
@@ -45,7 +47,10 @@ public class OrderServiceImplTest {
     private static CatalogueItem catalogueItem2 = CatalogueItemFactory.createCatalogueItem(37, "Mayogel",
             "oral health", 5, 300);
 
-    private  static List<CatalogueItem> items = Stream.of(catalogueItem, catalogueItem2).collect(Collectors.toList());
+    private static CatalogueItem item1 = itemService.create(catalogueItem);
+    private static CatalogueItem item2 = itemService.create(catalogueItem2);
+
+    private  static List<CatalogueItem> items = Stream.of(item1, item2).collect(Collectors.toList());
 
     private static Order order = OrderFactory
             .createOrder("user-id", items,"yoco");
@@ -58,7 +63,7 @@ public class OrderServiceImplTest {
     @org.junit.jupiter.api.Order(1)
     @Test
     void a_create() {
-        System.out.println(items);
+
         System.out.println(order);
         Order createdOrder = service.create(order);
         System.out.println(createdOrder);
