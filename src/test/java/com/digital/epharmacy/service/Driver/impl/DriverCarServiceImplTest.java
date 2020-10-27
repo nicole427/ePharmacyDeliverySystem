@@ -23,7 +23,7 @@ import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class DriverCarServiceImplTest {
 
-    private static DriverCarService service = DriverCarServiceImpl.getService();
+    private DriverCarService service;
     DriverCar driverCar = DriverCarFactory.createDriverCar("Test","CY 240", "blue", "Ford", "Figo");
 
 
@@ -32,7 +32,7 @@ public class DriverCarServiceImplTest {
     public void a_create() {
         DriverCar created = service.create((driverCar));
         Assert.assertEquals(driverCar.getDriverId(), created.getDriverId());
-        System.out.println("Creatd: " + created);
+        System.out.println("Create: " + created);
     }
 
     @Order(2)

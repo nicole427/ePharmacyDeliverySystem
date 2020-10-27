@@ -24,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class DriverProfileServiceImplTest {
 
-    private static DriverProfileService service = DriverProfileServiceImpl.getService();
+    private static DriverProfileService service;
     private static DriverProfile driverProfile = DriverProfileFactory.createDriverProfile("Chaddy","Boswell","Bellville");
     @Order(4)
     @Test

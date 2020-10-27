@@ -5,6 +5,7 @@ import com.digital.epharmacy.factory.User.ContactInformationFactory;
 import com.digital.epharmacy.service.User.ContactInformationService;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
 
@@ -12,7 +13,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ContactInformationServiceImplTest {
 
-    private static ContactInformationService service = ContactInformationServiceImpl.getService();
+    @Autowired
+    private static ContactInformationService service;
     private static ContactInformation contactInformation = ContactInformationFactory.createContactInformation("Matthew","DisChem",98,89);
 
     @Test

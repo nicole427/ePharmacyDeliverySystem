@@ -1,10 +1,13 @@
 package com.digital.epharmacy.entity.Driver;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import java.util.Objects;
+import java.util.Set;
+
 
 /*
     Author: Chad Boswell
@@ -14,23 +17,30 @@ import javax.validation.constraints.NotNull;
     Desc: Driver entity composed Driver and DriverCar that stores details of the Driver and car
 >>>>>>> origin/groupCollaboration
     Date: 4 July 2020
+
+    Update: 27/10/20
+    Modified: added noBlank validation and created a composite relation between driver profile and car and hash set
  */
 /**Author: Nicole Hawthorne
- *Desc: Added the entity mapping and assigned the primary key also added no null values each entity
+ *Desc: Added the entity mapping and assigned the primary key
  and changed default constructor to protected
  * Date: 25/10/2020
  * */
 
+@Entity
 public class DriverProfile {
+
 @Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
 private String driverId;
-@NotNull(message = "Driver Name is required")
+@NotBlank(message = "Driver Name is required")
 private String driverName;
-@NotNull(message = "Driver Surname is required")
+@NotBlank(message = "Driver Surname is required")
 private String driverSurname;
-@NotNull(message = "Driver location is required")
+@NotBlank(message = "Driver location is required")
 private String driverLocation;
+
+    @OneToOne (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<DriverCar> car;
 
 protected DriverProfile() {}
 
@@ -108,5 +118,18 @@ protected DriverProfile() {}
         public DriverProfile builder(){
             return new DriverProfile(this);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DriverProfile driverProfile = (DriverProfile) o;
+        return driverId.equals(driverProfile.driverId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(driverId);
     }
 }
