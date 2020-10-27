@@ -5,14 +5,19 @@ import com.digital.epharmacy.factory.Payment.PaymentFactory;
 import com.digital.epharmacy.service.Payment.PaymentService;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
 
 import java.util.Set;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class PaymentServiceImplTest {
 
-    private static PaymentService service = PaymentServiceImpl.getService();
+    @Autowired
+    private static PaymentService service;
     private static Payment payment = PaymentFactory.makePayment("Matthew","26589","Dischem","EFT",50.00);
 
     @Test
