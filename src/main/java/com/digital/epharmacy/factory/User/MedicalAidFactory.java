@@ -6,9 +6,9 @@ import com.digital.epharmacy.util.GenericHelper;
 public class MedicalAidFactory{
 
     public static MedicalAid createMedicalAid(int userMedicalAidNumber, String medicalAidName, String medicalAidScheme){
-        String userId = GenericHelper.generateId();
+        String medicalAidId = GenericHelper.generateId();
         MedicalAid medicalAid = new MedicalAid.Builder()
-               .setUserId(userId)
+               .setMedicalAidId(medicalAidId)
                .setUserMedicalAidNumber(userMedicalAidNumber)
                .setMedicalAidName(medicalAidName)
                .setMedicalAidScheme(medicalAidScheme)
