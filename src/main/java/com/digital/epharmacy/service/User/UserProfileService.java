@@ -5,6 +5,7 @@ package com.digital.epharmacy.service.User;
 * Desc: UserProfile Service interface that extends the main interface.
 * To add commonly used method only applicable to userProfile
 * */
+import com.digital.epharmacy.entity.Pharmacy.Pharmacy;
 import com.digital.epharmacy.entity.User.UserProfile;
 import com.digital.epharmacy.service.IService;
 
@@ -12,4 +13,5 @@ import java.util.Set;
 
 public interface UserProfileService extends IService <UserProfile , String> {
     Set<UserProfile> getAll();
+    UserProfile readByUserProfileName(String userName);
 }

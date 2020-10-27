@@ -1,7 +1,9 @@
 package com.digital.epharmacy.entity.User;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
 /*
 * Author: Nicole Hawthorne
@@ -10,8 +12,9 @@ import javax.validation.constraints.NotNull;
 * */
 
 /**Author: Nicole Hawthorne
- *Desc: Added the entity mapping and assigned the primary key also added no null values each entity
- and changed default constructor to protected
+ *Desc: Added the entity mapping and assigned the primary key as ID also added noBlank values each entity so that its not empty
+ and changed default constructor to protected.
+ Lastly added equals and hashcode for Id
  * Date: 25/10/2020
  * */
 //main class
@@ -20,13 +23,12 @@ public class UserProfile {
     //naming entity attributes and assigning their variable values
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String userId;
-    @NotNull(message = "Username is required")
+    @NotBlank(message = "Username is required")
     private String userName;
-    @NotNull(message = "User Surname is required")
+    @NotBlank(message = "User Surname is required")
     private String userSurname;
-    @NotNull(message = "Gender is required")
+    @NotBlank(message = "Gender is required")
     private String gender;
 
     protected UserProfile(){}
@@ -110,5 +112,18 @@ public class UserProfile {
         public UserProfile build(){
             return new UserProfile(this);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserProfile that = (UserProfile) o;
+        return userId.equals(that.userId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userId);
     }
 }
