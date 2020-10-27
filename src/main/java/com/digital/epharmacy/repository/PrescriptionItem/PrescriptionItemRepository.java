@@ -8,10 +8,12 @@
 package com.digital.epharmacy.repository.PrescriptionItem;
 
 import com.digital.epharmacy.entity.Catalogue.PrescriptionItem;
-import com.digital.epharmacy.repository.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
+import javax.annotation.Resources;
 import java.util.Set;
+@Repository
+public interface PrescriptionItemRepository  extends JpaRepository<PrescriptionItem, String> {
 
-public interface PrescriptionItemRepository  extends Repository<PrescriptionItem, String> {
-    Set<PrescriptionItem> getAll();
 }
