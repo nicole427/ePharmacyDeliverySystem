@@ -18,6 +18,5 @@ import java.util.List;
 import java.util.Set;
 
 public interface CatalogueItemRepository  extends JpaRepository<CatalogueItem, String>  {
-    List<CatalogueItem> findAllItemsByproductCategory(String productCategory);
-    Page<CatalogueItem> findAllProductByBrand(@Param("searchTerm")String searchTerm, @Param("category")String category, Pageable pageable);
+
 }
