@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.repository.query.Param;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -31,10 +32,21 @@ public class CatalogueItemServiceImpl implements CatalogueItemService {
     @Autowired
     private CatalogueItemRepository repository;
 
-
     @Override
     public Set<CatalogueItem> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
+    }
+
+    public List<CatalogueItem> findAllItemsByProductCategory(String productCategory){
+        Set<CatalogueItem> orders = getAll();
+        List <CatalogueItem> itemsByCategory;
+
+        itemsByCategory = orders.stream()
+                .filter(o -> o .getItemDescription()
+                .trim()
+                .equalsIgnoreCase(productCategory))
+                .collect(Collectors.toList());
+        return itemsByCategory;
     }
 
     @Transactional()
