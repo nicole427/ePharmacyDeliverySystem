@@ -8,3 +8,7 @@
 /ZeppelinRemoteNotebooks/
 # Editor-based HTTP Client requests
 /httpRequests/
+/target
+/.idea
+misc.xml
+.idea/workspace.xml
