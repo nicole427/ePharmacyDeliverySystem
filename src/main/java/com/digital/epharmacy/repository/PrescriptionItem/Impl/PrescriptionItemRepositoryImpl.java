@@ -12,7 +12,7 @@ package com.digital.epharmacy.repository.PrescriptionItem.Impl;
 import com.digital.epharmacy.entity.Catalogue.CatalogueItem;
 import com.digital.epharmacy.entity.Catalogue.PrescriptionItem;;
 import com.digital.epharmacy.repository.CatalogueItem.CatalogueItemRepository;
-import com.digital.epharmacy.repository.CatalogueItem.Impl.CatalogueItemRepositoryImpl;
+//import com.digital.epharmacy.repository.CatalogueItem.Impl.CatalogueItemRepositoryImpl;
 import com.digital.epharmacy.repository.PrescriptionItem.PrescriptionItemRepository;;
 import com.digital.epharmacy.repository.PrescriptionItem.Impl.PrescriptionItemRepositoryImpl;
 

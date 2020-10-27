@@ -1,39 +1,38 @@
 package com.digital.epharmacy.entity.Catalogue;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-
 /*
  * Name: Nelson Mpyana
  * Desc: Catalogue Item Entity composed of Pharmacy Catalogue
  * Date: 04/07/2020
  */
-/**Author: Nicole Hawthorne
- *Desc: Added the entity mapping and assigned the primary key also added no null values each entity
- and changed default constructor to protected
- * Date: 25/10/2020
- * */
 
-public class CatalogueItem {
+import org.hibernate.validator.constraints.Range;
 
-    //naming entity attributes and assigning their variable values
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import java.io.Serializable;
+
+@Entity
+public class CatalogueItem implements Serializable {
+
+
+    private static final long serialVersionUID = 10L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int itemNumber;
-    @NotNull(message = "Item Quantity is required")
+    @NotEmpty
     private int itemQuantity;
-    @NotNull(message = "Item Name is required")
+    @NotEmpty
     private String itemName;
-    @NotNull(message = "Item Description is required")
+    @NotEmpty
     private String itemDescription;
-    @NotNull(message = "Item price is required")
+    @NotEmpty
+    @Range(min=0)
     private double itemPrice;
 
-    protected CatalogueItem () {}
-
+    //non argument constructor
+    protected CatalogueItem(){}
     //constructor for Builder class
     private CatalogueItem(Builder builder) {
         this.itemDescription = builder.itemDescription;
