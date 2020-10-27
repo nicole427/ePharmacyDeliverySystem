@@ -3,6 +3,7 @@ package com.digital.epharmacy.repository.Order;
 
 import com.digital.epharmacy.entity.Order.OrderHistory;
 import com.digital.epharmacy.repository.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Set;
 
@@ -12,9 +13,7 @@ import java.util.Set;
  * Description: Interface for getting all the history for orders by a user from the database
  */
 
-public interface OrderHistoryRepository extends Repository<OrderHistory, String> {
-    Set<OrderHistory> getAll();
-}
+public interface OrderHistoryRepository extends JpaRepository<OrderHistory, String> { }
 
 
 

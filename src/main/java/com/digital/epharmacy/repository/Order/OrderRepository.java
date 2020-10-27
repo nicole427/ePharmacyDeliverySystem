@@ -3,6 +3,7 @@ package com.digital.epharmacy.repository.Order;
 
 import com.digital.epharmacy.entity.Order.Order;
 import com.digital.epharmacy.repository.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Set;
 
@@ -11,6 +12,4 @@ import java.util.Set;
  * Description: Interface for getting all orders from the database
  */
 
-public interface OrderRepository extends Repository<Order, String> {
-    Set<Order> getAll();
-}
+public interface OrderRepository extends JpaRepository<Order, String> { }

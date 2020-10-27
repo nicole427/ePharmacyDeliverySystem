@@ -16,10 +16,11 @@ import javax.validation.constraints.NotNull;
  and changed default constructor to protected
  * Date: 25/10/2020
  * */
-
+@Entity
 public class CatalogueItem {
 
     //naming entity attributes and assigning their variable values
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int itemNumber;

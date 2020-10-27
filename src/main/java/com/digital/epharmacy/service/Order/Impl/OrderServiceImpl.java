@@ -6,10 +6,9 @@ package com.digital.epharmacy.service.Order.Impl;
  */
 
 import com.digital.epharmacy.entity.Order.Order;
-import com.digital.epharmacy.entity.Order.OrderHistory;
-import com.digital.epharmacy.repository.Order.Impl.OrderRepositoryImpl;
 import com.digital.epharmacy.repository.Order.OrderRepository;
 import com.digital.epharmacy.service.Order.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -18,20 +17,12 @@ import java.util.stream.Collectors;
 @Service
 public class OrderServiceImpl implements OrderService {
 
-    private static OrderService service = null;
+    @Autowired
     private OrderRepository repository;
-
-    private OrderServiceImpl(){ this.repository = OrderRepositoryImpl.getRepository();
-    }
-
-    public static OrderService getService(){
-        if (service == null) service = new OrderServiceImpl();
-        return service;
-    }
 
     @Override
     public Set<Order> getAll() {
-        return this.repository.getAll();
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     //get all completed orders with payment successful for the delivery guys
@@ -76,21 +67,29 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order create(Order order) {
-        return this.repository.create(order);
+        return this.repository.save(order);
     }
 
     @Override
     public Order read(String id) {
-        return this.repository.read(id);
+        return this.repository.findById(id).orElseGet(null);
     }
 
     @Override
     public Order update(Order order) {
-        return this.repository.update(order);
+        if (this.repository.existsById(order.getOrderNumber())) {
+            return this.repository.save(order);
+        }
+        return null;
     }
 
     @Override
     public boolean delete(String id) {
-        return this.repository.delete(id);
+        this.repository.deleteById(id);
+        if (this.repository.existsById(id)){
+            return false;
+        } else {
+            return true;
+        }
     }
 }

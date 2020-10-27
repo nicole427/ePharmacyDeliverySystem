@@ -6,9 +6,9 @@ package com.digital.epharmacy.service.Order.Impl;
  */
 
 import com.digital.epharmacy.entity.Order.OrderHistory;
-import com.digital.epharmacy.repository.Order.Impl.OrderHistoryRepositoryImpl;
 import com.digital.epharmacy.repository.Order.OrderHistoryRepository;
 import com.digital.epharmacy.service.Order.OrderHistoryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -18,38 +18,39 @@ import java.util.stream.Collectors;
 public class OrderHistoryServiceImpl implements OrderHistoryService {
 
     private static OrderHistoryService service = null;
+    @Autowired
     private OrderHistoryRepository repository;
-
-    private OrderHistoryServiceImpl(){ this.repository = OrderHistoryRepositoryImpl.getRepository();
-    }
-
-    public static OrderHistoryService getService(){
-        if (service == null) service = new OrderHistoryServiceImpl();
-        return service;
-    }
 
     @Override
     public Set<OrderHistory> getAll() {
-        return this.repository.getAll();
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override
     public OrderHistory create(OrderHistory orderHistory) {
-        return this.repository.create(orderHistory);
+        return this.repository.save(orderHistory);
     }
 
     @Override
     public OrderHistory read(String id) {
-        return this.repository.read(id);
+        if (this.repository.existsById(id)) {
+            return this.repository.findById(id).orElseGet(null);
+        }
+        return null;
     }
 
     @Override
     public OrderHistory update(OrderHistory orderHistory) {
-        return this.repository.update(orderHistory);
+        return this.repository.save(orderHistory);
     }
 
     @Override
     public boolean delete(String id) {
-        return this.repository.delete(id);
+        this.repository.deleteById(id);
+        if (this.repository.existsById(id)){
+            return false;
+        } else {
+            return true;
+        }
     }
 }
