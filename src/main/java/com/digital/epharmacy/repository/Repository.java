@@ -5,6 +5,7 @@ package com.digital.epharmacy.repository;
 * Desc: Repository interface that allows for all the common methods all classes will be used,
 *  in order to prevent from typing it all out.
 * */
+@Deprecated
 public interface Repository<T , ID> {
     T create(T t);
     T read(ID id);
