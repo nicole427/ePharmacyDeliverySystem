@@ -1,58 +1,53 @@
-package com.digital.epharmacy.repository.Payment.impl;
 
-import com.digital.epharmacy.entity.Payment.Payment;
-import com.digital.epharmacy.factory.Payment.PaymentFactory;
-import com.digital.epharmacy.repository.Payment.PaymentRepository;
-import org.junit.Assert;
-import org.junit.Test;
-
-import static org.junit.Assert.*;
-
-public class PaymentRepositoryImplTest {
-
-    private static PaymentRepository repository = PaymentRepositoryImpl.getRepository();
-    private static Payment payment = PaymentFactory.makePayment("Matt11","600", "Clicks", "EFT", 500);
+//import org.junit.Assert;
+//import org.junit.Test;
 
 
-    @Test
-    public void create() {
+//public class PaymentRepositoryImplTest {
 
-        Payment created = repository.create(payment);
-        Assert.assertEquals(payment.getUserID(), created.getUserID());
-        System.out.println("Created:" + created);
-    }
+  //  private static PaymentRepository repository = PaymentRepositoryImpl.getRepository();
+    //private static Payment payment = PaymentFactory.makePayment("Matt11","600", "Clicks", "EFT", 500);
 
-    @Test
-    public void read() {
 
-      Payment read = repository.read(payment.getUserID());
-      System.out.println("Read:" + read);
-    }
+    //@Test
+    //public void create() {
 
-    @Test
-    public void update() {
+      //  Payment created = repository.create(payment);
+        //Assert.assertEquals(payment.getUserID(), created.getUserID());
+        //System.out.println("Created:" + created);
+    //}
 
-        Payment updated = new Payment.Builder()
-                .copy(payment)
-                .setUserID("Matthew")
-                .build();
+    //@Test
+    //public void read() {
 
-        updated = repository.update(updated);
-        System.out.println("Updated:" + updated);
-    }
+      //Payment read = repository.read(payment.getUserID());
+      //System.out.println("Read:" + read);
+    //}
 
-    @Test
-    public void delete() {
+    //@Test
+    //public void update() {
 
-        boolean deleted = repository.delete(payment.getUserID());
-        Assert.assertTrue(deleted);
-        if(deleted)
-            System.out.println("Deleted");
-    }
+      //  Payment updated = new Payment.Builder()
+        //        .copy(payment)
+          //      .setUserID("Matthew")
+            //    .build();
 
-    @Test
-    public void getAll() {
+        //updated = repository.update(updated);
+        //System.out.println("Updated:" + updated);
+    //}
 
-        System.out.println("Get All:" + repository.getAll());
-    }
-}
+    //@Test
+    //public void delete() {
+
+      //  boolean deleted = repository.delete(payment.getUserID());
+        //Assert.assertTrue(deleted);
+        //if(deleted)
+          //  System.out.println("Deleted");
+    //}
+
+    //@Test
+    //public void getAll() {
+
+      //  System.out.println("Get All:" + repository.getAll());
+   // }
+//}

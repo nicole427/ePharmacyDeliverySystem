@@ -1,12 +1,14 @@
 package com.digital.epharmacy.repository.User;
 
 import com.digital.epharmacy.entity.User.ContactInformation;
-import com.digital.epharmacy.repository.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 
 import java.util.Set;
 
-public interface ContactInformationRepository extends Repository<ContactInformation, String> {
+@Repository
+public interface ContactInformationRepository extends JpaRepository<ContactInformation, String> {
 
     Set<ContactInformation> getAll();
 }

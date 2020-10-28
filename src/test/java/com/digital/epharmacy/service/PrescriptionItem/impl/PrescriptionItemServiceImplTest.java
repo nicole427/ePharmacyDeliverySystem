@@ -9,17 +9,21 @@ import com.digital.epharmacy.entity.Catalogue.PrescriptionItem;
 import com.digital.epharmacy.factory.Catalogue.PrescriptionItemFactory;
 import com.digital.epharmacy.service.PrescriptionItem.PrescriptionItemService;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 class PrescriptionItemServiceImplTest {
 
-    private static PrescriptionItemService service = PrescriptionItemServiceImpl.getService();
+    @Autowired
+    private static PrescriptionItemService service;
     private static PrescriptionItem prescriptionItem = PrescriptionItemFactory.createPrescriptionItem(
             6332, "Eye Drop", "Dr Smith");
 
     @Order(5)
     @Test
+
     public void e_getAll() {
         System.out.println("Get All: " + service.getAll());
     }
@@ -34,6 +38,7 @@ class PrescriptionItemServiceImplTest {
 
     @Order(2)
     @Test
+
     public void b_read() {
         PrescriptionItem read = service.read(prescriptionItem.getPrescribingDoctor());
         System.out.println("Read: " + read);
@@ -41,6 +46,7 @@ class PrescriptionItemServiceImplTest {
 
     @Order(3)
     @Test
+
     void c_update() {
         PrescriptionItem updated = new PrescriptionItem.Builder().copy(prescriptionItem).setPrescriptionType("Spectacles").build();
         updated = service.update(updated);
@@ -49,6 +55,7 @@ class PrescriptionItemServiceImplTest {
 
     @Order(4)
     @Test
+
     void d_delete() {
         boolean deleted = service.delete(prescriptionItem.getPrescriptionType());
         Assert.assertTrue(deleted);

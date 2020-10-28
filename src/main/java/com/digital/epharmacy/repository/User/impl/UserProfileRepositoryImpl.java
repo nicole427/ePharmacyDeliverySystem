@@ -10,7 +10,7 @@ import java.util.Set;
 /** Author: Nicole Hawthorne 217169104
  * Date: 28/08/2020
  * Description: UserProfile Repository to create, delete and update a user profile
- */
+ *
 @Repository
 public class UserProfileRepositoryImpl implements UserProfileRepository {
    private static UserProfileRepository repository = null;
@@ -66,4 +66,4 @@ public class UserProfileRepositoryImpl implements UserProfileRepository {
         return this.userProfileDB;
     }
 }
-
+*/

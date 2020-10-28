@@ -1,11 +1,12 @@
 package com.digital.epharmacy.repository.Payment;
 
 import com.digital.epharmacy.entity.Payment.Payment;
-import com.digital.epharmacy.repository.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 
 import java.util.Set;
-
-public interface PaymentRepository extends Repository<Payment, String> {
+@Repository
+public interface PaymentRepository extends JpaRepository<Payment, String> {
     Set<Payment> getAll();
 }
