@@ -9,8 +9,6 @@ package com.digital.epharmacy.service.Order.Impl;
 
 import com.digital.epharmacy.entity.Order.OrderHistory;
 import com.digital.epharmacy.factory.Order.OrderHistoryFactory;
-
-import com.digital.epharmacy.repository.Order.OrderHistoryRepository;
 import com.digital.epharmacy.service.Order.OrderHistoryService;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
@@ -18,21 +16,29 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
+import java.math.BigDecimal;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
+@SpringBootTest
+@RunWith(SpringRunner.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class OrderHistoryServiceImplTest {
 
-    private static OrderHistoryService service = OrderHistoryServiceImpl.getService();
+    @Autowired
+    private OrderHistoryService service;
 
     private static OrderHistory orderHistory = OrderHistoryFactory
-            .createOrderHistory("User's ID", 25,6500.00);
+            .createOrderHistory("User's ID", 25,new BigDecimal(6500.00));
 
     @Order(1)
     @Test

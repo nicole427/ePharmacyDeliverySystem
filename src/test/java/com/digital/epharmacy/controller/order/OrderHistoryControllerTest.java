@@ -1,4 +1,4 @@
-package com.digital.epharmacy.controller.order;
+package com.digital.epharmacy.controller.Order;
 
 import com.digital.epharmacy.entity.Order.OrderHistory;
 import com.digital.epharmacy.entity.User.UserProfile;
@@ -20,6 +20,8 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.math.BigDecimal;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -32,7 +34,7 @@ public class OrderHistoryControllerTest {
             .createUserProfile("Ayabulela","Mahlathini", "male");
 
     private static OrderHistory orderHistory = OrderHistoryFactory
-            .createOrderHistory(user.getUserId(), 500, 6000.00);
+            .createOrderHistory(user.getUserId(), 500, new BigDecimal(6000.00));
 
 
     @Autowired

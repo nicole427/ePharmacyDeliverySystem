@@ -1,9 +1,9 @@
-package com.digital.epharmacy.repository.User.impl;
-/*
+/*package com.digital.epharmacy.repository.User.impl;
+
 * Author: Nicole Hawthorne
 * Date: 30/08/2020
 * Desc: UserProfileRepository Test, will test all methods if it does it correctly
-* */
+*
 import com.digital.epharmacy.entity.User.UserProfile;
 import com.digital.epharmacy.factory.User.UserProfileFactory;
 import com.digital.epharmacy.repository.User.UserProfileRepository;
@@ -14,6 +14,7 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
 
@@ -22,7 +23,8 @@ import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
 public class UserProfileRepositoryImplTest {
-    private static UserProfileRepository repository = new UserProfileRepositoryImpl();
+    @Autowired
+    private UserProfileRepository repository;
     private static UserProfile  userProfile = UserProfileFactory.createUserProfile(
             "Nicole",
             "Hawthorne",
@@ -71,3 +73,5 @@ public class UserProfileRepositoryImplTest {
         System.out.println(repository.getAll());
     }
 }
+
+ */

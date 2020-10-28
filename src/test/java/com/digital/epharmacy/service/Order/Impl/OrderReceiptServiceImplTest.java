@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
 import java.util.Set;
@@ -24,8 +25,10 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class OrderReceiptServiceImplTest {
 
+    @Autowired
+    private static OrderReceiptService service;
     private static Date firstDate = new Date();
-    private static OrderReceiptService service = OrderReceiptServiceImpl.getService();
+
     private static OrderReceipt orderReceipt = OrderReceiptFactory.createOrderReceipt(100,
             30,50.00,"P01","U01","Disprin",
             "Cash",firstDate);

@@ -17,6 +17,7 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
 
@@ -27,7 +28,8 @@ import static org.junit.Assert.assertEquals;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class AddressServiceImplTest {
 
-    private static AddressService service = AddressServiceImpl.getService();
+    @Autowired
+    private static AddressService service;
     private static Address address = AddressFactory.createAddress("P01", "U01", 99, 50,
             "TygerStreet", "Tygervalley");
 
