@@ -16,7 +16,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.Objects;
 
+@Entity
 public class OrderReceipt {
 
     //Entity attributes
@@ -193,5 +195,16 @@ public class OrderReceipt {
 
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        OrderReceipt that = (OrderReceipt) o;
+        return orderNumber == that.orderNumber;
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(orderNumber);
+    }
 }

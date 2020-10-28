@@ -18,6 +18,7 @@ import java.util.Objects;
  * */
 //main class
 
+@Entity
 public class Address {
     //naming entity attributes and assigning their variable values
     @Id
