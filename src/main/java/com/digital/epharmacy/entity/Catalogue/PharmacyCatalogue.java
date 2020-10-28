@@ -2,10 +2,7 @@ package com.digital.epharmacy.entity.Catalogue;
 
 import com.digital.epharmacy.entity.Pharmacy.Pharmacy;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 /*
@@ -13,23 +10,20 @@ Name: Nelson Mpyana
  * Desc: Pharmacy Catalogue Entity composed of Pharmacy
  * Date: 04/07/2020
  */
-/**Author: Nicole Hawthorne
- *Desc: Added the entity mapping and assigned the primary key also added no null values each entity
- and changed default constructor to protected
- * Date: 25/10/2020
- * */
+
 
 public class PharmacyCatalogue {
     //naming entity attributes and assigning their variable values
     //This class has the Foreign key
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String pharmacyId;
     @NotNull(message = "Catalogue Name is required")
     private String catalogueName;
     @NotNull(message = "Catalogue Description is required")
     private String catalogueDescription;
-
+    @ManyToOne
+    @JoinColumn(name = "pharmacyId")
+    private Pharmacy pharmacy;
     protected PharmacyCatalogue(){}
     //constructor for Builder class
     private PharmacyCatalogue(Builder builder) {

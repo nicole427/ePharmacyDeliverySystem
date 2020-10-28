@@ -11,5 +11,4 @@ import java.util.Set;
 
 public interface DriverProfileService extends IService <DriverProfile , String> {
     Set<DriverProfile> getAll();
-    DriverProfile findDriverProfileById( String driverId);
 }

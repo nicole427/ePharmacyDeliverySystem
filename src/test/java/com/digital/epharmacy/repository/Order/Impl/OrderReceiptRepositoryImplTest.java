@@ -1,9 +1,12 @@
+/*
 package com.digital.epharmacy.repository.Order.Impl;
 
+*/
 /** Author: Keagan Tabisher - 215028597
  * Date: 30/08/2020
  * Description: Testing the implementation of the OrderReceipt Respository
- */
+ *//*
+
 
 
 import com.digital.epharmacy.entity.Order.OrderReceipt;
@@ -18,6 +21,7 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
 import java.util.Set;
@@ -28,8 +32,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class OrderReceiptRepositoryImplTest {
 
+    @Autowired
     static Date date = new Date();
-    private static OrderReceiptRepository repository = OrderReceiptRepositoryImpl.getRepository();
+    private static OrderReceiptRepository repository;
 
     private static OrderReceipt orderReceipt = OrderReceiptFactory.createOrderReceipt(1,20,
             40.00,"P01","UserID","Asprin","Cash",date);
@@ -64,7 +69,7 @@ public class OrderReceiptRepositoryImplTest {
     @Order(4)
     @Test
     public void d_getAll() {
-        System.out.println("Get All:" + repository.getAll());
+        System.out.println("Get All:" + repository.findAll());
     }
 
     @Order(5)
@@ -78,3 +83,4 @@ public class OrderReceiptRepositoryImplTest {
     }
 
 }
+*/

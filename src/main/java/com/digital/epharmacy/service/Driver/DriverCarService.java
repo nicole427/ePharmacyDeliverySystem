@@ -11,5 +11,4 @@ import java.util.Set;
 
 public interface DriverCarService extends IService<DriverCar, String> {
     Set<DriverCar> getAll();
-    DriverCar findByDriverCarId(String driverId);
 }
