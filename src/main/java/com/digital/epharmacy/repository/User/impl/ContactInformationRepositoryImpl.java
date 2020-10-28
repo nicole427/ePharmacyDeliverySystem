@@ -6,77 +6,77 @@ package com.digital.epharmacy.repository.User.impl;
  * Date: 29 August 2020
  */
 
-import com.digital.epharmacy.entity.User.ContactInformation;
-import com.digital.epharmacy.repository.User.ContactInformationRepository;
+//import com.digital.epharmacy.entity.User.ContactInformation;
+//import com.digital.epharmacy.repository.User.ContactInformationRepository;
 
-import java.util.HashSet;
+//import java.util.HashSet;
 import java.util.Set;
+//@Deprecated
+//public class ContactInformationRepositoryImpl implements ContactInformationRepository {
 
-public class ContactInformationRepositoryImpl implements ContactInformationRepository {
+  //  private static ContactInformationRepository repository = null;
+    //private Set<ContactInformation> contactInformationDB;
 
-    private static ContactInformationRepository repository = null;
-    private Set<ContactInformation> contactInformationDB;
+   // public ContactInformationRepositoryImpl(){this.contactInformationDB = new HashSet<>();
+    //}
 
-    public ContactInformationRepositoryImpl(){this.contactInformationDB = new HashSet<>();
-    }
+    //public static ContactInformationRepository getRepository() {
 
-    public static ContactInformationRepository getRepository() {
-
-        if(repository == null) repository = new ContactInformationRepositoryImpl();
-        return  repository;
-    }
-
-
+      //  if(repository == null) repository = new ContactInformationRepositoryImpl();
+        //return  repository;
+    //}
 
 
 
-    @Override
-    public ContactInformation create(ContactInformation contactInformation) {
-        this.contactInformationDB.add(contactInformation);
-        return contactInformation;
-    }
 
-    @Override
-    public ContactInformation read(String UserId) {
 
-        ContactInformation UserProfile = null;
-        for(ContactInformation u: this.contactInformationDB){
-            if(u.getUserId().equalsIgnoreCase(UserId)){
+    //@Override
+    //public ContactInformation create(ContactInformation contactInformation) {
+      //  this.contactInformationDB.add(contactInformation);
+        //return contactInformation;
+    //}
 
-                UserProfile = u;
-            }
-        }
+    //@Override
+    //public ContactInformation read(String UserId) {
 
-        return UserProfile;
-    }
+      //  ContactInformation UserProfile = null;
+        //for(ContactInformation u: this.contactInformationDB){
+          //  if(u.getUserId().equalsIgnoreCase(UserId)){
 
-    @Override
-    public ContactInformation update(ContactInformation contactInformation) {
-       ContactInformation oldContactInformation = read(contactInformation.getUserId());
-       if(oldContactInformation != null){
+            //    UserProfile = u;
+            //}
+        //}
 
-           this.contactInformationDB.remove(oldContactInformation);
-           this.contactInformationDB.add(contactInformation);
-       }
+        //return UserProfile;
+    //}
 
-       return contactInformation;
-    }
+    //@Override
+    //public ContactInformation update(ContactInformation contactInformation) {
+      // ContactInformation oldContactInformation = read(contactInformation.getUserId());
+       //if(oldContactInformation != null){
 
-    @Override
-    public boolean delete(String userID) {
+         //  this.contactInformationDB.remove(oldContactInformation);
+           //this.contactInformationDB.add(contactInformation);
+       //}
 
-        ContactInformation User = read(userID);
-        if(userID != null){
+       //return contactInformation;
+    //}
 
-            this.contactInformationDB.remove(User);
-            return true;
-        }
+    //@Override
+    //public boolean delete(String userID) {
 
-        return false;
-    }
+      //  ContactInformation User = read(userID);
+        //if(userID != null){
 
-    @Override
-    public Set<ContactInformation> getAll() {
-        return this.contactInformationDB;
-    }
-}
+          //  this.contactInformationDB.remove(User);
+            //return true;
+       // }
+
+        //return false;
+    //}
+
+    //@Override
+    //public Set<ContactInformation> getAll() {
+      //  return this.contactInformationDB;
+    //}
+//}

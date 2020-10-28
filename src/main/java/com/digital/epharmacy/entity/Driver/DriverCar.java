@@ -1,10 +1,8 @@
 package com.digital.epharmacy.entity.Driver;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import java.util.Objects;
 
 /*
     Author: Chad
@@ -14,25 +12,32 @@ import javax.validation.constraints.NotNull;
     Desc: DriverCar stores driverId using composition with Driver
 >>>>>>> origin/groupCollaboration
     Date: 4 July 2020
+
+    Modified: added noBlank validation and created a composite relation between driver profile and car and hash set
+    Date: 27/10/20
  */
 /**Author: Nicole Hawthorne
- *Desc: Added the entity mapping and assigned the primary key also added no null values each entity
+ *Desc: Added the entity mapping and assigned the primary key
  and changed default constructor to protected
  * Date: 25/10/2020
  * */
 
+@Entity
+@Table(name = "car")
+
 public class DriverCar {
+
     // all the attributes of entity
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private String driverId;
-    @NotNull(message = "Car Registration is required")
+    @NotBlank(message = "Car Registration is required")
     private String carRegistration;
-    @NotNull(message = "Car Colour is required")
+    @NotBlank(message = "Car Colour is required")
     private String carColour;
-    @NotNull(message = "Car name is required")
+    @NotBlank(message = "Car name is required")
     private String carName;
-    @NotNull(message = "Car Model is required")
+    @NotBlank(message = "Car Model is required")
     private String carModel;
 
     protected DriverCar (){}
@@ -125,5 +130,18 @@ public class DriverCar {
         public DriverCar builder(){
             return new DriverCar(this);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DriverCar that = (DriverCar) o;
+        return driverId.equals(that.driverId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(driverId);
     }
 }

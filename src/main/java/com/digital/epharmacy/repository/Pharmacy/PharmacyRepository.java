@@ -1,16 +1,21 @@
 package com.digital.epharmacy.repository.Pharmacy;
 
 import com.digital.epharmacy.entity.Pharmacy.Pharmacy;
-import com.digital.epharmacy.repository.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-
-import java.util.Set;
 
 /*
  * Author: Opatile Kelobang
  * Desc: Pharmacy repository
  * Date: 29 August 2020
+ *
+ * 25 October 2020
+ * Extends JPA Repository
+ * Deprecated IRepository
+ * Added Find by Pharmacy Name method
  */
-public interface PharmacyRepository extends Repository<Pharmacy, String> {
-    Set<Pharmacy> getAll();
+@Repository
+public interface PharmacyRepository extends JpaRepository<Pharmacy, String> {
+    Pharmacy findPharmacyByPharmacyName(String pharmacyName);
 }

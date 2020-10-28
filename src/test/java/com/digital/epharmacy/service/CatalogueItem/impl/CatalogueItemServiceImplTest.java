@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.*;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
 
@@ -17,7 +18,8 @@ import static org.junit.jupiter.api.Assertions.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class CatalogueItemServiceImplTest {
 
-    private static CatalogueItemService service = CatalogueItemServiceImpl.getService();
+    @Autowired
+    private static CatalogueItemService service ;
     private static CatalogueItem catalogueItem = CatalogueItemFactory.createCatalogueItem(3658, "MyBulen", "Pain Killers", 6, 80.99);
 
     @Order(4)
