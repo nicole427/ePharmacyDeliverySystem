@@ -31,16 +31,6 @@ public class DriverCarServiceImpl implements DriverCarService {
     }
 
     @Override
-    public DriverCar findByDriverCarId(String driverId) {
-        DriverCar id = repository.findByDriverCarId(driverId);
-
-        if (id == null)
-            throw new MyCustomExceptionHandler("Driver car does not exist");
-
-        return id;
-    }
-
-    @Override
     public DriverCar create(DriverCar driverCar) {
         try{
             return this.repository.save(driverCar);
@@ -62,12 +52,10 @@ public class DriverCarServiceImpl implements DriverCarService {
 
     @Override
     public boolean delete(String driverCar) {
-
         this.repository.deleteById(driverCar);
         if (this.repository.existsById(driverCar)){
-            throw new MyCustomExceptionHandler("Entry not deleted");
-        }
-        else {
+            return false;
+        } else {
             return true;
         }
     }
