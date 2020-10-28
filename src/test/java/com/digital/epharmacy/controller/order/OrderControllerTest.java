@@ -6,7 +6,6 @@ import com.digital.epharmacy.entity.User.UserProfile;
 import com.digital.epharmacy.factory.Catalogue.CatalogueItemFactory;
 import com.digital.epharmacy.factory.Order.OrderFactory;
 import com.digital.epharmacy.factory.User.UserProfileFactory;
-import com.digital.epharmacy.service.CatalogueItem.CatalogueItemService;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.jupiter.api.MethodOrderer;
@@ -35,16 +34,20 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class OrderControllerTest {
 
-    @Autowired
-    private static CatalogueItemService itemService;
-
-    //as per business rule, we need items to place order
-    private static CatalogueItem catalogueItem = CatalogueItemFactory.createCatalogueItem(38, "Mayogel",
+    //as per business rule, we need items on the db to place order
+    private static CatalogueItem catalogueItem = CatalogueItemFactory.createCatalogueItem(36, "Mayogel",
             "oral health", 36, 200);
 
-    private static CatalogueItem item1 = itemService.create(catalogueItem);
-    
-    private  static List<CatalogueItem> items = Stream.of(item1).collect(Collectors.toList());
+    @Autowired
+    private static TestRestTemplate restTemplateItem;
+    private static final String baseURLItem = "http://localhost:8080/catalogueItem";
+    private static String itemUrl = baseURLItem + "/create";
+
+    private static ResponseEntity<CatalogueItem> item1 = restTemplateItem.postForEntity(itemUrl, catalogueItem, CatalogueItem.class);
+
+    private  static List<CatalogueItem> items = Stream.of(item1.getBody()).collect(Collectors.toList());
+
+
 
     private static UserProfile user = UserProfileFactory
             .createUserProfile("Ayabulela","Mahlathini", "male");
