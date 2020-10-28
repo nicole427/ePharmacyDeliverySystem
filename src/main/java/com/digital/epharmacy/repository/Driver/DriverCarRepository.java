@@ -14,6 +14,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DriverCarRepository extends JpaRepository<DriverCar, String> {
-    DriverCar findByDriverCarId(String driverId);
+
 }
 

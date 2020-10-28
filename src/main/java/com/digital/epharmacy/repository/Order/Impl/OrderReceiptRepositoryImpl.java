@@ -1,3 +1,4 @@
+/*
 package com.digital.epharmacy.repository.Order.Impl;
 
 
@@ -74,3 +75,4 @@ public class OrderReceiptRepositoryImpl implements OrderReceiptRepository {
 
 
 }
+*/

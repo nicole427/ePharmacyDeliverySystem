@@ -30,16 +30,6 @@ public class DriverProfileServiceImpl implements DriverProfileService {
     }
 
     @Override
-    public DriverProfile findDriverProfileById( String driverId) {
-        DriverProfile newDriverProfile = repository.findDriverProfileById(driverId);
-
-        if (newDriverProfile == null)
-            throw new MyCustomExceptionHandler("Driver profile or id does not exist");
-
-        return newDriverProfile;
-    }
-
-    @Override
     public DriverProfile create(DriverProfile driverProfile) {
 
         try {
@@ -77,9 +67,8 @@ public class DriverProfileServiceImpl implements DriverProfileService {
     public boolean delete(String s) {
         this.repository.deleteById(s);
         if (this.repository.existsById(s)){
-            throw new MyCustomExceptionHandler("Entry not deleted");
-        }
-        else {
+            return false;
+        } else {
             return true;
         }
     }
