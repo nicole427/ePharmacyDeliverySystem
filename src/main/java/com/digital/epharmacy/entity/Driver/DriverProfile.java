@@ -20,6 +20,7 @@ import java.util.Set;
 
     Update: 27/10/20
     Modified: added noBlank validation and created a composite relation between driver profile and car and hash set
+              one to one relationship
  */
 /**Author: Nicole Hawthorne
  *Desc: Added the entity mapping and assigned the primary key
@@ -39,8 +40,8 @@ private String driverSurname;
 @NotBlank(message = "Driver location is required")
 private String driverLocation;
 
-    @OneToOne (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Set<DriverCar> car;
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<DriverCar> driverCar;
 
 protected DriverProfile() {}
 
