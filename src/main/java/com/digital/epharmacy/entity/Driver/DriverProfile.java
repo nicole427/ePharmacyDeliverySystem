@@ -1,8 +1,5 @@
 package com.digital.epharmacy.entity.Driver;
 
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Objects;
@@ -40,7 +37,7 @@ private String driverSurname;
 @NotBlank(message = "Driver location is required")
 private String driverLocation;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<DriverCar> driverCar;
 
 protected DriverProfile() {}
