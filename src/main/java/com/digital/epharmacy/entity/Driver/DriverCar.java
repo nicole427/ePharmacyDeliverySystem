@@ -24,7 +24,6 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "car")
-
 public class DriverCar {
 
     // all the attributes of entity

@@ -14,9 +14,11 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Set;
 
@@ -24,7 +26,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@RunWith(SpringRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class DriverProfileServiceImplTest {
 
@@ -34,35 +36,35 @@ public class DriverProfileServiceImplTest {
     private static DriverProfile driverProfile = DriverProfileFactory.createDriverProfile("Chaddy","Boswell","Bellville");
 
     @Test
-    void d_getAll() {
+    void getAll() {
         Set<DriverProfile> driverProfile = service.getAll();
         assertNotEquals(150,driverProfile.size());
         System.out.println("All users" + driverProfile);
     }
 
     @Test
-    void a_create() {
+    void create() {
         DriverProfile created = service.create(driverProfile);
         assertEquals(driverProfile.getDriverId(), created.getDriverId());
         System.out.println("Driver ID created" + created);
     }
 
     @Test
-    void b_read() {
+    void read() {
         DriverProfile read = service.read(driverProfile.getDriverId());
         assertEquals(driverProfile.getDriverId(),read.getDriverId());
         System.out.println("Read: " + read);
     }
 
     @Test
-    void c_update() {
+    void update() {
         DriverProfile updated = new DriverProfile.Builder().copy(driverProfile).setDriverName("Chaddo").setDriverSurname("Boswell").builder();
         updated = service.update(updated);
         System.out.println("Updated Driver" + updated);
     }
 
     @Test
-    void e_delete() {
+    void delete() {
         boolean deleted = service.delete(driverProfile.getDriverId());
         Assert.assertTrue(deleted);
         System.out.println("Driver Deleted");
