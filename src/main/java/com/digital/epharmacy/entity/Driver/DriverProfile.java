@@ -37,8 +37,7 @@ private String driverSurname;
 @NotBlank(message = "Driver location is required")
 private String driverLocation;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Set<DriverCar> driverCar;
+
 
 protected DriverProfile() {}
 

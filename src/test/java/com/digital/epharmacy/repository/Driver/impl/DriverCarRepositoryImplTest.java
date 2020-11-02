@@ -31,14 +31,14 @@
 //    @Test
 //    public void a_create() {
 //        DriverCar created = repository.create(driverCar);
-//        Assert.assertEquals(driverCar.getDriverId(), created.getDriverId());
+//        Assert.assertEquals(driverCar.getCarId(), created.getCarId());
 //        System.out.println("Created: " + created);
 //    }
 //
 //    @Order(2)
 //    @Test
 //    public void b_read() {
-//        DriverCar read = repository.read(driverCar.getDriverId());
+//        DriverCar read = repository.read(driverCar.getCarId());
 //        System.out.println("Read: " + read);
 //    }
 //
@@ -53,7 +53,7 @@
 //    @Order(5)
 //    @Test
 //    public void e_delete() {
-//        boolean deleted = repository.delete(driverCar.getDriverId());
+//        boolean deleted = repository.delete(driverCar.getCarId());
 //        Assert.assertTrue(deleted);
 //
 //        if (deleted)

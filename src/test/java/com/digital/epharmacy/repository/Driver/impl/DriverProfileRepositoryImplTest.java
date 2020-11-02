@@ -34,15 +34,15 @@
 //    @Test
 //    public void a_create() {
 //        DriverProfile created = repository.create(driverProfile);
-//        assertEquals(driverProfile.getDriverId(), created.getDriverId());
+//        assertEquals(driverProfile.getCarId(), created.getCarId());
 //        System.out.println("Create: " + created);
 //    }
 //
 //    @Order(2)
 //    @Test
 //    public void b_read() {
-//        DriverProfile read = repository.read(driverProfile.getDriverId());
-//        assertEquals(driverProfile.getDriverId(),read.getDriverId());
+//        DriverProfile read = repository.read(driverProfile.getCarId());
+//        assertEquals(driverProfile.getCarId(),read.getCarId());
 //        System.out.println("Read: " + read);
 //    }
 //
@@ -51,7 +51,7 @@
 //    public void c_update() {
 //        DriverProfile updated = new DriverProfile.Builder().copy(driverProfile).setDriverName("Barry").setDriverSurname("Bossi").builder();
 //        updated = repository.update(updated);
-//        assertEquals(driverProfile.getDriverId(), updated.getDriverId());
+//        assertEquals(driverProfile.getCarId(), updated.getCarId());
 //        assertNotEquals(driverProfile.getDriverName(), updated.getDriverName());
 //        System.out.println("Update: " + updated );
 //    }
@@ -59,7 +59,7 @@
 //    @Order(5)
 //    @Test
 //    public void e_delete() {
-//        boolean deleted =   repository.delete(driverProfile.getDriverId());
+//        boolean deleted =   repository.delete(driverProfile.getCarId());
 //        Assert.assertTrue(deleted);
 //        if (deleted){
 //            System.out.println("Entry deleted");

@@ -21,18 +21,18 @@ public class DriverCarController {
 
     @PostMapping("/create")
     public DriverCar create(@RequestBody DriverCar driverCar) {
-        DriverCar newDriverCar = DriverCarFactory.createDriverCar(driverCar.getCarColour(),driverCar.getCarModel(),driverCar.getCarName(),driverCar.getCarRegistration(),driverCar.getDriverId());
+        DriverCar newDriverCar = DriverCarFactory.createDriverCar(driverCar.getCarColour(),driverCar.getCarModel(),driverCar.getCarName(),driverCar.getCarRegistration(),driverCar.getCarId());
         return carService.create(newDriverCar);
     }
 
-    @GetMapping("/read/{driverId}")
-    public DriverCar read(@PathVariable String driverId){
-        return carService.read(driverId);
+    @GetMapping("/read/{carId}")
+    public DriverCar read(@PathVariable String carId){
+        return carService.read(carId);
     }
 
     @PostMapping("/update")
-    public DriverCar update(@RequestBody DriverCar driverId){
-        return carService.update(driverId);
+    public DriverCar update(@RequestBody DriverCar carId){
+        return carService.update(carId);
     }
 
     @GetMapping("/all")
@@ -40,8 +40,8 @@ public class DriverCarController {
         return carService.getAll();
     }
 
-    @DeleteMapping("/delete/{driverId}")
-    public boolean delete(@PathVariable String driverId){
-        return carService.delete(driverId);
+    @DeleteMapping("/delete/{carId}")
+    public boolean delete(@PathVariable String carId){
+        return carService.delete(carId);
     }
 }

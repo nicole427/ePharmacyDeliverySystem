@@ -35,26 +35,39 @@ public class DriverCarServiceImpl implements DriverCarService {
         try{
             return this.repository.save(driverCar);
         } catch (Exception e){
-            throw new MyCustomExceptionHandler("Driver Car '" + driverCar.getDriverId()+ "' already exists");
+            throw new MyCustomExceptionHandler("Driver Car '" + driverCar.getCarId()+ "' already exists");
         }
     }
 
     @Override
     public DriverCar read(String driverCar) {
-        return this.repository.findById(driverCar).orElseGet(null);
+
+        DriverCar newDriverCar = repository.findById(driverCar).orElseGet(null);
+
+        if(newDriverCar == null)
+            throw new MyCustomExceptionHandler("Driver car or id does not exist");
+
+        return newDriverCar;
     }
 
     @Override
     public DriverCar update(DriverCar driverCar) {
 
-        return this.repository.save(driverCar);
+        if (this.repository.existsById(driverCar.getCarId())) {
+            return this.repository.save(driverCar);
+        }
+        else {
+            throw new MyCustomExceptionHandler("Driver car does not exist.");
+        }
+
     }
 
     @Override
     public boolean delete(String driverCar) {
+
         this.repository.deleteById(driverCar);
         if (this.repository.existsById(driverCar)){
-            return false;
+            throw new MyCustomExceptionHandler("Entry not deleted");
         } else {
             return true;
         }

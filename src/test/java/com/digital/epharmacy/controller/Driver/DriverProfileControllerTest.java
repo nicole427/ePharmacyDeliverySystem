@@ -3,7 +3,10 @@ package com.digital.epharmacy.controller.Driver;
 import com.digital.epharmacy.entity.Driver.DriverProfile;
 import com.digital.epharmacy.factory.Driver.DriverProfileFactory;
 import org.junit.FixMethodOrder;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,16 +22,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest (webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @RunWith(SpringRunner.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
-class DriverProfileControllerTest {
+public class DriverProfileControllerTest {
 
     DriverProfile driverProfile = DriverProfileFactory.createDriverProfile("Chaddy","Boswell","Belville");
 
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseURL = "http://localhost:8080/driverProfile/";
+    private String baseURL = "http://localhost:8080/driverProfile";
 
+    @Order(1)
     @Test
     void create() {
 
@@ -42,6 +47,7 @@ class DriverProfileControllerTest {
         assertEquals(driverProfile.getDriverId(),postResponse.getBody().getDriverId());
     }
 
+    @Order(2)
     @Test
     void read() {
 
@@ -49,12 +55,15 @@ class DriverProfileControllerTest {
         System.out.println("URL: " +url);
         ResponseEntity<DriverProfile> response = restTemplate.getForEntity(url,DriverProfile.class);
         assertEquals(driverProfile.getDriverId(), response.getBody().getDriverId());
+        System.out.println(response);
+        System.out.println(response.getBody());
     }
 
+    @Order(3)
     @Test
     void update() {
 
-        DriverProfile updated = new DriverProfile.Builder().copy(driverProfile).setDriverLocation("Kuislriver").builder();
+        DriverProfile updated = new DriverProfile.Builder().copy(driverProfile).setDriverId("1002").builder();
         String url = baseURL = "update";
         System.out.println("URL: " +url);
         System.out.println("Post Data: " +updated);
@@ -62,6 +71,7 @@ class DriverProfileControllerTest {
         assertEquals(driverProfile.getDriverId(), response.getBody().getDriverId());
     }
 
+    @Order(4)
     @Test
     void getAll() {
 
@@ -74,6 +84,7 @@ class DriverProfileControllerTest {
         System.out.println(response.getBody());
     }
 
+    @Order(5)
     @Test
     void delete() {
 

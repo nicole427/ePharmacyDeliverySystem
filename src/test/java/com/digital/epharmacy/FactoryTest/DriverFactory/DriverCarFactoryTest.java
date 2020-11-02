@@ -14,7 +14,7 @@ public class DriverCarFactoryTest {
     @Test
     public void createDriverCar() {
         DriverCar car = DriverCarFactory.createDriverCar("Test","CY 240", "blue", "Ford", "Figo");
-        assertEquals("random", car.getDriverId());
+        assertEquals("Test", car.getCarId());
         assertEquals("Cy 300", car.getCarRegistration());
         assertEquals("green", car.getCarColour());
         assertEquals("Ford", car.getCarName());

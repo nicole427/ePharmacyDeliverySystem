@@ -27,6 +27,7 @@ public class DriverProfileController {
     public DriverProfile read (@PathVariable String driverId){
         return driverProfileService.read(driverId);
     }
+
     @PostMapping ("/update")
     public DriverProfile update (@RequestBody DriverProfile driverProfile){
         return driverProfileService.update(driverProfile);

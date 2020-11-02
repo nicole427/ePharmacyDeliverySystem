@@ -33,7 +33,7 @@
 //    public DriverCar read(String driverID) {
 //        DriverCar name = null;
 //        for (DriverCar u: this.driverCarDB)
-//            if(u.getDriverId().equalsIgnoreCase(driverID)) {
+//            if(u.getCarId().equalsIgnoreCase(driverID)) {
 //                name = u;
 //            }
 //        return name;
@@ -41,7 +41,7 @@
 //
 //    @Override
 //    public DriverCar update(DriverCar driverCar) {
-//        DriverCar oldDriverCar = read(driverCar.getDriverId());
+//        DriverCar oldDriverCar = read(driverCar.getCarId());
 //        if(oldDriverCar != null){
 //            this.driverCarDB.remove(oldDriverCar);
 //            this.driverCarDB.add(driverCar);

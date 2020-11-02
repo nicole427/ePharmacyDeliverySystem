@@ -18,7 +18,7 @@ public class DriverProfileFactoryTest {
 
     @Test
     public void createUserProfile() {
-        DriverProfile driverProfile = DriverProfileFactory.createDriverProfile("Chaddy","Hawthorne","Bellville");
+        DriverProfile driverProfile = DriverProfileFactory.createDriverProfile("Chaddy","Boswell","Bellville");
         assertEquals("1001", driverProfile.getDriverId());
         assertEquals("Chad", driverProfile.getDriverName());
         assertEquals("Boswell", driverProfile.getDriverSurname());

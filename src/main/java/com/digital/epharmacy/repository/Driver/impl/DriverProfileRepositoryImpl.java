@@ -36,7 +36,7 @@
 //    public DriverProfile read (String driverId){
 //        DriverProfile driverProfile = null;
 //        for (DriverProfile u: this.driverProfileDB)
-//            if (u.getDriverId().equalsIgnoreCase(driverId) ) {
+//            if (u.getCarId().equalsIgnoreCase(driverId) ) {
 //                driverProfile = u;
 //                break;
 //            }
@@ -44,7 +44,7 @@
 //    }
 //    @Override
 //    public DriverProfile update (DriverProfile driverProfile){
-//        DriverProfile oldDriverProfile = read(driverProfile.getDriverId());
+//        DriverProfile oldDriverProfile = read(driverProfile.getCarId());
 //        if (oldDriverProfile != null ){
 //            this.driverProfileDB.remove(oldDriverProfile);
 //            this.driverProfileDB.add(driverProfile);
