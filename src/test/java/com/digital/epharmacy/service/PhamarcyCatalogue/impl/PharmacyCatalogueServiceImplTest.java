@@ -23,7 +23,7 @@ import java.util.Set;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PharmacyCatalogueServiceImplTest {
-    private static PharmacyCatalogueService service = PharmacyCatalogueServiceImpl.getService();
+    private static PharmacyCatalogueService service;
     private static PharmacyCatalogue pharmacyCatalogue = PharmacyCatalogueFactory.createPharmacyCatalogue
             ("", " Beauty", "Skin care");
     private static PharmacyCatalogue pharmacyCatalogue2 = PharmacyCatalogueFactory.createPharmacyCatalogue

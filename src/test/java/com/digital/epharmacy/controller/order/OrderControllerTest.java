@@ -1,7 +1,9 @@
-package com.digital.epharmacy.controller.order;
+package com.digital.epharmacy.controller.Order;
 
+import com.digital.epharmacy.entity.Catalogue.CatalogueItem;
 import com.digital.epharmacy.entity.Order.Order;
 import com.digital.epharmacy.entity.User.UserProfile;
+import com.digital.epharmacy.factory.Catalogue.CatalogueItemFactory;
 import com.digital.epharmacy.factory.Order.OrderFactory;
 import com.digital.epharmacy.factory.User.UserProfileFactory;
 import org.junit.FixMethodOrder;
@@ -19,7 +21,12 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @RunWith(SpringRunner.class)
@@ -27,11 +34,19 @@ import static org.junit.jupiter.api.Assertions.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class OrderControllerTest {
 
+    //as per business rule, we need items to place order
+    private static CatalogueItem catalogueItem = CatalogueItemFactory.createCatalogueItem(36, "Mayogel",
+            "oral health", 36, 200);
+
+    private  static List<CatalogueItem> items = Stream.of(catalogueItem).collect(Collectors.toList());
+
+
+
     private static UserProfile user = UserProfileFactory
             .createUserProfile("Ayabulela","Mahlathini", "male");
 
     private static Order order = OrderFactory
-            .createOrder(user.getUserId(), 659.99, 2, "yoco");
+            .createOrder(user.getUserId(), items, "yoco");
 
 
     @Autowired
@@ -124,7 +139,7 @@ public class OrderControllerTest {
         String url = baseURL + "pastOrders/"+ user
                 .getUserId();
 
-        OrderFactory.createOrder(user.getUserId(), 1550.00,50,"yoco");
+        OrderFactory.createOrder(user.getUserId(), items,"yoco");
 
         System.out.println("URL: " + url);
         HttpHeaders headers = new HttpHeaders();
