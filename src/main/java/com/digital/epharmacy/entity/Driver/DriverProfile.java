@@ -29,6 +29,7 @@ import java.util.Set;
 public class DriverProfile {
 
 @Id
+@Column(name= "id")
 private String driverId;
 @NotBlank(message = "Driver Name is required")
 private String driverName;
