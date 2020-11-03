@@ -8,6 +8,7 @@ package com.digital.epharmacy.entity.Catalogue;
 
 import org.hibernate.validator.constraints.Range;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -18,6 +19,7 @@ import java.io.Serializable;
 public class CatalogueItem implements Serializable {
 
     @Id
+    @Column(name = "id")
     private int itemNumber;
     @NotEmpty
     private int itemQuantity;

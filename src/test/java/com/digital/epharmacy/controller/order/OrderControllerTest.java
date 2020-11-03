@@ -19,6 +19,8 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.math.BigDecimal;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -31,7 +33,7 @@ public class OrderControllerTest {
             .createUserProfile("Ayabulela","Mahlathini", "male");
 
     private static Order order = OrderFactory
-            .createOrder(user.getUserId(), 659.99, 2, "yoco");
+            .createOrder((659.99), 2, "yoco");
 
 
     @Autowired
@@ -124,7 +126,7 @@ public class OrderControllerTest {
         String url = baseURL + "pastOrders/"+ user
                 .getUserId();
 
-        OrderFactory.createOrder(user.getUserId(), 1550.00,50,"yoco");
+        OrderFactory.createOrder(1550.00,50,"yoco");
 
         System.out.println("URL: " + url);
         HttpHeaders headers = new HttpHeaders();

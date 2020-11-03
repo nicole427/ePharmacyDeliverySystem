@@ -1,4 +1,4 @@
-package com.digital.epharmacy.controller.order;
+package com.digital.epharmacy.controller.Order;
 
 /** Author: Ayabulela Mahlathini - 218017774
  * Date: 24/09/2020
@@ -24,7 +24,7 @@ public class OrderController {
     @PostMapping("/create")
     public Order create(@RequestBody Order order){
         Order newOrder = OrderFactory
-                .createOrder(order.getUserID(), order.getOrderTotal(), order.getTotalCatalogueItems(), order.getPaymentType());
+                .createOrder(order.getOrderTotal(), order.getTotalCatalogueItems(), order.getPaymentType());
         return orderService.create(newOrder);
     }
 
