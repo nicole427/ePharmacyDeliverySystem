@@ -13,8 +13,8 @@ import static org.junit.Assert.*;
 public class DriverCarFactoryTest {
     @Test
     public void createDriverCar() {
-        DriverCar car = DriverCarFactory.createDriverCar("Test","CY 240", "blue", "Ford", "Figo");
-        assertEquals("random", car.getDriverId());
+        DriverCar car = DriverCarFactory.createDriverCar("CY 240", "blue", "Ford", "Figo");
+        assertEquals("random", car.getCarId());
         assertEquals("Cy 300", car.getCarRegistration());
         assertEquals("green", car.getCarColour());
         assertEquals("Ford", car.getCarName());

@@ -18,7 +18,6 @@ public class Payment {
 
     //Declaring variables using all attributes from the Payment Entity
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String referenceNumber;
     @NotNull(message = "Payment Status is required")
     private String paymentStatus;
@@ -31,15 +30,11 @@ public class Payment {
     @NotNull(message = "Date is required")
     private String date;
 
-    //declaring foreign keys, using String datatype for now
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //declaring foreign keys, using String datatype for now)
     private String pharmacyID;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private String userID;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private String orderNumber;
 
     protected Payment (){}

@@ -1,14 +1,9 @@
 package com.digital.epharmacy.service.User.impl;
 /*
-* Nicole Hawthorne 217169104
-* Date: 02/09/2020
-* Desc: Test case for UserProfileService Implementation
-*
-* Author: Nicole Hawthorne
-* Date: 27/10/2020
-* Des - Added Spring boot test and Junit Spring runner, made changes to test methods to ensure test passes.
-* I also autowired service
-* */
+ * Nicole Hawthorne 217169104
+ * Date: 02/09/2020
+ * Desc: Test case for UserProfileService Implementation
+ * */
 import com.digital.epharmacy.entity.User.UserProfile;
 import com.digital.epharmacy.factory.User.UserProfileFactory;
 import com.digital.epharmacy.service.User.UserProfileService;
@@ -25,8 +20,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Set;
+import static org.junit.Assert.*;
 
-import static org.junit.Assert.assertEquals;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -35,7 +30,8 @@ public class UserProfileServiceImplTest {
 
     @Autowired
     private UserProfileService service;
-    private static UserProfile userProfile = UserProfileFactory.createUserProfile("Nicole","Hawthorne","M");
+    private static UserProfile userProfile = UserProfileFactory.createUserProfile("Nicole","Hawthorne","F");
+
     @Order(4)
     @Test
     void d_getAll() {
@@ -43,6 +39,7 @@ public class UserProfileServiceImplTest {
         assertEquals(1,userProfile.size());
         System.out.println("All users" + userProfile);
     }
+
     @Order(1)
     @Test
     void a_create() {
@@ -50,12 +47,14 @@ public class UserProfileServiceImplTest {
         Assert.assertEquals(userProfile.getUserId(), created.getUserId());
         System.out.println("User ID created" + created);
     }
+
     @Order(2)
     @Test
     void b_read() {
         UserProfile read = service.read(userProfile.getUserId());
         System.out.println("Read: " + read);
     }
+
     @Order(3)
     @Test
     void c_update() {
@@ -69,6 +68,6 @@ public class UserProfileServiceImplTest {
         boolean deleted = service.delete(userProfile.getUserId());
         Assert.assertTrue(deleted);
         if (deleted)
-        System.out.println("User Deleted");
+            System.out.println("User Deleted");
     }
 }

@@ -5,9 +5,6 @@ package com.digital.epharmacy.entity.Pharmacy;
  * Date: 04 July 2020
  */
 
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Objects;

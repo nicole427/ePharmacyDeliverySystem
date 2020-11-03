@@ -34,7 +34,7 @@ public class ContactInformationServiceImpl implements ContactInformationService 
     @Override
     public ContactInformation update(ContactInformation contactInformation) {
 
-        if(this.repository.existsById(contactInformation.getUserId())){
+        if(this.repository.existsById(contactInformation.getcontactId())){
             return this.repository.save(contactInformation);
         }
         return null;

@@ -5,13 +5,12 @@ import com.digital.epharmacy.util.GenericHelper;
 
 public class PharmacyCatalogueFactory {
 
-    public static PharmacyCatalogue createPharmacyCatalogue (String pharmacyID, String catalogueName,
-                                                                    String catalogueDescription)
+    public static PharmacyCatalogue createPharmacyCatalogue (String catalogueName, String catalogueDescription)
     {
-        pharmacyID = GenericHelper.generateId();
+        String catalogueId = GenericHelper.generateId();
         PharmacyCatalogue pharmacyCatalogue = new PharmacyCatalogue.Builder()
 
-                .setPharmacyId(pharmacyID)
+                .setCatalogueId(catalogueId)
                 .setCatalogueName(catalogueName)
                 .setCatalogueDescription(catalogueDescription)
                 .build();

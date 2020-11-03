@@ -7,7 +7,6 @@
 package com.digital.epharmacy.repository.PharmacyCatalogue;
 
 import com.digital.epharmacy.entity.Catalogue.PharmacyCatalogue;
-import com.digital.epharmacy.entity.Pharmacy.PharmacyBankAccountInformation;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -15,5 +14,5 @@ import java.util.Set;
 
 @Repository
 public interface PharmacyCatalogueRepository extends JpaRepository<PharmacyCatalogue, String> {
-    Set <PharmacyCatalogue> getAll();
+
 }

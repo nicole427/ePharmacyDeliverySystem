@@ -30,7 +30,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PharmacyCatalogueControllerTest {
 
     PharmacyCatalogue pharmacyCat = PharmacyCatalogueFactory.createPharmacyCatalogue(
-            "Random", "Beauty", "Facial");
+            "Beauty", "Facial");
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -49,15 +49,15 @@ class PharmacyCatalogueControllerTest {
         assertNotNull(response.getBody());
         pharmacyCat = response.getBody();
         System.out.println("Saved Data: " + pharmacyCat);
-        assertEquals(pharmacyCat.getPharmacyId(), response.getBody().getPharmacyId());
+        assertEquals(pharmacyCat.getCatalogueId(), response.getBody().getCatalogueId());
     }
     @Order(2)
     @Test
     void b_readByPharmacyID() {
-        String url = baseURL + "/id/" + pharmacyCat.getPharmacyId();
+        String url = baseURL + "/id/" + pharmacyCat.getCatalogueId();
         System.out.println("URL: " + url);
         ResponseEntity<PharmacyCatalogue> response = restTemplate.getForEntity(url, PharmacyCatalogue.class);
-        assertEquals(pharmacyCat.getPharmacyId(), response.getBody().getPharmacyId());
+        assertEquals(pharmacyCat.getCatalogueId(), response.getBody().getCatalogueId());
     }
     @Order(3)
     @Test
@@ -78,7 +78,7 @@ class PharmacyCatalogueControllerTest {
                 .setCatalogueName( " Self-Medication "
                 )
                 .build();
-        String url = baseURL + "/update/" + pharmacyCat.getPharmacyId();
+        String url = baseURL + "/update/" + pharmacyCat.getCatalogueId();
 
         System.out.println("URL: " + url);
         System.out.println("POST Data: " + pharmacyUpdate);
@@ -103,7 +103,7 @@ class PharmacyCatalogueControllerTest {
     @Order(6)
     @Test
     void delete() {
-        String url = baseURL + "/delete/" + pharmacyCat.getPharmacyId();
+        String url = baseURL + "/delete/" + pharmacyCat.getCatalogueId();
         System.out.println("URL: " + url);
         restTemplate.delete(url);
     }
