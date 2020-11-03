@@ -1,6 +1,7 @@
 package com.digital.epharmacy.entity.User;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
@@ -11,8 +12,9 @@ import java.util.Objects;
  * */
 
 /**Author: Nicole Hawthorne
- *Desc: Added the entity mapping and assigned the primary key also added no null values each entity
- and changed default constructor to protected
+ *Desc: Added the entity mapping and assigned the primary key as ID also added noBlank values each entity so that its not empty
+ and changed default constructor to protected.
+ Lastly added equals and hashcode for Id
  * Date: 25/10/2020
  * */
 //main class
@@ -22,11 +24,11 @@ public class UserProfile {
     @Id
     @Column(name = "id")
     private String userId;
-    @NotNull(message = "Username is required")
+    @NotBlank(message = "Username is required")
     private String userName;
-    @NotNull(message = "User Surname is required")
+    @NotBlank(message = "User Surname is required")
     private String userSurname;
-    @NotNull(message = "Gender is required")
+    @NotBlank(message = "Gender is required")
     private String gender;
 
     protected UserProfile(){}

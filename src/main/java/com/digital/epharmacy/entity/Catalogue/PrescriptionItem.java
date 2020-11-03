@@ -22,7 +22,6 @@ Version: 1.0
 public class PrescriptionItem {
     //declaring the Variables
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int prescriptionNumber;
     @NotNull(message = "Prescription number is required")
     private String prescriptionType;
