@@ -1,22 +1,18 @@
-package com.digital.epharmacy.controller.Order;
+package com.digital.epharmacy.controller.order;
 
 /** Author: Ayabulela Mahlathini - 218017774
  * Date: 24/09/2020
  * Description: Controller for the Orders, (crud for orders, tracking orders and getting past orders by a user)
  */
 
-import com.digital.epharmacy.entity.Catalogue.CatalogueItem;
 import com.digital.epharmacy.entity.Order.Order;
 import com.digital.epharmacy.factory.Order.OrderFactory;
 import com.digital.epharmacy.service.Order.Impl.OrderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @RestController
 @RequestMapping("/order")
@@ -27,9 +23,8 @@ public class OrderController {
 
     @PostMapping("/create")
     public Order create(@RequestBody Order order){
-
         Order newOrder = OrderFactory
-                .createOrder(order.getUserID(), order.getItems(), order.getPaymentType());
+                .createOrder(order.getUserID(), order.getOrderTotal(), order.getTotalCatalogueItems(), order.getPaymentType());
         return orderService.create(newOrder);
     }
 

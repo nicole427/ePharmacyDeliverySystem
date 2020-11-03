@@ -35,7 +35,7 @@ public class DriverCarServiceImpl implements DriverCarService {
         try{
             return this.repository.save(driverCar);
         } catch (Exception e){
-            throw new MyCustomExceptionHandler("Driver Car '" + driverCar.getDriverId()+ "' already exists");
+            throw new MyCustomExceptionHandler("Driver Car '" + driverCar.getCarId()+ "' already exists");
         }
     }
 

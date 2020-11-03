@@ -20,7 +20,11 @@ public class UserContactInformationController {
     @PostMapping("/create")
     public ContactInformation create (@RequestBody ContactInformation contactInformation){
 
-        ContactInformation newContactInformation = ContactInformationFactory.createContactInformation(contactInformation.getUserId(), contactInformation.getPharmacyId(),contactInformation.getPrimaryNumber(), contactInformation.getSecondaryNumber());
+        ContactInformation newContactInformation = ContactInformationFactory.createContactInformation(
+                contactInformation.getPrimaryNumber(),
+                contactInformation.getSecondaryNumber()
+        );
+
         return contactInformationService.create(contactInformation);
     }
 

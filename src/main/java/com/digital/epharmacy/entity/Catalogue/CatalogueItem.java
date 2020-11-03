@@ -17,8 +17,6 @@ import java.io.Serializable;
 @Entity
 public class CatalogueItem implements Serializable {
 
-
-    private static final long serialVersionUID = 10L;
     @Id
     private int itemNumber;
     @NotEmpty

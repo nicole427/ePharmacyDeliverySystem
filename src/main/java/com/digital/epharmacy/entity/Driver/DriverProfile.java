@@ -1,8 +1,5 @@
 package com.digital.epharmacy.entity.Driver;
 
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Objects;
@@ -31,19 +28,19 @@ import java.util.Set;
 @Entity
 public class DriverProfile {
 
-@Id
-private String driverId;
-@NotBlank(message = "Driver Name is required")
-private String driverName;
-@NotBlank(message = "Driver Surname is required")
-private String driverSurname;
-@NotBlank(message = "Driver location is required")
-private String driverLocation;
+    @Id
+    @Column(name= "id")
+    private String driverId;
+    @NotBlank(message = "Driver Name is required")
+    private String driverName;
+    @NotBlank(message = "Driver Surname is required")
+    private String driverSurname;
+    @NotBlank(message = "Driver location is required")
+    private String driverLocation;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Set<DriverCar> driverCar;
 
-protected DriverProfile() {}
+
+    protected DriverProfile() {}
 
     // builder pattern method constructor
     private DriverProfile(Builder builder){
@@ -75,7 +72,7 @@ protected DriverProfile() {}
     // to string to display what is in the class
     @Override
     public String toString() {
-       // return "DriverProfile{" +
+        // return "DriverProfile{" +
 
         return "DriverProfile{" +
                 "driverId=" + driverId +
