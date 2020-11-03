@@ -1,9 +1,9 @@
 package com.digital.epharmacy.service.User.impl;
 /*
-* Nicole Hawthorne 217169104
-* Date: 02/09/2020
-* Desc: Test case for UserProfileService Implementation
-* */
+ * Nicole Hawthorne 217169104
+ * Date: 02/09/2020
+ * Desc: Test case for UserProfileService Implementation
+ * */
 import com.digital.epharmacy.entity.User.UserProfile;
 import com.digital.epharmacy.factory.User.UserProfileFactory;
 import com.digital.epharmacy.service.User.UserProfileService;
@@ -13,18 +13,25 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Set;
+import static org.junit.Assert.*;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.*;
+@SpringBootTest
+@RunWith(SpringRunner.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class UserProfileServiceImplTest {
 
-private static UserProfileService service = UserProfileServiceImpl.getService();
-private static UserProfile userProfile = UserProfileFactory.createUserProfile("Nicole","Hawthorne","M");
+    @Autowired
+    private UserProfileService service;
+    private static UserProfile userProfile = UserProfileFactory.createUserProfile("Nicole","Hawthorne","F");
+
     @Order(4)
     @Test
     void d_getAll() {
@@ -32,20 +39,22 @@ private static UserProfile userProfile = UserProfileFactory.createUserProfile("N
         assertEquals(1,userProfile.size());
         System.out.println("All users" + userProfile);
     }
+
     @Order(1)
     @Test
     void a_create() {
         UserProfile created = service.create(userProfile);
-        assertEquals(userProfile.getUserId(), created.getUserId());
+        Assert.assertEquals(userProfile.getUserId(), created.getUserId());
         System.out.println("User ID created" + created);
     }
+
     @Order(2)
     @Test
     void b_read() {
         UserProfile read = service.read(userProfile.getUserId());
-        assertEquals(userProfile.getUserId(),read.getUserId());
         System.out.println("Read: " + read);
     }
+
     @Order(3)
     @Test
     void c_update() {
@@ -58,6 +67,7 @@ private static UserProfile userProfile = UserProfileFactory.createUserProfile("N
     void e_delete() {
         boolean deleted = service.delete(userProfile.getUserId());
         Assert.assertTrue(deleted);
-        System.out.println("User Deleted");
+        if (deleted)
+            System.out.println("User Deleted");
     }
 }

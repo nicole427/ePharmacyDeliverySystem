@@ -19,7 +19,6 @@ import javax.validation.constraints.NotNull;
  * */
 //main class
 
-//@IdClass(UserProfileAndPharmacyId.class)
 public class ContactInformation {
     //naming entity attributes and assigning their variable values
     @Id
