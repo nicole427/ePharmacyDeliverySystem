@@ -9,38 +9,30 @@ package com.digital.epharmacy.entity.Order;
  *Desc: Added the entity mapping and assigned the primary key also added no null values each entity
  and changed default constructor to protected
  * Date: 25/10/2020
- *
- * Author: Ayabulela Mahlathini - altered entity to connect to database
- * 25/10/2020
- *
  * */
 
-import com.digital.epharmacy.entity.Catalogue.CatalogueItem;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 
 @Entity
-@Table(name = "ORDERS") //Order seems to be a reserved word, had to change to ORDERS
 public class Order {
 
     //Entity attributes
     @Id
-    @NotNull
-    private String orderNumber; // (Ayabulela Mahlathini) changed order number to string so that it is auto generated in the factor;
-    @NotNull(message = "UserID is required")
-    private String  userID;
-    private BigDecimal orderTotal;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<CatalogueItem> items = new ArrayList<>(); //Ayabulela Mahlathini - for relationship with CatalogueItem Entity
+    @Column(name = "id")
+    private String orderNumber; // (Ayabulela Mahlathini) changed order number to string so that it is auto generated in the factory
+    @Column(precision=10, scale=2)
+    private double orderTotal;
+    @NotNull(message = "Total Items is required")
     private int totalCatalogueItems;
+    @NotBlank(message = "Payment type is required")
     private String paymentType;
+    @NotBlank(message = "Order Status is required")
     private String orderStatus; //(Ayabulela Mahlathini)added orderStatus
-    private String date;
 
     //default contructor - Ayabulela Mahlathini
     protected Order(){}
@@ -48,33 +40,22 @@ public class Order {
     //Builder class constructor
     private Order(Builder builder){
 
-        this.userID =  builder.userID;
         this.orderNumber = builder.orderNumber;
-        this.items = builder.items;
         this.totalCatalogueItems = builder.totalCatalogueItems;
         this.orderTotal = builder.orderTotal;
         this.paymentType = builder.paymentType;
         this.orderStatus = builder.orderStatus;
-        this.date = builder.date;
-    }
-    //Getters for all attributes.
-    public String getUserID() {
-        return userID;
     }
 
     public String getOrderNumber() {
         return orderNumber;
     }
 
-    public List<CatalogueItem> getItems() {
-        return items;
-    }
-
     public int getTotalCatalogueItems() {
         return totalCatalogueItems;
     }
 
-    public BigDecimal getOrderTotal() {
+    public double getOrderTotal() {
         return orderTotal;
     }
 
@@ -86,72 +67,47 @@ public class Order {
         return orderStatus;
     }
 
-    public Object getDate() {
-        return date;
-    }
-
     //toString method that displays whats in the order class
-
-
     @Override
     public String toString() {
         return "Order{" +
-                "orderNumber='" + orderNumber + '\'' +
-                ", userID='" + userID + '\'' +
-                ", orderTotal=" + orderTotal +
-                ", items=" + items +
+                ", orderNumber=" + orderNumber +
                 ", totalCatalogueItems=" + totalCatalogueItems +
+                ", orderTotal=" + orderTotal +
                 ", paymentType='" + paymentType + '\'' +
-                ", orderStatus='" + orderStatus + '\'' +
-                ", date='" + date + '\'' +
+                ", orderStatus=" + orderStatus +
                 '}';
     }
 
     //Builder class to implement the builder pattern
     public static class Builder{
 
-
-        private String userID;
         private String orderNumber;
-        private List<CatalogueItem> items;
         private int totalCatalogueItems;
-        private BigDecimal orderTotal;
+        private double orderTotal;
         private String paymentType, orderStatus;
-        private String date;
 
-        // setting userID value using builder pattern
-       public Builder setUserID(String userID){
+        //setting orderNumber value using builder pattern
+        public Builder setOrderNumber(String orderNumber){
 
-           this.userID = userID;
-           return this;
-       }
-
-       //setting orderNumber value using builder pattern
-       public Builder setOrderNumber(String orderNumber){
-
-           this.orderNumber = orderNumber;
-           return this;
-       }
-
-        public Builder setItems(List<CatalogueItem> items) {
-           this.items = items;
+            this.orderNumber = orderNumber;
             return this;
         }
 
         //setting totalCatalogueItems value using builder pattern
-       public Builder setTotalCatalogueItems(int totalCatalogueItems){
+        public Builder setTotalCatalogueItems(int totalCatalogueItems){
 
-           this.totalCatalogueItems = totalCatalogueItems;
-           return this;
+            this.totalCatalogueItems = totalCatalogueItems;
+            return this;
 
-       }
+        }
 
-       //setting orderTotal value using builder pattern
-       public Builder setOrderTotal(BigDecimal orderTotal){
+        //setting orderTotal value using builder pattern
+        public Builder setOrderTotal(double orderTotal){
 
-           this.orderTotal = orderTotal;
-           return this;
-       }
+            this.orderTotal = orderTotal;
+            return this;
+        }
 
         //setting paymentDate value using builder pattern
         public Builder setPaymentType(String paymentType){
@@ -167,42 +123,20 @@ public class Order {
             return this;
         }
 
-       //setting date value using builder pattern
-        public Builder setDate(String date){
-
-           this.date = date;
-           return this;
-       }
 
         // Builder copy method that create instance of Order
-       public Builder copy(Order order){
+        public Builder copy(Order order){
 
-           this.userID = order.userID;
-           this.orderNumber = order.orderNumber;
-           this.items = order.items;
-           this.totalCatalogueItems = order.totalCatalogueItems;
-           this.orderTotal = order.orderTotal;
-           this.paymentType = order.paymentType;
-           this.orderStatus = order.orderStatus;
-           this.date = order.date;
+            this.orderNumber = order.orderNumber;
+            this.totalCatalogueItems = order.totalCatalogueItems;
+            this.orderTotal = order.orderTotal;
+            this.paymentType = order.paymentType;
+            this.orderStatus = order.orderStatus;
 
-           return this;
-       }
+            return this;
+        }
 
         //creating an instance of this class
-       public Order build(){return new Order(this);}
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Order order = (Order) o;
-        return Objects.equals(orderNumber, order.orderNumber);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(orderNumber);
+        public Order build(){return new Order(this);}
     }
 }

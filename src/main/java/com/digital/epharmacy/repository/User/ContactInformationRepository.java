@@ -10,5 +10,4 @@ import java.util.Set;
 @Repository
 public interface ContactInformationRepository extends JpaRepository<ContactInformation, String> {
 
-    Set<ContactInformation> getAll();
 }

@@ -12,10 +12,8 @@ public class ContactInformationFactoryTest {
     //must still choose appropriate data type for cell number
     @Test
     public void createContactInformation() {
-        ContactInformation contactInformation = ContactInformationFactory.createContactInformation(GenericHelper.generateId(),"Random",891271,072171);
-        assertEquals("", contactInformation.getUserId());
-        assertEquals("Random", contactInformation.getPharmacyId());
-        assertEquals(123456, contactInformation.getPrimaryNumber());
-        assertEquals(123456, contactInformation.getSecondaryNumber());
+        ContactInformation contactInformation = ContactInformationFactory.createContactInformation("0812417892","0214478793");
+        assertEquals("0812417892", contactInformation.getPrimaryNumber());
+        assertEquals("0214478793", contactInformation.getSecondaryNumber());
     }
 }

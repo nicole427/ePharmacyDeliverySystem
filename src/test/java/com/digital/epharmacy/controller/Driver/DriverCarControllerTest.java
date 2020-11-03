@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DriverCarControllerTest {
 
-    DriverCar driverCar = DriverCarFactory.createDriverCar("788954","CY 240", "blue", "Ford", "Figo");
+    DriverCar driverCar = DriverCarFactory.createDriverCar("CY 240", "blue", "Ford", "Figo");
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -39,16 +39,16 @@ class DriverCarControllerTest {
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
         System.out.println("Saved Data:" +driverCar);
-        assertEquals(driverCar.getDriverId(),postResponse.getBody().getDriverId());
+        assertEquals(driverCar.getCarId(),postResponse.getBody().getCarId());
     }
 
     @Test
     void read() {
 
-        String url = baseURL + "read/" + driverCar.getDriverId();
+        String url = baseURL + "read/" + driverCar.getCarId();
         System.out.println("URL: " +url);
         ResponseEntity<DriverCar> response = restTemplate.getForEntity(url,DriverCar.class);
-        assertEquals(driverCar.getDriverId(), response.getBody().getDriverId());
+        assertEquals(driverCar.getCarId(), response.getBody().getCarId());
     }
 
     @Test
@@ -59,7 +59,7 @@ class DriverCarControllerTest {
         System.out.println("URL: " +url);
         System.out.println("Post Data: " +updated);
         ResponseEntity<DriverCar> response = restTemplate.postForEntity(url,updated,DriverCar.class);
-        assertEquals(driverCar.getDriverId(), response.getBody().getDriverId());
+        assertEquals(driverCar.getCarId(), response.getBody().getCarId());
     }
 
     @Test
@@ -77,7 +77,7 @@ class DriverCarControllerTest {
     @Test
     void delete() {
 
-        String url = baseURL +"delete/" +driverCar.getDriverId();
+        String url = baseURL +"delete/" +driverCar.getCarId();
         System.out.println("URL: " +url);
         restTemplate.delete(url);
     }

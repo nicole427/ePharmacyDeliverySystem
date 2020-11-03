@@ -12,63 +12,69 @@ import com.digital.epharmacy.service.User.AddressService;
 
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
+import org.junit.Test;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Set;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
-
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@SpringBootTest
+@RunWith(SpringRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class AddressServiceImplTest {
 
     @Autowired
-    private static AddressService service;
-    private static Address address = AddressFactory.createAddress("P01", "U01", 99, 50,
+    private AddressService service;
+    private static Address address = AddressFactory.createAddress(99, 50,
             "TygerStreet", "Tygervalley");
 
+
     @Test
-    void d_getAll() {
+    public void d_getAll() {
         Set<Address> address = service.getAll();
-        assertEquals(1, address.size());
+        assertNotEquals(100, address.size());
         System.out.println("All addresses" + address);
     }
 
-    @Order(1)
+
     @Test
-    void a_create() {
+    public void a_create() {
         Address created = service.create(address);
-        assertEquals(address.getUserId(), created.getUserId());
+        assertEquals(address.getAddressId(), created.getAddressId());
         System.out.println("User ID created" + created);
     }
 
-    @Order(2)
+
     @Test
-    void b_read() {
-        Address read = service.read(address.getUserId());
-        assertEquals(address.getUserId(), read.getUserId());
+    public void b_read() {
+        Address read = service.read(address.getAddressId());
+        assertEquals(address.getAddressId(), read.getAddressId());
         System.out.println("Read: " + read);
     }
 
-    @Order(3)
+
     @Test
-    void c_update() {
+    public void c_update() {
         Address updated = new Address.Builder().copy(address).setStreetName("Lemont").setStreetNumber(51).build();
         updated = service.update(updated);
         System.out.println("Updated User" + updated);
     }
-    @Order(5)
+
     @Test
-    void e_delete() {
-        boolean deleted = service.delete(address.getUserId());
+    public void e_delete() {
+        boolean deleted = service.delete(address.getAddressId());
         Assert.assertTrue(deleted);
-        System.out.println("User Deleted");
+
+        if (deleted)
+            System.out.println("User Deleted");
     }
 }
 

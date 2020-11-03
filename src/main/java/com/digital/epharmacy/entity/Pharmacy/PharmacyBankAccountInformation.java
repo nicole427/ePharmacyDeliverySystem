@@ -13,9 +13,8 @@ import java.util.Objects;
  * Date: 04 July 2020
  */
 @Entity
-@Table(name = "bank")
+@Table(name = "bank_account")
 public class PharmacyBankAccountInformation {
-
     @Id
     @Column(name = "id")
     private String bankAccountId;
@@ -24,8 +23,8 @@ public class PharmacyBankAccountInformation {
     @NotNull(message = "Account number is required")
     @Range(min = 1, max = 2147483647, message = "Account number is required")
     private int accountNumber;
-    @NotNull(message = "Branch Code is required")
-    @Range(min = 1, max = 2147483647, message = "Account number is required")
+    @NotNull(message = "Branch code is required")
+    @Range(min = 1, max = 2147483647, message = "Branch code is required")
     private int branchCode;
     @NotBlank(message = "Beneficiary Reference is required")
     private String beneficiaryReference;
