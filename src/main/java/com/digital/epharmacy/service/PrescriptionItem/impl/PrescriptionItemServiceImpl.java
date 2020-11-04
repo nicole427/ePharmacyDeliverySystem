@@ -20,27 +20,27 @@ public class PrescriptionItemServiceImpl implements PrescriptionItemService {
     @Autowired
     private PrescriptionItemRepository repository;
 
-    @Override @Transactional
+    @Override
     public Set<PrescriptionItem> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
-    @Override @Transactional
+    @Override
     public PrescriptionItem create(PrescriptionItem prescriptionItem) {
         return this.repository.save(prescriptionItem);
     }
 
-    @Override @Transactional
+    @Override
     public PrescriptionItem read(String prescriptionItem) {
         return this.repository.findById(prescriptionItem).orElse(null);
     }
 
-    @Override @Transactional
+    @Override
     public PrescriptionItem update(PrescriptionItem prescriptionItem) {
         return create(prescriptionItem);
     }
 
-    @Override @Transactional
+    @Override
     public boolean delete(String s) {
         this.repository.deleteById(s);
         if (this.repository.existsById(s)){

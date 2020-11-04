@@ -25,12 +25,12 @@ public class PharmacyBankAccountInformationServiceImpl implements PharmacyBankAc
     private PharmacyBankAccountInformationRepository repository;
 
 
-    @Override @Transactional
+    @Override
     public Set<PharmacyBankAccountInformation> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
-    @Override @Transactional
+    @Override
     public PharmacyBankAccountInformation create(PharmacyBankAccountInformation pharmacyBankAccountInformation) {
         try{
             return this.repository.save(pharmacyBankAccountInformation);
@@ -40,17 +40,17 @@ public class PharmacyBankAccountInformationServiceImpl implements PharmacyBankAc
 
     }
 
-    @Override @Transactional
+    @Override
     public PharmacyBankAccountInformation read(String pharmacyBankAccountInformation) {
         return this.repository.findById(pharmacyBankAccountInformation).orElseGet(null);
     }
 
-    @Override @Transactional
+    @Override
     public PharmacyBankAccountInformation update(PharmacyBankAccountInformation pharmacyBankAccountInformation) {
         return this.repository.save(pharmacyBankAccountInformation);
     }
 
-    @Override @Transactional
+    @Override
     public boolean delete(String pharmacyBankAccountInformation) {
         this.repository.deleteById(pharmacyBankAccountInformation);
         if (this.repository.existsById(pharmacyBankAccountInformation))
@@ -58,7 +58,7 @@ public class PharmacyBankAccountInformationServiceImpl implements PharmacyBankAc
         return true;
     }
 
-    @Override @Transactional
+    @Override
     public PharmacyBankAccountInformation findByAccountNumber(int accountNumber) {
         PharmacyBankAccountInformation bankDetails = repository.findByAccountNumber(accountNumber);
 

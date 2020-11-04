@@ -28,12 +28,12 @@ public class MedicalAidServiceImpl implements MedicalAidService {
     private MedicalAidRepository repository;
 
 
-    @Override @Transactional
+    @Override
     public Set<MedicalAid> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
-    @Override @Transactional
+    @Override
     public MedicalAid create(MedicalAid medicalAid) {
         try{
            return this.repository.save(medicalAid);
@@ -43,7 +43,7 @@ public class MedicalAidServiceImpl implements MedicalAidService {
 
     }
 
-    @Override @Transactional
+    @Override
     public MedicalAid read(String medicalAid) {
         MedicalAid newMedicalAid = repository.findById(medicalAid).orElseGet(null);
 
@@ -53,7 +53,7 @@ public class MedicalAidServiceImpl implements MedicalAidService {
         return newMedicalAid;
     }
 
-    @Override @Transactional
+    @Override
     public MedicalAid update(MedicalAid medicalAid) {
         if (this.repository.existsById(medicalAid.getMedicalAidId())) {
             return this.repository.save(medicalAid);
@@ -63,7 +63,7 @@ public class MedicalAidServiceImpl implements MedicalAidService {
         }
     }
 
-    @Override @Transactional
+    @Override
     public boolean delete(String medicalAid) {
         this.repository.deleteById(medicalAid);
         if(this.repository.existsById(medicalAid)){

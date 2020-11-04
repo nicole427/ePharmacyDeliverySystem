@@ -24,17 +24,17 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
     @Autowired
     private OrderHistoryRepository repository;
 
-    @Override @Transactional
+    @Override
     public Set<OrderHistory> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
-    @Override @Transactional
+    @Override
     public OrderHistory create(OrderHistory orderHistory) {
         return this.repository.save(orderHistory);
     }
 
-    @Override @Transactional
+    @Override
     public OrderHistory read(String id) {
         if (this.repository.existsById(id)) {
             return this.repository.findById(id).orElseGet(null);
@@ -42,12 +42,12 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
         return null;
     }
 
-    @Override @Transactional
+    @Override
     public OrderHistory update(OrderHistory orderHistory) {
         return this.repository.save(orderHistory);
     }
 
-    @Override @Transactional
+    @Override
     public boolean delete(String id) {
         this.repository.deleteById(id);
         if (this.repository.existsById(id)){

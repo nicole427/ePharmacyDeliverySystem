@@ -17,27 +17,27 @@ public class OrderReceiptServiceImpl implements OrderReceiptService {
     private OrderReceiptRepository repository;
 
 
-    @Override @Transactional
+    @Override
     public Set<OrderReceipt> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
-    @Override @Transactional
+    @Override
     public OrderReceipt create(OrderReceipt orderReceipt) {
         return this.repository.save(orderReceipt);
     }
 
-    @Override @Transactional
+    @Override
     public OrderReceipt read(String orderReceipt) {
         return this.repository.findById(orderReceipt).orElseGet(null);
     }
 
-    @Override @Transactional
+    @Override
     public OrderReceipt update(OrderReceipt orderReceipt) {
         return this.repository.save(orderReceipt);
     }
 
-    @Override @Transactional
+    @Override
     public boolean delete(String orderReceipt)
     {
         this.repository.deleteById(orderReceipt);

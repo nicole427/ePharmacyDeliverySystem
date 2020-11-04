@@ -18,12 +18,12 @@ public class AddressServiceImpl implements AddressService {
     private AddressRepository repository;
 
 
-    @Override @Transactional
+    @Override
     public Set<Address> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
-    @Override @Transactional
+    @Override
     public Address findAddressByStreetName(String streetName) {
         Address address = repository.findAddressByStreetName(streetName);
 
@@ -33,7 +33,7 @@ public class AddressServiceImpl implements AddressService {
         return address;
     }
 
-    @Override @Transactional
+    @Override
     public Address create(Address address) {
         try {
             return this.repository.save(address);
@@ -42,7 +42,7 @@ public class AddressServiceImpl implements AddressService {
         }
     }
 
-    @Override @Transactional
+    @Override
     public Address read(String s) {
         Address address = repository.findById(s).orElseGet(null);
 
@@ -52,12 +52,12 @@ public class AddressServiceImpl implements AddressService {
         return address;
     }
 
-    @Override @Transactional
+    @Override
     public Address update(Address address) {
         return this.repository.save(address);
     }
 
-    @Override @Transactional
+    @Override
     public boolean delete(String s) {
         this.repository.deleteById(s);
         if (this.repository.existsById(s))

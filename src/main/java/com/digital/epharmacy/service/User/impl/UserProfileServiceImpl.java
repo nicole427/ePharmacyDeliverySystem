@@ -22,12 +22,12 @@ public class UserProfileServiceImpl implements UserProfileService {
     private UserProfileRepository repository;
 
 
-    @Override @Transactional
+    @Override
     public Set<UserProfile> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
-    @Override @Transactional
+    @Override
     public UserProfile findUserProfileByUserName(String userName) {
         UserProfile newUserProfile = repository.findUserProfileByUserName(userName);
         if (newUserProfile == null)
@@ -36,17 +36,17 @@ public class UserProfileServiceImpl implements UserProfileService {
         return newUserProfile;
     }
 
-    @Override @Transactional
+    @Override
     public UserProfile create(UserProfile userProfile) {
         return this.repository.save(userProfile);
     }
 
-    @Override @Transactional
+    @Override
     public UserProfile read(String s) {
         return this.repository.findById(s).orElseGet(null);
     }
 
-    @Override @Transactional
+    @Override
     public UserProfile update(UserProfile userProfile) {
 
         if (this.repository.existsById(userProfile.getUserId()))
@@ -54,7 +54,7 @@ public class UserProfileServiceImpl implements UserProfileService {
         return null;
     }
 
-    @Override @Transactional
+    @Override
     public boolean delete(String s) {
         this.repository.deleteById(s);
         if (this.repository.existsById(s)) return false;

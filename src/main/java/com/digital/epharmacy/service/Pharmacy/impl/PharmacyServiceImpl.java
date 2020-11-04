@@ -27,12 +27,12 @@ public class PharmacyServiceImpl implements PharmacyService {
     private PharmacyRepository repository;
 
 
-    @Override @Transactional
+    @Override
     public Set<Pharmacy> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
-    @Override @Transactional
+    @Override
     public Pharmacy findPharmacyByPharmacyName(String pharmacyName) {
         Pharmacy newPharmacy = repository.findPharmacyByPharmacyName(pharmacyName);
 
@@ -42,7 +42,7 @@ public class PharmacyServiceImpl implements PharmacyService {
         return newPharmacy;
     }
 
-    @Override @Transactional
+    @Override
     public Pharmacy create(Pharmacy pharmacy) {
         try {
             return this.repository.save(pharmacy);
@@ -53,7 +53,7 @@ public class PharmacyServiceImpl implements PharmacyService {
 
     }
 
-    @Override @Transactional
+    @Override
     public Pharmacy read(String pharmacy) {
 
         Pharmacy newPharmacy = repository.findById(pharmacy).orElseGet(null);
@@ -64,7 +64,7 @@ public class PharmacyServiceImpl implements PharmacyService {
         return newPharmacy;
     }
 
-    @Override @Transactional
+    @Override
     public Pharmacy update(Pharmacy pharmacy) {
         if(this.repository.existsById(pharmacy.getPharmacyId())) {
             return this.repository.save(pharmacy);
@@ -74,7 +74,7 @@ public class PharmacyServiceImpl implements PharmacyService {
         }
     }
 
-    @Override @Transactional
+    @Override
     public boolean delete(String pharmacy) {
         this.repository.deleteById(pharmacy);
         if (this.repository.existsById(pharmacy)){

@@ -24,13 +24,13 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderRepository repository;
 
-    @Override @Transactional
+    @Override
     public Set<Order> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     //get all completed orders with payment successful for the delivery guys
-    @Override @Transactional
+    @Override
     public Set<Order> getAllCompletedOrders() {
         Set<Order> orders = getAll();
         Set<Order> completedOrders;
@@ -46,13 +46,13 @@ public class OrderServiceImpl implements OrderService {
     }
 
     //tracking order status
-    @Override @Transactional
+    @Override
     public String trackOrderStatus(String orderID) {
         return this.read(orderID).getOrderStatus();
     }
 
     //getting all the history by a user
-    @Override @Transactional
+    @Override
     public Set<Order> getAllOrdersByUser(String userID) {
         Set<Order> orders = getAll();
         Set<Order> orderHistoryByUser;
@@ -70,17 +70,17 @@ public class OrderServiceImpl implements OrderService {
 
 
 
-    @Override @Transactional
+    @Override
     public Order create(Order order) {
         return this.repository.save(order);
     }
 
-    @Override @Transactional
+    @Override
     public Order read(String id) {
         return this.repository.findById(id).orElseGet(null);
     }
 
-    @Override @Transactional
+    @Override
     public Order update(Order order) {
         if (this.repository.existsById(order.getOrderNumber())) {
             return this.repository.save(order);
@@ -88,7 +88,7 @@ public class OrderServiceImpl implements OrderService {
         return null;
     }
 
-    @Override @Transactional
+    @Override
     public boolean delete(String id) {
         this.repository.deleteById(id);
         if (this.repository.existsById(id)){

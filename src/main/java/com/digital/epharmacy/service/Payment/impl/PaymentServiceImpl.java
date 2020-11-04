@@ -17,22 +17,22 @@ public class PaymentServiceImpl implements PaymentService {
     @Autowired
     private PaymentRepository repository;
 
-    @Override @Transactional
+    @Override
     public Set<Payment> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
-    @Override @Transactional
+    @Override
     public Payment create(Payment payment) {
         return this.repository.save(payment);
     }
 
-    @Override @Transactional
+    @Override
     public Payment read(String s) {
         return this.repository.findById(s).orElseGet(null);
     }
 
-    @Override @Transactional
+    @Override
     public Payment update(Payment payment) {
 
         if(this.repository.existsById(payment.getReferenceNumber())){
@@ -43,7 +43,7 @@ public class PaymentServiceImpl implements PaymentService {
 
     }
 
-    @Override @Transactional
+    @Override
     public boolean delete(String s) {
          this.repository.deleteById(s);
          if(this.repository.existsById(s))  return false;

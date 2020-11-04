@@ -9,6 +9,7 @@ import com.digital.epharmacy.factory.User.UserProfileFactory;
 import org.junit.Test;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -18,7 +19,7 @@ public class OrderFactoryTest {
 
     private static CatalogueItem catalogueItem = CatalogueItemFactory.createCatalogueItem(36, "Mayogel",
             "oral health", 36, 200);
-    private static List<CatalogueItem> items = Stream.of(catalogueItem).collect(Collectors.toList());
+    private static Set<CatalogueItem> items = Stream.of(catalogueItem).collect(Collectors.toSet());
     UserProfile user = UserProfileFactory
             .createUserProfile("Ayabulela","Mahlathini", "male");
 
