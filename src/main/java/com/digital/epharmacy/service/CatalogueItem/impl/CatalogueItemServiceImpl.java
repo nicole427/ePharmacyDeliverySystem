@@ -16,13 +16,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-
+@Service
 public class CatalogueItemServiceImpl implements CatalogueItemService {
     private static final int PAGE_ELEMENT_SIZE_ADMIN=12;
     private static final int PAGE_ELEMENT_SIZE_CUSTOMER=12;
