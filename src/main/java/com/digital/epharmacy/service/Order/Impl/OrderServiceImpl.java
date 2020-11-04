@@ -58,7 +58,8 @@ public class OrderServiceImpl implements OrderService {
 
         orderHistoryByUser = orders.stream()
                 .filter(o -> o
-                        .getOrderNumber()
+                        .getUser()
+                        .getUserId()
                         .trim()
                         .equalsIgnoreCase(userID))
                 .collect(Collectors.toSet());

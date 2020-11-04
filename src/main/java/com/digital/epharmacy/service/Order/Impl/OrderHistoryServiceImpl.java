@@ -20,7 +20,6 @@ import java.util.stream.Collectors;
 @Service
 public class OrderHistoryServiceImpl implements OrderHistoryService {
 
-    private static OrderHistoryService service = null;
     @Autowired
     private OrderHistoryRepository repository;
 
