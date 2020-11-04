@@ -1,4 +1,4 @@
-package com.digital.epharmacy.controller.order;
+package com.digital.epharmacy.controller.Order;
 
 /** Author: Ayabulela Mahlathini - 218017774
  * Date: 24/09/2020
@@ -23,7 +23,7 @@ public class OrderHistoryController {
     @PostMapping("/create")
     public OrderHistory create(@RequestBody OrderHistory orderHistory){
         OrderHistory newOrderHistory = OrderHistoryFactory
-                .createOrderHistory(orderHistory.getUserId(),orderHistory.getTotalNumberOfOrders(),orderHistory.getTotalOrderValue());
+                .createOrderHistory(orderHistory.getUser(),orderHistory.getTotalNumberOfOrders(),orderHistory.getTotalOrderValue());
         return orderHistoryService.create(newOrderHistory);
     }
 
