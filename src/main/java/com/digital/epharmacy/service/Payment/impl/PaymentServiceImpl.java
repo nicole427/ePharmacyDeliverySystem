@@ -5,6 +5,7 @@ import com.digital.epharmacy.repository.Payment.PaymentRepository;
 import com.digital.epharmacy.service.Payment.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -16,22 +17,22 @@ public class PaymentServiceImpl implements PaymentService {
     @Autowired
     private PaymentRepository repository;
 
-    @Override
+    @Override @Transactional
     public Set<Payment> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
-    @Override
+    @Override @Transactional
     public Payment create(Payment payment) {
         return this.repository.save(payment);
     }
 
-    @Override
+    @Override @Transactional
     public Payment read(String s) {
         return this.repository.findById(s).orElseGet(null);
     }
 
-    @Override
+    @Override @Transactional
     public Payment update(Payment payment) {
 
         if(this.repository.existsById(payment.getReferenceNumber())){
@@ -42,7 +43,7 @@ public class PaymentServiceImpl implements PaymentService {
 
     }
 
-    @Override
+    @Override @Transactional
     public boolean delete(String s) {
          this.repository.deleteById(s);
          if(this.repository.existsById(s))  return false;

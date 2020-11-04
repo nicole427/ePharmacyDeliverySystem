@@ -15,6 +15,7 @@ import com.digital.epharmacy.repository.Driver.DriverCarRepository;
 import com.digital.epharmacy.service.Driver.DriverCarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -25,12 +26,12 @@ public class DriverCarServiceImpl implements DriverCarService {
     @Autowired
     private DriverCarRepository repository;
 
-    @Override
+    @Override @Transactional
     public Set<DriverCar> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
-    @Override
+    @Override @Transactional
     public DriverCar create(DriverCar driverCar) {
         try{
             return this.repository.save(driverCar);
@@ -39,18 +40,18 @@ public class DriverCarServiceImpl implements DriverCarService {
         }
     }
 
-    @Override
+    @Override @Transactional
     public DriverCar read(String driverCar) {
         return this.repository.findById(driverCar).orElseGet(null);
     }
 
-    @Override
+    @Override @Transactional
     public DriverCar update(DriverCar driverCar) {
 
         return this.repository.save(driverCar);
     }
 
-    @Override
+    @Override @Transactional
     public boolean delete(String driverCar) {
         this.repository.deleteById(driverCar);
         if (this.repository.existsById(driverCar)){

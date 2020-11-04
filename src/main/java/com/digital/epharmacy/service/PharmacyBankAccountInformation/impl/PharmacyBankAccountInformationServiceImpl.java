@@ -7,6 +7,7 @@ import com.digital.epharmacy.repository.PharmacyBankAccountInformation.PharmacyB
 import com.digital.epharmacy.service.PharmacyBankAccountInformation.PharmacyBankAccountInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -24,12 +25,12 @@ public class PharmacyBankAccountInformationServiceImpl implements PharmacyBankAc
     private PharmacyBankAccountInformationRepository repository;
 
 
-    @Override
+    @Override @Transactional
     public Set<PharmacyBankAccountInformation> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
-    @Override
+    @Override @Transactional
     public PharmacyBankAccountInformation create(PharmacyBankAccountInformation pharmacyBankAccountInformation) {
         try{
             return this.repository.save(pharmacyBankAccountInformation);
@@ -39,17 +40,17 @@ public class PharmacyBankAccountInformationServiceImpl implements PharmacyBankAc
 
     }
 
-    @Override
+    @Override @Transactional
     public PharmacyBankAccountInformation read(String pharmacyBankAccountInformation) {
         return this.repository.findById(pharmacyBankAccountInformation).orElseGet(null);
     }
 
-    @Override
+    @Override @Transactional
     public PharmacyBankAccountInformation update(PharmacyBankAccountInformation pharmacyBankAccountInformation) {
         return this.repository.save(pharmacyBankAccountInformation);
     }
 
-    @Override
+    @Override @Transactional
     public boolean delete(String pharmacyBankAccountInformation) {
         this.repository.deleteById(pharmacyBankAccountInformation);
         if (this.repository.existsById(pharmacyBankAccountInformation))
@@ -57,7 +58,7 @@ public class PharmacyBankAccountInformationServiceImpl implements PharmacyBankAc
         return true;
     }
 
-    @Override
+    @Override @Transactional
     public PharmacyBankAccountInformation findByAccountNumber(int accountNumber) {
         PharmacyBankAccountInformation bankDetails = repository.findByAccountNumber(accountNumber);
 

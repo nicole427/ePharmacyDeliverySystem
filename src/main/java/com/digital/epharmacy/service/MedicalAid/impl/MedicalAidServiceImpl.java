@@ -6,6 +6,7 @@ import com.digital.epharmacy.repository.MedicalAid.MedicalAidRepository;
 import com.digital.epharmacy.service.MedicalAid.MedicalAidService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -27,12 +28,12 @@ public class MedicalAidServiceImpl implements MedicalAidService {
     private MedicalAidRepository repository;
 
 
-    @Override
+    @Override @Transactional
     public Set<MedicalAid> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
-    @Override
+    @Override @Transactional
     public MedicalAid create(MedicalAid medicalAid) {
         try{
            return this.repository.save(medicalAid);
@@ -42,7 +43,7 @@ public class MedicalAidServiceImpl implements MedicalAidService {
 
     }
 
-    @Override
+    @Override @Transactional
     public MedicalAid read(String medicalAid) {
         MedicalAid newMedicalAid = repository.findById(medicalAid).orElseGet(null);
 
@@ -52,7 +53,7 @@ public class MedicalAidServiceImpl implements MedicalAidService {
         return newMedicalAid;
     }
 
-    @Override
+    @Override @Transactional
     public MedicalAid update(MedicalAid medicalAid) {
         if (this.repository.existsById(medicalAid.getMedicalAidId())) {
             return this.repository.save(medicalAid);
@@ -62,7 +63,7 @@ public class MedicalAidServiceImpl implements MedicalAidService {
         }
     }
 
-    @Override
+    @Override @Transactional
     public boolean delete(String medicalAid) {
         this.repository.deleteById(medicalAid);
         if(this.repository.existsById(medicalAid)){

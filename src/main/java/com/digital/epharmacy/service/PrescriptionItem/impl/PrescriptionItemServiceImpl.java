@@ -9,6 +9,7 @@ import com.digital.epharmacy.repository.PrescriptionItem.PrescriptionItemReposit
 import com.digital.epharmacy.service.PrescriptionItem.PrescriptionItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -19,27 +20,27 @@ public class PrescriptionItemServiceImpl implements PrescriptionItemService {
     @Autowired
     private PrescriptionItemRepository repository;
 
-    @Override
+    @Override @Transactional
     public Set<PrescriptionItem> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
-    @Override
+    @Override @Transactional
     public PrescriptionItem create(PrescriptionItem prescriptionItem) {
         return this.repository.save(prescriptionItem);
     }
 
-    @Override
+    @Override @Transactional
     public PrescriptionItem read(String prescriptionItem) {
         return this.repository.findById(prescriptionItem).orElse(null);
     }
 
-    @Override
+    @Override @Transactional
     public PrescriptionItem update(PrescriptionItem prescriptionItem) {
         return create(prescriptionItem);
     }
 
-    @Override
+    @Override @Transactional
     public boolean delete(String s) {
         this.repository.deleteById(s);
         if (this.repository.existsById(s)){

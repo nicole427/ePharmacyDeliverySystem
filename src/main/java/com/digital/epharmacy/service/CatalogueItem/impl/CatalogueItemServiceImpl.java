@@ -33,7 +33,7 @@ public class CatalogueItemServiceImpl implements CatalogueItemService {
     @Autowired
     private CatalogueItemRepository repository;
 
-    @Override
+    @Override @Transactional
     public Set<CatalogueItem> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
@@ -50,27 +50,25 @@ public class CatalogueItemServiceImpl implements CatalogueItemService {
         return itemsByCategory;
     }
 
-    @Transactional()
-    @Override
+    @Override @Transactional
     public CatalogueItem create(CatalogueItem catalogueItem) {
         return this.repository.save(catalogueItem);
     }
 
-    @Transactional()
-    @Override
+    @Override @Transactional
     public CatalogueItem read(String catalogueItem) {
         return this.repository.findById(catalogueItem).orElse(null);
     }
 
 
 
-    @Override
+    @Override @Transactional
     public CatalogueItem update(CatalogueItem catalogueItem) {
         return this.repository.save(catalogueItem);
     }
 
 
-    @Override
+    @Override @Transactional
     public boolean delete(String catalogueItem) {
         this.repository.deleteById(catalogueItem);
         if (!this.repository.existsById(catalogueItem)) return true;

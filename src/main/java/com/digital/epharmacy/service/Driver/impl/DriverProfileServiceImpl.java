@@ -14,6 +14,7 @@ import com.digital.epharmacy.service.Driver.DriverProfileService;
 import org.springframework.stereotype.Service;
 import com.digital.epharmacy.controller.ExceptionHandler.MyCustomExceptionHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -24,12 +25,12 @@ public class DriverProfileServiceImpl implements DriverProfileService {
     @Autowired
     private DriverProfileRepository repository;
 
-    @Override
+    @Override @Transactional
     public Set<DriverProfile> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
-    @Override
+    @Override @Transactional
     public DriverProfile create(DriverProfile driverProfile) {
 
         try {
@@ -40,7 +41,7 @@ public class DriverProfileServiceImpl implements DriverProfileService {
             }
     }
 
-    @Override
+    @Override @Transactional
     public DriverProfile read(String s) {
 
         DriverProfile newDriverProfile= repository.findById(s).orElseGet(null);
@@ -51,7 +52,7 @@ public class DriverProfileServiceImpl implements DriverProfileService {
         return newDriverProfile;
     }
 
-    @Override
+    @Override @Transactional
     public DriverProfile update(DriverProfile driverProfile) {
 
         if(this.repository.existsById(driverProfile.getDriverId())) {
@@ -63,7 +64,7 @@ public class DriverProfileServiceImpl implements DriverProfileService {
 
     }
 
-    @Override
+    @Override @Transactional
     public boolean delete(String s) {
         this.repository.deleteById(s);
         if (this.repository.existsById(s)){

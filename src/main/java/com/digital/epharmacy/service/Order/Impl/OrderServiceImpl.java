@@ -13,6 +13,7 @@ import com.digital.epharmacy.repository.Order.OrderRepository;
 import com.digital.epharmacy.service.Order.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -23,13 +24,13 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderRepository repository;
 
-    @Override
+    @Override @Transactional
     public Set<Order> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     //get all completed orders with payment successful for the delivery guys
-    @Override
+    @Override @Transactional
     public Set<Order> getAllCompletedOrders() {
         Set<Order> orders = getAll();
         Set<Order> completedOrders;
@@ -45,13 +46,13 @@ public class OrderServiceImpl implements OrderService {
     }
 
     //tracking order status
-    @Override
+    @Override @Transactional
     public String trackOrderStatus(String orderID) {
         return this.read(orderID).getOrderStatus();
     }
 
     //getting all the history by a user
-    @Override
+    @Override @Transactional
     public Set<Order> getAllOrdersByUser(String userID) {
         Set<Order> orders = getAll();
         Set<Order> orderHistoryByUser;
@@ -69,17 +70,17 @@ public class OrderServiceImpl implements OrderService {
 
 
 
-    @Override
+    @Override @Transactional
     public Order create(Order order) {
         return this.repository.save(order);
     }
 
-    @Override
+    @Override @Transactional
     public Order read(String id) {
         return this.repository.findById(id).orElseGet(null);
     }
 
-    @Override
+    @Override @Transactional
     public Order update(Order order) {
         if (this.repository.existsById(order.getOrderNumber())) {
             return this.repository.save(order);
@@ -87,7 +88,7 @@ public class OrderServiceImpl implements OrderService {
         return null;
     }
 
-    @Override
+    @Override @Transactional
     public boolean delete(String id) {
         this.repository.deleteById(id);
         if (this.repository.existsById(id)){

@@ -6,6 +6,7 @@ import com.digital.epharmacy.service.Pharmacy.PharmacyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.digital.epharmacy.controller.ExceptionHandler.MyCustomExceptionHandler;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -26,12 +27,12 @@ public class PharmacyServiceImpl implements PharmacyService {
     private PharmacyRepository repository;
 
 
-    @Override
+    @Override @Transactional
     public Set<Pharmacy> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
-    @Override
+    @Override @Transactional
     public Pharmacy findPharmacyByPharmacyName(String pharmacyName) {
         Pharmacy newPharmacy = repository.findPharmacyByPharmacyName(pharmacyName);
 
@@ -41,7 +42,7 @@ public class PharmacyServiceImpl implements PharmacyService {
         return newPharmacy;
     }
 
-    @Override
+    @Override @Transactional
     public Pharmacy create(Pharmacy pharmacy) {
         try {
             return this.repository.save(pharmacy);
@@ -52,7 +53,7 @@ public class PharmacyServiceImpl implements PharmacyService {
 
     }
 
-    @Override
+    @Override @Transactional
     public Pharmacy read(String pharmacy) {
 
         Pharmacy newPharmacy = repository.findById(pharmacy).orElseGet(null);
@@ -63,7 +64,7 @@ public class PharmacyServiceImpl implements PharmacyService {
         return newPharmacy;
     }
 
-    @Override
+    @Override @Transactional
     public Pharmacy update(Pharmacy pharmacy) {
         if(this.repository.existsById(pharmacy.getPharmacyId())) {
             return this.repository.save(pharmacy);
@@ -73,7 +74,7 @@ public class PharmacyServiceImpl implements PharmacyService {
         }
     }
 
-    @Override
+    @Override @Transactional
     public boolean delete(String pharmacy) {
         this.repository.deleteById(pharmacy);
         if (this.repository.existsById(pharmacy)){

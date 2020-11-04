@@ -5,6 +5,7 @@ import com.digital.epharmacy.repository.User.ContactInformationRepository;
 import com.digital.epharmacy.service.User.ContactInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -16,22 +17,22 @@ public class ContactInformationServiceImpl implements ContactInformationService 
     private ContactInformationRepository repository;
 
 
-    @Override
+    @Override @Transactional
     public Set<ContactInformation> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
-    @Override
+    @Override @Transactional
     public ContactInformation create(ContactInformation contactInformation) {
         return this.repository.save(contactInformation);
     }
 
-    @Override
+    @Override @Transactional
     public ContactInformation read(String s) {
         return this.repository.findById(s).orElseGet(null);
     }
 
-    @Override
+    @Override @Transactional
     public ContactInformation update(ContactInformation contactInformation) {
 
         if(this.repository.existsById(contactInformation.getcontactId())){
@@ -40,7 +41,7 @@ public class ContactInformationServiceImpl implements ContactInformationService 
         return null;
     }
 
-    @Override
+    @Override @Transactional
     public boolean delete(String s) {
          this.repository.deleteById(s);
         if(this.repository.existsById(s))return false;

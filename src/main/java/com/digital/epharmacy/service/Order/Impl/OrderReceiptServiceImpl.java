@@ -5,6 +5,7 @@ import com.digital.epharmacy.repository.Order.OrderReceiptRepository;
 import com.digital.epharmacy.service.Order.OrderReceiptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -16,27 +17,27 @@ public class OrderReceiptServiceImpl implements OrderReceiptService {
     private OrderReceiptRepository repository;
 
 
-    @Override
+    @Override @Transactional
     public Set<OrderReceipt> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
-    @Override
+    @Override @Transactional
     public OrderReceipt create(OrderReceipt orderReceipt) {
         return this.repository.save(orderReceipt);
     }
 
-    @Override
+    @Override @Transactional
     public OrderReceipt read(String orderReceipt) {
         return this.repository.findById(orderReceipt).orElseGet(null);
     }
 
-    @Override
+    @Override @Transactional
     public OrderReceipt update(OrderReceipt orderReceipt) {
         return this.repository.save(orderReceipt);
     }
 
-    @Override
+    @Override @Transactional
     public boolean delete(String orderReceipt)
     {
         this.repository.deleteById(orderReceipt);

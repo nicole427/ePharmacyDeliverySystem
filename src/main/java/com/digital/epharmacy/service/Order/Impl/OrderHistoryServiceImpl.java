@@ -13,6 +13,7 @@ import com.digital.epharmacy.repository.Order.OrderHistoryRepository;
 import com.digital.epharmacy.service.Order.OrderHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -23,17 +24,17 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
     @Autowired
     private OrderHistoryRepository repository;
 
-    @Override
+    @Override @Transactional
     public Set<OrderHistory> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
-    @Override
+    @Override @Transactional
     public OrderHistory create(OrderHistory orderHistory) {
         return this.repository.save(orderHistory);
     }
 
-    @Override
+    @Override @Transactional
     public OrderHistory read(String id) {
         if (this.repository.existsById(id)) {
             return this.repository.findById(id).orElseGet(null);
@@ -41,12 +42,12 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
         return null;
     }
 
-    @Override
+    @Override @Transactional
     public OrderHistory update(OrderHistory orderHistory) {
         return this.repository.save(orderHistory);
     }
 
-    @Override
+    @Override @Transactional
     public boolean delete(String id) {
         this.repository.deleteById(id);
         if (this.repository.existsById(id)){
