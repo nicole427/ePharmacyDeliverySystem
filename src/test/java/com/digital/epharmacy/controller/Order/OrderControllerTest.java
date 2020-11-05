@@ -22,6 +22,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -38,14 +39,7 @@ public class OrderControllerTest {
     private static CatalogueItem catalogueItem = CatalogueItemFactory.createCatalogueItem(36, "Mayogel",
             "oral health", 36, 200);
 
-    @Autowired
-    private static TestRestTemplate restTemplateItem;
-    private static final String baseURLItem = "http://localhost:8080/catalogueItem";
-    private static String itemUrl = baseURLItem + "/create";
-
-    private static ResponseEntity<CatalogueItem> item1 = restTemplateItem.postForEntity(itemUrl, catalogueItem, CatalogueItem.class);
-
-    private  static List<CatalogueItem> items = Stream.of(item1.getBody()).collect(Collectors.toList());
+    private  static Set<CatalogueItem> items = Stream.of(catalogueItem).collect(Collectors.toSet());
 
 
 

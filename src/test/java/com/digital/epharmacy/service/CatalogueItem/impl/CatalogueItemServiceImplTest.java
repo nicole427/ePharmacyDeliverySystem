@@ -6,20 +6,25 @@ import com.digital.epharmacy.service.CatalogueItem.CatalogueItemService;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.*;
+import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
+@RunWith(SpringRunner.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class CatalogueItemServiceImplTest {
 
     @Autowired
-    private static CatalogueItemService service ;
+    private CatalogueItemService service;
     private static CatalogueItem catalogueItem = CatalogueItemFactory.createCatalogueItem(3658, "MyBulen", "Pain Killers", 6, 80.99);
 
     @Order(4)

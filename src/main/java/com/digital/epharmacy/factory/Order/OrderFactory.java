@@ -11,11 +11,12 @@ import com.digital.epharmacy.util.GenericHelper;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Set;
 
 public class OrderFactory {
 
     //changed required parameters to accomodate items being ordered
-    public static Order createOrder(UserProfile user, List<CatalogueItem> items, String paymentType) {
+    public static Order createOrder(UserProfile user, Set<CatalogueItem> items, String paymentType) {
 
         //generating order number
         String orderNumber = GenericHelper.generateId();
