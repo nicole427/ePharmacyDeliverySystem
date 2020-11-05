@@ -63,7 +63,7 @@ public class OrderHistoryControllerTest {
         String url = baseURL + "read/" + orderHistory.getUser().getUserId();
         System.out.println("URL: " + url);
         ResponseEntity<OrderHistory> response = restTemplate.getForEntity(url, OrderHistory.class);
-        assertEquals(orderHistory.getTotalOrderValue(), response.getBody().getTotalOrderValue());
+        assertEquals(orderHistory.getTotalOrderValue().doubleValue(), response.getBody().getTotalOrderValue().doubleValue());
     }
 
     @Order(3)

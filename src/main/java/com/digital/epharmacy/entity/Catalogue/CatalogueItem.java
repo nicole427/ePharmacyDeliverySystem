@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
@@ -21,13 +22,13 @@ public class CatalogueItem implements Serializable {
     @Id
     @Column(name = "id")
     private int itemNumber;
-    @NotEmpty
+    @NotNull
     private int itemQuantity;
-    @NotEmpty
+    @NotNull
     private String itemName;
-    @NotEmpty
+    @NotNull
     private String itemDescription;
-    @NotEmpty
+    @NotNull
     @Range(min=0)
     private double itemPrice;
 

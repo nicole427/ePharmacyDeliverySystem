@@ -14,6 +14,7 @@ import com.digital.epharmacy.service.Driver.DriverProfileService;
 import org.springframework.stereotype.Service;
 import com.digital.epharmacy.controller.ExceptionHandler.MyCustomExceptionHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 import java.util.stream.Collectors;

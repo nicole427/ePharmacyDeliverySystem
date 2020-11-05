@@ -13,6 +13,7 @@ import com.digital.epharmacy.factory.Order.OrderFactory;
 import com.digital.epharmacy.factory.User.UserProfileFactory;
 import com.digital.epharmacy.service.CatalogueItem.CatalogueItemService;
 import com.digital.epharmacy.service.Order.OrderService;
+import com.digital.epharmacy.service.User.UserProfileService;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.MethodOrderer;
@@ -47,10 +48,12 @@ public class OrderServiceImplTest {
     private static CatalogueItem catalogueItem2 = CatalogueItemFactory.createCatalogueItem(37, "Mayogel",
             "oral health", 5, 300);
 
-    private static List<CatalogueItem> items = Stream.of(catalogueItem, catalogueItem2).collect(Collectors.toList());
+    private static Set<CatalogueItem> items = Stream.of(catalogueItem, catalogueItem2).collect(Collectors.toSet());
 
     private static UserProfile user = UserProfileFactory
             .createUserProfile("Siyabulela","Ngwana", "male");
+
+
 
     private static Order order = OrderFactory
             .createOrder(user, items,"yoco");
@@ -69,6 +72,7 @@ public class OrderServiceImplTest {
     @org.junit.jupiter.api.Order(2)
     @Test
     void b_read() {
+        System.out.println(order.getOrderNumber());
         Order readOrder = service.read(order.getOrderNumber());
         assertEquals(order.getOrderNumber(), readOrder.getOrderNumber());
         System.out.println("Read:" + readOrder);
@@ -120,7 +124,7 @@ public class OrderServiceImplTest {
     @Test
     void f_getAllByUser() {
 
-        Set<Order> ordersByUser = service.getAllOrdersByUser("user-id");
+        Set<Order> ordersByUser = service.getAllOrdersByUser(order.getUser().getUserId());
         assertEquals(1, ordersByUser.size());
 
         System.out.println("Get All By User's ID: " + ordersByUser);

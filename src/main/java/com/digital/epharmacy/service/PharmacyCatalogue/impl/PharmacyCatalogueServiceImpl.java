@@ -4,6 +4,7 @@ package com.digital.epharmacy.service.PharmacyCatalogue.impl;
 import com.digital.epharmacy.entity.Catalogue.PharmacyCatalogue;
 import com.digital.epharmacy.repository.PharmacyCatalogue.PharmacyCatalogueRepository;
 import com.digital.epharmacy.service.PharmacyCatalogue.PharmacyCatalogueService;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 import java.util.stream.Collectors;
