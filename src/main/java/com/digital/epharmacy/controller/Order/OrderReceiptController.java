@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/Order/OrderReceipt")
+@RequestMapping("/orderReceipt")
 public class OrderReceiptController {
 
     @Autowired

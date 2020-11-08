@@ -56,7 +56,7 @@ class OrderReceiptControllerTest {
     OrderReceipt orderReceipt = OrderReceiptFactory.createOrderReceipt(order, pharmacy);
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseURL = "http://localhost:8080/Order/OrderReceipt/";
+    private String baseURL = "http://localhost:8080/orderReceipt/";
 
 
     @Test
