@@ -87,6 +87,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET,"http://localhost:8080/bankdetails/read/**").hasRole(User_Role + Admin_Role)
                 .antMatchers(HttpMethod.GET,"http://localhost:8080/bankdetails/account/**").hasRole(User_Role + Admin_Role)
                 .antMatchers(HttpMethod.GET,"http://localhost:8080/address/read/**").hasRole(User_Role + Admin_Role)
+                .antMatchers(HttpMethod.GET,"http://localhost:8080/address/name/**").hasRole(User_Role + Admin_Role)
                 .antMatchers(HttpMethod.GET,"http://localhost:8080/payment/name/**").hasRole(User_Role + Admin_Role)
                 .antMatchers(HttpMethod.GET,"http://localhost:8080/contactinformation/name/**").hasRole(User_Role + Admin_Role)
                 .antMatchers(HttpMethod.GET,"http://localhost:8080/user/name/**").hasRole(Admin_Role)
