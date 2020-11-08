@@ -32,8 +32,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
               .password(encoder().encode("54321"))
               .roles(User_Role)
               .and().withUser("CatalogueItemUser").password(encoder().encode("catlogueitemuserpassword")).roles(User_Role)
-                      .and().withUser("PharmacyCalatalogueUser").password(encoder().encode("pharmacycataloguepassword")).roles(User_Role)
-                      .and().withUser("PrescriptionItemUser").passsword(encoder().encode("prescriptitempassword")).roles(User_Role)
+              .and().withUser("PharmacyCalatalogueUser").password(encoder().encode("pharmacycataloguepassword")).roles(User_Role)
+              .and().withUser("PrescriptionItemUser").passsword(encoder().encode("prescriptitempassword")).roles(User_Role)
 
       ;
 
