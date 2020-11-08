@@ -10,9 +10,9 @@ public class PharmacyCatalogueFactoryTest {
 
     @Test
     public void createPharmacyCatalogue (){
-        PharmacyCatalogue pharmacyCatalogue = PharmacyCatalogueFactory.createPharmacyCatalogue("random",
+        PharmacyCatalogue pharmacyCatalogue = PharmacyCatalogueFactory.createPharmacyCatalogue(
                 "clinical", "Oral");
-        assertNotNull("Pharmacy ID cannot be found", pharmacyCatalogue.getPharmacyId());
+        assertNotNull("Pharmacy ID cannot be found", pharmacyCatalogue.getCatalogueId());
         assertEquals("Oral", pharmacyCatalogue.getCatalogueDescription());
 
     }

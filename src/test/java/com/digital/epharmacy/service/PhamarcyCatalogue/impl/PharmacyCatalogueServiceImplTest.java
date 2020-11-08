@@ -9,7 +9,6 @@ package com.digital.epharmacy.service.PhamarcyCatalogue.impl;
 import com.digital.epharmacy.entity.Catalogue.PharmacyCatalogue;
 import com.digital.epharmacy.factory.Catalogue.PharmacyCatalogueFactory;;
 import com.digital.epharmacy.service.PharmacyCatalogue.PharmacyCatalogueService;
-import com.digital.epharmacy.service.PharmacyCatalogue.impl.PharmacyCatalogueServiceImpl;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -17,30 +16,34 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PharmacyCatalogueServiceImplTest {
-    private static PharmacyCatalogueService service;
+
+
+    @Autowired
+    private PharmacyCatalogueService service;
     private static PharmacyCatalogue pharmacyCatalogue = PharmacyCatalogueFactory.createPharmacyCatalogue
-            ("", " Beauty", "Skin care");
+            (" Beauty", "Skin care");
     private static PharmacyCatalogue pharmacyCatalogue2 = PharmacyCatalogueFactory.createPharmacyCatalogue
-            ("", " Health ", "new");
+            ( " Health ", "new");
 
     @Order(1)
     @Test
     public void a_create() {
         PharmacyCatalogue created = service.create((pharmacyCatalogue));
-        Assert.assertEquals(pharmacyCatalogue.getPharmacyId(), created.getPharmacyId());
+        Assert.assertEquals(pharmacyCatalogue.getCatalogueId(), created.getCatalogueId());
         System.out.println("Created: " + created);
     }
 
     @Order(2)
     @Test
     public void b_read() {
-        PharmacyCatalogue read = service.read(pharmacyCatalogue.getPharmacyId());
+        PharmacyCatalogue read = service.read(pharmacyCatalogue.getCatalogueId());
         System.out.println("Read: " + read);
     }
     @Order(3)
@@ -63,7 +66,7 @@ public class PharmacyCatalogueServiceImplTest {
     @Order(5)
     @Test
     public void e_delete() {
-        boolean deleted = service.delete(pharmacyCatalogue.getPharmacyId());
+        boolean deleted = service.delete(pharmacyCatalogue.getCatalogueId());
         Assert.assertTrue(deleted);
 
         if (deleted)

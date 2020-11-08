@@ -13,6 +13,7 @@ import com.digital.epharmacy.repository.Order.OrderRepository;
 import com.digital.epharmacy.service.Order.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -58,7 +59,8 @@ public class OrderServiceImpl implements OrderService {
 
         orderHistoryByUser = orders.stream()
                 .filter(o -> o
-                        .getUserID()
+                        .getUser()
+                        .getUserId()
                         .trim()
                         .equalsIgnoreCase(userID))
                 .collect(Collectors.toSet());

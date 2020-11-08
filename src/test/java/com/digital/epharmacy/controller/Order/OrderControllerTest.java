@@ -22,6 +22,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -34,11 +35,11 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class OrderControllerTest {
 
-    //as per business rule, we need items to place order
+    //as per business rule, we need items on the db to place order
     private static CatalogueItem catalogueItem = CatalogueItemFactory.createCatalogueItem(36, "Mayogel",
             "oral health", 36, 200);
 
-    private  static List<CatalogueItem> items = Stream.of(catalogueItem).collect(Collectors.toList());
+    private  static Set<CatalogueItem> items = Stream.of(catalogueItem).collect(Collectors.toSet());
 
 
 
@@ -46,7 +47,7 @@ public class OrderControllerTest {
             .createUserProfile("Ayabulela","Mahlathini", "male");
 
     private static Order order = OrderFactory
-            .createOrder(user.getUserId(), items, "yoco");
+            .createOrder(user, items, "yoco");
 
 
     @Autowired
@@ -139,7 +140,7 @@ public class OrderControllerTest {
         String url = baseURL + "pastOrders/"+ user
                 .getUserId();
 
-        OrderFactory.createOrder(user.getUserId(), items,"yoco");
+        OrderFactory.createOrder(user, items,"yoco");
 
         System.out.println("URL: " + url);
         HttpHeaders headers = new HttpHeaders();

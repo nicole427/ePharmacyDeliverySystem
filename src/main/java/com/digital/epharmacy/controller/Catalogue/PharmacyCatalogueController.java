@@ -36,10 +36,8 @@ public class PharmacyCatalogueController {
 
         PharmacyCatalogue newCatalogue = PharmacyCatalogueFactory
                 .createPharmacyCatalogue(
-                        catalogue.getPharmacyId(),
                         catalogue.getCatalogueName(),
                         catalogue.getCatalogueDescription()
-
                 );
 
         catalogueService.create(newCatalogue);

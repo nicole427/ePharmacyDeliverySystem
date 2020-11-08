@@ -9,9 +9,9 @@ import static org.junit.Assert.*;
 public class AddressFactoryTest {
     @Test
     public void createAddress() {
-        Address address = AddressFactory.createAddress("Test","random", 11, 7500, "Berold", "Parow" );
-        assertEquals("random", address.getPharmacyId());
-        assertEquals("random", address.getUserId());
+        Address address = AddressFactory.createAddress(11, 7500, "Berold", "Parow" );
+        assertEquals("random", address.getAddressId());
+        assertEquals("random", address.getAddressId());
         assertEquals("11", address.getStreetNumber());
         assertEquals("7500", address.getAreaCode());
         assertEquals("Berold", address.getStreetName());

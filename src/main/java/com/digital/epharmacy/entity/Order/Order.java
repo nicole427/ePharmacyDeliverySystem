@@ -16,30 +16,30 @@ package com.digital.epharmacy.entity.Order;
  * */
 
 import com.digital.epharmacy.entity.Catalogue.CatalogueItem;
+import com.digital.epharmacy.entity.User.UserProfile;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
-@Table(name = "ORDERS") //Order seems to be a reserved word, had to change to ORDERS
+@Table(name = "orders") //Order seems to be a reserved word, had to change to ORDERS
 public class Order {
 
     //Entity attributes
     @Id
     @NotNull
-    private String orderNumber; // (Ayabulela Mahlathini) changed order number to string so that it is auto generated in the factor;
-    @NotNull(message = "UserID is required")
-    private String  userID;
-    private BigDecimal orderTotal;
+    private String order_number; // (Ayabulela Mahlathini) changed order number to string so that it is auto generated in the factor;
+    @NotNull(message = "User is required")
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private UserProfile user;
+    private BigDecimal order_total;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<CatalogueItem> items = new ArrayList<>(); //Ayabulela Mahlathini - for relationship with CatalogueItem Entity
-    private int totalCatalogueItems;
-    private String paymentType;
-    private String orderStatus; //(Ayabulela Mahlathini)added orderStatus
+    private Set<CatalogueItem> items = new HashSet<>(); //Ayabulela Mahlathini - for relationship with CatalogueItem Entity
+    private int total_catalogue_items;
+    private String payment_type;
+    private String order_status; //(Ayabulela Mahlathini)added order_status
     private String date;
 
     //default contructor - Ayabulela Mahlathini
@@ -48,42 +48,42 @@ public class Order {
     //Builder class constructor
     private Order(Builder builder){
 
-        this.userID =  builder.userID;
-        this.orderNumber = builder.orderNumber;
+        this.user =  builder.user;
+        this.order_number = builder.order_number;
         this.items = builder.items;
-        this.totalCatalogueItems = builder.totalCatalogueItems;
-        this.orderTotal = builder.orderTotal;
-        this.paymentType = builder.paymentType;
-        this.orderStatus = builder.orderStatus;
+        this.total_catalogue_items = builder.total_catalogue_items;
+        this.order_total = builder.order_total;
+        this.payment_type = builder.payment_type;
+        this.order_status = builder.order_status;
         this.date = builder.date;
     }
     //Getters for all attributes.
-    public String getUserID() {
-        return userID;
+    public UserProfile getUser() {
+        return user;
     }
 
     public String getOrderNumber() {
-        return orderNumber;
+        return order_number;
     }
 
-    public List<CatalogueItem> getItems() {
+    public Set<CatalogueItem> getItems() {
         return items;
     }
 
     public int getTotalCatalogueItems() {
-        return totalCatalogueItems;
+        return total_catalogue_items;
     }
 
     public BigDecimal getOrderTotal() {
-        return orderTotal;
+        return order_total;
     }
 
     public String getPaymentType() {
-        return paymentType;
+        return payment_type;
     }
 
     public String getOrderStatus() {
-        return orderStatus;
+        return order_status;
     }
 
     public Object getDate() {
@@ -96,13 +96,13 @@ public class Order {
     @Override
     public String toString() {
         return "Order{" +
-                "orderNumber='" + orderNumber + '\'' +
-                ", userID='" + userID + '\'' +
-                ", orderTotal=" + orderTotal +
+                "order_number='" + order_number + '\'' +
+                ", user=" + user +
+                ", order_total=" + order_total +
                 ", items=" + items +
-                ", totalCatalogueItems=" + totalCatalogueItems +
-                ", paymentType='" + paymentType + '\'' +
-                ", orderStatus='" + orderStatus + '\'' +
+                ", total_catalogue_items=" + total_catalogue_items +
+                ", payment_type='" + payment_type + '\'' +
+                ", order_status='" + order_status + '\'' +
                 ", date='" + date + '\'' +
                 '}';
     }
@@ -111,86 +111,86 @@ public class Order {
     public static class Builder{
 
 
-        private String userID;
-        private String orderNumber;
-        private List<CatalogueItem> items;
-        private int totalCatalogueItems;
-        private BigDecimal orderTotal;
-        private String paymentType, orderStatus;
+        private UserProfile user;
+        private String order_number;
+        private Set<CatalogueItem> items;
+        private int total_catalogue_items;
+        private BigDecimal order_total;
+        private String payment_type, order_status;
         private String date;
 
-        // setting userID value using builder pattern
-       public Builder setUserID(String userID){
+        // setting user value using builder pattern
+        public Builder setUser(UserProfile user){
 
-           this.userID = userID;
-           return this;
-       }
-
-       //setting orderNumber value using builder pattern
-       public Builder setOrderNumber(String orderNumber){
-
-           this.orderNumber = orderNumber;
-           return this;
-       }
-
-        public Builder setItems(List<CatalogueItem> items) {
-           this.items = items;
+            this.user = user;
             return this;
         }
 
-        //setting totalCatalogueItems value using builder pattern
-       public Builder setTotalCatalogueItems(int totalCatalogueItems){
+        //setting order_number value using builder pattern
+        public Builder setOrderNumber(String order_number){
 
-           this.totalCatalogueItems = totalCatalogueItems;
-           return this;
+            this.order_number = order_number;
+            return this;
+        }
 
-       }
+        public Builder setItems(Set<CatalogueItem> items) {
+            this.items = items;
+            return this;
+        }
 
-       //setting orderTotal value using builder pattern
-       public Builder setOrderTotal(BigDecimal orderTotal){
+        //setting total_catalogue_items value using builder pattern
+        public Builder setTotalCatalogueItems(int total_catalogue_items){
 
-           this.orderTotal = orderTotal;
-           return this;
-       }
+            this.total_catalogue_items = total_catalogue_items;
+            return this;
+
+        }
+
+        //setting order_total value using builder pattern
+        public Builder setOrderTotal(BigDecimal order_total){
+
+            this.order_total = order_total;
+            return this;
+        }
 
         //setting paymentDate value using builder pattern
-        public Builder setPaymentType(String paymentType){
+        public Builder setPaymentType(String payment_type){
 
-            this.paymentType = paymentType;
+            this.payment_type = payment_type;
             return this;
         }
 
-        //setting orderStatus value using builder pattern
-        public Builder setOrderStatus(String orderStatus){
+        //setting order_status value using builder pattern
+        public Builder setOrderStatus(String order_status){
 
-            this.orderStatus = orderStatus;
+            this.order_status = order_status;
             return this;
         }
 
-       //setting date value using builder pattern
+        //setting date value using builder pattern
         public Builder setDate(String date){
 
-           this.date = date;
-           return this;
-       }
+            this.date = date;
+            return this;
+        }
 
         // Builder copy method that create instance of Order
-       public Builder copy(Order order){
+        public Builder copy(Order order){
 
-           this.userID = order.userID;
-           this.orderNumber = order.orderNumber;
-           this.items = order.items;
-           this.totalCatalogueItems = order.totalCatalogueItems;
-           this.orderTotal = order.orderTotal;
-           this.paymentType = order.paymentType;
-           this.orderStatus = order.orderStatus;
-           this.date = order.date;
+            this.user = order.user;
+            this.order_number = order.order_number;
+            this.items = order.items;
+            this.total_catalogue_items = order.total_catalogue_items;
+            this.order_total = order.order_total;
+            this.payment_type = order.payment_type;
+            this.order_status = order.order_status;
+            this.date = order.date;
 
-           return this;
-       }
+            return this;
+        }
 
         //creating an instance of this class
-       public Order build(){return new Order(this);}
+        public Order build(){return new Order(this);}
     }
 
     @Override
@@ -198,11 +198,18 @@ public class Order {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
-        return Objects.equals(orderNumber, order.orderNumber);
+        return total_catalogue_items == order.total_catalogue_items &&
+                order_number.equals(order.order_number) &&
+                user.equals(order.user) &&
+                Objects.equals(order_total, order.order_total) &&
+                Objects.equals(items, order.items) &&
+                Objects.equals(payment_type, order.payment_type) &&
+                Objects.equals(order_status, order.order_status) &&
+                Objects.equals(date, order.date);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderNumber);
+        return Objects.hash(order_number, user, order_total, items, total_catalogue_items, payment_type, order_status, date);
     }
 }

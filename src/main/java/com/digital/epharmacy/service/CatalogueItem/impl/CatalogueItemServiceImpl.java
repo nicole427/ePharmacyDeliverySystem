@@ -5,28 +5,26 @@ package com.digital.epharmacy.service.CatalogueItem.impl;
  * Desc: CatalogueItemServiceImpl
  * Date: 3 September 2020
  */
+
 import com.digital.epharmacy.entity.Catalogue.CatalogueItem;
-import com.digital.epharmacy.entity.Order.Order;
 import com.digital.epharmacy.repository.CatalogueItem.CatalogueItemRepository;
-//import com.digital.epharmacy.repository.CatalogueItem.Impl.CatalogueItemRepositoryImpl;
 import com.digital.epharmacy.service.CatalogueItem.CatalogueItemService;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+//import com.digital.epharmacy.repository.CatalogueItem.Impl.CatalogueItemRepositoryImpl;
+//import org.springframework.data.domain.Page;
 
+@Service
 public class CatalogueItemServiceImpl implements CatalogueItemService {
     private static final int PAGE_ELEMENT_SIZE_ADMIN=12;
     private static final int PAGE_ELEMENT_SIZE_CUSTOMER=12;
-    private static CatalogueItemService service = null;
+
 
 
     @Autowired
@@ -49,14 +47,14 @@ public class CatalogueItemServiceImpl implements CatalogueItemService {
         return itemsByCategory;
     }
 
-    @Transactional()
     @Override
+    @Transactional
     public CatalogueItem create(CatalogueItem catalogueItem) {
         return this.repository.save(catalogueItem);
     }
 
-    @Transactional()
     @Override
+    @Transactional
     public CatalogueItem read(String catalogueItem) {
         return this.repository.findById(catalogueItem).orElse(null);
     }

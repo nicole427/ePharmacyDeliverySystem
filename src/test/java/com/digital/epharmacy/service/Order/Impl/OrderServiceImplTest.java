@@ -7,10 +7,13 @@ package com.digital.epharmacy.service.Order.Impl;
 
 import com.digital.epharmacy.entity.Catalogue.CatalogueItem;
 import com.digital.epharmacy.entity.Order.Order;
+import com.digital.epharmacy.entity.User.UserProfile;
 import com.digital.epharmacy.factory.Catalogue.CatalogueItemFactory;
 import com.digital.epharmacy.factory.Order.OrderFactory;
+import com.digital.epharmacy.factory.User.UserProfileFactory;
 import com.digital.epharmacy.service.CatalogueItem.CatalogueItemService;
 import com.digital.epharmacy.service.Order.OrderService;
+import com.digital.epharmacy.service.User.UserProfileService;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.MethodOrderer;
@@ -38,8 +41,6 @@ public class OrderServiceImplTest {
 
     @Autowired
     private OrderService service;
-    @Autowired
-    private static CatalogueItemService itemService;
 
     //as per business rules, we need items to place orders
     private static CatalogueItem catalogueItem = CatalogueItemFactory.createCatalogueItem(36, "Mayogel",
@@ -47,18 +48,15 @@ public class OrderServiceImplTest {
     private static CatalogueItem catalogueItem2 = CatalogueItemFactory.createCatalogueItem(37, "Mayogel",
             "oral health", 5, 300);
 
-    private static CatalogueItem item1 = itemService.create(catalogueItem);
-    private static CatalogueItem item2 = itemService.create(catalogueItem2);
+    private static Set<CatalogueItem> items = Stream.of(catalogueItem, catalogueItem2).collect(Collectors.toSet());
 
-    private  static List<CatalogueItem> items = Stream.of(item1, item2).collect(Collectors.toList());
+    private static UserProfile user = UserProfileFactory
+            .createUserProfile("Siyabulela","Ngwana", "male");
+
+
 
     private static Order order = OrderFactory
-            .createOrder("user-id", items,"yoco");
-    private static Order order2 = OrderFactory
-            .createOrder("user-id-2", items, "paypal");
-    private static Order order3 = OrderFactory
-            .createOrder("user-id",  items,"COD");
-
+            .createOrder(user, items,"yoco");
 
     @org.junit.jupiter.api.Order(1)
     @Test
@@ -74,6 +72,7 @@ public class OrderServiceImplTest {
     @org.junit.jupiter.api.Order(2)
     @Test
     void b_read() {
+        System.out.println(order.getOrderNumber());
         Order readOrder = service.read(order.getOrderNumber());
         assertEquals(order.getOrderNumber(), readOrder.getOrderNumber());
         System.out.println("Read:" + readOrder);
@@ -125,7 +124,7 @@ public class OrderServiceImplTest {
     @Test
     void f_getAllByUser() {
 
-        Set<Order> ordersByUser = service.getAllOrdersByUser("user-id");
+        Set<Order> ordersByUser = service.getAllOrdersByUser(order.getUser().getUserId());
         assertEquals(1, ordersByUser.size());
 
         System.out.println("Get All By User's ID: " + ordersByUser);

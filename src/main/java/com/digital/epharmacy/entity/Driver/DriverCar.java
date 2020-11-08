@@ -7,9 +7,9 @@ import java.util.Objects;
 /*
     Author: Chad
 <<<<<<< HEAD
-    Desc: DriverCar stores driverId using composition with DriverProfile
+    Desc: DriverCar stores carId using composition with DriverProfile
 =======
-    Desc: DriverCar stores driverId using composition with Driver
+    Desc: DriverCar stores carId using composition with Driver
 >>>>>>> origin/groupCollaboration
     Date: 4 July 2020
 
@@ -24,13 +24,12 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "car")
-
 public class DriverCar {
 
     // all the attributes of entity
     @Id
     @Column(name = "id")
-    private String driverId;
+    private String carId;
     @NotBlank(message = "Car Registration is required")
     private String carRegistration;
     @NotBlank(message = "Car Colour is required")
@@ -44,7 +43,7 @@ public class DriverCar {
 
     // builder pattern method constructor
     private DriverCar(Builder builder){
-        this.driverId = builder.driverId;
+        this.carId = builder.carId;
         this.carRegistration = builder.carRegistration;
         this.carColour = builder.carColour;
         this.carName = builder.carName;
@@ -52,8 +51,8 @@ public class DriverCar {
     }
 
     // getters for all attributes of entity DriverCar
-    public String getDriverId() {
-        return driverId;
+    public String getCarId() {
+        return carId;
     }
 
     public String getCarRegistration() {
@@ -76,7 +75,7 @@ public class DriverCar {
     @Override
     public String toString() {
         return "DriverCar{" +
-                "driverId=" + driverId +
+                "carId=" + carId +
                 ", carRegistration=" + carRegistration +
                 ", carColour='" + carColour +
                 ", carName=" + carName +
@@ -87,12 +86,12 @@ public class DriverCar {
     // add setters using building pattern
     public static class Builder{
 
-        private String driverId;
-            private String carRegistration;
+        private String carId;
+        private String carRegistration;
         private String carColour, carName, carModel;
 
-        public Builder setDriverId(String driverId){
-            this.driverId = driverId;
+        public Builder setCarId(String carId){
+            this.carId = carId;
             return this;
         }
 
@@ -118,7 +117,7 @@ public class DriverCar {
 
         //to below method is to make another copy of DriverCar
         public Builder copy (DriverCar driverCar){
-            this.driverId = driverCar.driverId;
+            this.carId = driverCar.carId;
             this.carRegistration = driverCar.carRegistration;
             this.carColour = driverCar.carColour;
             this.carName = driverCar.carName;
@@ -137,11 +136,11 @@ public class DriverCar {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         DriverCar that = (DriverCar) o;
-        return driverId.equals(that.driverId);
+        return carId.equals(that.carId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(driverId);
+        return Objects.hash(carId);
     }
 }

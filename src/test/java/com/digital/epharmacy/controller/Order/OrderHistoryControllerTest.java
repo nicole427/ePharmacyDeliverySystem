@@ -34,7 +34,7 @@ public class OrderHistoryControllerTest {
             .createUserProfile("Ayabulela","Mahlathini", "male");
 
     private static OrderHistory orderHistory = OrderHistoryFactory
-            .createOrderHistory(user.getUserId(), 500, new BigDecimal(6000.00));
+            .createOrderHistory(user, 500, new BigDecimal(6000.00));
 
 
     @Autowired
@@ -60,10 +60,10 @@ public class OrderHistoryControllerTest {
     @Order(2)
     @Test
     public void b_read() {
-        String url = baseURL + "read/" + orderHistory.getUserId();
+        String url = baseURL + "read/" + orderHistory.getUser().getUserId();
         System.out.println("URL: " + url);
         ResponseEntity<OrderHistory> response = restTemplate.getForEntity(url, OrderHistory.class);
-        assertEquals(orderHistory.getTotalOrderValue(), response.getBody().getTotalOrderValue());
+        assertEquals(orderHistory.getTotalOrderValue().doubleValue(), response.getBody().getTotalOrderValue().doubleValue());
     }
 
     @Order(3)
@@ -75,13 +75,13 @@ public class OrderHistoryControllerTest {
         System.out.println("POST data: " + updatedOrderHistory);
         ResponseEntity<OrderHistory> response = restTemplate.postForEntity(url, updatedOrderHistory, OrderHistory.class);
         System.out.println("Response: " + response.getBody());
-        assertEquals(orderHistory.getUserId(), response.getBody().getUserId());
+        assertEquals(orderHistory.getUser().getUserId(), response.getBody().getUser().getUserId());
     }
 
     @Order(5)
     @Test
     public void e_delete() {
-        String url = baseURL + "delete/" + orderHistory.getUserId();
+        String url = baseURL + "delete/" + orderHistory.getUser().getUserId();
         System.out.println("URL: " + url);
         restTemplate.delete(url);
     }
