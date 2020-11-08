@@ -23,14 +23,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-      auth.inMemoryAuthentication().
-              withUser("Admin")
+      auth.inMemoryAuthentication()
+              .withUser("Admin")
               .password(encoder().encode("12345"))
               .roles(Admin_Role, User_Role)
               .and()
               .withUser("UserProfile")
               .password(encoder().encode("54321"))
-              .roles(User_Role);
+              .roles(User_Role)
+              .and()
+              .withUser("pharmacyuser")
+              .password(encoder().encode("pharmacypassword"))
+              .roles(User_Role)
+      ;
 
     }
 
@@ -41,14 +46,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST,"http://localhost:8080/user/create").hasRole(User_Role + Admin_Role)
+                .antMatchers(HttpMethod.POST,"http://localhost:8080/pharmacy/create").hasRole(User_Role + Admin_Role)
                 .antMatchers(HttpMethod.POST, "http://localhost:8080/user/update/**").hasRole(User_Role + Admin_Role)
+                .antMatchers(HttpMethod.POST,"http://localhost:8080/pharmacy/update").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.GET,"http://localhost:8080/user/id/**").hasRole(Admin_Role)
+                .antMatchers(HttpMethod.GET,"http://localhost:8080/pharmacy/id/**").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.GET,"http://localhost:8080/user/name/**").hasRole(Admin_Role)
+                .antMatchers(HttpMethod.GET,"http://localhost:8080/pharmacy/name/**").hasRole(User_Role + Admin_Role)
                 .antMatchers(HttpMethod.GET,"http://localhost:8080/user/all").hasRole(Admin_Role)
+                .antMatchers(HttpMethod.GET,"http://localhost:8080/pharmacy/all").hasRole(User_Role + Admin_Role)
                 .antMatchers(HttpMethod.DELETE,"http://localhost:8080/user/delete/**").hasRole(Admin_Role)
+                .antMatchers(HttpMethod.DELETE,"http://localhost:8080/pharmacy/delete/**").hasRole(Admin_Role)
                 .and()
-                .csrf()
-                .disable();
+                .csrf().disable()
+                .formLogin().disable();
     }
 //password encoder needed to encode the password that is stored as a string variable
     @Bean
