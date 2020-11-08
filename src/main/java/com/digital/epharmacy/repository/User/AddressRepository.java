@@ -15,5 +15,5 @@ import java.util.Set;
 
 @Repository
 public interface AddressRepository extends JpaRepository<Address, String> {
-
+    Address findAddressByStreetName(String streetName);
 }

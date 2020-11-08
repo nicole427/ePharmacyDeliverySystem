@@ -5,6 +5,7 @@ import com.digital.epharmacy.repository.User.ContactInformationRepository;
 import com.digital.epharmacy.service.User.ContactInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -34,7 +35,7 @@ public class ContactInformationServiceImpl implements ContactInformationService 
     @Override
     public ContactInformation update(ContactInformation contactInformation) {
 
-        if(this.repository.existsById(contactInformation.getUserId())){
+        if(this.repository.existsById(contactInformation.getcontactId())){
             return this.repository.save(contactInformation);
         }
         return null;

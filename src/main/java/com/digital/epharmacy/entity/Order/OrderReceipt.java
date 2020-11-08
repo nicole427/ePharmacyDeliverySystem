@@ -23,17 +23,12 @@ public class OrderReceipt {
 
     //Entity attributes
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int orderNumber;
     @NotNull (message = "Item Qty is required")
     private int itemQuantity;
     @NotNull(message = "Payment total is required")
     private double paymentTotal;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String pharmacyId;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String userID;
     @NotNull(message = "Item Name total is required")
     private String itemName;

@@ -6,19 +6,27 @@ package com.digital.epharmacy.entity.Order;
  * Author: Ayabulela Mahlathini - altered entity to connect to database
  * 25/10/2020
  * */
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.digital.epharmacy.entity.User.UserProfile;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class OrderHistory {
+public class OrderHistory implements Serializable {
+
     @Id
-    @NotNull(message = "UserId is required")
-    private String userId;
+    @Column(name = "id")
+    private String id;
+
+    @NotNull(message = "User is required")
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn(name = "user_id")
+    private UserProfile user;
     @NotNull(message = "Total number of orders is required")
     private int totalNumberOfOrders;
     @NotNull(message = "Total Order value is required")
@@ -28,13 +36,18 @@ public class OrderHistory {
     protected OrderHistory(){}
 
     public OrderHistory(Builder builder){
-        this.userId = builder.userId;
+        this.id = builder.id;
+        this.user = builder.user;
         this.totalNumberOfOrders = builder.totalNumberOfOrders;
         this.totalOrderValue = builder.totalOrderValue;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getId() {
+        return id;
+    }
+
+    public UserProfile getUser() {
+        return user;
     }
 
     public int getTotalNumberOfOrders() {
@@ -48,19 +61,25 @@ public class OrderHistory {
     @Override
     public String toString() {
         return "OrderHistory{" +
-                "userId=" + userId +
+                "user=" + user +
                 ", totalNumberOfOrders=" + totalNumberOfOrders +
                 ", totalOrderValue=" + totalOrderValue +
                 '}';
     }
 
     public static class Builder{
-        private String userId;
+        private String id;
+        private UserProfile user;
         private int totalNumberOfOrders;
         private BigDecimal totalOrderValue;
 
-        public Builder setUserId(String userId){
-            this.userId = userId;
+        public Builder setId(String id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder setUser(UserProfile user){
+            this.user = user;
             return this;
         }
 
@@ -75,7 +94,8 @@ public class OrderHistory {
         }
 
         public Builder copy(OrderHistory orderHistory){
-            this.userId = orderHistory.userId;
+            this.id = orderHistory.id;
+            this.user = orderHistory.user;
             this.totalNumberOfOrders = orderHistory.totalNumberOfOrders;
             this.totalOrderValue= orderHistory.totalOrderValue;
             return this;
@@ -91,11 +111,12 @@ public class OrderHistory {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         OrderHistory that = (OrderHistory) o;
-        return userId.equals(that.userId);
+        return id.equals(that.id) &&
+                user.equals(that.user);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId);
+        return Objects.hash(id, user);
     }
 }

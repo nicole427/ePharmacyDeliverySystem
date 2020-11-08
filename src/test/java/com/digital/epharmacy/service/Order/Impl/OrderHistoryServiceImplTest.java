@@ -8,7 +8,9 @@ package com.digital.epharmacy.service.Order.Impl;
 
 
 import com.digital.epharmacy.entity.Order.OrderHistory;
+import com.digital.epharmacy.entity.User.UserProfile;
 import com.digital.epharmacy.factory.Order.OrderHistoryFactory;
+import com.digital.epharmacy.factory.User.UserProfileFactory;
 import com.digital.epharmacy.service.Order.OrderHistoryService;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
@@ -37,15 +39,19 @@ public class OrderHistoryServiceImplTest {
     @Autowired
     private OrderHistoryService service;
 
+    private static UserProfile user = UserProfileFactory
+            .createUserProfile("Ayabulela","Mahlathini", "male");
+
+
     private static OrderHistory orderHistory = OrderHistoryFactory
-            .createOrderHistory("User's ID", 25,new BigDecimal(6500.00));
+            .createOrderHistory(user, 25,new BigDecimal(6500.00));
 
     @Order(1)
     @Test
     void a_create() {
 
         OrderHistory createdOrderHistory = service.create(orderHistory);
-        Assert.assertEquals(orderHistory.getUserId(), createdOrderHistory.getUserId());
+        Assert.assertEquals(orderHistory.getUser().getUserId(), createdOrderHistory.getUser().getUserId());
         System.out.println("Created:" + createdOrderHistory);
 
     }
@@ -54,7 +60,7 @@ public class OrderHistoryServiceImplTest {
     @Test
     void b_read() {
 
-        OrderHistory readOrderHistory = service.read(orderHistory.getUserId());
+        OrderHistory readOrderHistory = service.read(orderHistory.getUser().getUserId());
         assertEquals(25, readOrderHistory.getTotalNumberOfOrders());
         System.out.println("Read:" + readOrderHistory);
     }
@@ -89,7 +95,7 @@ public class OrderHistoryServiceImplTest {
     @Order(5)
     @Test
     void e_delete() {
-        String orderHistoryToDel = orderHistory.getUserId();
+        String orderHistoryToDel = orderHistory.getUser().getUserId();
         boolean deleted = service.delete(orderHistoryToDel);
 
         Assert.assertTrue(deleted);

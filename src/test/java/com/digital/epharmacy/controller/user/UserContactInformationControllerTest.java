@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class UserContactInformationControllerTest {
 
-ContactInformation contactInformation = ContactInformationFactory.createContactInformation("Matthew","Clicks", 500,600);
+ContactInformation contactInformation = ContactInformationFactory.createContactInformation("0823151354","0823151353");
 
 @Autowired
 private TestRestTemplate restTemplate;
@@ -40,17 +40,17 @@ private String baseURL = "http://localhost:8080/contactinformation/";
         assertNotNull(postResponse.getBody());
         contactInformation = postResponse.getBody();
         System.out.println("Saved Data:" + contactInformation);
-        assertEquals(contactInformation.getUserId(), postResponse.getBody().getUserId());
+        assertEquals(contactInformation.getcontactId(), postResponse.getBody().getcontactId());
 
     }
 
     @Test
     void read() {
 
-        String url = baseURL + "read/" + contactInformation.getUserId();
+        String url = baseURL + "read/" + contactInformation.getcontactId();
         System.out.println("URL: " + url);
         ResponseEntity<ContactInformation> response = restTemplate.getForEntity(url,ContactInformation.class);
-        assertEquals(contactInformation.getUserId(), response.getBody().getUserId());
+        assertEquals(contactInformation.getcontactId(), response.getBody().getcontactId());
     }
 
     @Test
@@ -61,7 +61,7 @@ private String baseURL = "http://localhost:8080/contactinformation/";
         System.out.println("URL: " + url);
         System.out.println("Post Data: " + updated);
         ResponseEntity<ContactInformation> response =restTemplate.postForEntity(url,updated,ContactInformation.class);
-        assertEquals(contactInformation.getUserId(),response.getBody().getUserId());
+        assertEquals(contactInformation.getcontactId(),response.getBody().getcontactId());
     }
 
     @Test
@@ -79,7 +79,7 @@ private String baseURL = "http://localhost:8080/contactinformation/";
     @Test
     void delete() {
 
-        String url = baseURL + "delete/" + contactInformation.getUserId();
+        String url = baseURL + "delete/" + contactInformation.getcontactId();
         System.out.println("URL " + url);
         restTemplate.delete(url);
     }

@@ -6,10 +6,10 @@ import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 /*
-* Author: Nicole Hawthorne
-* Desc: UserProfile entity for registered user information
-* Date: 03/07/2020
-* */
+ * Author: Nicole Hawthorne
+ * Desc: UserProfile entity for registered user information
+ * Date: 03/07/2020
+ * */
 
 /**Author: Nicole Hawthorne
  *Desc: Added the entity mapping and assigned the primary key as ID also added noBlank values each entity so that its not empty

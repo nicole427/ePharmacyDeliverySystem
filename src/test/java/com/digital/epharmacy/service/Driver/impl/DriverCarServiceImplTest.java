@@ -24,21 +24,21 @@ import static org.junit.Assert.*;
 public class DriverCarServiceImplTest {
 
     private DriverCarService service;
-    DriverCar driverCar = DriverCarFactory.createDriverCar("Test","CY 240", "blue", "Ford", "Figo");
+    DriverCar driverCar = DriverCarFactory.createDriverCar("CY 240", "blue", "Ford", "Figo");
 
 
     @Order(1)
     @Test
     public void a_create() {
         DriverCar created = service.create((driverCar));
-        Assert.assertEquals(driverCar.getDriverId(), created.getDriverId());
+        Assert.assertEquals(driverCar.getCarId(), created.getCarId());
         System.out.println("Create: " + created);
     }
 
     @Order(2)
     @Test
     public void b_read() {
-        DriverCar read = service.read(driverCar.getDriverId());
+        DriverCar read = service.read(driverCar.getCarId());
         System.out.println("Read: " + read);
     }
 
@@ -61,7 +61,7 @@ public class DriverCarServiceImplTest {
     @Order(5)
     @Test
     public void e_delete() {
-        boolean deleted = service.delete(driverCar.getDriverId());
+        boolean deleted = service.delete(driverCar.getCarId());
         Assert.assertTrue(deleted);
 
         if (deleted)

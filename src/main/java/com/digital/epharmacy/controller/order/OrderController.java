@@ -29,7 +29,7 @@ public class OrderController {
     public Order create(@RequestBody Order order){
 
         Order newOrder = OrderFactory
-                .createOrder(order.getUserID(), order.getItems(), order.getPaymentType());
+                .createOrder(order.getUser(), order.getItems(), order.getPaymentType());
         return orderService.create(newOrder);
     }
 
