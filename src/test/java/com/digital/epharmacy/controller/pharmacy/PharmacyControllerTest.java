@@ -118,6 +118,6 @@ class PharmacyControllerTest {
     public void delete() {
         String url = baseURL + "/delete/" + pharmacy.getPharmacyId();
         System.out.println("URL: " + url);
-        restTemplate.delete(url);
+        restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).delete(url);
     }
 }
