@@ -1,11 +1,9 @@
 package com.digital.epharmacy.controller.Driver;
-
 /*
  * Author: Chad Boswell 215254589
  * Date: 25/09/2020
  * Desc: Controller of Driver Car
  */
-
 import com.digital.epharmacy.entity.Driver.DriverCar;
 import com.digital.epharmacy.factory.Driver.DriverCarFactory;
 import com.digital.epharmacy.service.Driver.impl.DriverCarServiceImpl;
@@ -44,9 +42,7 @@ public class DriverCarController {
                         driverCar.getCarName(),
                         driverCar.getCarModel()
                 );
-
         carService.create(newDriverCar);
-
         return new ResponseEntity<DriverCar>(driverCar, HttpStatus.CREATED);
     }
 
