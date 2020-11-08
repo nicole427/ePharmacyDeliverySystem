@@ -1,9 +1,9 @@
 package com.digital.epharmacy.security;
 /*
-* Author: Nicole Hawthorne
-* Date: 5/11/2020
-* DESC: Security Configuration file for adding users and marking their roles
-* */
+ * Author: Nicole Hawthorne
+ * Date: 5/11/2020
+ * DESC: Security Configuration file for adding users and marking their roles
+ * */
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -17,48 +17,54 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-//basic users for userprofile
+    //basic users for userprofile
     private static final String User_Role = "USER";
     private static final String Admin_Role = "ADMIN";
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-      auth.inMemoryAuthentication()
-              .withUser("Admin")
-              .password(encoder().encode("12345"))
-              .roles(Admin_Role, User_Role)
-              .and()
-              .withUser("UserProfile")
-              .password(encoder().encode("54321"))
-              .roles(User_Role)
-              .and()
-              .withUser("pharmacyuser")
-              .password(encoder().encode("pharmacypassword"))
-              .roles(User_Role)
-              .and()
-              .withUser("bankuser")
-              .password(encoder().encode("bankuserpassword"))
-              .roles(User_Role)
-              .and()
-              .withUser("addressuser")
-              .password(encoder().encode("addressuserpassword"))
-              .roles(User_Role)
-              .and()
-              .withUser("medicaluser")
-              .password(encoder().encode("medicaluserpassword"))
-              .roles(User_Role)
-              .and()
-              .withUser("paymentuser")
-              .password(encoder().encode("paymentuserpassword"))
-              .roles(User_Role)
-              .and()
-              .withUser("contactinfomationuser")
-              .password(encoder().encode("contactinfomationuserpassword"))
-              .roles(User_Role)
+        auth.inMemoryAuthentication()
+                .withUser("Admin")
+                .password(encoder().encode("12345"))
+                .roles(Admin_Role, User_Role)
+                .and()
+                .withUser("UserProfile")
+                .password(encoder().encode("54321"))
+                .roles(User_Role)
+                .and()
+                .withUser("pharmacyuser")
+                .password(encoder().encode("pharmacypassword"))
+                .roles(User_Role)
+                .and()
+                .withUser("bankuser")
+                .password(encoder().encode("bankuserpassword"))
+                .roles(User_Role)
+                .and()
+                .withUser("addressuser")
+                .password(encoder().encode("addressuserpassword"))
+                .roles(User_Role)
+                .and()
+                .withUser("medicaluser")
+                .password(encoder().encode("medicaluserpassword"))
+                .roles(User_Role)
+                .and()
+                .withUser("Driveruser")
+                .password(encoder().encode("Driverpassword"))
+                .roles(User_Role)
+                .and()
+                .withUser("Caruser")
+                .password(encoder().encode("Carpassword"))
+                .roles(User_Role)
+                .and()
+                .withUser("paymentuser")
+                .password("paymentpassword")
+                .roles(User_Role)
+                .and()
+                 .withUser("contactinformationuser")
+                 .password("contactinformationpassword")
+                 .roles(User_Role)
 
-
-
-      ;
+        ;
 
     }
 
@@ -73,50 +79,54 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST,"http://localhost:8080/bankdetails/create").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.POST,"http://localhost:8080/address/create").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.POST,"http://localhost:8080/medicalaid/create").hasRole(Admin_Role)
+                .antMatchers(HttpMethod.POST,"http://localhost:8080/Car/create").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.POST,"http://localhost:8080/payment/create").hasRole(Admin_Role)
-                .antMatchers(HttpMethod.POST,"http://localhost:8080/contactinformation/create").hasRole(Admin_Role)
+                .antMatchers(HttpMethod.POST,"http://localhost:8080/contactinfromation/create").hasRole(Admin_Role)
+                .antMatchers(HttpMethod.POST,"http://localhost:8080/driverProfile/create").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.POST, "http://localhost:8080/user/update/**").hasRole(User_Role + Admin_Role)
                 .antMatchers(HttpMethod.POST,"http://localhost:8080/pharmacy/update").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.POST,"http://localhost:8080/bankdetails/update").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.POST,"http://localhost:8080/address/update").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.POST,"http://localhost:8080/medicalaid/update").hasRole(Admin_Role)
+                .antMatchers(HttpMethod.POST,"http://localhost:8080/Car/update").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.POST,"http://localhost:8080/payment/update").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.POST,"http://localhost:8080/contactinformation/update").hasRole(Admin_Role)
+                .antMatchers(HttpMethod.POST,"http://localhost:8080/driverProfile/update").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.GET,"http://localhost:8080/user/id/**").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.GET,"http://localhost:8080/pharmacy/id/**").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.GET,"http://localhost:8080/bankdetails/read/**").hasRole(User_Role + Admin_Role)
                 .antMatchers(HttpMethod.GET,"http://localhost:8080/bankdetails/account/**").hasRole(User_Role + Admin_Role)
                 .antMatchers(HttpMethod.GET,"http://localhost:8080/address/read/**").hasRole(User_Role + Admin_Role)
                 .antMatchers(HttpMethod.GET,"http://localhost:8080/address/name/**").hasRole(User_Role + Admin_Role)
-                .antMatchers(HttpMethod.GET,"http://localhost:8080/payment/name/**").hasRole(User_Role + Admin_Role)
-                .antMatchers(HttpMethod.GET,"http://localhost:8080/contactinformation/name/**").hasRole(User_Role + Admin_Role)
                 .antMatchers(HttpMethod.GET,"http://localhost:8080/user/name/**").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.GET,"http://localhost:8080/pharmacy/name/**").hasRole(User_Role + Admin_Role)
                 .antMatchers(HttpMethod.GET,"http://localhost:8080/medicalaid/read/**").hasRole(User_Role + Admin_Role)
+                .antMatchers(HttpMethod.GET,"http://localhost:8080/driverProfile/read/**").hasRole(User_Role + Admin_Role)
+                .antMatchers(HttpMethod.GET,"http://localhost:8080/Car/read/**").hasRole(User_Role + Admin_Role)
                 .antMatchers(HttpMethod.GET,"http://localhost:8080/payment/read/**").hasRole(User_Role + Admin_Role)
-                .antMatchers(HttpMethod.GET,"http://localhost:8080/contactinfomation/read/**").hasRole(User_Role + Admin_Role)
+                .antMatchers(HttpMethod.GET,"http://localhost:8080/contactinformation/read/**").hasRole(User_Role + Admin_Role)
                 .antMatchers(HttpMethod.GET,"http://localhost:8080/user/all").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.GET,"http://localhost:8080/pharmacy/all").hasRole(User_Role + Admin_Role)
                 .antMatchers(HttpMethod.GET,"http://localhost:8080/bankdetails/all").hasRole(User_Role + Admin_Role)
                 .antMatchers(HttpMethod.GET,"http://localhost:8080/address/all").hasRole(User_Role + Admin_Role)
                 .antMatchers(HttpMethod.GET,"http://localhost:8080/medicalaid/all").hasRole(User_Role + Admin_Role)
-                .antMatchers(HttpMethod.GET,"http://localhost:8080/payment/all").hasRole(User_Role + Admin_Role)
-                .antMatchers(HttpMethod.GET,"http://localhost:8080/contactinformation/all").hasRole(User_Role + Admin_Role)
                 .antMatchers(HttpMethod.DELETE,"http://localhost:8080/user/delete/**").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.DELETE,"http://localhost:8080/pharmacy/delete/**").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.DELETE,"http://localhost:8080/bankdetails/delete/**").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.DELETE,"http://localhost:8080/address/delete/**").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.DELETE,"http://localhost:8080/medicalaid/delete/**").hasRole(Admin_Role)
+                .antMatchers(HttpMethod.DELETE,"http://localhost:8080/driverProfile/delete/**").hasRole(Admin_Role)
+                .antMatchers(HttpMethod.DELETE,"http://localhost:8080/Car/delete/**").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.DELETE,"http://localhost:8080/payment/delete/**").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.DELETE,"http://localhost:8080/contactinformation/delete/**").hasRole(Admin_Role)
                 .and()
                 .csrf().disable()
                 .formLogin().disable();
     }
-//password encoder needed to encode the password that is stored as a string variable
+    //password encoder needed to encode the password that is stored as a string variable
     @Bean
     public PasswordEncoder encoder(){
-       return new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder();
 
     }
 
