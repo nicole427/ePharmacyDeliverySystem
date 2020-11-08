@@ -11,7 +11,9 @@ import com.digital.epharmacy.factory.Order.OrderReceiptFactory;
 import com.digital.epharmacy.factory.Pharmacy.PharmacyFactory;
 import com.digital.epharmacy.factory.User.UserProfileFactory;
 import org.junit.FixMethodOrder;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @RunWith(SpringRunner.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
 
@@ -53,10 +56,11 @@ class OrderReceiptControllerTest {
     OrderReceipt orderReceipt = OrderReceiptFactory.createOrderReceipt(order, pharmacy);
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseURL = "http://localhost:8080/Order/OrderReceipt";
+    private String baseURL = "http://localhost:8080/Order/OrderReceipt/";
 
 
     @Test
+    @org.junit.jupiter.api.Order(1)
     void create() {
 
         String url = baseURL + "create";
@@ -70,6 +74,7 @@ class OrderReceiptControllerTest {
     }
 
     @Test
+    @org.junit.jupiter.api.Order(2)
     void read() {
         String url = baseURL + "read/" + orderReceipt.getReceipt_number();
         System.out.println("URL: " +url);
@@ -78,6 +83,7 @@ class OrderReceiptControllerTest {
     }
 
     @Test
+    @org.junit.jupiter.api.Order(3)
     void update() {
         OrderReceipt updated = new OrderReceipt.Builder().copy(orderReceipt).setReceipt_number("30000").build();
         String url = baseURL = "update";
@@ -88,6 +94,7 @@ class OrderReceiptControllerTest {
     }
 
     @Test
+    @org.junit.jupiter.api.Order(4)
     void getAll() {
         String url = baseURL + "all";
         System.out.println("URL: " +url);
@@ -99,6 +106,7 @@ class OrderReceiptControllerTest {
     }
 
     @Test
+    @org.junit.jupiter.api.Order(5)
     void delete() {
             String url = baseURL +"delete/" + orderReceipt.getReceipt_number();
             System.out.println("URL: " +url);
