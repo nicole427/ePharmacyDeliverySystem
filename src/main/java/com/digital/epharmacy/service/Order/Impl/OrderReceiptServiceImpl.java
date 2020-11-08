@@ -5,6 +5,7 @@ import com.digital.epharmacy.repository.Order.OrderReceiptRepository;
 import com.digital.epharmacy.service.Order.OrderReceiptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -27,8 +28,8 @@ public class OrderReceiptServiceImpl implements OrderReceiptService {
     }
 
     @Override
-    public OrderReceipt read(String orderReceipt) {
-        return this.repository.findById(orderReceipt).orElseGet(null);
+    public OrderReceipt read(String receiptNumber) {
+        return this.repository.findById(receiptNumber).orElseGet(null);
     }
 
     @Override
@@ -37,10 +38,10 @@ public class OrderReceiptServiceImpl implements OrderReceiptService {
     }
 
     @Override
-    public boolean delete(String orderReceipt)
+    public boolean delete(String receiptNumber)
     {
-        this.repository.deleteById(orderReceipt);
-        if (this.repository.existsById(orderReceipt)) return false;
+        this.repository.deleteById(receiptNumber);
+        if (this.repository.existsById(receiptNumber)) return false;
         else return true;
     }
 }

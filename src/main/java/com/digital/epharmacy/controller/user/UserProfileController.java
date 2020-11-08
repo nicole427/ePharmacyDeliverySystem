@@ -1,5 +1,6 @@
 package com.digital.epharmacy.controller.user;
 //Nicole Hawthorne - UserProfile Controller to expose the service of the userprofile
+//Added validation service on the 27 october and added read by id and name methods for admin
 import com.digital.epharmacy.entity.User.UserProfile;
 import com.digital.epharmacy.factory.User.UserProfileFactory;
 import com.digital.epharmacy.service.User.impl.UserProfileServiceImpl;
@@ -60,3 +61,4 @@ public class UserProfileController {
         return userProfileService.delete(userId);
     }
 }
+

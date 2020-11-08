@@ -5,6 +5,7 @@ import com.digital.epharmacy.repository.Payment.PaymentRepository;
 import com.digital.epharmacy.service.Payment.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -12,7 +13,7 @@ import java.util.stream.Collectors;
 @Service
 public class PaymentServiceImpl implements PaymentService {
 
-    private static PaymentService service  = null;
+
     @Autowired
     private PaymentRepository repository;
 

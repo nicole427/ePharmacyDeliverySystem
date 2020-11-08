@@ -5,11 +5,15 @@ package com.digital.epharmacy.service.Order.Impl;
  * Description: Testing Implementation for the Order service, getting all orders from the database and handling the business logic
  */
 
+import com.digital.epharmacy.entity.Catalogue.CatalogueItem;
 import com.digital.epharmacy.entity.Order.Order;
-import com.digital.epharmacy.entity.Order.OrderHistory;
+import com.digital.epharmacy.entity.User.UserProfile;
+import com.digital.epharmacy.factory.Catalogue.CatalogueItemFactory;
 import com.digital.epharmacy.factory.Order.OrderFactory;
-import com.digital.epharmacy.repository.Order.OrderRepository;
+import com.digital.epharmacy.factory.User.UserProfileFactory;
+import com.digital.epharmacy.service.CatalogueItem.CatalogueItemService;
 import com.digital.epharmacy.service.Order.OrderService;
+import com.digital.epharmacy.service.User.UserProfileService;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.MethodOrderer;
@@ -21,32 +25,46 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.math.BigDecimal;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class OrderServiceImplTest {
 
     @Autowired
     private OrderService service;
 
-    private static Order order = OrderFactory
-            .createOrder(225.99, 2, "yoco");
-    private static Order order2 = OrderFactory
-            .createOrder(199.99, 5, "paypal");
-    private static Order order3 = OrderFactory
-            .createOrder(558.99, 15, "COD");
+    //as per business rules, we need items to place orders
+    private static CatalogueItem catalogueItem = CatalogueItemFactory.createCatalogueItem(36, "Mayogel",
+            "oral health", 36, 200);
+    private static CatalogueItem catalogueItem2 = CatalogueItemFactory.createCatalogueItem(37, "Mayogel",
+            "oral health", 5, 300);
 
+    private static Set<CatalogueItem> items = Stream.of(catalogueItem, catalogueItem2).collect(Collectors.toSet());
+
+    private static UserProfile user = UserProfileFactory
+            .createUserProfile("Siyabulela","Ngwana", "male");
+
+
+
+    private static Order order = OrderFactory
+            .createOrder(user, items,"yoco");
 
     @org.junit.jupiter.api.Order(1)
     @Test
     void a_create() {
-        Order createdOrder = service.create(order);
 
+        System.out.println(order);
+        Order createdOrder = service.create(order);
+        System.out.println(createdOrder);
         Assert.assertEquals(order.getOrderNumber(), createdOrder.getOrderNumber());
         System.out.println("Created:" + createdOrder);
     }
@@ -54,6 +72,7 @@ public class OrderServiceImplTest {
     @org.junit.jupiter.api.Order(2)
     @Test
     void b_read() {
+        System.out.println(order.getOrderNumber());
         Order readOrder = service.read(order.getOrderNumber());
         assertEquals(order.getOrderNumber(), readOrder.getOrderNumber());
         System.out.println("Read:" + readOrder);
@@ -86,9 +105,6 @@ public class OrderServiceImplTest {
     @org.junit.jupiter.api.Order(5)
     @Test
     void e_getAllCompletedOrders() {
-        service.create(order);
-        service.create(order2);
-        service.create(order3);
 
         Order updatedOrder = new Order
                 .Builder()
@@ -107,12 +123,9 @@ public class OrderServiceImplTest {
     @org.junit.jupiter.api.Order(6)
     @Test
     void f_getAllByUser() {
-        service.create(order);
-        service.create(order2);
-        service.create(order3);
 
-        Set<Order> ordersByUser = service.getAllOrdersByUser("user-id");
-        assertEquals(2, ordersByUser.size());
+        Set<Order> ordersByUser = service.getAllOrdersByUser(order.getUser().getUserId());
+        assertEquals(1, ordersByUser.size());
 
         System.out.println("Get All By User's ID: " + ordersByUser);
     }
@@ -120,7 +133,7 @@ public class OrderServiceImplTest {
     @org.junit.jupiter.api.Order(7)
     @Test
     void g_delete() {
-        String orderToDel = order3.getOrderNumber();
+        String orderToDel = order.getOrderNumber();
         boolean deleted = service.delete(orderToDel);
 
         Assert.assertTrue(deleted);

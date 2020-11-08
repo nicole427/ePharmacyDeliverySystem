@@ -7,6 +7,7 @@ import com.digital.epharmacy.repository.PharmacyBankAccountInformation.PharmacyB
 import com.digital.epharmacy.service.PharmacyBankAccountInformation.PharmacyBankAccountInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -34,7 +35,7 @@ public class PharmacyBankAccountInformationServiceImpl implements PharmacyBankAc
         try{
             return this.repository.save(pharmacyBankAccountInformation);
         } catch (Exception e){
-            throw new MyCustomExceptionHandler("Pharmacy '" + pharmacyBankAccountInformation.getBankAccountId() + "' already exists");
+            throw new MyCustomExceptionHandler("Account with ID '" + pharmacyBankAccountInformation.getBankAccountId() + "' already exists");
         }
 
     }
