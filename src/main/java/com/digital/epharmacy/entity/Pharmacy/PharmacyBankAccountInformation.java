@@ -29,6 +29,11 @@ public class PharmacyBankAccountInformation {
     @NotBlank(message = "Beneficiary Reference is required")
     private String beneficiaryReference;
 
+
+    @ManyToOne
+    @JoinColumn(name = "pharmacyId", nullable = true)
+    private Pharmacy pharmacyId;
+
     protected PharmacyBankAccountInformation(){
 
     }
