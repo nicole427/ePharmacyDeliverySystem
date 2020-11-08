@@ -1,7 +1,15 @@
 package com.digital.epharmacy.controller.Order;
 
+import com.digital.epharmacy.entity.Catalogue.CatalogueItem;
+import com.digital.epharmacy.entity.Order.Order;
 import com.digital.epharmacy.entity.Order.OrderReceipt;
+import com.digital.epharmacy.entity.Pharmacy.Pharmacy;
+import com.digital.epharmacy.entity.User.UserProfile;
+import com.digital.epharmacy.factory.Catalogue.CatalogueItemFactory;
+import com.digital.epharmacy.factory.Order.OrderFactory;
 import com.digital.epharmacy.factory.Order.OrderReceiptFactory;
+import com.digital.epharmacy.factory.Pharmacy.PharmacyFactory;
+import com.digital.epharmacy.factory.User.UserProfileFactory;
 import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -16,6 +24,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Date;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -28,8 +39,18 @@ import static org.junit.jupiter.api.Assertions.*;
 class OrderReceiptControllerTest {
     static Date date = new Date();
 
-    OrderReceipt orderReceipt = OrderReceiptFactory.createOrderReceipt(11,2,
-            400,"20","99","Disprin", "Cash", date);
+    private static CatalogueItem catalogueItem = CatalogueItemFactory.createCatalogueItem(36, "Mayogel",
+            "oral health", 36, 200);
+    private static Set<CatalogueItem> items = Stream.of(catalogueItem).collect(Collectors.toSet());
+
+    UserProfile user = UserProfileFactory
+            .createUserProfile("Ayabulela","Mahlathini", "male");
+
+    Order order = OrderFactory.createOrder(user, items, "EFT");
+    Pharmacy pharmacy = PharmacyFactory.createPharmacy("Lake Side Pharmacy");
+
+
+    OrderReceipt orderReceipt = OrderReceiptFactory.createOrderReceipt(order, pharmacy);
     @Autowired
     private TestRestTemplate restTemplate;
     private String baseURL = "http://localhost:8080/Order/OrderReceipt";
@@ -45,25 +66,25 @@ class OrderReceiptControllerTest {
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
         System.out.println("Saved Data:" +orderReceipt);
-        assertEquals(orderReceipt.getOrderNumber(),postResponse.getBody().getOrderNumber());
+        assertEquals(orderReceipt.getReceipt_number(),postResponse.getBody().getReceipt_number());
     }
 
     @Test
     void read() {
-        String url = baseURL + "read/" + orderReceipt.getOrderNumber();
+        String url = baseURL + "read/" + orderReceipt.getReceipt_number();
         System.out.println("URL: " +url);
         ResponseEntity<OrderReceipt> response = restTemplate.getForEntity(url,OrderReceipt.class);
-        assertEquals(orderReceipt.getUserID(), response.getBody().getOrderNumber());
+        assertEquals(orderReceipt.getReceipt_number(), response.getBody().getReceipt_number());
     }
 
     @Test
     void update() {
-        OrderReceipt updated = new OrderReceipt.Builder().copy(orderReceipt).setOrderNumber(30000).build();
+        OrderReceipt updated = new OrderReceipt.Builder().copy(orderReceipt).setReceipt_number("30000").build();
         String url = baseURL = "update";
         System.out.println("URL: " +url);
         System.out.println("Post Data: " +updated);
         ResponseEntity<OrderReceipt> response = restTemplate.postForEntity(url,updated,OrderReceipt.class);
-        assertEquals(orderReceipt.getOrderNumber(), response.getBody().getOrderNumber());
+        assertEquals(orderReceipt.getReceipt_number(), response.getBody().getReceipt_number());
     }
 
     @Test
@@ -79,7 +100,7 @@ class OrderReceiptControllerTest {
 
     @Test
     void delete() {
-            String url = baseURL +"delete/" + orderReceipt.getOrderNumber();
+            String url = baseURL +"delete/" + orderReceipt.getReceipt_number();
             System.out.println("URL: " +url);
             restTemplate.delete(url);
         }

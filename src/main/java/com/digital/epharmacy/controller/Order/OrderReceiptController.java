@@ -22,16 +22,14 @@ public class OrderReceiptController {
     @PostMapping("/create")
     public OrderReceipt create(@RequestBody OrderReceipt orderReceipt) {
         Date date = new Date();
-        OrderReceipt createdOrderReceipt = OrderReceiptFactory.createOrderReceipt(orderReceipt.getOrderNumber(),
-                orderReceipt.getItemQuantity(),orderReceipt.getPaymentTotal(),orderReceipt.getPharmacyId(),
-                orderReceipt.getUserID(),orderReceipt.getItemName(),orderReceipt.getTypeOfPayment(), date);
+        OrderReceipt createdOrderReceipt = OrderReceiptFactory.createOrderReceipt(orderReceipt.getOrder(), orderReceipt.getPharmacy());
 
         return OrderReceiptService.create(createdOrderReceipt);
     }
 
     @GetMapping("/read/{orderNumber}")
-    public OrderReceipt read(@PathVariable String OrderNumber){
-        return OrderReceiptService.read(OrderNumber);
+    public OrderReceipt read(@PathVariable String receiptNumber){
+        return OrderReceiptService.read(receiptNumber);
     }
 
     @PostMapping("/update")
@@ -44,9 +42,9 @@ public class OrderReceiptController {
         return OrderReceiptService.getAll();
     }
 
-    @DeleteMapping("/delete/{orderNumber}")
-    public boolean delete(@PathVariable String OrderNumber){
-        return OrderReceiptService.delete(OrderNumber);
+    @DeleteMapping("/delete/{receiptNumber}")
+    public boolean delete(@PathVariable String receiptNumber){
+        return OrderReceiptService.delete(receiptNumber);
     }
 }
 
