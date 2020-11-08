@@ -40,7 +40,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 class OrderReceiptControllerTest {
-    static Date date = new Date();
+
+    private static String USERNAME = "UserProfile";
+    private static String USER_PASSWORD = "54321";
+    private static String ADMIN_USERNAME = "Admin";
+    private static String ADMIN_PASSWORD = "12345";
 
     private static CatalogueItem catalogueItem = CatalogueItemFactory.createCatalogueItem(36, "Mayogel",
             "oral health", 36, 200);
@@ -66,7 +70,9 @@ class OrderReceiptControllerTest {
         String url = baseURL + "create";
         System.out.println("URL: " +url);
         System.out.println("Post Data:" + orderReceipt);
-        ResponseEntity<OrderReceipt> postResponse = restTemplate.postForEntity(url,orderReceipt,OrderReceipt.class);
+        ResponseEntity<OrderReceipt> postResponse = restTemplate
+                .withBasicAuth(ADMIN_USERNAME, ADMIN_PASSWORD)
+                .postForEntity(url,orderReceipt,OrderReceipt.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
         System.out.println("Saved Data:" +orderReceipt);
@@ -78,7 +84,9 @@ class OrderReceiptControllerTest {
     void read() {
         String url = baseURL + "read/" + orderReceipt.getReceipt_number();
         System.out.println("URL: " +url);
-        ResponseEntity<OrderReceipt> response = restTemplate.getForEntity(url,OrderReceipt.class);
+        ResponseEntity<OrderReceipt> response = restTemplate
+                .withBasicAuth(USERNAME, USER_PASSWORD)
+                .getForEntity(url,OrderReceipt.class);
         assertEquals(orderReceipt.getReceipt_number(), response.getBody().getReceipt_number());
     }
 
@@ -89,7 +97,9 @@ class OrderReceiptControllerTest {
         String url = baseURL = "update";
         System.out.println("URL: " +url);
         System.out.println("Post Data: " +updated);
-        ResponseEntity<OrderReceipt> response = restTemplate.postForEntity(url,updated,OrderReceipt.class);
+        ResponseEntity<OrderReceipt> response = restTemplate
+                .withBasicAuth(ADMIN_USERNAME, ADMIN_PASSWORD)
+                .postForEntity(url,updated,OrderReceipt.class);
         assertEquals(orderReceipt.getReceipt_number(), response.getBody().getReceipt_number());
     }
 
@@ -100,7 +110,9 @@ class OrderReceiptControllerTest {
         System.out.println("URL: " +url);
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null,headers);
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET,entity,String.class);
+        ResponseEntity<String> response = restTemplate
+                .withBasicAuth(ADMIN_USERNAME, ADMIN_PASSWORD)
+                .exchange(url, HttpMethod.GET,entity,String.class);
         System.out.println(response);
         System.out.println(response.getBody());
     }
@@ -110,6 +122,6 @@ class OrderReceiptControllerTest {
     void delete() {
             String url = baseURL +"delete/" + orderReceipt.getReceipt_number();
             System.out.println("URL: " +url);
-            restTemplate.delete(url);
+            restTemplate.withBasicAuth(ADMIN_USERNAME, ADMIN_PASSWORD).delete(url);
         }
 }
