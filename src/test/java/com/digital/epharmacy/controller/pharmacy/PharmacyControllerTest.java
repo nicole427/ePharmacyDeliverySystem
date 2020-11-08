@@ -22,7 +22,10 @@ import static org.junit.jupiter.api.Assertions.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class PharmacyControllerTest {
 
-    Pharmacy pharmacy = PharmacyFactory.createPharmacy("Fred's Pharmacy");
+    private static Pharmacy pharmacy = PharmacyFactory.createPharmacy("Fred's Pharmacy");
+    private static String SECURITY_USERNAME = "pharmacyuser";
+    private static String SECURITY_PASSWORD = "pharmacypassword";
+
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -31,12 +34,14 @@ class PharmacyControllerTest {
 
     @Order(1)
     @Test
-    void a_create() {
+    public void a_create() {
         String url = baseURL + "/create";
         System.out.println("URL: " + url);
         System.out.println("POST Data: " + pharmacy);
 
-        ResponseEntity<Pharmacy> response = restTemplate.postForEntity(url, pharmacy, Pharmacy.class);
+        ResponseEntity<Pharmacy> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .postForEntity(url, pharmacy, Pharmacy.class);
 
         assertNotNull(response);
         assertNotNull(response.getBody());
@@ -47,19 +52,25 @@ class PharmacyControllerTest {
 
     @Order(2)
     @Test
-    void b_readByPharmacyID() {
+    public void b_readByPharmacyID() {
         String url = baseURL + "/id/" + pharmacy.getPharmacyId();
         System.out.println("URL: " + url);
-        ResponseEntity<Pharmacy> response = restTemplate.getForEntity(url, Pharmacy.class);
+        ResponseEntity<Pharmacy> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .getForEntity(url, Pharmacy.class);
         assertEquals(pharmacy.getPharmacyId(), response.getBody().getPharmacyId());
+        System.out.println(response);
+        System.out.println(response.getBody());
     }
 
     @Order(3)
     @Test
-    void c_readByPharmacyName() {
+    public void c_readByPharmacyName() {
         String url = baseURL + "/name/" + pharmacy.getPharmacyName();
         System.out.println("URL: " + url);
-        ResponseEntity<Pharmacy> response = restTemplate.getForEntity(url, Pharmacy.class);
+        ResponseEntity<Pharmacy> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .getForEntity(url, Pharmacy.class);
         assertEquals(pharmacy.getPharmacyName(), response.getBody().getPharmacyName());
         System.out.println(response);
         System.out.println(response.getBody());
@@ -67,7 +78,7 @@ class PharmacyControllerTest {
 
     @Order(4)
     @Test
-    void update() {
+    public void update() {
         Pharmacy pharmacyUpdate = new Pharmacy
                 .Builder()
                 .copy(pharmacy)
@@ -79,7 +90,9 @@ class PharmacyControllerTest {
 
         System.out.println("URL: " + url);
         System.out.println("POST Data: " + pharmacyUpdate);
-        ResponseEntity<Pharmacy> response = restTemplate.postForEntity(url, pharmacyUpdate, Pharmacy.class);
+        ResponseEntity<Pharmacy> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .postForEntity(url, pharmacyUpdate, Pharmacy.class);
 
         pharmacy = response.getBody();
 
@@ -88,21 +101,23 @@ class PharmacyControllerTest {
 
     @Order(5)
     @Test
-    void getAl() {
+    public void getAl() {
         String url = baseURL + "/all";
         System.out.println("URL: " + url);
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .exchange(url, HttpMethod.GET, entity, String.class);
         System.out.println(response);
         System.out.println(response.getBody());
     }
 
     @Order(6)
     @Test
-    void delete() {
+    public void delete() {
         String url = baseURL + "/delete/" + pharmacy.getPharmacyId();
         System.out.println("URL: " + url);
-        restTemplate.delete(url);
+        restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).delete(url);
     }
 }

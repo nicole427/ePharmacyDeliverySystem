@@ -27,13 +27,16 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PharmacyBankAccountInformationControllerTest {
 
-    PharmacyBankAccountInformation bankInfo = PharmacyBankAccountInformationFactory
+    private static PharmacyBankAccountInformation bankInfo = PharmacyBankAccountInformationFactory
             .createPharmacyBankAccountInformation(
                     "Standard Bank",
                     794241,
                     25001,
                     "KEL001"
             );
+
+    private static String SECURITY_USERNAME = "bankuser";
+    private static String SECURITY_PASSWORD = "bankuserpassword";
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -47,7 +50,9 @@ public class PharmacyBankAccountInformationControllerTest {
         System.out.println("URL: " + url);
         System.out.println("POST Data: " + bankInfo);
 
-        ResponseEntity<PharmacyBankAccountInformation> response = restTemplate.postForEntity(url, bankInfo, PharmacyBankAccountInformation.class);
+        ResponseEntity<PharmacyBankAccountInformation> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .postForEntity(url, bankInfo, PharmacyBankAccountInformation.class);
 
         assertNotNull(response);
         assertNotNull(response.getBody());
@@ -62,7 +67,9 @@ public class PharmacyBankAccountInformationControllerTest {
         String url = baseURL + "/read/" + bankInfo.getBankName();
         System.out.println("URL: " + url);
 
-        ResponseEntity<PharmacyBankAccountInformation> response = restTemplate.getForEntity(url, PharmacyBankAccountInformation.class);
+        ResponseEntity<PharmacyBankAccountInformation> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .getForEntity(url, PharmacyBankAccountInformation.class);
         assertEquals(bankInfo.getBankName(), response.getBody().getBankName());
         System.out.println(response);
         System.out.println(response.getBody());
@@ -74,9 +81,7 @@ public class PharmacyBankAccountInformationControllerTest {
         PharmacyBankAccountInformation bankUpdate = new PharmacyBankAccountInformation
                 .Builder()
                 .copy(bankInfo)
-                .setBankName(
-                        "FNB"
-                )
+                .setBankName("FNB")
                 .build();
 
         String url = baseURL + "/update/" + bankInfo.getBankAccountId();
@@ -84,7 +89,9 @@ public class PharmacyBankAccountInformationControllerTest {
         System.out.println("URL: " + url);
         System.out.println("POST Data: " + bankUpdate);
 
-        ResponseEntity<PharmacyBankAccountInformation> response = restTemplate.postForEntity(url, bankUpdate, PharmacyBankAccountInformation.class);
+        ResponseEntity<PharmacyBankAccountInformation> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .postForEntity(url, bankUpdate, PharmacyBankAccountInformation.class);
         bankInfo = response.getBody();
         assertEquals(bankInfo.getBankAccountId(), response.getBody().getBankAccountId());
     }
@@ -97,7 +104,9 @@ public class PharmacyBankAccountInformationControllerTest {
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
 
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .exchange(url, HttpMethod.GET, entity, String.class);
         System.out.println(response);
         System.out.println(response.getBody());
     }
@@ -107,6 +116,6 @@ public class PharmacyBankAccountInformationControllerTest {
     public void delete() {
         String url = baseURL + "/delete/" + bankInfo.getBankAccountId();
         System.out.println("URL: " + url);
-        restTemplate.delete(url);
+        restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).delete(url);
     }
 }

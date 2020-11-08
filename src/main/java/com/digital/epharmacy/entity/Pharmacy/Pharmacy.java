@@ -21,7 +21,7 @@ public class Pharmacy {
     private String pharmacyName;
 
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "pharmacyId")
     private Set<PharmacyBankAccountInformation> bankAccount;
 
     protected Pharmacy(){}

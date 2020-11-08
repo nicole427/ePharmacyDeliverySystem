@@ -25,12 +25,17 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class AddressControllerTest {
-    Address address = AddressFactory.createAddress(
+
+
+    private static Address address = AddressFactory.createAddress(
             01,
             100,
             "DeLaRay",
             "Bellville"
     );
+
+    private static String SECURITY_USERNAME = "addressuser";
+    private static String SECURITY_PASSWORD = "addressuserpassword";
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -44,7 +49,9 @@ class AddressControllerTest {
         String url = baseURL + "/create";
         System.out.println("URL: " +url);
         System.out.println("Post Data:" + address);
-        ResponseEntity<Address> postResponse = restTemplate.postForEntity(url,address,Address.class);
+        ResponseEntity<Address> postResponse = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .postForEntity(url,address,Address.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
         System.out.println("Saved Data:" +address);
@@ -57,7 +64,9 @@ class AddressControllerTest {
     void b_read() {
         String url = baseURL + "/read/" + address.getAddressId();
         System.out.println("URL: " +url);
-        ResponseEntity<Address> response = restTemplate.getForEntity(url,Address.class);
+        ResponseEntity<Address> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .getForEntity(url,Address.class);
         assertEquals(address.getAddressId(), response.getBody().getAddressId());
     }
 
@@ -68,7 +77,9 @@ class AddressControllerTest {
         String url = baseURL = "/update";
         System.out.println("URL: " +url);
         System.out.println("Post Data: " +updated);
-        ResponseEntity<Address> response = restTemplate.postForEntity(url,updated,Address.class);
+        ResponseEntity<Address> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .postForEntity(url,updated,Address.class);
         assertEquals(address.getAddressId(), response.getBody().getAddressId());
     }
 
@@ -79,7 +90,9 @@ class AddressControllerTest {
         System.out.println("URL: " +url);
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null,headers);
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET,entity,String.class);
+        ResponseEntity<String> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .exchange(url, HttpMethod.GET,entity,String.class);
         System.out.println(response);
         System.out.println(response.getBody());
     }
@@ -89,6 +102,6 @@ class AddressControllerTest {
     void e_delete() {
         String url = baseURL +"/delete/" + address.getAddressId();
         System.out.println("URL: " +url);
-        restTemplate.delete(url);
+        restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).delete(url);
     }
 }
