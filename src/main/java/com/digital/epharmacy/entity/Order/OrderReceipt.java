@@ -3,39 +3,52 @@ package com.digital.epharmacy.entity.Order;
  * Author: Keagan Tabisher
  * Desc: OrderReceipt entity composed of Order, Pharmacy, UserProfile, Payment and CatalogueItem
  *       showing the customer their final receipt.
- * Date: 04/07/2020
+ * String: 04/07/2020
  *
  * Author: Nicole Hawthorne
  * Desc: Added the entity mapping and assigned the primary key also added no null values each entity
  * and changed default constructor to protected
- * Date: 25/10/2020
+ * String: 25/10/2020
  * */
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.digital.epharmacy.entity.Catalogue.CatalogueItem;
+import com.digital.epharmacy.entity.Pharmacy.Pharmacy;
+import com.digital.epharmacy.entity.User.UserProfile;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
+import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class OrderReceipt {
 
+    //Ayabulela Mahlathini - Fixed relationships
     //Entity attributes
     @Id
-    private int orderNumber;
-    @NotNull (message = "Item Qty is required")
+    @Column(name = "receipt_number")
+    private String receipt_number;
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn(name = "order_number")
+    private Order order;
+    @NotNull(message = "Item Qty is required")
     private int itemQuantity;
     @NotNull(message = "Payment total is required")
-    private double paymentTotal;
-    private String pharmacyId;
-    private String userID;
-    @NotNull(message = "Item Name total is required")
-    private String itemName;
+    private BigDecimal paymentTotal;
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn(name = "id")
+    private Pharmacy pharmacy;
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn(name = "user_id")
+    private UserProfile user;
+    @NotNull(message = "Items are required")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<CatalogueItem> items = new HashSet<>();
     @NotNull(message = "Type of Payment total is required")
     private String typeOfPayment;
-    @NotNull(message = "Date is required")
-    private Date date;
+    @NotNull(message = "String is required")
+    private String date;
 
     // Added default constructor for Springboot implementation.
     protected OrderReceipt() {
@@ -43,142 +56,155 @@ public class OrderReceipt {
     }
 
     //Builder class constructor
-    private OrderReceipt(Builder builder){
+    private OrderReceipt(Builder builder) {
 
-        this.orderNumber = builder.orderNumber;
+        this.receipt_number = builder.receipt_number;
+        this.order = builder.order;
         this.date = builder.date;
-        this.pharmacyId = builder.pharmacyId;
-        this.userID = builder.userID;
+        this.pharmacy = builder.pharmacy;
+        this.user = builder.user;
         this.paymentTotal = builder.paymentTotal;
         this.typeOfPayment = builder.typeOfPayment;
-        this.itemName = builder.itemName;
+        this.items = builder.items;
         this.itemQuantity = builder.itemQuantity;
     }
 
     //Getters for all attributes
 
-    public int getOrderNumber() {
-        return orderNumber;
+
+    public String getReceipt_number() {
+        return receipt_number;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public Pharmacy getPharmacy() {
+        return pharmacy;
+    }
+
+    public UserProfile getUser() {
+        return user;
     }
 
     public int getItemQuantity() {
         return itemQuantity;
     }
 
-    public double getPaymentTotal() {
+    public BigDecimal getPaymentTotal() {
         return paymentTotal;
     }
 
-    public String getPharmacyId() {
-        return pharmacyId;
-    }
 
-    public String getUserID() {
-        return userID;
-    }
-
-    public String getItemName() {
-        return itemName;
+    public Set<CatalogueItem> getItems() {
+        return items;
     }
 
     public String getTypeOfPayment() {
         return typeOfPayment;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
 
-
-
     @Override
-    // ToString method for displaying the object.
     public String toString() {
         return "OrderReceipt{" +
-                "orderNumber=" + orderNumber +
+                "receipt_number='" + receipt_number + '\'' +
+                ", order=" + order +
                 ", itemQuantity=" + itemQuantity +
                 ", paymentTotal=" + paymentTotal +
-                ", pharmacyId='" + pharmacyId + '\'' +
-                ", userID='" + userID + '\'' +
-                ", itemName='" + itemName + '\'' +
+                ", pharmacy=" + pharmacy +
+                ", user=" + user +
+                ", items='" + items + '\'' +
                 ", typeOfPayment='" + typeOfPayment + '\'' +
                 ", date=" + date +
                 '}';
     }
 
     //Builder class to implement the builder pattern
-    public static class Builder{
-        private int orderNumber,itemQuantity;
-        private double paymentTotal;
-        private String pharmacyId,userID,itemName, typeOfPayment;
-        private Date date;
+    public static class Builder {
 
+        private String receipt_number;
+        private Order order;
+        private int itemQuantity;
+        private BigDecimal paymentTotal;
+        private Pharmacy pharmacy;
+        private UserProfile user;
+        private Set<CatalogueItem> items;
+        private String typeOfPayment;
+        private String date;
 
 
         //setting orderNumber value using builder pattern
-        public Builder setOrderNumber (int orderNumber)
-        {
-            this.orderNumber = orderNumber;
+
+
+        public Builder setReceipt_number(String receipt_number) {
+            this.receipt_number = receipt_number;
             return this;
         }
 
-        public Builder settDate (Date date)
-        {
+
+        public Builder settString(String date) {
             this.date = date;
             return this;
         }
 
-        public Builder setPharmacyID(String pharmacyId)
-        {
-            this.pharmacyId = pharmacyId;
+        public Builder setOrder(Order order) {
+            this.order = order;
             return this;
         }
 
-        public Builder setUserID(String userID)
-        {
-            this.userID = userID;
+        public Builder setDate(String date) {
+            this.date = date;
             return this;
         }
 
-        public Builder setPaymentTotal(double paymentTotal)
-        {
+        public Builder setPharmacy(Pharmacy pharmacy) {
+            this.pharmacy = pharmacy;
+            return this;
+        }
+
+        public Builder setUser(UserProfile user) {
+            this.user = user;
+            return this;
+        }
+
+        public Builder setPaymentTotal(BigDecimal paymentTotal) {
             this.paymentTotal = paymentTotal;
             return this;
         }
 
-        public Builder setTypeOfPayment (String typeOfPayment)
-        {
+        public Builder setTypeOfPayment(String typeOfPayment) {
             this.typeOfPayment = typeOfPayment;
             return this;
         }
 
-        public Builder setItemName (String itemName)
-        {
-            this.itemName = itemName;
+        public Builder setItems(Set<CatalogueItem> items) {
+            this.items = items;
             return this;
         }
 
-        public Builder setItemQuantity (int itemQuantity)
-        {
+        public Builder setItemQuantity(int itemQuantity) {
             this.itemQuantity = itemQuantity;
             return this;
         }
 
 
-
-
-
         // Builder copy method that create instance of OrderReceipt
-        public Builder copy(OrderReceipt orderReceipt){
+        public Builder copy(OrderReceipt orderReceipt) {
 
-            this.orderNumber = orderReceipt.orderNumber;
+            this.receipt_number = orderReceipt.receipt_number;
+            this.order = orderReceipt.order;
             this.date = orderReceipt.date;
-            this.pharmacyId = orderReceipt.pharmacyId;
-            this.userID = orderReceipt.userID;
+            this.pharmacy = orderReceipt.pharmacy;
+            this.user = orderReceipt.user;
             this.paymentTotal = orderReceipt.paymentTotal;
             this.typeOfPayment = orderReceipt.typeOfPayment;
-            this.itemName = orderReceipt.itemName;
+            this.items = orderReceipt.items;
             this.itemQuantity = orderReceipt.itemQuantity;
 
             return this;
@@ -186,7 +212,9 @@ public class OrderReceipt {
         }
 
         //creating an instance of this class
-        public OrderReceipt build(){return new OrderReceipt(this);}
+        public OrderReceipt build() {
+            return new OrderReceipt(this);
+        }
 
     }
 
@@ -195,11 +223,19 @@ public class OrderReceipt {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         OrderReceipt that = (OrderReceipt) o;
-        return orderNumber == that.orderNumber;
+        return itemQuantity == that.itemQuantity &&
+                receipt_number.equals(that.receipt_number) &&
+                order.equals(that.order) &&
+                paymentTotal.equals(that.paymentTotal) &&
+                pharmacy.equals(that.pharmacy) &&
+                user.equals(that.user) &&
+                items.equals(that.items) &&
+                typeOfPayment.equals(that.typeOfPayment) &&
+                date.equals(that.date);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderNumber);
+        return Objects.hash(receipt_number, order, itemQuantity, paymentTotal, pharmacy, user, items, typeOfPayment, date);
     }
 }

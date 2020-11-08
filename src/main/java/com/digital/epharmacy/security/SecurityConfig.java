@@ -115,11 +115,33 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.DELETE,"http://localhost:8080/bankdetails/delete/**").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.DELETE,"http://localhost:8080/address/delete/**").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.DELETE,"http://localhost:8080/medicalaid/delete/**").hasRole(Admin_Role)
+
                 .antMatchers(HttpMethod.DELETE,"http://localhost:8080/driverProfile/delete/**").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.DELETE,"http://localhost:8080/Car/delete/**").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.DELETE,"http://localhost:8080/payment/delete/**").hasRole(Admin_Role)
                 .antMatchers(HttpMethod.DELETE,"http://localhost:8080/contactinformation/delete/**").hasRole(Admin_Role)
                 .and()
+
+                //order,orderhistory & order receipt
+                .antMatchers(HttpMethod.POST,"http://localhost:8080/order/create").hasRole(User_Role + Admin_Role)
+                .antMatchers(HttpMethod.POST,"http://localhost:8080/orderHistory/create").hasRole(Admin_Role)
+                .antMatchers(HttpMethod.POST,"http://localhost:8080/orderReceipt/create").hasRole(Admin_Role)
+                .antMatchers(HttpMethod.POST,"http://localhost:8080/order/update/**").hasRole(Admin_Role)
+                .antMatchers(HttpMethod.POST,"http://localhost:8080/orderHistory/update/**").hasRole(Admin_Role)
+                .antMatchers(HttpMethod.POST,"http://localhost:8080/orderReceipt/update/**").hasRole(Admin_Role)
+                .antMatchers(HttpMethod.GET,"http://localhost:8080/order/read/**").hasRole(User_Role + Admin_Role)
+                .antMatchers(HttpMethod.GET,"http://localhost:8080/orderHistory/read/**").hasRole(User_Role + Admin_Role)
+                .antMatchers(HttpMethod.GET,"http://localhost:8080/orderReceipt/read/**").hasRole(User_Role + Admin_Role)
+                .antMatchers(HttpMethod.GET,"http://localhost:8080/order/all").hasRole(Admin_Role)
+                .antMatchers(HttpMethod.GET,"http://localhost:8080/orderHistory/all").hasRole(Admin_Role)
+                .antMatchers(HttpMethod.GET,"http://localhost:8080/orderReceipt/all").hasRole(Admin_Role)
+                .antMatchers(HttpMethod.DELETE,"http://localhost:8080/order/delete/**").hasRole(Admin_Role)
+                .antMatchers(HttpMethod.DELETE,"http://localhost:8080/orderHistory/delete/**").hasRole(Admin_Role)
+                .antMatchers(HttpMethod.DELETE,"http://localhost:8080/orderReceipt/delete/**").hasRole(Admin_Role)
+                .antMatchers(HttpMethod.GET,"http://localhost:8080/order/completedOrders").hasRole(Admin_Role)
+                .antMatchers(HttpMethod.GET,"http://localhost:8080/order/trackStatus/**").hasRole(User_Role + Admin_Role)
+                .antMatchers(HttpMethod.GET,"http://localhost:8080/order/pastOrders/**").hasRole(User_Role + Admin_Role).and()
+
                 .csrf().disable()
                 .formLogin().disable();
     }
