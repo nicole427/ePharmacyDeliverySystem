@@ -76,8 +76,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET,"http://localhost:8080/order/trackStatus/**").hasRole(User_Role + Admin_Role)
                 .antMatchers(HttpMethod.GET,"http://localhost:8080/order/pastOrders/**").hasRole(User_Role + Admin_Role)
                 .and()
-                .csrf().disable();
-                //.formLogin().disable();
+                .csrf().disable()
+                .formLogin().disable();
     }
 //password encoder needed to encode the password that is stored as a string variable
     @Bean
