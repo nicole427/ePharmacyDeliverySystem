@@ -31,8 +31,10 @@ import static org.junit.jupiter.api.Assertions.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class CatalogueItemControllerTest {
 
+
     CatalogueItem catItem = CatalogueItemFactory.createCatalogueItem(5585, "Mayo gel", " Heartburn medicine",
             10, 500);
+
     @Autowired
     private TestRestTemplate restTemplate;
     private final String baseURL = "http://localhost:8080/catalogueItem";
@@ -45,7 +47,7 @@ class CatalogueItemControllerTest {
         System.out.println("URL: " + url);
         System.out.println("POST Data: " + catItem);
 
-        ResponseEntity<CatalogueItem> response = restTemplate.postForEntity(url, catItem, CatalogueItem.class);
+        ResponseEntity<CatalogueItem> response = restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).postForEntity(url, catItem, CatalogueItem.class);
         assertNotNull(response);
         assertNotNull(response.getBody());
         catItem = response.getBody();
@@ -59,7 +61,8 @@ class CatalogueItemControllerTest {
     void b_readByItemNumber() {
         String url = baseURL + "/itemNumber/" + catItem.getItemNumber();
         System.out.println("URL: " + url);
-        ResponseEntity<CatalogueItem> response = restTemplate.getForEntity(url, CatalogueItem.class);
+        ResponseEntity<CatalogueItem> response = restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .getForEntity(url, CatalogueItem.class);
         assertEquals(catItem.getItemNumber(), response.getBody().getItemNumber());
     }
 
@@ -69,7 +72,7 @@ class CatalogueItemControllerTest {
     void c_readByCatalogueDesc() {
         String url = baseURL + "/desc/" + catItem.getItemDescription();
         System.out.println("URL: " + url);
-        ResponseEntity<CatalogueItem> response = restTemplate.getForEntity(url, CatalogueItem.class);
+        ResponseEntity<CatalogueItem> response = restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).getForEntity(url, CatalogueItem.class);
         assertEquals(catItem.getItemDescription(), response.getBody().getItemDescription());
         System.out.println(response);
         System.out.println(response.getBody());
@@ -102,7 +105,7 @@ class CatalogueItemControllerTest {
 
         System.out.println("URL: " + url);
         System.out.println("POST Data: " + catalogueItemUpdate);
-        ResponseEntity<CatalogueItem> response = restTemplate.postForEntity(url, catalogueItemUpdate, CatalogueItem.class);
+        ResponseEntity<CatalogueItem> response = restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).postForEntity(url, catalogueItemUpdate, CatalogueItem.class);
 
         catItem = response.getBody();
 

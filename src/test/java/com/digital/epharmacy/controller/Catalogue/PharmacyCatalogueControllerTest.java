@@ -43,7 +43,7 @@ class PharmacyCatalogueControllerTest {
         System.out.println("URL: " + url);
         System.out.println("POST Data: " + pharmacyCat);
 
-        ResponseEntity<PharmacyCatalogue> response = restTemplate.postForEntity(url, pharmacyCat, PharmacyCatalogue.class);
+        ResponseEntity<PharmacyCatalogue> response = restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).postForEntity(url, pharmacyCat, PharmacyCatalogue.class);
 
         assertNotNull(response);
         assertNotNull(response.getBody());
@@ -56,7 +56,7 @@ class PharmacyCatalogueControllerTest {
     void b_readByPharmacyID() {
         String url = baseURL + "/id/" + pharmacyCat.getCatalogueId();
         System.out.println("URL: " + url);
-        ResponseEntity<PharmacyCatalogue> response = restTemplate.getForEntity(url, PharmacyCatalogue.class);
+        ResponseEntity<PharmacyCatalogue> response = restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).getForEntity(url, PharmacyCatalogue.class);
         assertEquals(pharmacyCat.getCatalogueId(), response.getBody().getCatalogueId());
     }
     @Order(3)
@@ -82,7 +82,7 @@ class PharmacyCatalogueControllerTest {
 
         System.out.println("URL: " + url);
         System.out.println("POST Data: " + pharmacyUpdate);
-        ResponseEntity<PharmacyCatalogue> response = restTemplate.postForEntity(url, pharmacyUpdate, PharmacyCatalogue.class);
+        ResponseEntity<PharmacyCatalogue> response = restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).postForEntity(url, pharmacyUpdate, PharmacyCatalogue.class);
 
         pharmacyCat = response.getBody();
 
@@ -96,7 +96,7 @@ class PharmacyCatalogueControllerTest {
         System.out.println("URL: " + url);
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> response = restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).exchange(url, HttpMethod.GET, entity, String.class);
         System.out.println(response);
         System.out.println(response.getBody());
     }
@@ -105,7 +105,7 @@ class PharmacyCatalogueControllerTest {
     void delete() {
         String url = baseURL + "/delete/" + pharmacyCat.getCatalogueId();
         System.out.println("URL: " + url);
-        restTemplate.delete(url);
+        restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).delete(url);
     }
 
 

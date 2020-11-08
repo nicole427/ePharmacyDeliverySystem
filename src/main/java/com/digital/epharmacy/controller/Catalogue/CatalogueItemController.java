@@ -15,7 +15,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.Set;
+
+@RestController
 public class CatalogueItemController {
+
 
     @Autowired
     private CatalogueItemServiceImpl catalogueItemService;
