@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.Set;
 
-public class PrescriptionItemController {
+public class  PrescriptionItemController {
     @Autowired
     private PrescriptionItemServiceImpl prescriptionItemService;
 

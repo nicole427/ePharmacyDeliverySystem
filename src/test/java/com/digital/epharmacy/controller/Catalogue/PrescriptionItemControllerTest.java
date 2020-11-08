@@ -40,7 +40,7 @@ class PrescriptionItemControllerTest {
         System.out.println("URL: " + url);
         System.out.println("POST Data: " + prescriptionItem);
 
-        ResponseEntity<PrescriptionItem> response = restTemplate.postForEntity(url, prescriptionItem, PrescriptionItem.class);
+        ResponseEntity<PrescriptionItem> response = restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).postForEntity(url, prescriptionItem, PrescriptionItem.class);
         assertNotNull(response);
         assertNotNull(response.getBody());
         prescriptionItem = response.getBody();
@@ -53,7 +53,7 @@ class PrescriptionItemControllerTest {
     void b_read() {
         String url = baseURL + "/prescriptionNumber/" + prescriptionItem.getPrescriptionNumber();
         System.out.println("URL: " + url);
-        ResponseEntity<PrescriptionItem> response = restTemplate.getForEntity(url, PrescriptionItem.class);
+        ResponseEntity<PrescriptionItem> response = restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).getForEntity(url, PrescriptionItem.class);
         assertEquals(prescriptionItem.getPrescriptionNumber(), response.getBody().getPrescriptionNumber());
     }
 
@@ -69,7 +69,7 @@ class PrescriptionItemControllerTest {
 
         System.out.println("URL: " + url);
         System.out.println("POST Data: " + prescriptionItemItemUpdate);
-        ResponseEntity<PrescriptionItem> response = restTemplate.postForEntity(url, prescriptionItemItemUpdate, PrescriptionItem.class);
+        ResponseEntity<PrescriptionItem> response = restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).postForEntity(url, prescriptionItemItemUpdate, PrescriptionItem.class);
 
         prescriptionItem = response.getBody();
 
@@ -83,7 +83,7 @@ class PrescriptionItemControllerTest {
         System.out.println("URL: " + url);
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> response = restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).exchange(url, HttpMethod.GET, entity, String.class);
         System.out.println(response);
         System.out.println(response.getBody());
     }
@@ -93,6 +93,6 @@ class PrescriptionItemControllerTest {
     void delete() {
         String url = baseURL + "/delete/" + prescriptionItem.getPrescriptionNumber();
         System.out.println("URL: " + url);
-        restTemplate.delete(url);
+        restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).delete(url);
     }
 }
