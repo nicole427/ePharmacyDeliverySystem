@@ -44,7 +44,6 @@ public class DriverCarController {
                 );
 
         carService.create(newDriverCar);
-
         return new ResponseEntity<DriverCar>(driverCar, HttpStatus.CREATED);
     }
 
