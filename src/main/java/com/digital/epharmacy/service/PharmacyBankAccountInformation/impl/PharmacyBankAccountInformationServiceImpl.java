@@ -35,7 +35,7 @@ public class PharmacyBankAccountInformationServiceImpl implements PharmacyBankAc
         try{
             return this.repository.save(pharmacyBankAccountInformation);
         } catch (Exception e){
-            throw new MyCustomExceptionHandler("Pharmacy '" + pharmacyBankAccountInformation.getBankAccountId() + "' already exists");
+            throw new MyCustomExceptionHandler("Account with ID '" + pharmacyBankAccountInformation.getBankAccountId() + "' already exists");
         }
 
     }
