@@ -5,9 +5,14 @@ package com.digital.epharmacy.controller.user;
 import com.digital.epharmacy.entity.User.ContactInformation;
 import com.digital.epharmacy.factory.User.ContactInformationFactory;
 import com.digital.epharmacy.service.User.impl.ContactInformationServiceImpl;
+import com.digital.epharmacy.service.Validation.ValidationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Set;
 
 @RestController
@@ -17,20 +22,33 @@ public class UserContactInformationController {
     @Autowired
     private ContactInformationServiceImpl contactInformationService;
 
+    @Autowired
+    private ValidationService validationService;
+
     @PostMapping("/create")
-    public ContactInformation create (@RequestBody ContactInformation contactInformation){
+    public ResponseEntity<ContactInformation> create (@Valid @RequestBody ContactInformation contactInformation, BindingResult result){
+
+        ResponseEntity<ContactInformation> errorMap = (ResponseEntity<ContactInformation>) validationService.MapValidationService(result);
+
+   if(errorMap != null){
+
+       return errorMap;
+   }
 
         ContactInformation newContactInformation = ContactInformationFactory.createContactInformation(
                 contactInformation.getPrimaryNumber(),
                 contactInformation.getSecondaryNumber()
         );
 
-        return contactInformationService.create(contactInformation);
+        contactInformationService.create(newContactInformation);
+        return new ResponseEntity<ContactInformation>(newContactInformation, HttpStatus.CREATED);
     }
 
     @GetMapping("/read/{userId}")
-    public ContactInformation read(@PathVariable String userId){
-        return contactInformationService.read(userId);
+    public ResponseEntity<ContactInformation> read (@PathVariable String userID){
+
+        ContactInformation newContactInformation = contactInformationService.read(userID);
+        return new ResponseEntity<ContactInformation>(newContactInformation,HttpStatus.OK);
     }
 
     @PostMapping("/update")
