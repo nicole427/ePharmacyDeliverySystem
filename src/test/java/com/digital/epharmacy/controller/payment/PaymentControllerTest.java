@@ -28,8 +28,8 @@ class PaymentControllerTest {
             "EFT",
             50.0);
 
-    private static String Security_UserName = "Admin";
-    private static String Security_Password = "12345";
+    private static String Security_UserName = "paymentuser";
+    private static String Security_Password = "paymentuserpassword";
 
     @Autowired
     private TestRestTemplate restTemplate;

@@ -23,8 +23,8 @@ class UserContactInformationControllerTest {
 
 ContactInformation contactInformation = ContactInformationFactory.createContactInformation("0823151354","0823151353");
 
-    private static String Security_UserName = "Admin";
-    private static String Security_Password = "12345";
+    private static String Security_UserName = "contactinfomationuser";
+    private static String Security_Password = "contactinfomationuserpassword";
 
 
 @Autowired
