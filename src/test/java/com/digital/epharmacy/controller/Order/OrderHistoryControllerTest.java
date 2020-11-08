@@ -30,6 +30,11 @@ import static org.junit.jupiter.api.Assertions.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class OrderHistoryControllerTest {
 
+    private static final String USERNAME = "UserProfile";
+    private static final String USER_PASSWORD = "54321";
+    private static final String ADMIN_USERNAME = "Admin";
+    private static final String ADMIN_PASSWORD = "12345";
+
     private static UserProfile user = UserProfileFactory
             .createUserProfile("Ayabulela","Mahlathini", "male");
 
@@ -48,7 +53,9 @@ public class OrderHistoryControllerTest {
         String url = baseURL + "create";
         System.out.println("URL:" + url);
         System.out.println("POST data: " + orderHistory);
-        ResponseEntity<OrderHistory> postResponse = restTemplate.postForEntity(url, orderHistory, OrderHistory.class);
+        ResponseEntity<OrderHistory> postResponse = restTemplate
+                .withBasicAuth(ADMIN_USERNAME, ADMIN_PASSWORD)
+                .postForEntity(url, orderHistory, OrderHistory.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
         orderHistory = postResponse.getBody();
@@ -62,7 +69,9 @@ public class OrderHistoryControllerTest {
     public void b_read() {
         String url = baseURL + "read/" + orderHistory.getUser().getUserId();
         System.out.println("URL: " + url);
-        ResponseEntity<OrderHistory> response = restTemplate.getForEntity(url, OrderHistory.class);
+        ResponseEntity<OrderHistory> response = restTemplate
+                .withBasicAuth(USERNAME, USER_PASSWORD)
+                .getForEntity(url, OrderHistory.class);
         assertEquals(orderHistory.getTotalOrderValue().doubleValue(), response.getBody().getTotalOrderValue().doubleValue());
     }
 
@@ -73,7 +82,9 @@ public class OrderHistoryControllerTest {
         String url = baseURL + "update";
         System.out.println("URL: " + url);
         System.out.println("POST data: " + updatedOrderHistory);
-        ResponseEntity<OrderHistory> response = restTemplate.postForEntity(url, updatedOrderHistory, OrderHistory.class);
+        ResponseEntity<OrderHistory> response = restTemplate
+                .withBasicAuth(ADMIN_USERNAME, ADMIN_PASSWORD)
+                .postForEntity(url, updatedOrderHistory, OrderHistory.class);
         System.out.println("Response: " + response.getBody());
         assertEquals(orderHistory.getUser().getUserId(), response.getBody().getUser().getUserId());
     }
@@ -83,7 +94,7 @@ public class OrderHistoryControllerTest {
     public void e_delete() {
         String url = baseURL + "delete/" + orderHistory.getUser().getUserId();
         System.out.println("URL: " + url);
-        restTemplate.delete(url);
+        restTemplate.withBasicAuth(ADMIN_USERNAME, ADMIN_PASSWORD).delete(url);
     }
 
     @Order(4)
@@ -93,7 +104,9 @@ public class OrderHistoryControllerTest {
         System.out.println("URL: " + url);
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null,headers);
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET,entity,String.class);
+        ResponseEntity<String> response = restTemplate
+                .withBasicAuth(ADMIN_USERNAME, ADMIN_PASSWORD)
+                .exchange(url, HttpMethod.GET,entity,String.class);
         System.out.println(response);
         System.out.println(response.getBody());
     }

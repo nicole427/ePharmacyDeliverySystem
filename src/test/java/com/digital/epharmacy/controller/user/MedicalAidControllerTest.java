@@ -26,11 +26,16 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class MedicalAidControllerTest {
-    MedicalAid medicalAid = MedicalAidFactory.createMedicalAid(
+
+
+    private static MedicalAid medicalAid = MedicalAidFactory.createMedicalAid(
            485723,
            "Health Med",
            "High Benefits"
     );
+
+    private static String SECURITY_USERNAME = "medicaluser";
+    private static String SECURITY_PASSWORD = "medicaluserpassword";
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -44,7 +49,9 @@ public class MedicalAidControllerTest {
         System.out.println("URL: " + url);
         System.out.println("POST Data: " + medicalAid);
 
-        ResponseEntity<MedicalAid> response = restTemplate.postForEntity(url, medicalAid, MedicalAid.class);
+        ResponseEntity<MedicalAid> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .postForEntity(url, medicalAid, MedicalAid.class);
 
         assertNotNull(response);
         assertNotNull(response.getBody());
@@ -60,7 +67,9 @@ public class MedicalAidControllerTest {
         String url = baseURL + "/read/" + medicalAid.getMedicalAidName();
         System.out.println("URL: " + url);
 
-        ResponseEntity<MedicalAid> response = restTemplate.getForEntity(url, MedicalAid.class);
+        ResponseEntity<MedicalAid> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .getForEntity(url, MedicalAid.class);
         assertEquals(medicalAid.getMedicalAidName(), response.getBody().getMedicalAidName());
         System.out.println(response);
         System.out.println(response.getBody());
@@ -81,7 +90,9 @@ public class MedicalAidControllerTest {
         System.out.println("URL: " + url);
         System.out.println("POST Data: " + medicalAidUpdate);
 
-        ResponseEntity<MedicalAid> response = restTemplate.postForEntity(url, medicalAidUpdate, MedicalAid.class);
+        ResponseEntity<MedicalAid> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .postForEntity(url, medicalAidUpdate, MedicalAid.class);
         medicalAid = response.getBody();
         assertEquals(medicalAid.getMedicalAidName(), response.getBody().getMedicalAidName());
 
@@ -95,7 +106,9 @@ public class MedicalAidControllerTest {
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
 
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .exchange(url, HttpMethod.GET, entity, String.class);
         System.out.println(response);
         System.out.println(response.getBody());
     }
@@ -105,6 +118,6 @@ public class MedicalAidControllerTest {
     public void e_delete() {
         String url = baseURL + "/delete/" + medicalAid.getMedicalAidId();
         System.out.println("URL: " + url);
-        restTemplate.delete(url);
+        restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).delete(url);
     }
 }

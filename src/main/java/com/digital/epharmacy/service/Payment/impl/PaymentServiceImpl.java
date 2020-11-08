@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 @Service
 public class PaymentServiceImpl implements PaymentService {
 
-    private static PaymentService service  = null;
+
     @Autowired
     private PaymentRepository repository;
 

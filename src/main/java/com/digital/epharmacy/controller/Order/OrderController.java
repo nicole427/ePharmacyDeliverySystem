@@ -44,8 +44,8 @@ public class OrderController {
     }
 
     @DeleteMapping("/delete/{userID}")
-    public boolean delete(@PathVariable String userID) {
-        return orderService.delete(userID);
+    public boolean delete(@PathVariable String orderID) {
+        return orderService.delete(orderID);
     }
 
     @GetMapping("/all")
