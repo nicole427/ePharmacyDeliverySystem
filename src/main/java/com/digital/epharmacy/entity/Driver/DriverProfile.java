@@ -14,7 +14,6 @@ import java.util.Set;
     Desc: Driver entity composed Driver and DriverCar that stores details of the Driver and car
 >>>>>>> origin/groupCollaboration
     Date: 4 July 2020
-
     Update: 27/10/20
     Modified: added noBlank validation and created a composite relation between driver profile and car and hash set
               one to one relationship
@@ -28,19 +27,19 @@ import java.util.Set;
 @Entity
 public class DriverProfile {
 
-@Id
-@Column(name= "id")
-private String driverId;
-@NotBlank(message = "Driver Name is required")
-private String driverName;
-@NotBlank(message = "Driver Surname is required")
-private String driverSurname;
-@NotBlank(message = "Driver location is required")
-private String driverLocation;
+    @Id
+    @Column(name= "id")
+    private String driverId;
+    @NotBlank(message = "Driver Name is required")
+    private String driverName;
+    @NotBlank(message = "Driver Surname is required")
+    private String driverSurname;
+    @NotBlank(message = "Driver location is required")
+    private String driverLocation;
 
 
 
-protected DriverProfile() {}
+    protected DriverProfile() {}
 
     // builder pattern method constructor
     private DriverProfile(Builder builder){
@@ -72,7 +71,7 @@ protected DriverProfile() {}
     // to string to display what is in the class
     @Override
     public String toString() {
-       // return "DriverProfile{" +
+        // return "DriverProfile{" +
 
         return "DriverProfile{" +
                 "driverId=" + driverId +

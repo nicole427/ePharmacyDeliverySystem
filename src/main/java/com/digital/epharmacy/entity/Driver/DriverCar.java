@@ -12,7 +12,6 @@ import java.util.Objects;
     Desc: DriverCar stores carId using composition with Driver
 >>>>>>> origin/groupCollaboration
     Date: 4 July 2020
-
     Modified: added noBlank validation and created a composite relation between driver profile and car and hash set
     Date: 27/10/20
  */
@@ -87,7 +86,7 @@ public class DriverCar {
     public static class Builder{
 
         private String carId;
-            private String carRegistration;
+        private String carRegistration;
         private String carColour, carName, carModel;
 
         public Builder setCarId(String carId){
