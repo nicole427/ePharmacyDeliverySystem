@@ -42,7 +42,9 @@ public class DriverCarController {
                         driverCar.getCarName(),
                         driverCar.getCarModel()
                 );
+
         carService.create(newDriverCar);
+
         return new ResponseEntity<DriverCar>(driverCar, HttpStatus.CREATED);
     }
 
